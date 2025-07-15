@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 
-const Typewriter = ({ text, speed = 150, className }) => {
+const Typewriter = ({ text, speed = 150, className }: { text: string, speed?: number, className?: string }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);
 

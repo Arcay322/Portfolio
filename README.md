@@ -30,7 +30,7 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local:
 
 1.  **Clona el repositorio:**
     ```bash
-    git clone https://github.com/arcay322/portfolio-dev.git
+    git clone https://github.com/arcay322/portfolio.git
     cd portfolio-dev
     ```
 
