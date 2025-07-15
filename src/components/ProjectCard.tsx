@@ -78,7 +78,7 @@ export function ProjectCard({ project, isPriority }: ProjectCardProps) {
           })}
         </div>
       </CardContent>
-      <CardFooter className="flex justify-end gap-4">
+      <CardFooter className="flex flex-col sm:flex-row sm:justify-end gap-4">
         <Button asChild size="lg">
           <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
             Demo en Vivo <ArrowUpRight className="ml-2 h-4 w-4" />
