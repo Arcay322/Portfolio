@@ -59,7 +59,7 @@ export default function AboutPage() {
         <div className="lg:col-span-1 flex flex-col items-center text-center">
           <Avatar className="h-40 w-40 border-4 border-primary">
             <AvatarImage
-              src="https://storage.googleapis.com/ticket_world_media/imagen%20cv.webp"
+              src="https://storage.googleapis.com/ticket_world_media/foto%20portfolio.png"
               alt="Arnie Calderon"
             />
             <AvatarFallback>AC</AvatarFallback>
