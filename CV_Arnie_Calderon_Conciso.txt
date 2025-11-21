@@ -1,0 +1,102 @@
+ARNIE CALDERÓN
+Desarrollador Full-Stack | Ingeniero de Software
+════════════════════════════════════════════════════════════════
+
+Email: [tu-email@ejemplo.com] | Tel: [+51 XXX XXX XXX]
+Portfolio: arcay.dev | GitHub: github.com/Arcay322 | LinkedIn: [tu-linkedin]
+Ubicación: Lima, Perú | Disponibilidad: Inmediata
+
+════════════════════════════════════════════════════════════════
+
+PERFIL PROFESIONAL
+
+Desarrollador Full-Stack con +3 años de experiencia especializado en React, 
+Next.js, Node.js y Firebase. Actualmente trabajando como freelancer para 
+empresa europea (IMPREX EUROPE S.L.). Estudiante de Ingeniería de Software 
+(7mo ciclo) con resultados comprobables: desarrollé sistema POS que incrementó 
+ventas en 97% para cliente empresarial. Experto en arquitecturas escalables, 
+integración de APIs y aplicaciones en tiempo real.
+
+════════════════════════════════════════════════════════════════
+
+EXPERIENCIA PROFESIONAL
+
+DESARROLLADOR FRONTEND FREELANCE | Nov 2024 - Presente
+IMPREX EUROPE S.L. | Remoto (España)
+
+• Desarrollo de aplicación web desde cero consumiendo APIs REST existentes
+• Migración de funcionalidades de app móvil a plataforma web responsive
+• Implementación de interfaces modernas siguiendo diseño establecido
+• Integración con backend Django y sistema SAP mediante APIs REST
+• Colaboración con equipo internacional en metodología ágil
+• Stack: React (Vite), JavaScript, Django (backend), SAP Integration, REST API
+
+---
+
+DESARROLLADOR FULL-STACK FREELANCE | Oct 2024 - Oct 2025
+INVERSIONES MAX PERU S.A.C. | Lima, Perú
+
+• Desarrollé VENTIFY (sistema POS multi-sucursal) que incrementó ventas 97%
+• Implementé arquitectura escalable con Next.js, Firebase y TypeScript
+• Diseñé sistema de permisos granulares para 20+ usuarios simultáneos
+• Integré módulos: inventario en tiempo real, pagos mixtos, reportes
+• Stack: Next.js 14, TypeScript, Firebase, Tailwind CSS, Shadcn/ui
+
+Resultado: Sistema en producción desde Octubre 2025 con ROI comprobado
+
+════════════════════════════════════════════════════════════════
+
+PROYECTOS DESTACADOS
+
+SUMAQ UYWA | Sistema de Gestión Agrícola | 2024
+• Aplicación fullstack con módulos de reproducción, salud y ventas
+• Dashboard interactivo con métricas en tiempo real
+• Stack: React, TypeScript, Node.js, Express, PostgreSQL
+• Demo: sumaq-uywa.vercel.app | GitHub: github.com/Arcay322/Sumaq_Uywa
+
+TICKET WORLD | Plataforma E-commerce | 2024
+• Sistema de venta de tickets con roles (Admin/Proveedor/Cliente)
+• Panel de métricas e integración con Google Maps API
+• Stack: Python, Django REST Framework, PostgreSQL, JavaScript
+• Demo: ticket-world.onrender.com | GitHub: github.com/Arcay322/Ticket_World
+
+════════════════════════════════════════════════════════════════
+
+HABILIDADES TÉCNICAS
+
+Frontend: React.js, Next.js 14/15, TypeScript, Tailwind CSS, Shadcn/ui
+Backend: Node.js, Express, Python, Django REST Framework, Firebase
+Databases: PostgreSQL, Firebase Firestore, SQL/NoSQL Design
+DevOps: Git/GitHub, Vercel, Firebase Hosting, Docker (Básico)
+Metodologías: Agile/Scrum, Clean Code, SOLID, Code Review, Testing
+
+Soft Skills: Problem-Solving, Autodidacta, Trabajo en Equipo, Comunicación
+
+════════════════════════════════════════════════════════════════
+
+EDUCACIÓN
+
+Ingeniería de Software (7mo Ciclo) | 2022 - Presente
+[Nombre de tu Universidad] | Lima, Perú
+
+════════════════════════════════════════════════════════════════
+
+IDIOMAS
+
+Español: Nativo | Inglés: Técnico (documentación)
+
+════════════════════════════════════════════════════════════════
+
+REFERENCIA
+
+René Foreest Minaya Isidro | Gerente de Producción
+INVERSIONES MAX PERU S.A.C.
+"Desde la implementación de Ventify, incrementamos ventas en 97%, con mejor 
+control de inventario y márgenes de ganancia. Recomendamos ampliamente a 
+Arnie como aliado estratégico confiable e innovador."
+
+════════════════════════════════════════════════════════════════
+
+KEYWORDS: Full-Stack Developer | React | Next.js | TypeScript | Python | 
+Node.js | Firebase | PostgreSQL | REST API | Agile | Git | POS Systems | 
+E-commerce | Real-time Applications | Problem Solving

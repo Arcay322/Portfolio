@@ -1,87 +1,194 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from 'next-intl';
 import { Code, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/about", label: "Sobre Mí" },
-  { href: "/projects", label: "Proyectos" },
-  { href: "/contact", label: "Contacto" },
-];
+import { motion, AnimatePresence } from "framer-motion";
+import { useKeyboardNavigation } from "@/lib/keyboard-navigation";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
+  const t = useTranslations('nav');
+
+  const navLinks = [
+    { href: "/", label: t('home') },
+    { href: "/about", label: t('about') },
+    { href: "/projects", label: t('projects') },
+    { href: "/contact", label: t('contact') },
+  ];
+
+  const { setItemRef, handleKeyDown } = useKeyboardNavigation<HTMLAnchorElement>(
+    navLinks.length,
+    {
+      arrows: true,
+      enter: true,
+      homeEnd: true,
+      loop: true,
+      orientation: 'horizontal',
+    }
+  );
+
+  useEffect(() => {
+    const nav = navRef.current;
+    if (nav) {
+      nav.addEventListener('keydown', handleKeyDown);
+      return () => {
+        nav.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [handleKeyDown]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex items-center">
-          <Link href="/" className="flex items-center gap-2 font-bold font-headline">
-            <Code className="h-6 w-6 text-primary" />
-            <span>Arcay.dev</span>
-          </Link>
-        </div>
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {navLinks.map(({ href, label }) => (
+    <>
+      {/* Skip to main content link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
+      >
+        Saltar al contenido principal
+      </a>
+
+      <header
+        className="sticky top-0 z-50 w-full border-b border-border/40 glass-card"
+        role="banner"
+      >
+        <div className="container flex h-14 items-center">
+          <div className="mr-4 flex items-center">
             <Link
-              key={label}
-              href={href}
-              className={cn(
-                "transition-colors hover:text-primary",
-                pathname === href ? "text-primary" : "text-muted-foreground"
-              )}
+              href="/"
+              className="flex items-center gap-2 font-bold font-headline"
+              aria-label="Inicio - Arcay.dev"
             >
-              {label}
+              <Code className="h-6 w-6 text-primary" aria-hidden="true" />
+              <span>Arcay.dev</span>
             </Link>
-          ))}
-        </nav>
-        <div className="flex flex-1 items-center justify-end md:hidden">
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Abrir menú</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left">
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between border-b pb-2">
-                   <Link href="/" className="flex items-center gap-2 font-bold font-headline" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Code className="h-6 w-6 text-primary" />
-                    <span>Arcay.dev</span>
-                  </Link>
-                  <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
-                    <X className="h-6 w-6" />
-                    <span className="sr-only">Cerrar menú</span>
-                  </Button>
-                </div>
-                <nav className="flex flex-col gap-4 mt-8">
-                  {navLinks.map(({ href, label }) => (
+          </div>
+          <nav
+            ref={navRef}
+            className="hidden md:flex items-center space-x-6 text-sm font-medium"
+            aria-label="Navegación principal"
+          >
+            {navLinks.map(({ href, label }, index) => (
+              <Link
+                key={label}
+                ref={setItemRef(index)}
+                href={href}
+                className={cn(
+                  "transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-ring focus:rounded px-2 py-1 inline-block",
+                  pathname === href ? "text-primary" : "text-muted-foreground"
+                )}
+                aria-current={pathname === href ? "page" : undefined}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+          <div className="hidden md:flex flex-1 items-center justify-end gap-2">
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
+          <div className="flex flex-1 items-center justify-end md:hidden gap-2">
+            <LanguageSwitcher />
+            <ThemeToggle />
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Abrir menú de navegación"
+                  aria-expanded={isMobileMenuOpen}
+                  className="relative min-h-[44px] min-w-[44px]"
+                >
+                  <AnimatePresence mode="wait">
+                    {!isMobileMenuOpen ? (
+                      <motion.div
+                        key="menu"
+                        initial={{ rotate: -90, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: 90, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Menu className="h-6 w-6" aria-hidden="true" />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="x"
+                        initial={{ rotate: 90, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: -90, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <X className="h-6 w-6" aria-hidden="true" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  <span className="sr-only">
+                    {isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                  </span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left">
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center justify-between border-b pb-2">
                     <Link
-                      key={label}
-                      href={href}
+                      href="/"
+                      className="flex items-center gap-2 font-bold font-headline"
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={cn(
-                        "text-lg font-medium transition-colors hover:text-primary",
-                        pathname === href ? "text-primary" : "text-muted-foreground"
-                      )}
+                      aria-label="Inicio - Arcay.dev"
                     >
-                      {label}
+                      <Code className="h-6 w-6 text-primary" aria-hidden="true" />
+                      <span>Arcay.dev</span>
                     </Link>
-                  ))}
-                </nav>
-              </div>
-            </SheetContent>
-          </Sheet>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      aria-label="Cerrar menú de navegación"
+                    >
+                      <X className="h-6 w-6" aria-hidden="true" />
+                      <span className="sr-only">Cerrar menú</span>
+                    </Button>
+                  </div>
+                  <nav
+                    className="flex flex-col gap-4 mt-8"
+                    aria-label="Navegación móvil"
+                  >
+                    {navLinks.map(({ href, label }, index) => (
+                      <motion.div
+                        key={label}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1, duration: 0.3 }}
+                      >
+                        <Link
+                          href={href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={cn(
+                            "text-lg font-medium transition-colors hover:text-primary block",
+                            pathname === href ? "text-primary" : "text-muted-foreground"
+                          )}
+                          aria-current={pathname === href ? "page" : undefined}
+                        >
+                          {label}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </nav>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }

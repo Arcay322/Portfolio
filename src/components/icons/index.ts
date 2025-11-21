@@ -1,6 +1,7 @@
 export * from './CssIcon';
 export * from './DjangoIcon';
 export * from './DockerIcon';
+export * from './FirebaseIcon';
 export * from './HtmlIcon';
 export * from './JavascriptIcon';
 export * from './NextjsIcon';

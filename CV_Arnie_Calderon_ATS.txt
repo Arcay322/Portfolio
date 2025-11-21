@@ -1,0 +1,292 @@
+ARNIE CALDERÓN
+Desarrollador Full-Stack | Ingeniero de Software
+═══════════════════════════════════════════════════════════════════
+
+CONTACTO
+Email: [tu-email@ejemplo.com]
+Teléfono: [+51 XXX XXX XXX]
+Portfolio: https://arcay.dev
+GitHub: github.com/Arcay322
+LinkedIn: [tu-linkedin]
+Ubicación: Perú
+
+═══════════════════════════════════════════════════════════════════
+
+RESUMEN PROFESIONAL
+
+Desarrollador Full-Stack con +3 años de experiencia creando aplicaciones web 
+modernas y escalables. Especializado en React, Next.js, Node.js, Python y 
+Firebase. Estudiante de Ingeniería de Software (7mo ciclo) con resultados 
+comprobables: desarrollé sistema POS que incrementó ventas en 97% para cliente 
+empresarial. Experto en arquitecturas escalables, sincronización en tiempo real 
+y optimización de UX. Autodidacta comprometido con código limpio y mejores 
+prácticas de desarrollo.
+
+═══════════════════════════════════════════════════════════════════
+
+EXPERIENCIA LABORAL
+
+DESARROLLADOR FULL-STACK FREELANCE
+INVERSIONES MAX PERU S.A.C. | Oct 2024 - Presente | Lima, Perú
+
+• Desarrollé VENTIFY, sistema POS e inventario multi-sucursal que incrementó 
+  ventas en 97% desde implementación (Octubre 2025)
+  
+• Implementé arquitectura escalable con Next.js 14, Firebase y TypeScript 
+  para operaciones en tiempo real de múltiples ubicaciones comerciales
+  
+• Diseñé sistema de permisos granulares basado en roles soportando 20+ 
+  usuarios simultáneos con diferentes niveles de acceso
+  
+• Desarrollé módulos: reservas de pedidos, pedidos personalizados, control 
+  de caja registradora, reportes de transacciones con análisis detallado
+  
+• Optimicé gestión de inventario con alertas automáticas de stock bajo, 
+  reduciendo pérdidas por desabastecimiento
+  
+• Integré sistema de pagos mixtos y gestión de almacenes multi-ubicación 
+  con sincronización en tiempo real entre sucursales
+  
+Stack: Next.js 14, TypeScript, Firebase (Firestore, Auth, Storage), 
+Tailwind CSS, Shadcn/ui, React Hook Form, date-fns, Lucide Icons
+
+Resultados cuantificables:
+- 97% incremento en ventas del cliente
+- Sistema en producción activa desde Octubre 2025
+- Control eficiente de inventario multi-sucursal
+- Mayor visibilidad de márgenes de ganancia
+
+═══════════════════════════════════════════════════════════════════
+
+PROYECTOS DESTACADOS
+
+SUMAQ UYWA - SISTEMA DE GESTIÓN AGRÍCOLA | 2024
+Aplicación fullstack para administración integral de granjas
+
+• Desarrollé sistema completo con módulos: reproducción, salud veterinaria, 
+  alimentación, ventas y gastos operativos
+  
+• Implementé dashboard interactivo con métricas en tiempo real y 
+  visualización mediante gráficos interactivos
+  
+• Diseñé base de datos compleja en PostgreSQL optimizada para grandes 
+  volúmenes de información y consultas complejas
+  
+• Creé sistema de notificaciones automáticas para eventos críticos (ciclos 
+  reproductivos, alertas médicas, control de inventario)
+  
+Stack: React, TypeScript, Node.js, Express, PostgreSQL, Tailwind CSS
+GitHub: github.com/Arcay322/Sumaq_Uywa
+Demo: https://sumaq-uywa.vercel.app
+
+---
+
+TICKET WORLD - PLATAFORMA E-COMMERCE | 2024
+Sistema de venta de tickets para eventos con panel de administración
+
+• Desarrollé plataforma e-commerce con sistema robusto de roles (Admin, 
+  Proveedor, Cliente) con permisos específicos por rol
+  
+• Implementé panel de métricas con dashboard interactivo y estadísticas 
+  en tiempo real para análisis de negocio
+  
+• Integré Google Maps API para visualización de ubicaciones de eventos 
+  con marcadores personalizados
+  
+• Diseñé arquitectura backend escalable con Django REST Framework y 
+  PostgreSQL optimizado para alto tráfico
+  
+• Desarrollé sistema de carrito de compras con simulación de pasarela de 
+  pagos y gestión de órdenes
+  
+Stack: Python, Django, Django REST Framework, PostgreSQL, JavaScript, 
+HTML5, CSS3, Google Maps API
+GitHub: github.com/Arcay322/Ticket_World
+Demo: https://ticket-world.onrender.com
+
+---
+
+PORTFOLIO PROFESIONAL | 2025
+Sitio web personal con animaciones avanzadas y sistema multiidioma
+
+• Desarrollé portfolio moderno con Next.js 15 y sistema de 
+  internacionalización completo (Español/Inglés)
+  
+• Implementé animaciones avanzadas con Framer Motion y optimización 
+  SEO con schema markup estructurado
+  
+• Diseñé sistema de componentes reutilizables con Shadcn/ui y Tailwind CSS 
+  siguiendo principios de Design System
+  
+Stack: Next.js 15, TypeScript, Next-intl, Tailwind CSS, Framer Motion
+GitHub: [tu-repo-portfolio]
+URL: https://arcay.dev
+
+═══════════════════════════════════════════════════════════════════
+
+HABILIDADES TÉCNICAS
+
+FRONTEND DEVELOPMENT
+• Frameworks: React.js, Next.js 14/15, Astro
+• Styling: Tailwind CSS, CSS3, Sass, Styled Components
+• UI Libraries: Shadcn/ui, Material-UI, Radix UI
+• State Management: React Context, Zustand, Redux Toolkit
+• Forms & Validation: React Hook Form, Zod, Yup
+• Animations: Framer Motion, CSS Animations
+• Tools: Vite, Webpack, ESLint, Prettier
+
+BACKEND DEVELOPMENT
+• Languages: Node.js, Python
+• Frameworks: Express.js, Django, Django REST Framework
+• APIs: REST API Design, API Documentation
+• Real-time: WebSockets, Firebase Realtime
+• Authentication: JWT, OAuth, Firebase Auth
+• File Upload: Multer, Firebase Storage
+
+DATABASES
+• SQL: PostgreSQL, MySQL
+• NoSQL: Firebase Firestore, MongoDB
+• ORMs: Prisma, Sequelize, Django ORM
+• Query Optimization, Database Design
+
+DEVOPS & TOOLS
+• Version Control: Git, GitHub, GitLab
+• Deployment: Vercel, Firebase Hosting, Render, Railway
+• Containerization: Docker (Básico)
+• Package Managers: npm, yarn, pnpm
+• IDEs: VS Code, Cursor
+• Testing: Jest, React Testing Library, Postman
+
+LANGUAGES & FRAMEWORKS
+• JavaScript/TypeScript: Avanzado
+• Python: Intermedio-Avanzado
+• HTML5/CSS3: Avanzado
+• SQL: Intermedio
+
+METHODOLOGIES & BEST PRACTICES
+• Agile/Scrum Methodologies
+• Git Flow, Feature Branching
+• Code Review, Pair Programming
+• Clean Code, SOLID Principles
+• Responsive Design, Mobile-First
+• Performance Optimization
+• SEO Best Practices
+• Accessibility (a11y)
+• Documentation (JSDoc, Markdown)
+
+SOFT SKILLS
+• Problem-Solving & Critical Thinking
+• Self-Learning & Adaptability
+• Effective Communication
+• Team Collaboration
+• Time Management
+• Results-Oriented
+• Attention to Detail
+• Client-Focused Approach
+
+═══════════════════════════════════════════════════════════════════
+
+EDUCACIÓN
+
+INGENIERÍA DE SOFTWARE | 7mo Ciclo
+[Nombre de tu Universidad]
+2022 - Presente | Lima, Perú
+
+Áreas de especialización:
+- Desarrollo Web Full-Stack
+- Arquitectura de Software
+- Bases de Datos
+- Algoritmos y Estructuras de Datos
+- Metodologías Ágiles
+- Ingeniería de Requisitos
+
+═══════════════════════════════════════════════════════════════════
+
+FORMACIÓN COMPLEMENTARIA
+
+CURSOS & CERTIFICACIONES
+
+• React - The Complete Guide (Udemy)
+• Next.js & React - The Complete Guide (Udemy)
+• Python & Django Full Stack Web Developer Bootcamp
+• TypeScript para Desarrolladores JavaScript
+• Git & GitHub: Control de Versiones Profesional
+• Firebase & Firestore: Aplicaciones en Tiempo Real
+• Tailwind CSS: Utility-First Framework
+• Metodologías Ágiles y Scrum
+• Clean Code & Design Patterns
+
+APRENDIZAJE AUTODIDACTA (2022 - Presente)
+• Documentación oficial de tecnologías modernas
+• Tutoriales y cursos especializados online
+• Participación en comunidades de desarrolladores
+• Lectura de blogs técnicos y artículos especializados
+• Práctica continua mediante proyectos personales
+
+═══════════════════════════════════════════════════════════════════
+
+IDIOMAS
+
+Español: Nativo
+Inglés: Técnico (Lectura y escritura de documentación técnica)
+
+═══════════════════════════════════════════════════════════════════
+
+INFORMACIÓN ADICIONAL
+
+DISPONIBILIDAD
+• Modalidad: Remoto, Híbrido, Presencial
+• Jornada: Full-time, Part-time, Freelance
+• Inicio: Inmediato
+
+ÁREAS DE INTERÉS
+• Desarrollo de aplicaciones web escalables
+• Arquitectura de microservicios
+• Optimización de rendimiento y UX/UI
+• Real-time applications & WebSockets
+• E-commerce & SaaS solutions
+• DevOps & CI/CD pipelines
+• Cloud Computing (AWS, Google Cloud)
+
+ENLACES PROFESIONALES
+• Portfolio: https://arcay.dev
+• GitHub: https://github.com/Arcay322
+• LinkedIn: [tu-perfil-linkedin]
+
+═══════════════════════════════════════════════════════════════════
+
+REFERENCIAS
+
+RENÉ FOREEST MINAYA ISIDRO
+Gerente de Producción y Accionista
+INVERSIONES MAX PERU S.A.C.
+Email: [email-referencia]
+
+Testimonio:
+"Destacamos el profesionalismo, compromiso y capacidad técnica de Arnie 
+Calderón, quien desarrolló Ventify para nuestra empresa. Desde su 
+implementación, hemos logrado incrementar nuestras ventas en un 97%, 
+asegurar el orden y control de nuestro inventario, y mayor eficiencia 
+en el conocimiento y seguimiento de nuestros márgenes de ganancia. 
+Recomendamos ampliamente a Arnie y su sistema Ventify como un aliado 
+estratégico confiable, innovador y eficaz en el ámbito digital y comercial."
+
+═══════════════════════════════════════════════════════════════════
+
+KEYWORDS ATS OPTIMIZATION
+
+Full-Stack Developer | Software Engineer | Web Developer | Frontend Developer
+Backend Developer | React Developer | Next.js Developer | JavaScript Developer
+TypeScript | Python | Django | Node.js | Express | Firebase | PostgreSQL
+MongoDB | REST API | GraphQL | Tailwind CSS | Responsive Design | Mobile-First
+Real-time Applications | E-commerce | POS Systems | Inventory Management
+Agile Methodologies | Scrum | Git | GitHub | Version Control | CI/CD
+Database Design | SQL | NoSQL | Performance Optimization | SEO | Testing
+Clean Code | SOLID Principles | Design Patterns | Microservices | Docker
+Cloud Computing | Vercel | Firebase Hosting | UI/UX Implementation
+Problem Solving | Team Collaboration | Self-Learning | Results-Oriented
+
+═══════════════════════════════════════════════════════════════════
+
+Última actualización: Noviembre 2025
+Versión: 2.0 - Formato ATS Optimizado

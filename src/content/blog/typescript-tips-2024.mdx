@@ -1,0 +1,290 @@
+---
+title: 'TypeScript: Tips y Mejores Prácticas para 2024'
+description: 'Descubre los tips más útiles y las mejores prácticas de TypeScript que te ayudarán a escribir código más seguro, mantenible y eficiente.'
+date: '2024-01-10'
+author: 'Tu Nombre'
+tags: ['TypeScript', 'JavaScript', 'Best Practices', 'Web Development']
+image: '/images/blog/typescript-tips.jpg'
+---
+
+# TypeScript: Tips y Mejores Prácticas
+
+TypeScript se ha convertido en el estándar de facto para proyectos JavaScript modernos. En este artículo, exploraremos tips avanzados y mejores prácticas que mejorarán tu código TypeScript.
+
+## 1. Usa Type Inference Inteligentemente
+
+TypeScript es excelente infiriendo tipos. No siempre necesitas declarar tipos explícitos:
+
+```typescript
+// ❌ Redundante
+const count: number = 0;
+const message: string = 'Hello';
+
+// ✅ Mejor
+const count = 0;
+const message = 'Hello';
+
+// ✅ Declara tipos cuando agreguen valor
+function createUser(name: string, age: number): User {
+  return { name, age, id: generateId() };
+}
+```
+
+## 2. Aprovecha los Utility Types
+
+TypeScript incluye tipos de utilidad poderosos:
+
+```typescript
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  age: number;
+}
+
+// Partial - Todos los campos opcionales
+type PartialUser = Partial<User>;
+
+// Pick - Selecciona campos específicos
+type UserPreview = Pick<User, 'id' | 'name'>;
+
+// Omit - Excluye campos específicos
+type UserWithoutEmail = Omit<User, 'email'>;
+
+// Required - Todos los campos requeridos
+type RequiredUser = Required<PartialUser>;
+
+// Readonly - Inmutable
+type ReadonlyUser = Readonly<User>;
+```
+
+## 3. Type Guards Personalizados
+
+Crea funciones que ayuden a TypeScript a entender tipos en runtime:
+
+```typescript
+interface Dog {
+  bark(): void;
+}
+
+interface Cat {
+  meow(): void;
+}
+
+type Pet = Dog | Cat;
+
+// Type guard personalizado
+function isDog(pet: Pet): pet is Dog {
+  return (pet as Dog).bark !== undefined;
+}
+
+function handlePet(pet: Pet) {
+  if (isDog(pet)) {
+    pet.bark(); // TypeScript sabe que es Dog
+  } else {
+    pet.meow(); // TypeScript sabe que es Cat
+  }
+}
+```
+
+## 4. Discriminated Unions
+
+Patrones type-safe para manejar diferentes casos:
+
+```typescript
+type Result<T> =
+  | { success: true; data: T }
+  | { success: false; error: string };
+
+function handleResult<T>(result: Result<T>) {
+  if (result.success) {
+    console.log(result.data); // TypeScript sabe que data existe
+  } else {
+    console.error(result.error); // TypeScript sabe que error existe
+  }
+}
+```
+
+## 5. Genéricos Poderosos
+
+Los genéricos hacen tu código reutilizable y type-safe:
+
+```typescript
+// Función genérica básica
+function identity<T>(value: T): T {
+  return value;
+}
+
+// Genéricos con constraints
+interface HasLength {
+  length: number;
+}
+
+function logLength<T extends HasLength>(item: T): void {
+  console.log(item.length);
+}
+
+// Genéricos con valores por defecto
+type ApiResponse<T = unknown> = {
+  data: T;
+  status: number;
+  message: string;
+};
+```
+
+## 6. Template Literal Types
+
+Crea tipos dinámicos basados en strings:
+
+```typescript
+type Direction = 'top' | 'right' | 'bottom' | 'left';
+type Margin = `margin${Capitalize<Direction>}`;
+// Result: 'marginTop' | 'marginRight' | 'marginBottom' | 'marginLeft'
+
+type EventName<T extends string> = `on${Capitalize<T>}`;
+type ClickEvent = EventName<'click'>; // 'onClick'
+type HoverEvent = EventName<'hover'>; // 'onHover'
+```
+
+## 7. Mapped Types
+
+Transforma tipos de forma programática:
+
+```typescript
+type Optional<T> = {
+  [K in keyof T]?: T[K];
+};
+
+type Nullable<T> = {
+  [K in keyof T]: T[K] | null;
+};
+
+type Getters<T> = {
+  [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K];
+};
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+type PersonGetters = Getters<Person>;
+// Result: { getName: () => string; getAge: () => number }
+```
+
+## 8. Const Assertions
+
+Crea tipos más específicos con `as const`:
+
+```typescript
+// Sin const assertion
+const config = {
+  endpoint: 'https://api.example.com',
+  timeout: 5000,
+};
+// Type: { endpoint: string; timeout: number }
+
+// Con const assertion
+const config = {
+  endpoint: 'https://api.example.com',
+  timeout: 5000,
+} as const;
+// Type: { readonly endpoint: "https://api.example.com"; readonly timeout: 5000 }
+
+// Arrays inmutables
+const colors = ['red', 'green', 'blue'] as const;
+type Color = typeof colors[number]; // 'red' | 'green' | 'blue'
+```
+
+## 9. Conditional Types
+
+Tipos que dependen de condiciones:
+
+```typescript
+type IsArray<T> = T extends any[] ? true : false;
+
+type A = IsArray<string[]>; // true
+type B = IsArray<string>; // false
+
+// Extract y Exclude
+type T1 = Extract<'a' | 'b' | 'c', 'a' | 'f'>; // 'a'
+type T2 = Exclude<'a' | 'b' | 'c', 'a' | 'b'>; // 'c'
+
+// NonNullable
+type T3 = NonNullable<string | null | undefined>; // string
+```
+
+## 10. Index Signatures con Constraints
+
+Crea objetos dinámicos type-safe:
+
+```typescript
+interface StringDictionary {
+  [key: string]: string;
+}
+
+// Con template literal types
+interface EnvironmentVariables {
+  [key: `${string}_API_KEY`]: string;
+}
+
+const env: EnvironmentVariables = {
+  GITHUB_API_KEY: 'abc123',
+  STRIPE_API_KEY: 'xyz789',
+  // API_KEY: 'invalid', // ❌ Error: no termina en _API_KEY
+};
+```
+
+## Mejores Prácticas
+
+### 1. Usa `strictNullChecks`
+
+```json
+{
+  "compilerOptions": {
+    "strictNullChecks": true
+  }
+}
+```
+
+### 2. Evita `any`, usa `unknown`
+
+```typescript
+// ❌ Evita
+function process(data: any) {
+  return data.value;
+}
+
+// ✅ Mejor
+function process(data: unknown) {
+  if (typeof data === 'object' && data !== null && 'value' in data) {
+    return (data as { value: string }).value;
+  }
+  throw new Error('Invalid data');
+}
+```
+
+### 3. Usa Interfaces para Objetos Públicos
+
+```typescript
+// ✅ Para APIs públicas
+export interface User {
+  id: string;
+  name: string;
+}
+
+// ✅ Para tipos complejos o uniones
+export type Status = 'pending' | 'approved' | 'rejected';
+```
+
+## Conclusión
+
+TypeScript es una herramienta poderosa que, cuando se usa correctamente, puede mejorar significativamente la calidad y mantenibilidad de tu código. Estos tips y mejores prácticas te ayudarán a escribir código TypeScript más efectivo.
+
+### Recursos
+
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
+- [Total TypeScript](https://www.totaltypescript.com/)
+
+¿Cuál es tu tip favorito de TypeScript? ¡Compártelo en los comentarios!

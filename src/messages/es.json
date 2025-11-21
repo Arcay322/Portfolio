@@ -1,0 +1,463 @@
+{
+  "metadata": {
+    "title": "Arnie Calderon - Portafolio",
+    "description": "Portafolio profesional de un desarrollador full-stack con experiencia en la creación de aplicaciones web modernas y eficientes.",
+    "ogImageAlt": "Vista previa del portafolio de Arnie Calderon"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "blog": "Blog"
+  },
+  "home": {
+    "title": "Desarrollador Full-Stack",
+    "subtitle": "Construyo aplicaciones web modernas, responsivas y escalables. Apasionado por el código limpio, el diseño centrado en el usuario y las tecnologías innovadoras.",
+    "cta": "Ver Mi Trabajo",
+    "about_preview": "Sobre Mí",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "testimonials_title": "Lo Que Dicen de Mí",
+    "testimonials_subtitle": "Empresas reales que confían en mi trabajo",
+    "testimonials": {
+      "inversiones_max": {
+        "name": "René Foreest Minaya Isidro",
+        "role": "Gerente de Producción y Accionista",
+        "company": "INVERSIONES MAX PERU S.A.C.",
+        "content": "Destacamos el profesionalismo, compromiso y capacidad técnica de Arnie Calderón, quien desarrolló Ventify para nuestra empresa. Desde su implementación, hemos logrado incrementar nuestras ventas en un 97%, asegurar el orden y control de nuestro inventario, y mayor eficiencia en el conocimiento y seguimiento de nuestros márgenes de ganancia. Recomendamos ampliamente a Arnie y su sistema Ventify como un aliado estratégico confiable, innovador y eficaz."
+      }
+    },
+    "cta_title": "¿Listo para colaborar?",
+    "cta_description": "Estoy disponible para proyectos freelance, colaboraciones y oportunidades laborales. Hablemos sobre cómo puedo ayudarte a llevar tu idea al siguiente nivel.",
+    "cta_primary": "Iniciar Conversación",
+    "cta_secondary": "Ver Proyectos"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "intro": "Soy un desarrollador full-stack apasionado por crear aplicaciones web modernas y eficientes.",
+    "name": "Arnie Calderon",
+    "role": "Desarrollador Full-Stack",
+    "bio_title": "Sobre Mí",
+    "bio_paragraph1": "¡Hola! Soy Arnie, un desarrollador web full-stack proactivo y autodidacta, actualmente cursando el 7mo ciclo de Ingeniería de Software. Me apasiona crear soluciones web eficientes, funcionales y centradas en el usuario.",
+    "bio_paragraph2": "Con un sólido dominio de tecnologías front-end como React y back-end como Node.js y Python, disfruto el desafío de aprender y mejorar continuamente. Mi viaje en el desarrollo lo he demostrado a través de innovadores proyectos personales que puedes ver en este portafolio.",
+    "bio_paragraph3": "Lo que me motiva es transformar ideas complejas en aplicaciones intuitivas que resuelvan problemas reales. Mi objetivo es contribuir a proyectos desafiantes donde pueda aplicar mi pasión por el código limpio, las mejores prácticas y el aprendizaje continuo. Me caracterizo por mi capacidad de adaptación rápida, mi enfoque en resultados y mi compromiso con la excelencia técnica.",
+    "stats_title": "Mi Trayectoria en Números",
+    "stats_subtitle": "Algunas estadísticas sobre mi experiencia",
+    "stats": {
+      "experience": {
+        "value": 3,
+        "label": "Años de Experiencia",
+        "suffix": "+"
+      },
+      "projects": {
+        "value": 3,
+        "label": "Proyectos Completados",
+        "suffix": "+"
+      },
+      "technologies": {
+        "value": 12,
+        "label": "Tecnologías Dominadas",
+        "suffix": "+"
+      },
+      "commits": {
+        "value": 100,
+        "label": "Commits Este Año",
+        "suffix": "+"
+      }
+    },
+    "skills_title": "Mis Habilidades",
+    "timeline_title": "Mi Trayectoria",
+    "timeline": {
+      "portfolio": {
+        "year": "2025",
+        "title": "Desarrollo de Portafolio Profesional",
+        "description": "Creación de portafolio web moderno con Next.js, TypeScript y animaciones avanzadas."
+      },
+      "ventify": {
+        "year": "2025",
+        "title": "Ventify - Sistema POS y Gestión de Inventario",
+        "description": "Sistema completo de punto de venta y gestión de inventario para negocios multi-sucursal usando Next.js, Firebase y tecnologías en tiempo real."
+      },
+      "sumaq_uywa": {
+        "year": "2024",
+        "title": "Sumaq Uywa - Sistema de Gestión Agrícola",
+        "description": "Aplicación fullstack para administración de granjas con React, Node.js y PostgreSQL."
+      },
+      "ticket_world": {
+        "year": "2024",
+        "title": "Ticket World - Plataforma de E-commerce",
+        "description": "Sistema de venta de tickets con roles de usuario, métricas y pasarela de pagos."
+      },
+      "university": {
+        "year": "2022-2025",
+        "title": "Ingeniería de Software - 7mo Ciclo",
+        "description": "Estudiante de Ingeniería de Software, enfocado en desarrollo web full-stack."
+      },
+      "start": {
+        "year": "2022",
+        "title": "Inicio en Desarrollo Web",
+        "description": "Comienzo del aprendizaje autodidacta en tecnologías web modernas."
+      }
+    },
+    "projects_title": "Metodologías y Habilidades",
+    "projects": {
+      "methodology": {
+        "title": "Metodologías Ágiles",
+        "description": "Experiencia trabajando con metodologías Agile, control de versiones con Git/GitHub, y prácticas de desarrollo colaborativo como code reviews y pair programming."
+      },
+      "problem_solving": {
+        "title": "Resolución de Problemas",
+        "description": "Capacidad analítica para descomponer problemas complejos en soluciones simples y efectivas, aplicando pensamiento crítico y debugging sistemático."
+      },
+      "learning": {
+        "title": "Aprendizaje Continuo",
+        "description": "Autodidacta comprometido con el aprendizaje constante de nuevas tecnologías, frameworks y mejores prácticas del desarrollo moderno."
+      }
+    },
+    "hobbies_title": "Más Allá del Código",
+    "hobbies": {
+      "gaming": {
+        "title": "Gaming",
+        "description": "Disfruto de videojuegos de estrategia y mundo abierto, que me ayudan a desarrollar pensamiento analítico y resolución creativa de problemas."
+      },
+      "tech": {
+        "title": "Tecnología",
+        "description": "Me fascina explorar nuevas tecnologías, seguir tendencias en IA y desarrollo web, y experimentar con herramientas emergentes."
+      },
+      "learning": {
+        "title": "Aprendizaje",
+        "description": "Constantemente leo documentación, tutoriales y artículos técnicos para mantenerme actualizado con las últimas tendencias en desarrollo."
+      }
+    },
+    "cta_title": "¿Interesado en trabajar juntos?",
+    "cta_description": "Estoy siempre abierto a discutir nuevos proyectos, ideas creativas u oportunidades para formar parte de tu visión.",
+    "cta_primary": "Contáctame Ahora",
+    "cta_secondary": "Descargar CV"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "description": "Una selección de mi trabajo. Siéntete libre de explorar.",
+    "all": "Todos",
+    "featured": "Destacados",
+    "view_project": "Ver Proyecto",
+    "view_code": "Ver Código",
+    "live_demo": "Demo en Vivo",
+    "technologies": "Tecnologías",
+    "related": "Proyectos Relacionados",
+    "no_projects": "No se encontraron proyectos con esta tecnología.",
+    "badges": {
+      "featured": "Destacado",
+      "new": "Nuevo",
+      "in_production": "En Producción"
+    },
+    "buttons": {
+      "demo": "Demo",
+      "code": "Código",
+      "view_details": "Ver Detalles",
+      "view_project_details": "Ver Detalles del Proyecto"
+    },
+    "sort": {
+      "label": "Ordenar por:",
+      "select": "Seleccionar",
+      "newest": "Más Recientes",
+      "oldest": "Más Antiguos",
+      "featured": "Destacados",
+      "name": "Nombre (A-Z)"
+    },
+    "details": {
+      "back_to_projects": "Volver a Proyectos",
+      "view_live_demo": "Ver Demo en Vivo",
+      "source_code": "Código Fuente",
+      "technologies_used": "Tecnologías Utilizadas",
+      "about_project": "Sobre el Proyecto",
+      "links": "Enlaces",
+      "live_demo": "Demo en Vivo",
+      "github_repo": "Repositorio GitHub",
+      "key_features": "Características Principales",
+      "technical_challenges": "Desafíos Técnicos",
+      "related_projects": "Proyectos Relacionados",
+      "interested_title": "¿Interesado en este proyecto?",
+      "interested_description": "Si quieres saber más sobre cómo construí {project} o tienes alguna pregunta, no dudes en contactarme.",
+      "contact_me": "Contáctame",
+      "view_more_projects": "Ver Más Proyectos"
+    },
+    "items": {
+      "ventify": {
+        "title": "Ventify",
+        "description": "Sistema completo de punto de venta (POS) y gestión de inventario para negocios con múltiples sucursales. Incluye seguimiento de ventas en tiempo real, reservas de pedidos, pedidos personalizados, control de caja registradora, permisos granulares de usuario, reportes de transacciones y más.",
+        "long_description": "Ventify es un sistema completo de Punto de Venta (POS) y gestión de inventario desarrollado para negocios con múltiples sucursales. Permite gestionar productos, ventas en tiempo real, reservas de pedidos, pedidos personalizados, control de caja registradora, usuarios con permisos granulares, reportes de transacciones y más. Está diseñado para optimizar operaciones comerciales, con integración de pagos mixtos, gestión de depósitos y alertas de stock bajo.\n\nCaracterísticas Principales:\n- Gestión Multi-Sucursal: Control completo de múltiples ubicaciones comerciales\n- Ventas en Tiempo Real: Seguimiento de ventas en vivo y actualizaciones de inventario\n- Reservas de Pedidos: Sistema avanzado de reserva de productos\n- Pedidos Personalizados: Creación y gestión de pedidos personalizados\n- Control de Caja: Gestión completa de flujo de caja y transacciones\n- Permisos Granulares: Sistema de control de acceso basado en roles\n- Reportes de Transacciones: Análisis detallado e inteligencia de negocio\n- Pagos Mixtos: Soporte para múltiples métodos de pago\n- Gestión de Almacenes: Control de inventario multi-ubicación\n- Alertas de Stock Bajo: Notificaciones automáticas para gestión de inventario\n\nTecnologías Utilizadas:\n- Frontend: Next.js 14 (React con App Router), TypeScript, Tailwind CSS, Shadcn/ui para componentes UI\n- Backend y Base de Datos: Firebase (Firestore para datos en tiempo real, Authentication para usuarios, Storage para archivos, Hosting para despliegue)\n- Otras Librerías: date-fns para manejo de fechas, lucide-react para iconos, react-hook-form para formularios, y servicios personalizados para gestión de inventario, reservas y pagos\n- Despliegue: Firebase Hosting, con soporte para SSR/SSG y optimización para producción\n\nEste proyecto destaca por su arquitectura escalable, manejo de estado en tiempo real y enfoque en UX para entornos comerciales. Fue desarrollado como solución SaaS para múltiples cuentas y sucursales.",
+        "media": {
+          "dashboard": "Ventify - Dashboard Principal",
+          "pos": "Ventify - Interfaz de Punto de Venta",
+          "inventory": "Ventify - Gestión de Inventario",
+          "reports": "Ventify - Reportes de Transacciones"
+        },
+        "features": {
+          "multibranch": "Gestión de negocios multi-sucursal",
+          "realtime": "Seguimiento de ventas e inventario en tiempo real",
+          "reservations": "Sistema avanzado de reservas de pedidos",
+          "custom_orders": "Creación y gestión de pedidos personalizados",
+          "cash_control": "Control completo de caja y transacciones",
+          "permissions": "Permisos granulares de usuario y roles",
+          "reports": "Reportes detallados de transacciones y análisis",
+          "payments": "Integración de métodos de pago mixtos",
+          "warehouses": "Gestión de almacenes multi-ubicación",
+          "alerts": "Alertas de stock bajo y gestión de inventario",
+          "responsive": "Interfaz moderna y responsiva para comercios"
+        },
+        "challenges": {
+          "realtime_sync": "Sincronización de datos en tiempo real entre múltiples sucursales",
+          "complex_permissions": "Implementación de sistema de permisos granulares complejo",
+          "concurrent_access": "Manejo de acceso concurrente de usuarios y consistencia de datos",
+          "scalability": "Diseño de arquitectura escalable para negocios en crecimiento",
+          "offline_support": "Implementación de funcionalidad offline para operaciones POS",
+          "performance": "Optimización de rendimiento con grandes volúmenes de datos y actualizaciones en tiempo real"
+        }
+      },
+      "ticket_world": {
+        "title": "Ticket World",
+        "description": "Plataforma web para venta de tickets de eventos. Incluye roles de usuario (admin, proveedor, cliente), panel de métricas, integración con Google Maps y sistema de pagos simulado.",
+        "long_description": "Ticket World es una plataforma completa de e-commerce especializada en venta de tickets de eventos. El proyecto incluye un robusto sistema de roles de usuario que permite diferentes niveles de acceso y funcionalidades.\n\nCaracterísticas Principales:\n- Sistema de Roles: Admin, Proveedor y Cliente con permisos específicos\n- Panel de Métricas: Dashboard interactivo con estadísticas en tiempo real\n- Integración Google Maps: Visualización de ubicación de eventos\n- Sistema de Pagos: Simulación de pasarela de pagos\n- Gestión de Eventos: CRUD completo de eventos y categorías\n- Carrito de Compras: Sistema de compra de múltiples items\n\nTecnologías Utilizadas:\n- Backend: Django + Django REST Framework\n- Base de Datos: PostgreSQL\n- Frontend: JavaScript, HTML5, CSS3\n- APIs: Google Maps API",
+        "media": {
+          "main": "Ticket World - Vista Principal",
+          "dashboard": "Ticket World - Dashboard de Métricas",
+          "map": "Ticket World - Mapa de Eventos"
+        },
+        "features": {
+          "auth": "Autenticación y autorización de usuarios",
+          "admin": "Panel de administración personalizado",
+          "metrics": "Dashboard con métricas y estadísticas",
+          "maps": "Integración con Google Maps",
+          "payments": "Sistema de pagos simulado",
+          "events": "Gestión de eventos y categorías",
+          "cart": "Carrito de compras",
+          "responsive": "Diseño responsivo"
+        },
+        "challenges": {
+          "roles": "Implementación de un sistema robusto de roles",
+          "maps": "Integración con Google Maps API",
+          "queries": "Optimización de consultas de base de datos",
+          "architecture": "Diseño de arquitectura escalable"
+        }
+      },
+      "sumaq_uywa": {
+        "title": "Sumaq Uywa",
+        "description": "Aplicación para administración de granjas, con dashboard y módulos de gestión para reproducción, salud, alimentación, ventas y gastos. Incluye un sistema de notificaciones para optimizar la producción.",
+        "long_description": "Sumaq Uywa es una aplicación completa de gestión agrícola, diseñada específicamente para optimizar la administración de reproducción, salud, alimentación, ventas y gastos de animales de granja.\n\nCaracterísticas Principales:\n- Dashboard Interactivo: Visualización de métricas clave de la granja\n- Gestión de Reproducción: Control de ciclos reproductivos y genealogía\n- Módulo de Salud: Seguimiento médico y veterinario\n- Control de Alimentación: Registros de dietas y consumo\n- Gestión de Ventas: Sistema completo de ventas y clientes\n- Control de Gastos: Seguimiento detallado de costos operativos\n- Sistema de Notificaciones: Alertas automáticas para eventos importantes\n\nTecnologías Utilizadas:\n- Frontend: React + TypeScript\n- Backend: Node.js + Express\n- Base de Datos: PostgreSQL\n- Estilos: Tailwind CSS\n- Estado: React Context + Hooks",
+        "media": {
+          "dashboard": "Sumaq Uywa - Dashboard Principal",
+          "reproduction": "Sumaq Uywa - Módulo de Reproducción",
+          "notifications": "Sumaq Uywa - Sistema de Notificaciones"
+        },
+        "features": {
+          "dashboard": "Dashboard con métricas en tiempo real",
+          "reproduction": "Gestión completa de reproducción",
+          "health": "Control veterinario de salud",
+          "feeding": "Sistema de alimentación",
+          "sales": "Módulo de ventas",
+          "expenses": "Control de gastos e inventario",
+          "notifications": "Notificaciones automáticas",
+          "reports": "Reportes y estadísticas",
+          "responsive": "Interfaz moderna y responsiva"
+        },
+        "challenges": {
+          "database": "Diseño de base de datos compleja",
+          "notifications": "Sistema de notificaciones en tiempo real",
+          "performance": "Optimización de rendimiento con grandes volúmenes de datos",
+          "charts": "Implementación de gráficos interactivos"
+        }
+      }
+    },
+    "cta_title": "¿Tienes un proyecto en mente?",
+    "cta_description": "Me encantaría escuchar tu idea y ver cómo podemos trabajar juntos para hacerla realidad.",
+    "cta_primary": "Hablemos",
+    "cta_secondary": "Más sobre mí"
+  },
+  "project_detail": {
+    "back_to_projects": "Volver a Proyectos",
+    "view_live_demo": "Ver Demo en Vivo",
+    "view_source_code": "Código Fuente",
+    "view_details": "Ver Detalles",
+    "technologies_used": "Tecnologías Utilizadas",
+    "about_project": "Sobre el Proyecto",
+    "links": "Enlaces",
+    "github_repository": "Repositorio GitHub",
+    "main_features": "Características Principales",
+    "technical_challenges": "Desafíos Técnicos",
+    "related_projects": "Proyectos Relacionados",
+    "interested_title": "¿Interesado en este proyecto?",
+    "interested_description": "Si quieres saber más sobre cómo construí {project} o tienes alguna pregunta, no dudes en contactarme.",
+    "contact_me": "Contáctame",
+    "view_more_projects": "Ver Más Proyectos",
+    "testimonial_title": "Empresas que Confían en Ventify",
+    "testimonial_subtitle": "Ventify está siendo usado en producción por empresas reales que confían en su eficiencia y confiabilidad",
+    "testimonial": {
+      "company": "INVERSIONES MAX PERU S.A.C.",
+      "name": "René Foreest Minaya Isidro",
+      "role": "Gerente de Producción y Accionista",
+      "content": "Destacamos el profesionalismo, compromiso y capacidad técnica de Arnie Calderón, quien desarrolló Ventify para nuestra empresa. Desde su implementación, hemos logrado incrementar nuestras ventas en un 97%, asegurar el orden y control de nuestro inventario, y mayor eficiencia en el conocimiento y seguimiento de nuestros márgenes de ganancia. Recomendamos ampliamente a Arnie y su sistema Ventify como un aliado estratégico confiable, innovador y eficaz en el ámbito digital y comercial.",
+      "date": "Octubre 2025"
+    },
+    "production_badge": "Sistema en Producción desde Octubre 2025"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
+    "description": "¿Tienes una pregunta o quieres trabajar juntos? Rellena el formulario y me pondré en contacto contigo lo antes posible.",
+    "form_title": "Envíame un mensaje",
+    "name": "Nombre",
+    "name_placeholder": "Tu nombre",
+    "email": "Email",
+    "email_placeholder": "tu@email.com",
+    "message": "Mensaje",
+    "message_placeholder": "Cuéntame sobre tu proyecto...",
+    "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado! Te responderé pronto.",
+    "error": "Error al enviar. Intenta de nuevo.",
+    "validation": {
+      "name_required": "El nombre es requerido",
+      "email_required": "El email es requerido",
+      "email_invalid": "Email inválido",
+      "message_required": "El mensaje es requerido",
+      "message_min": "El mensaje debe tener al menos 10 caracteres"
+    },
+    "other_ways": "Otras formas de conectar",
+    "phone": "Teléfono"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Artículos sobre desarrollo web, tecnología y buenas prácticas de programación",
+    "read_more": "Leer más",
+    "published": "Publicado el",
+    "reading_time": "min de lectura",
+    "share": "Compartir",
+    "related_posts": "Artículos Relacionados",
+    "categories": "Categorías",
+    "tags": "Etiquetas",
+    "back_to_blog": "Volver al Blog",
+    "no_posts": "No hay artículos publicados aún. ¡Vuelve pronto!"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "social": "Redes Sociales"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "clear": "Limpiar",
+    "apply": "Aplicar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "download": "Descargar",
+    "share": "Compartir",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "more": "Más",
+    "less": "Menos",
+    "home": "Inicio"
+  },
+  "seo": {
+    "home_title": "Portfolio - Desarrollador Full-Stack",
+    "home_description": "Portfolio profesional showcasing web development projects with modern technologies",
+    "about_title": "Sobre Mí - Portfolio",
+    "about_description": "Conoce más sobre mi experiencia, habilidades y trayectoria profesional",
+    "projects_title": "Proyectos - Portfolio",
+    "projects_description": "Explora mis proyectos más destacados y trabajos recientes",
+    "contact_title": "Contacto - Portfolio",
+    "contact_description": "Ponte en contacto conmigo para proyectos y colaboraciones",
+    "blog_title": "Blog - Portfolio",
+    "blog_description": "Artículos sobre desarrollo web, tecnología y buenas prácticas"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "description": "Encuentra respuestas a las preguntas más comunes. Si no encuentras lo que buscas, no dudes en contactarme.",
+    "categories": {
+      "general": "General",
+      "collaborations": "Colaboraciones",
+      "services": "Servicios",
+      "technical": "Técnico",
+      "process": "Proceso"
+    },
+    "questions": {
+      "tech_stack": {
+        "question": "¿Qué tecnologías utilizas en tus proyectos?",
+        "answer": "Trabajo principalmente con tecnologías modernas del ecosistema JavaScript/TypeScript como Next.js, React, Node.js, y bases de datos como PostgreSQL y MongoDB. También utilizo herramientas de desarrollo como Git, Docker, y servicios en la nube como Vercel y AWS."
+      },
+      "project_duration": {
+        "question": "¿Cuánto tiempo tarda un proyecto típico?",
+        "answer": "El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web básico puede tomar 2-4 semanas, mientras que aplicaciones web más complejas pueden requerir 2-3 meses o más. Siempre proporciono estimaciones detalladas después de la consulta inicial."
+      },
+      "support": {
+        "question": "¿Ofreces soporte y mantenimiento después de la entrega?",
+        "answer": "Sí, ofrezco diferentes planes de soporte y mantenimiento que incluyen actualizaciones de seguridad, corrección de bugs, y pequeñas mejoras. También estoy disponible para proyectos de expansión a largo plazo."
+      },
+      "freelance": {
+        "question": "¿Aceptas proyectos freelance?",
+        "answer": "Sí, estoy abierto a proyectos freelance interesantes. Prefiero trabajar en proyectos que utilicen tecnologías modernas y que presenten desafíos técnicos interesantes. Contáctame con los detalles de tu proyecto."
+      },
+      "remote_work": {
+        "question": "¿Trabajas con equipos remotos?",
+        "answer": "Absolutamente. Tengo experiencia trabajando con equipos distribuidos globalmente. Estoy familiarizado con metodologías ágiles, herramientas de colaboración como Slack, Jira, y Git, y me adapto fácilmente a diferentes zonas horarias."
+      },
+      "code_review": {
+        "question": "¿Puedo verte el código antes de contratarte?",
+        "answer": "Sí, tienes acceso a mi GitHub donde puedes revisar proyectos open source y ejemplos de código. También puedo compartir ejemplos específicos de trabajo similar al proyecto que tienes en mente (respetando acuerdos de confidencialidad)."
+      },
+      "full_service": {
+        "question": "¿Qué incluye un proyecto de desarrollo web completo?",
+        "answer": "Un proyecto completo incluye: análisis de requisitos, diseño de arquitectura, desarrollo frontend y backend, integración de bases de datos, implementación de APIs, testing, deployment, documentación, y capacitación básica para el uso del sistema."
+      },
+      "uiux_design": {
+        "question": "¿Ofreces servicios de diseño UI/UX?",
+        "answer": "Aunque no soy diseñador gráfico, tengo experiencia implementando diseños y puedo trabajar con mockups existentes. Para proyectos que requieren diseño desde cero, puedo recomendar diseñadores con los que colaboro regularmente."
+      },
+      "migrations": {
+        "question": "¿Haces migraciones de sitios existentes?",
+        "answer": "Sí, tengo experiencia migrando sitios desde plataformas legacy a tecnologías modernas. Esto incluye migración de datos, reimplementación de funcionalidades, mejora de rendimiento, y asegurar una transición sin interrupciones."
+      },
+      "nextjs_vs_react": {
+        "question": "¿Por qué Next.js en lugar de React puro?",
+        "answer": "Next.js ofrece ventajas significativas sobre React puro: Server-Side Rendering para mejor SEO, routing basado en archivos, optimización automática de imágenes, API routes integradas, y mejor rendimiento out-of-the-box. Es ideal para la mayoría de aplicaciones web modernas."
+      },
+      "testing_strategy": {
+        "question": "¿Qué estrategia de testing utilizas?",
+        "answer": "Implemento testing en múltiples niveles: tests unitarios con Jest y React Testing Library, tests de integración, tests E2E con Playwright, y continuous integration con GitHub Actions. El objetivo es tener al menos 70% de cobertura de código."
+      },
+      "scalability": {
+        "question": "¿Cómo manejas la escalabilidad?",
+        "answer": "Diseño aplicaciones pensando en escalabilidad desde el inicio: arquitectura modular, uso de CDNs, caching estratégico, optimización de bases de datos, lazy loading, y preparación para servicios de cloud como Vercel Edge Functions o AWS Lambda."
+      },
+      "security": {
+        "question": "¿Implementas medidas de seguridad?",
+        "answer": "La seguridad es prioritaria. Implemento: autenticación segura (JWT, OAuth), protección CSRF, sanitización de inputs, headers de seguridad, HTTPS, rate limiting, y sigo las mejores prácticas de OWASP. También realizo auditorías de seguridad regulares."
+      },
+      "workflow": {
+        "question": "¿Cómo es tu proceso de trabajo?",
+        "answer": "Sigo un proceso estructurado: 1) Consulta inicial y análisis de requisitos, 2) Propuesta y presupuesto, 3) Diseño de arquitectura y planificación, 4) Desarrollo iterativo con demos regulares, 5) Testing exhaustivo, 6) Deployment y documentación, 7) Soporte post-lanzamiento."
+      },
+      "updates": {
+        "question": "¿Proporcionas actualizaciones durante el desarrollo?",
+        "answer": "Sí, mantengo comunicación constante. Uso metodología Agile con sprints de 1-2 semanas, demos regulares, y acceso a un entorno de staging donde puedes revisar el progreso en tiempo real. También utilizo herramientas de project management para transparencia total."
+      },
+      "satisfaction": {
+        "question": "¿Qué pasa si no estás satisfecho con el resultado?",
+        "answer": "Trabajo iterativamente con feedback constante para evitar sorpresas. Incluyo revisiones en cada fase del proyecto. Si hay aspectos que no cumplen las expectativas, los ajusto hasta lograr tu satisfacción, siempre dentro del scope acordado."
+      }
+    },
+    "cta_title": "¿No encontraste tu respuesta?",
+    "cta_description": "Estoy aquí para ayudarte. Envíame un mensaje con tu pregunta.",
+    "cta_button": "Contáctame"
+  }
+}

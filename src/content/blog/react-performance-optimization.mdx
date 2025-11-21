@@ -1,0 +1,303 @@
+---
+title: 'Optimización de Rendimiento en React: Guía Definitiva'
+description: 'Aprende técnicas avanzadas de optimización para mejorar el rendimiento de tus aplicaciones React, desde memo hasta virtualización y lazy loading.'
+date: '2024-01-05'
+author: 'Tu Nombre'
+tags: ['React', 'Performance', 'Optimization', 'Web Development']
+image: '/images/blog/react-performance.jpg'
+---
+
+# Optimización de Rendimiento en React
+
+El rendimiento es crucial para la experiencia de usuario. En esta guía completa, exploraremos técnicas avanzadas para optimizar aplicaciones React.
+
+## 1. React.memo y useMemo
+
+Evita re-renders innecesarios:
+
+```tsx
+import { memo, useMemo } from 'react';
+
+// Memoiza componentes
+const ExpensiveComponent = memo(function ExpensiveComponent({ data }) {
+  // Renderizado costoso
+  return <div>{data}</div>;
+});
+
+// Memoiza valores computados
+function ParentComponent({ items }) {
+  const sortedItems = useMemo(() => {
+    return items.sort((a, b) => a.value - b.value);
+  }, [items]);
+
+  return <ExpensiveComponent data={sortedItems} />;
+}
+```
+
+## 2. useCallback para Funciones
+
+Previene la recreación de funciones:
+
+```tsx
+import { useCallback, useState } from 'react';
+
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = useCallback((text: string) => {
+    setTodos(prev => [...prev, { id: Date.now(), text }]);
+  }, []); // Función estable
+
+  return <TodoForm onSubmit={addTodo} />;
+}
+```
+
+## 3. Lazy Loading y Code Splitting
+
+Carga componentes bajo demanda:
+
+```tsx
+import { lazy, Suspense } from 'react';
+
+// Lazy load de componentes
+const Dashboard = lazy(() => import('./Dashboard'));
+const Profile = lazy(() => import('./Profile'));
+
+function App() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </Suspense>
+  );
+}
+```
+
+## 4. Virtualización para Listas Largas
+
+Usa `react-window` para listas grandes:
+
+```tsx
+import { FixedSizeList } from 'react-window';
+
+function VirtualList({ items }) {
+  const Row = ({ index, style }) => (
+    <div style={style}>
+      {items[index].name}
+    </div>
+  );
+
+  return (
+    <FixedSizeList
+      height={600}
+      itemCount={items.length}
+      itemSize={50}
+      width="100%"
+    >
+      {Row}
+    </FixedSizeList>
+  );
+}
+```
+
+## 5. Optimización de Imágenes
+
+```tsx
+import Image from 'next/image';
+
+function OptimizedImage() {
+  return (
+    <Image
+      src="/large-image.jpg"
+      alt="Description"
+      width={800}
+      height={600}
+      loading="lazy"
+      placeholder="blur"
+      quality={75}
+    />
+  );
+}
+```
+
+## 6. Debouncing y Throttling
+
+Controla la frecuencia de ejecución:
+
+```tsx
+import { useState, useEffect, useCallback } from 'react';
+
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => clearTimeout(handler);
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
+function SearchComponent() {
+  const [search, setSearch] = useState('');
+  const debouncedSearch = useDebounce(search, 500);
+
+  useEffect(() => {
+    // API call con el valor debounced
+    if (debouncedSearch) {
+      fetchResults(debouncedSearch);
+    }
+  }, [debouncedSearch]);
+
+  return (
+    <input
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+    />
+  );
+}
+```
+
+## 7. Web Workers para Tareas Pesadas
+
+```tsx
+// worker.ts
+self.onmessage = (e) => {
+  const result = expensiveCalculation(e.data);
+  self.postMessage(result);
+};
+
+// Component
+function HeavyComputation() {
+  const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    const worker = new Worker(new URL('./worker.ts', import.meta.url));
+    
+    worker.postMessage(data);
+    worker.onmessage = (e) => setResult(e.data);
+    
+    return () => worker.terminate();
+  }, [data]);
+
+  return <div>{result}</div>;
+}
+```
+
+## 8. Optimización de State Management
+
+```tsx
+// ❌ Evita: Estado innecesario
+function Component() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [fullName, setFullName] = useState(''); // Redundante
+
+  // ...
+}
+
+// ✅ Mejor: Calcula valores derivados
+function Component() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const fullName = `${firstName} ${lastName}`; // Computado
+
+  // ...
+}
+```
+
+## 9. Suspense para Data Fetching
+
+```tsx
+import { Suspense } from 'react';
+
+function ProfilePage() {
+  return (
+    <Suspense fallback={<Skeleton />}>
+      <ProfileDetails />
+      <Suspense fallback={<Spinner />}>
+        <ProfilePosts />
+      </Suspense>
+    </Suspense>
+  );
+}
+```
+
+## 10. React DevTools Profiler
+
+Identifica cuellos de botella:
+
+```tsx
+import { Profiler } from 'react';
+
+function onRenderCallback(
+  id: string,
+  phase: 'mount' | 'update',
+  actualDuration: number
+) {
+  console.log({ id, phase, actualDuration });
+}
+
+function App() {
+  return (
+    <Profiler id="App" onRender={onRenderCallback}>
+      <MainContent />
+    </Profiler>
+  );
+}
+```
+
+## Checklist de Optimización
+
+- [ ] Usa React.memo para componentes que no cambian frecuentemente
+- [ ] Implementa useCallback para funciones pasadas como props
+- [ ] Usa useMemo para cálculos costosos
+- [ ] Implementa lazy loading y code splitting
+- [ ] Virtualiza listas largas
+- [ ] Optimiza imágenes (formato, tamaño, lazy loading)
+- [ ] Implementa debouncing/throttling
+- [ ] Usa Web Workers para tareas pesadas
+- [ ] Minimiza el estado global
+- [ ] Perfila tu aplicación regularmente
+
+## Herramientas Útiles
+
+### Lighthouse
+
+```bash
+npx lighthouse http://localhost:3000 --view
+```
+
+### Bundle Analyzer
+
+```bash
+npm install --save-dev @next/bundle-analyzer
+```
+
+### Web Vitals
+
+```tsx
+import { reportWebVitals } from 'web-vitals';
+
+reportWebVitals((metric) => {
+  console.log(metric);
+  // Envía a analytics
+});
+```
+
+## Conclusión
+
+La optimización de rendimiento es un proceso continuo. Comienza midiendo, identifica los cuellos de botella y aplica las técnicas apropiadas. Recuerda: la optimización prematura es la raíz de todos los males, optimiza donde realmente importa.
+
+### Recursos Adicionales
+
+- [React Performance Documentation](https://react.dev/learn/render-and-commit)
+- [Web.dev Performance](https://web.dev/performance/)
+- [React Profiler API](https://react.dev/reference/react/Profiler)
+
+¿Qué técnicas de optimización has encontrado más útiles? ¡Compártelas!

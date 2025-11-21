@@ -1,0 +1,209 @@
+---
+title: 'Getting Started with Next.js 14 and App Router'
+description: 'Una guía completa sobre las nuevas características de Next.js 14 y cómo aprovechar el App Router para crear aplicaciones web modernas y eficientes.'
+date: '2024-01-15'
+author: 'Tu Nombre'
+tags: ['Next.js', 'React', 'Web Development', 'JavaScript']
+image: '/images/blog/nextjs-14.jpg'
+---
+
+# Introducción a Next.js 14
+
+Next.js 14 trae consigo una serie de mejoras significativas que revolucionan la forma en que construimos aplicaciones web. En este artículo, exploraremos las características más importantes y cómo implementarlas en tus proyectos.
+
+## El App Router: Un Nuevo Paradigma
+
+El **App Router** introduce un enfoque basado en el sistema de archivos que simplifica la creación de rutas y layouts. A diferencia del Pages Router tradicional, el App Router ofrece:
+
+- 🚀 Server Components por defecto
+- 📦 Layouts anidados y reutilizables
+- ⚡ Streaming y Suspense nativo
+- 🎯 Loading y Error states simplificados
+
+### Estructura Básica
+
+```tsx
+// app/page.tsx
+export default function HomePage() {
+  return (
+    <main>
+      <h1>Welcome to Next.js 14!</h1>
+    </main>
+  );
+}
+```
+
+## Server Components vs Client Components
+
+Una de las decisiones más importantes es entender cuándo usar cada tipo de componente:
+
+### Server Components (Por Defecto)
+
+```tsx
+// app/blog/page.tsx
+async function getBlogPosts() {
+  const res = await fetch('https://api.example.com/posts');
+  return res.json();
+}
+
+export default async function BlogPage() {
+  const posts = await getBlogPosts();
+  
+  return (
+    <div>
+      {posts.map(post => (
+        <article key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.excerpt}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+```
+
+### Client Components
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Count: {count}
+    </button>
+  );
+}
+```
+
+## Optimización de Imágenes
+
+Next.js 14 mejora significativamente el componente `Image`:
+
+```tsx
+import Image from 'next/image';
+
+<Image
+  src="/hero.jpg"
+  alt="Hero image"
+  width={1200}
+  height={600}
+  priority
+  placeholder="blur"
+  blurDataURL="data:image/jpeg;base64,..."
+/>
+```
+
+## Server Actions
+
+Las Server Actions simplifican las mutaciones de datos:
+
+```tsx
+// app/actions.ts
+'use server';
+
+export async function createPost(formData: FormData) {
+  const title = formData.get('title');
+  const content = formData.get('content');
+  
+  await db.posts.create({
+    data: { title, content }
+  });
+  
+  revalidatePath('/blog');
+}
+```
+
+## Metadata API
+
+Genera metadata dinámica de forma sencilla:
+
+```tsx
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const post = await getPost(params.id);
+  
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
+  };
+}
+```
+
+## Streaming y Suspense
+
+Mejora la experiencia de usuario con carga progresiva:
+
+```tsx
+import { Suspense } from 'react';
+
+export default function Page() {
+  return (
+    <div>
+      <h1>My Blog</h1>
+      <Suspense fallback={<Loading />}>
+        <BlogPosts />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+## Mejores Prácticas
+
+### 1. Usa Server Components Siempre que Sea Posible
+
+Los Server Components reducen el bundle de JavaScript enviado al cliente y mejoran el rendimiento.
+
+### 2. Implementa Loading States
+
+```tsx
+// app/blog/loading.tsx
+export default function Loading() {
+  return <div>Loading posts...</div>;
+}
+```
+
+### 3. Maneja Errores Correctamente
+
+```tsx
+// app/blog/error.tsx
+'use client';
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) {
+  return (
+    <div>
+      <h2>Something went wrong!</h2>
+      <button onClick={reset}>Try again</button>
+    </div>
+  );
+}
+```
+
+## Conclusión
+
+Next.js 14 y el App Router representan un salto significativo en el desarrollo web moderno. Las mejoras en rendimiento, developer experience y las nuevas características como Server Actions hacen que sea más fácil que nunca crear aplicaciones web rápidas y escalables.
+
+### Recursos Adicionales
+
+- [Documentación oficial de Next.js](https://nextjs.org/docs)
+- [Next.js GitHub Repository](https://github.com/vercel/next.js)
+- [Vercel Blog](https://vercel.com/blog)
+
+¿Has probado Next.js 14? ¡Comparte tu experiencia en los comentarios!
