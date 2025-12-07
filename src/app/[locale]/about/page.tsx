@@ -71,8 +71,9 @@ export default function AboutPage() {
           <FadeIn className="lg:col-span-1 flex flex-col items-center text-center">
             <Avatar className="h-40 w-40 border-4 border-primary">
               <AvatarImage
-                src="https://storage.googleapis.com/ticket_world_media/foto%20portfolio.png"
+                src="/images/profile/avatar.webp"
                 alt="Arnie Calderon"
+                className="object-cover object-center"
               />
               <AvatarFallback>AC</AvatarFallback>
             </Avatar>

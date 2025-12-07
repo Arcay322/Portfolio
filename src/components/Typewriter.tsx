@@ -1,17 +1,17 @@
 "use client";
 import { useState, useEffect } from 'react';
 
-const Typewriter = ({ 
-  text, 
-  speed = 150, 
+const Typewriter = ({
+  text,
+  speed = 150,
   className,
   showCursor = true,
   loop = false,
   deleteSpeed = 50,
   pauseTime = 2000
-}: { 
-  text: string, 
-  speed?: number, 
+}: {
+  text: string,
+  speed?: number,
   className?: string,
   showCursor?: boolean,
   loop?: boolean,
@@ -62,7 +62,7 @@ const Typewriter = ({
   return (
     <h1 className={className}>
       {displayedText}
-      {showCursor && (
+      {showCursor && !(index === text.length && !loop) && (
         <span className="animate-pulse text-primary">|</span>
       )}
     </h1>

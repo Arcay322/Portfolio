@@ -82,22 +82,25 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
     justify-content: center;
+    cursor: none;
   }
 
-  /* Patrón de fondo para tema oscuro */
-  .dark body {
-    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
+  /* Hide default cursor on all interactive elements */
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"],
+  .cursor-pointer {
+    cursor: none !important;
   }
 
-  /* Patrón de fondo para tema claro */
-  body:not(.dark) {
-    background-image: radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
+  /* Patrón de fondo eliminado en favor de GridBackground component */
 }
 
 @layer utilities {

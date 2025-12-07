@@ -19,6 +19,7 @@ import { WebVitalsReporter } from "@/components/WebVitalsReporter";
 import { ServiceWorkerRegistrar } from "@/components/ServiceWorkerRegistrar";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { CustomCursor } from "@/components/CustomCursor";
+import { ParticlesBackground } from "@/components/ParticlesBackground";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -135,6 +136,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <KeyboardNavigationProvider enableShortcuts={true}>
               <SmoothScroll />
               <CustomCursor />
+              <ParticlesBackground />
               <GoogleAnalytics />
               <WebVitalsReporter />
               <ServiceWorkerRegistrar />

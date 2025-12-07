@@ -61,7 +61,7 @@ export function Header() {
         className="sticky top-0 z-50 w-full border-b border-border/40 glass-card"
         role="banner"
       >
-        <div className="container flex h-14 items-center">
+        <div className="container flex h-20 items-center">
           <div className="mr-4 flex items-center">
             <Link
               href="/"

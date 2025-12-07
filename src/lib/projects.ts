@@ -46,8 +46,8 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     featured: true,
     isNew: true,
     date: "2024-10-01",
-    // Multimedia gallery - cambia el número 3 por cuantas imágenes tengas
-    media: Array.from({ length: 3 }, (_, i) => ({
+    // Multimedia gallery - cambia el número 9 por cuantas imágenes tengas
+    media: Array.from({ length: 9 }, (_, i) => ({
       type: "image" as const,
       src: `/images/projects/sumaq-uywa/SumaqUywa_${i + 1}.webp`,
       alt: `Sumaq Uywa - Captura ${i + 1}`,
