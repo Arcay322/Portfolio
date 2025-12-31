@@ -1,0 +1,190 @@
+﻿
+> nextn@0.1.0 build
+> next build && next-sitemap
+
+   Ôû▓ Next.js 15.5.9
+   - Experiments (use with caution):
+     ┬À optimizePackageImports
+
+   Creating an optimized production build ...
+ Ô£ô Compiled successfully in 3.9s
+   Linting and checking validity of types ...
+node.exe : 
+En línea: 1 
+Carácter: 1
++ & "C:\Program Files
+\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (:String   
+ ) [], RemoteExce    
+ption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+Failed to compile.
+
+./src/app/[locale]/co
+ntact/page.tsx
+16:14  Error: 
+'Linkedin' is not 
+defined.  
+react/jsx-no-undef
+24:14  Error: 
+'Github' is not 
+defined.  
+react/jsx-no-undef
+33:8  Error: 
+'JsonLd' is not 
+defined.  
+react/jsx-no-undef
+38:10  Error: 
+'Breadcrumbs' is not 
+defined.  
+react/jsx-no-undef
+43:14  Error: 
+'FadeIn' is not 
+defined.  
+react/jsx-no-undef
+52:14  Error: 
+'FadeIn' is not 
+defined.  
+react/jsx-no-undef
+56:20  Error: 'Link' 
+is not defined.  
+react/jsx-no-undef
+79:12  Error: 
+'ScrollReveal' is 
+not defined.  
+react/jsx-no-undef
+80:14  Error: 'Card' 
+is not defined.  
+react/jsx-no-undef
+82:16  Error: 
+'CardHeader' is not 
+defined.  
+react/jsx-no-undef
+83:18  Error: 
+'CardTitle' is not 
+defined.  
+react/jsx-no-undef
+85:16  Error: 
+'CardContent' is not 
+defined.  
+react/jsx-no-undef
+86:18  Error: 
+'ContactForm' is not 
+defined.  
+react/jsx-no-undef
+
+./src/app/[locale]/pr
+ojects/[slug]/page.ts
+x
+270:28  Error: 
+'CardDescription' is 
+not defined.  
+react/jsx-no-undef
+
+./src/components/Imag
+eCarousel.tsx
+91:11  Warning: 
+Using `<img>` could 
+result in slower LCP 
+and higher 
+bandwidth. Consider 
+using `<Image />` 
+from `next/image` or 
+a custom image 
+loader to 
+automatically 
+optimize images. 
+This may incur 
+additional usage or 
+cost from your 
+provider. See: https:
+//nextjs.org/docs/mes
+sages/no-img-element 
+ @next/next/no-img-el
+ement
+140:15  Warning: 
+Using `<img>` could 
+result in slower LCP 
+and higher 
+bandwidth. Consider 
+using `<Image />` 
+from `next/image` or 
+a custom image 
+loader to 
+automatically 
+optimize images. 
+This may incur 
+additional usage or 
+cost from your 
+provider. See: https:
+//nextjs.org/docs/mes
+sages/no-img-element 
+ @next/next/no-img-el
+ement
+197:19  Warning: 
+Using `<img>` could 
+result in slower LCP 
+and higher 
+bandwidth. Consider 
+using `<Image />` 
+from `next/image` or 
+a custom image 
+loader to 
+automatically 
+optimize images. 
+This may incur 
+additional usage or 
+cost from your 
+provider. See: https:
+//nextjs.org/docs/mes
+sages/no-img-element 
+ @next/next/no-img-el
+ement
+
+./src/components/proj
+ects/ProjectGallery.t
+sx
+3:10  Warning: 
+'useState' is 
+defined but never 
+used.  @typescript-es
+lint/no-unused-vars
+68:37  Warning: 
+Using `<img>` could 
+result in slower LCP 
+and higher 
+bandwidth. Consider 
+using `<Image />` 
+from `next/image` or 
+a custom image 
+loader to 
+automatically 
+optimize images. 
+This may incur 
+additional usage or 
+cost from your 
+provider. See: https:
+//nextjs.org/docs/mes
+sages/no-img-element 
+ @next/next/no-img-el
+ement
+
+info  - Need to 
+disable some ESLint 
+rules? Learn more 
+here: https://nextjs.
+org/docs/app/api-refe
+rence/config/eslint#d
+isabling-rules

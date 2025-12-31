@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github, ArrowRight, Star, CheckCircle } from "lucide-react"
+import { ExternalLink, ArrowRight, Star, CheckCircle } from "lucide-react"
 import { techColors } from "@/lib/constants"
 import { useTranslations } from "next-intl"
 
@@ -15,15 +15,15 @@ interface ProjectSpotlightProps {
         description: string
         image: string
         tags: string[]
-        liveUrl: string
-        githubUrl: string
+        liveUrl?: string
+        githubUrl?: string
         slug: string
         inProduction?: boolean
+        featured?: boolean
     }
 }
 
 export function ProjectSpotlight({ project }: ProjectSpotlightProps) {
-    const t = useTranslations('projects.buttons')
     const tBadges = useTranslations('projects.badges')
 
     return (
@@ -49,9 +49,11 @@ export function ProjectSpotlight({ project }: ProjectSpotlightProps) {
                 {/* Content Section */}
                 <div className="p-8 lg:p-12 flex flex-col justify-center relative">
                     <div className="absolute top-6 right-6 flex gap-2 z-10">
-                        <Badge className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white border-0 shadow-lg flex items-center gap-1 px-3 py-1 text-sm">
-                            <Star className="h-3 w-3" /> {tBadges('featured')}
-                        </Badge>
+                        {project.featured && (
+                            <Badge className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white border-0 shadow-lg flex items-center gap-1 px-3 py-1 text-sm">
+                                <Star className="h-3 w-3" /> {tBadges('featured')}
+                            </Badge>
+                        )}
                         {project.inProduction && (
                             <Badge className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-0 shadow-lg flex items-center gap-1 px-3 py-1 text-sm">
                                 <CheckCircle className="h-3 w-3" /> {tBadges('in_production')}

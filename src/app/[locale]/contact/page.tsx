@@ -1,6 +1,5 @@
-"use client"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Linkedin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "./contact-form";
 import { FadeIn } from "@/components/animations/FadeIn";

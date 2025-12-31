@@ -2,9 +2,9 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { ArrowLeft, ExternalLink, Github, CheckCircle2, Zap, Quote, Building2, Eye, Star, Sparkles, CheckCircle } from "lucide-react"
+import { ArrowLeft, CheckCircle2, Zap, Quote, Eye, Star } from "lucide-react"
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/project-utils"
 import { FadeIn } from "@/components/animations/FadeIn"
 import { ScrollReveal } from "@/components/animations/ScrollReveal"
@@ -39,8 +39,6 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
   const params = await props.params
   const t = await getTranslations('project_detail')
   const tProjects = await getTranslations('projects')
-  const tBadges = await getTranslations('projects.badges')
-  const tButtons = await getTranslations('projects.buttons')
   const project = getProjectBySlug(params.slug, tProjects)
 
   if (!project) {

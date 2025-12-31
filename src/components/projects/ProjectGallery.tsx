@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
@@ -18,7 +17,6 @@ interface ProjectGalleryProps {
 }
 
 export function ProjectGallery({ media }: ProjectGalleryProps) {
-    const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null)
 
     if (!media || media.length === 0) return null
 
@@ -36,7 +34,6 @@ export function ProjectGallery({ media }: ProjectGalleryProps) {
                                     "relative group cursor-pointer overflow-hidden rounded-xl bg-muted",
                                     isFeatured ? "md:col-span-2 md:row-span-2" : "col-span-1 row-span-1"
                                 )}
-                                onClick={() => setSelectedMedia(item)}
                             >
                                 <Image
                                     src={item.thumbnail || item.src}

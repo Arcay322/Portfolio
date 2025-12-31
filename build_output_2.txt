@@ -1,0 +1,104 @@
+﻿
+> nextn@0.1.0 build
+> next build && next-sitemap
+
+   Ôû▓ Next.js 15.5.9
+   - Experiments (use with caution):
+     ┬À optimizePackageImports
+
+   Creating an optimized production build ...
+ Ô£ô Compiled successfully in 5.7s
+   Linting and checking validity of types ...
+
+./src/app/[locale]/contact/page.tsx
+2:28  Warning: 'Mail' is defined but never used.  @typescript-eslint/no-unused-vars
+2:34  Warning: 'MapPin' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/ImageCarousel.tsx
+91:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+140:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+197:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/projects/ProjectGallery.tsx
+67:37  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/35) ...
+   Generating static pages (8/35) 
+   Generating static pages (17/35) 
+   Generating static pages (26/35) 
+ Ô£ô Generating static pages (35/35)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                       Size  First Load JS
+Ôöî Ôùï /_not-found                                  993 B         103 kB
+Ôö£ ÔùÅ /[locale]                                  5.94 kB         189 kB
+Ôö£   Ôö£ /es
+Ôö£   Ôöö /en
+Ôö£ ÔùÅ /[locale]/about                            20.3 kB         193 kB
+Ôö£   Ôö£ /es/about
+Ôö£   Ôöö /en/about
+Ôö£ ÔùÅ /[locale]/blog                               174 B         111 kB
+Ôö£   Ôö£ /es/blog
+Ôö£   Ôöö /en/blog
+Ôö£ ÔùÅ /[locale]/blog/[slug]                      1.22 kB         112 kB
+Ôö£   Ôö£ /es/blog/nextjs-14-guide
+Ôö£   Ôö£ /es/blog/typescript-tips-2024
+Ôö£   Ôö£ /es/blog/react-performance-optimization
+Ôö£   Ôöö [+3 more paths]
+Ôö£ ÔùÅ /[locale]/changelog                          141 B         102 kB
+Ôö£   Ôö£ /es/changelog
+Ôö£   Ôöö /en/changelog
+Ôö£ ÔùÅ /[locale]/contact                          29.1 kB         199 kB
+Ôö£   Ôö£ /es/contact
+Ôö£   Ôöö /en/contact
+Ôö£ ÔùÅ /[locale]/faq                              2.68 kB         119 kB
+Ôö£   Ôö£ /es/faq
+Ôö£   Ôöö /en/faq
+Ôö£ ÔùÅ /[locale]/projects                         7.82 kB         216 kB
+Ôö£   Ôö£ /es/projects
+Ôö£   Ôöö /en/projects
+Ôö£ ÔùÅ /[locale]/projects/[slug]                  5.29 kB         178 kB
+Ôö£   Ôö£ /es/projects/ticket-world
+Ôö£   Ôö£ /es/projects/sumaq-uywa
+Ôö£   Ôö£ /es/projects/ventify
+Ôö£   Ôöö [+3 more paths]
+Ôö£ ãÆ /api/analytics/error                         141 B         102 kB
+Ôö£ ãÆ /api/analytics/performance                   141 B         102 kB
+Ôö£ ãÆ /api/analytics/vitals                        141 B         102 kB
+Ôö£ ãÆ /api/newsletter/subscribe                    141 B         102 kB
+Ôöö ãÆ /rss.xml                                     141 B         102 kB
++ First Load JS shared by all                   102 kB
+  Ôö£ chunks/255-cb395327542b56ef.js             45.9 kB
+  Ôö£ chunks/4bd1b696-c023c6e3521b1417.js        54.2 kB
+  Ôöö other shared chunks (total)                2.03 kB
+
+
+ãÆ Middleware                                   61.8 kB
+
+Ôùï  (Static)   prerendered as static content
+ÔùÅ  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ãÆ  (Dynamic)  server-rendered on demand
+
+Ô£¿ [next-sitemap] Loading next-sitemap config: file:///A:/trabajo/portfolio/next-sitemap.config.js
+Ô£à [next-sitemap] Generation completed
+ÔöîÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÉ
+Ôöé (index)       Ôöé Values Ôöé
+Ôö£ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöñ
+Ôöé indexSitemaps Ôöé 0      Ôöé
+Ôöé sitemaps      Ôöé 0      Ôöé
+ÔööÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÿ
+
+> nextn@0.1.0 postbuild
+> next-sitemap
+
+Ô£¿ [next-sitemap] Loading next-sitemap config: file:///A:/trabajo/portfolio/next-sitemap.config.js
+Ô£à [next-sitemap] Generation completed
+ÔöîÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÉ
+Ôöé (index)       Ôöé Values Ôöé
+Ôö£ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöñ
+Ôöé indexSitemaps Ôöé 0      Ôöé
+Ôöé sitemaps      Ôöé 0      Ôöé
+ÔööÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÿ

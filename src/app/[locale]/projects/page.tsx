@@ -6,7 +6,6 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { JsonLd } from "@/components/JsonLd";
 import { generateProjectSchema, generateBreadcrumbSchema } from "@/lib/schema";

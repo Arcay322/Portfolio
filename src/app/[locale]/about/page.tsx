@@ -195,7 +195,7 @@ export default function AboutPage() {
                     className="group flex flex-col items-center justify-center p-6 hover:shadow-xl transition-all duration-300 min-h-[140px] gap-4 border-muted/40 bg-background/50 backdrop-blur-sm relative overflow-hidden"
                     style={{
                       // We use CSS variables for the hover color to keep it clean
-                      // @ts-ignore
+                      // @ts-expect-error - CSS custom properties are valid in style objects but TS complains
                       "--hover-color": color
                     }}
                   >
@@ -205,9 +205,8 @@ export default function AboutPage() {
                     />
                     <div
                       className="transform group-hover:scale-110 transition-transform duration-300 text-muted-foreground group-hover:text-[var(--hover-color)]"
-                      style={{ color: 'inherit' }} // Let the group-hover handle the color change via CSS variable or direct style if needed
+                      style={{ color: 'inherit' }}
                     >
-                      {/* We clone the icon to apply the color directly if needed, or rely on the parent color */}
                       <div style={{ color: "inherit" }}>
                         {skill.icon}
                       </div>
@@ -218,7 +217,6 @@ export default function AboutPage() {
                       {skill.name}
                     </p>
 
-                    {/* Border glow effect */}
                     <div
                       className="absolute inset-0 border-2 border-transparent group-hover:border-[var(--hover-color)] rounded-xl transition-colors duration-300 pointer-events-none"
                     />
@@ -226,8 +224,8 @@ export default function AboutPage() {
                 </StaggerItem>
               );
             })}
-          </StaggerContainer>
-        </section>
+          </StaggerContainer >
+        </section >
 
 
         <section className="mt-24">
@@ -315,7 +313,7 @@ export default function AboutPage() {
             }}
           />
         </div>
-      </div>
+      </div >
     </>
   );
 }
