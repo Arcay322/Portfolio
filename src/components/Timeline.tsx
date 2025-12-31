@@ -62,43 +62,46 @@ export function Timeline() {
   ]
 
   return (
-    <div className="relative">
-      {/* Línea vertical */}
-      <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+    <div className="relative max-w-4xl mx-auto">
+      {/* Línea vertical con gradiente */}
+      <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-purple-500 to-transparent opacity-50" />
 
-      <div className="space-y-8">
+      <div className="space-y-12">
         {timeline.map((item, index) => {
           const Icon = iconMap[item.icon]
-          
+
           return (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative pl-20"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="relative pl-24 group"
             >
               {/* Icono en la línea */}
               <div className="absolute left-0 w-16 h-16 flex items-center justify-center">
-                <div className="w-12 h-12 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center">
-                  <Icon className="h-6 w-6 text-primary" />
+                <div className="relative z-10 w-12 h-12 rounded-full bg-background border-2 border-primary/50 group-hover:border-primary flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-[0_0_15px_rgba(var(--primary),0.3)]">
+                  <div className="absolute inset-0 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300" />
+                  <Icon className="h-5 w-5 text-primary relative z-10" />
                 </div>
+                {/* Conector horizontal */}
+                <div className="absolute left-12 top-1/2 w-12 h-0.5 bg-gradient-to-r from-primary/50 to-transparent" />
               </div>
 
               {/* Contenido */}
-              <Card className="hover:shadow-lg hover:shadow-primary/10 transition-shadow duration-300">
+              <Card className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-muted/40 bg-background/50 backdrop-blur-sm group-hover:border-primary/30">
                 <CardContent className="pt-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Calendar className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm font-semibold text-primary">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                      <Calendar className="h-3 w-3" />
                       {item.year}
-                    </span>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold font-headline mb-2">
+                  <h3 className="text-xl font-bold font-headline mb-2 group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground leading-relaxed">
                     {item.description}
                   </p>
                 </CardContent>

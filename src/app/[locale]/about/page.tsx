@@ -16,6 +16,7 @@ import { StatsCounter } from "@/components/StatsCounter";
 import { CTASection } from "@/components/CTAComponents";
 import { useTranslations } from "next-intl";
 import { skills } from "@/lib/skills";
+import { techColors } from "@/lib/constants";
 
 export default function AboutPage() {
   const t = useTranslations('about');
@@ -65,28 +66,38 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd data={[personSchema, breadcrumbSchema]} />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative min-h-screen">
+        {/* Mesh gradient background */}
+        <div className="absolute top-0 left-0 w-full h-96 mesh-gradient-2 opacity-50 -z-10" />
+
         <Breadcrumbs items={[{ label: t('title'), href: '/about' }]} />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-          <FadeIn className="lg:col-span-1 flex flex-col items-center text-center">
-            <Avatar className="h-40 w-40 border-4 border-primary">
-              <AvatarImage
-                src="/images/profile/avatar.webp"
-                alt="Arnie Calderon"
-                className="object-cover object-center"
-              />
-              <AvatarFallback>AC</AvatarFallback>
-            </Avatar>
-            <h1 className="mt-6 text-4xl font-bold font-headline">
+          <FadeIn className="lg:col-span-1 flex flex-col items-center text-center sticky top-24">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-full opacity-25 group-hover:opacity-50 blur transition duration-1000 group-hover:duration-200" />
+              <Avatar className="h-48 w-48 border-4 border-background relative shadow-xl">
+                <AvatarImage
+                  src="/images/profile/avatar.webp"
+                  alt="Arnie Calderon"
+                  className="object-cover object-center"
+                />
+                <AvatarFallback>AC</AvatarFallback>
+              </Avatar>
+            </div>
+
+            <h1 className="mt-8 text-4xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
               {t('name')}
             </h1>
-            <p className="mt-2 text-xl text-muted-foreground">
+            <p className="mt-2 text-xl text-muted-foreground font-medium">
               {t('role')}
             </p>
-            <div className="mt-6 flex gap-3">
+
+            <div className="mt-8 flex gap-4">
               <Button
                 variant="outline"
                 size="icon"
+                className="rounded-full w-12 h-12 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
                 asChild
               >
                 <Link
@@ -99,6 +110,7 @@ export default function AboutPage() {
               <Button
                 variant="outline"
                 size="icon"
+                className="rounded-full w-12 h-12 hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all duration-300 hover:scale-110"
                 asChild
               >
                 <Link
@@ -113,6 +125,7 @@ export default function AboutPage() {
               <Button
                 variant="outline"
                 size="icon"
+                className="rounded-full w-12 h-12 hover:bg-black hover:text-white hover:border-black dark:hover:bg-white dark:hover:text-black transition-all duration-300 hover:scale-110"
                 asChild
               >
                 <Link
@@ -125,17 +138,20 @@ export default function AboutPage() {
                 </Link>
               </Button>
             </div>
-            <div className="mt-4">
+            <div className="mt-6 w-full max-w-xs">
               <DownloadCVButton />
             </div>
           </FadeIn>
 
           <FadeIn delay={0.2} className="lg:col-span-2">
-            <Card>
+            <Card className="border-none shadow-lg bg-background/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="font-headline text-3xl">{t('bio_title')}</CardTitle>
+                <CardTitle className="font-headline text-3xl flex items-center gap-3">
+                  <span className="w-1 h-8 bg-primary rounded-full inline-block" />
+                  {t('bio_title')}
+                </CardTitle>
               </CardHeader>
-              <CardContent className="text-lg text-muted-foreground space-y-4">
+              <CardContent className="text-lg text-muted-foreground space-y-6 leading-relaxed">
                 <p>
                   {t('bio_paragraph1')}
                 </p>
@@ -151,63 +167,98 @@ export default function AboutPage() {
         </div>
 
         {/* Stats Counter */}
-        <section className="mt-16">
+        <section className="mt-24">
           <ScrollReveal>
             <h2 className="text-4xl font-bold text-center font-headline mb-4">
               {t('stats_title')}
             </h2>
-            <p className="text-center text-muted-foreground mb-12">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               {t('stats_subtitle')}
             </p>
           </ScrollReveal>
           <StatsCounter />
         </section>
 
-        <section className="mt-16">
+        <section className="mt-24">
           <ScrollReveal>
-            <h2 className="text-4xl font-bold text-center font-headline">
+            <h2 className="text-4xl font-bold text-center font-headline mb-12">
               {t('skills_title')}
             </h2>
           </ScrollReveal>
-          <StaggerContainer className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {skills.map((skill) => (
-              <StaggerItem key={skill.name}>
-                <Card className="flex flex-col items-center justify-center p-6 hover:shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300 min-h-[140px] gap-4">
-                  {skill.icon}
-                  <p className="font-semibold text-lg text-center">{skill.name}</p>
-                </Card>
-              </StaggerItem>
-            ))}
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {skills.map((skill) => {
+              const color = techColors[skill.name] || "hsl(var(--primary))";
+
+              return (
+                <StaggerItem key={skill.name}>
+                  <Card
+                    className="group flex flex-col items-center justify-center p-6 hover:shadow-xl transition-all duration-300 min-h-[140px] gap-4 border-muted/40 bg-background/50 backdrop-blur-sm relative overflow-hidden"
+                    style={{
+                      // We use CSS variables for the hover color to keep it clean
+                      // @ts-ignore
+                      "--hover-color": color
+                    }}
+                  >
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                      style={{ backgroundColor: color }}
+                    />
+                    <div
+                      className="transform group-hover:scale-110 transition-transform duration-300 text-muted-foreground group-hover:text-[var(--hover-color)]"
+                      style={{ color: 'inherit' }} // Let the group-hover handle the color change via CSS variable or direct style if needed
+                    >
+                      {/* We clone the icon to apply the color directly if needed, or rely on the parent color */}
+                      <div style={{ color: "inherit" }}>
+                        {skill.icon}
+                      </div>
+                    </div>
+                    <p
+                      className="font-semibold text-lg text-center transition-colors group-hover:text-[var(--hover-color)]"
+                    >
+                      {skill.name}
+                    </p>
+
+                    {/* Border glow effect */}
+                    <div
+                      className="absolute inset-0 border-2 border-transparent group-hover:border-[var(--hover-color)] rounded-xl transition-colors duration-300 pointer-events-none"
+                    />
+                  </Card>
+                </StaggerItem>
+              );
+            })}
           </StaggerContainer>
         </section>
 
-        <section className="mt-16">
+
+        <section className="mt-24">
           <ScrollReveal>
-            <h2 className="text-4xl font-bold text-center font-headline mb-12">
+            <h2 className="text-4xl font-bold text-center font-headline mb-16">
               {t('timeline_title')}
             </h2>
           </ScrollReveal>
           <Timeline />
         </section>
 
-        <section className="mt-16">
+        <section className="mt-24">
           <ScrollReveal>
-            <h2 className="text-4xl font-bold text-center font-headline">
+            <h2 className="text-4xl font-bold text-center font-headline mb-12">
               {t('projects_title')}
             </h2>
           </ScrollReveal>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {experiences.map((exp, index) => (
               <ScrollReveal key={exp.title} delay={index * 0.15}>
-                <Card className="hover:shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300 h-full">
-                  <CardHeader className="items-center text-center">
-                    {exp.icon}
-                    <CardTitle className="font-headline text-2xl mt-4">
+                <Card className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full border-muted/40 bg-background/50 backdrop-blur-sm">
+                  <CardHeader className="items-center text-center pb-2">
+                    <div className="p-3 rounded-full bg-primary/10 text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {exp.icon}
+                    </div>
+                    <CardTitle className="font-headline text-2xl">
                       {exp.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-center text-muted-foreground">
+                    <p className="text-center text-muted-foreground leading-relaxed">
                       {exp.description}
                     </p>
                   </CardContent>
@@ -218,24 +269,26 @@ export default function AboutPage() {
         </section>
 
         {/* Hobbies Section */}
-        <section className="mt-16">
+        <section className="mt-24 mb-12">
           <ScrollReveal>
-            <h2 className="text-4xl font-bold text-center font-headline">
+            <h2 className="text-4xl font-bold text-center font-headline mb-12">
               {t('hobbies_title')}
             </h2>
           </ScrollReveal>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {hobbies.map((hobby, index) => (
               <ScrollReveal key={hobby.title} delay={index * 0.15}>
-                <Card className="hover:shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300 h-full">
-                  <CardHeader className="items-center text-center">
-                    {hobby.icon}
-                    <CardTitle className="font-headline text-2xl mt-4">
+                <Card className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full border-muted/40 bg-background/50 backdrop-blur-sm">
+                  <CardHeader className="items-center text-center pb-2">
+                    <div className="p-3 rounded-full bg-primary/10 text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {hobby.icon}
+                    </div>
+                    <CardTitle className="font-headline text-2xl">
                       {hobby.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-center text-muted-foreground">
+                    <p className="text-center text-muted-foreground leading-relaxed">
                       {hobby.description}
                     </p>
                   </CardContent>
@@ -246,7 +299,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA Section */}
-        <div className="mt-16">
+        <div className="mt-24">
           <CTASection
             title={t('cta_title')}
             description={t('cta_description')}

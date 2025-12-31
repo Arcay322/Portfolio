@@ -17,21 +17,9 @@ import Image from "next/image"
 import { ProjectHero } from "@/components/projects/ProjectHero"
 import { ProjectSidebar } from "@/components/projects/ProjectSidebar"
 import { ProjectGallery } from "@/components/projects/ProjectGallery"
+import { techColors } from "@/lib/constants"
 
-const techColors: { [key: string]: string } = {
-  Python: "#3776AB",
-  Django: "#0C4B33",
-  PostgreSQL: "#336791",
-  JavaScript: "#F7DF1E",
-  "HTML/CSS": "#E34F26",
-  React: "#61DAFB",
-  TypeScript: "#3178C6",
-  "Node.js": "#339933",
-  "Tailwind CSS": "#06B6D4",
-  "Next.js": "#000000",
-  Firebase: "#FFCA28",
-  Docker: "#2496ED",
-};
+
 
 export async function generateStaticParams() {
   const { default: esMessages } = await import('@/messages/es.json');

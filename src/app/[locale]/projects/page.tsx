@@ -1,10 +1,12 @@
 "use client"
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { ProjectCard } from "@/components/ProjectCard";
 import { getProjects } from "@/lib/projects";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { JsonLd } from "@/components/JsonLd";
 import { generateProjectSchema, generateBreadcrumbSchema } from "@/lib/schema";
@@ -14,18 +16,31 @@ import { CTASection } from "@/components/CTAComponents";
 import { SortDropdown, sortProjects, type SortOption } from "@/components/SortDropdown";
 import { useKeyboardNavigation } from "@/hooks/useKeyboardNavigation";
 import { useTranslations } from "next-intl";
+import { Search, X, Filter } from "lucide-react";
+import { techColors } from "@/lib/constants";
+import { ProjectSpotlight } from "@/components/projects/ProjectSpotlight";
+import { getProjectSlug } from "@/lib/project-utils";
 
 export default function ProjectsPage() {
   const t = useTranslations('projects');
   const projects = getProjects((key: string) => t(key));
+
+  // Add slug to projects for Spotlight
+  const projectsWithSlug = projects.map(p => ({
+    ...p,
+    slug: getProjectSlug(p.title)
+  }));
+
   const projectSchemas = projects.map(project => generateProjectSchema(project));
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Inicio', url: 'https://arcay.dev' },
     { name: 'Proyectos', url: 'https://arcay.dev/projects' },
   ]);
+
   const [selectedTag, setSelectedTag] = useState<string>("Todos");
+  const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("date-desc");
-  
+
   // Keyboard navigation
   useKeyboardNavigation({
     enableHomeEnd: true,
@@ -35,10 +50,30 @@ export default function ProjectsPage() {
   // Obtener todas las tecnologías únicas
   const allTags = [t('all'), ...new Set(projects.flatMap(project => project.tags))];
 
-  // Filtrar proyectos según la tecnología seleccionada
-  const filteredProjects = selectedTag === "Todos" 
-    ? projects 
-    : projects.filter(project => project.tags.includes(selectedTag));
+  // Featured Project (Spotlight) - Prioritize Ventify, then featured, then first
+  const spotlightProject = projectsWithSlug.find(p => p.slug === 'ventify') || projectsWithSlug.find(p => p.featured) || projectsWithSlug[0];
+
+  // Filtrar y Buscar proyectos
+  const filteredProjects = useMemo(() => {
+    return projectsWithSlug.filter(project => {
+      // Filter by Tag
+      const matchesTag = selectedTag === "Todos" || (selectedTag === t('all')) || project.tags.includes(selectedTag);
+
+      // Filter by Search
+      const searchLower = searchQuery.toLowerCase();
+      const matchesSearch =
+        project.title.toLowerCase().includes(searchLower) ||
+        project.description.toLowerCase().includes(searchLower) ||
+        project.tags.some(tag => tag.toLowerCase().includes(searchLower));
+
+      // Exclude spotlight from grid if no filters are active (to avoid duplication)
+      // But show it if searching/filtering to ensure results are complete
+      const isSpotlight = project.title === spotlightProject.title;
+      const showSpotlightInGrid = searchQuery !== "" || (selectedTag !== "Todos" && selectedTag !== t('all'));
+
+      return matchesTag && matchesSearch && (!isSpotlight || showSpotlightInGrid);
+    });
+  }, [projectsWithSlug, selectedTag, searchQuery, spotlightProject, t]);
 
   // Ordenar proyectos
   const sortedProjects = sortProjects(filteredProjects, sortBy);
@@ -51,82 +86,146 @@ export default function ProjectsPage() {
   return (
     <>
       <JsonLd data={[...projectSchemas, breadcrumbSchema]} />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative min-h-screen">
         {/* Mesh gradient background */}
         <div className="absolute top-0 left-0 w-full h-96 mesh-gradient-2 opacity-50 -z-10" />
-        
+
         <Breadcrumbs items={[{ label: t('title'), href: '/projects' }]} />
-        <section className="text-center">
-        <FadeIn>
-          <h1 className="text-5xl font-bold font-headline">{t('title')}</h1>
-        </FadeIn>
-        <FadeIn delay={0.2}>
-          <p className="mt-4 text-lg text-muted-foreground">
-            {t('description')}
-          </p>
-        </FadeIn>
-      </section>
 
-      {/* Filtros y Sorting */}
-      <FadeIn delay={0.3} className="mt-8 space-y-4">
-        <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
-          {allTags.map((tag) => (
-            <Button
-              key={tag}
-              variant={selectedTag === tag ? "default" : "outline"}
-              size="sm"
-              onClick={() => handleTagFilter(tag)}
-              className="transition-all hover:scale-105"
+        <section className="mb-16">
+          <FadeIn>
+            <h1 className="text-5xl font-bold font-headline mb-4">{t('title')}</h1>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              {t('description')}
+            </p>
+          </FadeIn>
+        </section>
+
+        {/* Spotlight Section (Only visible when no filters active) */}
+        {selectedTag === "Todos" && searchQuery === "" && (
+          <FadeIn delay={0.2}>
+            <ProjectSpotlight project={spotlightProject} />
+          </FadeIn>
+        )}
+
+        {/* Search and Filter Bar */}
+        <div className="sticky top-20 z-30 bg-background/80 backdrop-blur-md py-4 -mx-4 px-4 mb-8 border-y border-border/50">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between">
+
+            {/* Search Input */}
+            <div className="relative w-full md:w-96">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/50" />
+              <Input
+                placeholder="Buscar proyectos..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 bg-background border border-foreground/30 focus:border-primary transition-colors text-foreground placeholder:text-muted-foreground shadow-sm"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Sort Dropdown */}
+            <SortDropdown currentSort={sortBy} onSortChange={setSortBy} />
+          </div>
+
+          {/* Tags Filter */}
+          <div className="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+            <Filter className="h-4 w-4 text-foreground/70 mr-2 mt-2" />
+            {allTags.map((tag) => {
+              const isActive = selectedTag === tag;
+              const color = techColors[tag] || "hsl(var(--primary))";
+
+              return (
+                <button
+                  key={tag}
+                  onClick={() => handleTagFilter(tag)}
+                  className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${isActive ? "" : "hover:bg-muted/50"
+                    }`}
+                  style={{
+                    color: isActive ? "#fff" : "hsl(var(--foreground))",
+                    opacity: isActive ? 1 : 0.8
+                  }}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeTag"
+                      className="absolute inset-0 rounded-full"
+                      style={{ backgroundColor: tag === t('all') ? "hsl(var(--primary))" : color }}
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{tag}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="max-w-7xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.section
+              key={selectedTag + searchQuery + sortBy}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {tag}
-            </Button>
-          ))}
+              {sortedProjects.length > 0 ? (
+                sortedProjects.map((project, index) => (
+                  <ScrollReveal key={`${project.title}-${sortBy}`} delay={index * 0.05}>
+                    <ProjectCard project={project} isPriority={false} />
+                  </ScrollReveal>
+                ))
+              ) : (
+                <div className="col-span-full text-center py-20">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4">
+                    <Search className="h-8 w-8 text-muted-foreground" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">No se encontraron proyectos</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Intenta ajustar tu búsqueda o filtros
+                  </p>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setSelectedTag("Todos");
+                      setSearchQuery("");
+                    }}
+                  >
+                    Limpiar filtros
+                  </Button>
+                </div>
+              )}
+            </motion.section>
+          </AnimatePresence>
         </div>
-        <div className="flex justify-center">
-          <SortDropdown currentSort={sortBy} onSortChange={setSortBy} />
+
+        {/* CTA Section */}
+        <div className="mt-24">
+          <CTASection
+            title={t('cta_title')}
+            description={t('cta_description')}
+            primaryAction={{
+              label: t('cta_primary'),
+              href: "/contact",
+              icon: "mail"
+            }}
+            secondaryAction={{
+              label: t('cta_secondary'),
+              href: "/about",
+              icon: "arrow"
+            }}
+          />
         </div>
-      </FadeIn>
-
-      <div className="max-w-6xl mx-auto">
-        <AnimatePresence mode="wait">
-          <motion.section
-            key={selectedTag}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
-            {sortedProjects.length > 0 ? (
-              sortedProjects.map((project, index) => (
-                <ScrollReveal key={`${project.title}-${sortBy}`} delay={index * 0.1}>
-                  <ProjectCard project={project} isPriority={index === 0} />
-                </ScrollReveal>
-              ))
-            ) : (
-              <div className="col-span-2 text-center py-12">
-                <p className="text-muted-foreground">{t('no_projects')}</p>
-              </div>
-            )}
-          </motion.section>
-        </AnimatePresence>
-      </div>
-
-      {/* CTA Section */}
-      <CTASection
-        title={t('cta_title')}
-        description={t('cta_description')}
-        primaryAction={{
-          label: t('cta_primary'),
-          href: "/contact",
-          icon: "mail"
-        }}
-        secondaryAction={{
-          label: t('cta_secondary'),
-          href: "/about",
-          icon: "arrow"
-        }}
-      />
       </div>
     </>
   );

@@ -9,10 +9,10 @@ export function DownloadCVButton() {
   const handleDownload = () => {
     // Track CV download
     trackCVDownload()
-    
+
     // URL de tu CV en la carpeta public
     const cvUrl = "/CV_ArnieCalderon.pdf"
-    
+
     // Crear un elemento 'a' temporal para forzar la descarga
     const link = document.createElement('a')
     link.href = cvUrl
@@ -30,7 +30,7 @@ export function DownloadCVButton() {
       <Button
         onClick={handleDownload}
         size="lg"
-        className="gap-2"
+        className="gap-2 h-14 px-8 text-lg rounded-full hover:scale-105 transition-all duration-300 backdrop-blur-md bg-background/30 border-muted-foreground/20 hover:bg-background/50 hover:border-primary/50"
         variant="outline"
       >
         <Download className="h-5 w-5" />
