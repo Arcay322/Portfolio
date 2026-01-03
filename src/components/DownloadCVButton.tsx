@@ -1,11 +1,16 @@
 "use client"
 
+import { useState } from "react"
 import { Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { trackCVDownload } from "@/lib/analytics"
+import { useTranslations } from 'next-intl';
 
 export function DownloadCVButton() {
+  const t = useTranslations();
+  const [isDownloading, setIsDownloading] = useState(false)
+
   const handleDownload = () => {
     // Track CV download
     trackCVDownload()
@@ -34,7 +39,7 @@ export function DownloadCVButton() {
         variant="outline"
       >
         <Download className="h-5 w-5" />
-        Descargar CV
+        {t('common.download_cv')}
       </Button>
     </motion.div>
   )

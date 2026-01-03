@@ -35,7 +35,7 @@ export function ProjectSpotlight({ project }: ProjectSpotlightProps) {
         >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Image Section */}
-                <div className="relative h-[400px] lg:h-[500px] overflow-hidden">
+                <div className="relative h-[250px] sm:h-[350px] lg:h-[500px] overflow-hidden">
                     <Image
                         src={project.image}
                         alt={project.title}
@@ -47,8 +47,8 @@ export function ProjectSpotlight({ project }: ProjectSpotlightProps) {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-8 lg:p-12 flex flex-col justify-center relative">
-                    <div className="absolute top-6 right-6 flex gap-2 z-10">
+                <div className="p-6 lg:p-12 flex flex-col justify-center relative">
+                    <div className="flex flex-wrap gap-2 mb-4 lg:absolute lg:top-6 lg:right-6 lg:mb-0 z-10">
                         {project.featured && (
                             <Badge className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white border-0 shadow-lg flex items-center gap-1 px-3 py-1 text-sm">
                                 <Star className="h-3 w-3" /> {tBadges('featured')}
@@ -61,7 +61,7 @@ export function ProjectSpotlight({ project }: ProjectSpotlightProps) {
                         )}
                     </div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+                    <h2 className="text-3xl md:text-5xl font-bold font-headline mb-4 lg:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
                         {project.title}
                     </h2>
 

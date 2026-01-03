@@ -18,6 +18,7 @@ export function Header() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
   const t = useTranslations('nav');
+  const tA11y = useTranslations('a11y');
 
   const navLinks = [
     { href: "/", label: t('home') },
@@ -54,7 +55,7 @@ export function Header() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
       >
-        Saltar al contenido principal
+        {tA11y('skip_to_content')}
       </a>
 
       <header
@@ -66,7 +67,7 @@ export function Header() {
             <Link
               href="/"
               className="flex items-center gap-2 font-bold font-headline"
-              aria-label="Inicio - Arcay.dev"
+              aria-label={tA11y('home_label')}
             >
               <Code className="h-6 w-6 text-primary" aria-hidden="true" />
               <span>Arcay.dev</span>
@@ -104,7 +105,7 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  aria-label="Abrir menú de navegación"
+                  aria-label={isMobileMenuOpen ? tA11y('close_menu') : tA11y('open_menu')}
                   aria-expanded={isMobileMenuOpen}
                   className="relative min-h-[44px] min-w-[44px]"
                 >
@@ -132,7 +133,7 @@ export function Header() {
                     )}
                   </AnimatePresence>
                   <span className="sr-only">
-                    {isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                    {isMobileMenuOpen ? tA11y('close_menu') : tA11y('open_menu')}
                   </span>
                 </Button>
               </SheetTrigger>
@@ -143,7 +144,7 @@ export function Header() {
                       href="/"
                       className="flex items-center gap-2 font-bold font-headline"
                       onClick={() => setIsMobileMenuOpen(false)}
-                      aria-label="Inicio - Arcay.dev"
+                      aria-label={tA11y('home_label')}
                     >
                       <Code className="h-6 w-6 text-primary" aria-hidden="true" />
                       <span>Arcay.dev</span>
@@ -152,10 +153,10 @@ export function Header() {
                       variant="ghost"
                       size="icon"
                       onClick={() => setIsMobileMenuOpen(false)}
-                      aria-label="Cerrar menú de navegación"
+                      aria-label={tA11y('close_menu')}
                     >
                       <X className="h-6 w-6" aria-hidden="true" />
-                      <span className="sr-only">Cerrar menú</span>
+                      <span className="sr-only">{tA11y('close_menu')}</span>
                     </Button>
                   </div>
                   <nav

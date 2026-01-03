@@ -4,6 +4,21 @@
     "description": "Portafolio profesional de un desarrollador full-stack con experiencia en la creación de aplicaciones web modernas y eficientes.",
     "ogImageAlt": "Vista previa del portafolio de Arnie Calderon"
   },
+  "a11y": {
+    "skip_to_content": "Saltar al contenido principal",
+    "open_menu": "Abrir menú",
+    "close_menu": "Cerrar menú",
+    "home_label": "Inicio - Arcay.dev",
+    "visit_github": "Visitar perfil de GitHub",
+    "visit_linkedin": "Visitar perfil de LinkedIn",
+    "visit_contact": "Ir a página de contacto"
+  },
+  "social": {
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "email": "Email"
+  },
   "nav": {
     "home": "Inicio",
     "about": "Sobre Mí",
@@ -31,7 +46,9 @@
     "cta_title": "¿Listo para colaborar?",
     "cta_description": "Estoy disponible para proyectos freelance, colaboraciones y oportunidades laborales. Hablemos sobre cómo puedo ayudarte a llevar tu idea al siguiente nivel.",
     "cta_primary": "Iniciar Conversación",
-    "cta_secondary": "Ver Proyectos"
+    "cta_secondary": "Ver Proyectos",
+    "download_cv": "Descargar CV",
+    "view_all_projects": "Ver Todos los Proyectos"
   },
   "about": {
     "title": "Sobre Mí",
@@ -39,7 +56,7 @@
     "name": "Arnie Calderon",
     "role": "Desarrollador Full-Stack",
     "bio_title": "Sobre Mí",
-    "bio_paragraph1": "¡Hola! Soy Arnie, un desarrollador web full-stack proactivo y autodidacta, actualmente cursando el 7mo ciclo de Ingeniería de Software. Me apasiona crear soluciones web eficientes, funcionales y centradas en el usuario.",
+    "bio_paragraph1": "¡Hola! Soy Arnie, un desarrollador web full-stack proactivo y autodidacta, actualmente cursando el 9no ciclo de Ingeniería de Software. Me apasiona crear soluciones web eficientes, funcionales y centradas en el usuario.",
     "bio_paragraph2": "Con un sólido dominio de tecnologías front-end como React y back-end como Node.js y Python, disfruto el desafío de aprender y mejorar continuamente. Mi viaje en el desarrollo lo he demostrado a través de innovadores proyectos personales que puedes ver en este portafolio.",
     "bio_paragraph3": "Lo que me motiva es transformar ideas complejas en aplicaciones intuitivas que resuelvan problemas reales. Mi objetivo es contribuir a proyectos desafiantes donde pueda aplicar mi pasión por el código limpio, las mejores prácticas y el aprendizaje continuo. Me caracterizo por mi capacidad de adaptación rápida, mi enfoque en resultados y mi compromiso con la excelencia técnica.",
     "stats_title": "Mi Trayectoria en Números",
@@ -88,16 +105,6 @@
         "year": "2024",
         "title": "Ticket World - Plataforma de E-commerce",
         "description": "Sistema de venta de tickets con roles de usuario, métricas y pasarela de pagos."
-      },
-      "university": {
-        "year": "2022-2025",
-        "title": "Ingeniería de Software - 7mo Ciclo",
-        "description": "Estudiante de Ingeniería de Software, enfocado en desarrollo web full-stack."
-      },
-      "start": {
-        "year": "2022",
-        "title": "Inicio en Desarrollo Web",
-        "description": "Comienzo del aprendizaje autodidacta en tecnologías web modernas."
       }
     },
     "projects_title": "Metodologías y Habilidades",
@@ -318,13 +325,38 @@
     "error": "Error al enviar. Intenta de nuevo.",
     "validation": {
       "name_required": "El nombre es requerido",
-      "email_required": "El email es requerido",
-      "email_invalid": "Email inválido",
-      "message_required": "El mensaje es requerido",
-      "message_min": "El mensaje debe tener al menos 10 caracteres"
+      "reading_time": "min de lectura",
+      "share": "Compartir",
+      "related_posts": "Artículos Relacionados",
+      "categories": "Categorías",
+      "tags": "Etiquetas",
+      "back_to_blog": "Volver al Blog",
+      "no_posts": "No hay artículos publicados aún. ¡Vuelve pronto!"
     },
     "other_ways": "Otras formas de conectar",
-    "phone": "Teléfono"
+    "phone": "Teléfono",
+    "linkedin_desc": "Conectemos profesionalmente",
+    "github_desc": "Revisa mi código y proyectos",
+    "draft_saved": "Borrador guardado {time}",
+    "draft_saved_auto": "Tu borrador se guarda automáticamente cada 3 segundos",
+    "clear_draft": "Limpiar",
+    "draft_recovered": "Borrador recuperado",
+    "draft_recovered_desc": "Tu borrador anterior ha sido cargado.",
+    "draft_deleted": "Borrador eliminado",
+    "draft_deleted_desc": "El formulario ha sido limpiado exitosamente.",
+    "rate_limit_title": "Límite alcanzado",
+    "rate_limit_desc": "Has alcanzado el límite de mensajes. Por favor espera {time} minutos antes de intentar de nuevo.",
+    "success_title": "¡Mensaje enviado!",
+    "success_desc": "Gracias por contactarme. Responderé lo antes posible. También recibirás un correo de confirmación.",
+    "error_title": "Error al enviar mensaje",
+    "error_desc": "Hubo un problema al enviar tu mensaje. Por favor intenta de nuevo.",
+    "bot_detected": "Bot detectado vía honeypot",
+    "time": {
+      "days": "hace {count} día{s}",
+      "hours": "hace {count} hora{s}",
+      "minutes": "hace {count} minuto{s}",
+      "moment": "justo ahora"
+    }
   },
   "blog": {
     "title": "Blog",
@@ -363,16 +395,6 @@
     "download": "Descargar",
     "share": "Compartir",
     "copy": "Copiar",
-    "copied": "Copiado",
-    "more": "Más",
-    "less": "Menos",
-    "home": "Inicio"
-  },
-  "seo": {
-    "home_title": "Portfolio - Desarrollador Full-Stack",
-    "home_description": "Portfolio profesional showcasing web development projects with modern technologies",
-    "about_title": "Sobre Mí - Portfolio",
-    "about_description": "Conoce más sobre mi experiencia, habilidades y trayectoria profesional",
     "projects_title": "Proyectos - Portfolio",
     "projects_description": "Explora mis proyectos más destacados y trabajos recientes",
     "contact_title": "Contacto - Portfolio",

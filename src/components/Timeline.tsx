@@ -24,37 +24,43 @@ export function Timeline() {
 
   const timeline: TimelineItem[] = [
     {
-      year: "2025",
+      year: t('imprex.year'),
+      title: t('imprex.title'),
+      description: t('imprex.description'),
+      icon: "work",
+    },
+    {
+      year: t('portfolio.year'),
       title: t('portfolio.title'),
       description: t('portfolio.description'),
       icon: "project",
     },
     {
-      year: "2025",
+      year: t('ventify.year'),
       title: t('ventify.title'),
       description: t('ventify.description'),
       icon: "achievement",
     },
     {
-      year: "2024",
+      year: t('sumaq_uywa.year'),
       title: t('sumaq_uywa.title'),
       description: t('sumaq_uywa.description'),
       icon: "achievement",
     },
     {
-      year: "2024",
+      year: t('ticket_world.year'),
       title: t('ticket_world.title'),
       description: t('ticket_world.description'),
       icon: "achievement",
     },
     {
-      year: "2022-2025",
+      year: t('university.year'),
       title: t('university.title'),
       description: t('university.description'),
       icon: "education",
     },
     {
-      year: "2022",
+      year: t('start.year'),
       title: t('start.title'),
       description: t('start.description'),
       icon: "work",

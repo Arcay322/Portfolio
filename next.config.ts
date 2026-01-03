@@ -1,4 +1,4 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 import createMDX from '@next/mdx';
 import createNextIntlPlugin from 'next-intl/plugin';
 import rehypePrettyCode from 'rehype-pretty-code';
@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   // MDX support
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  
+
   images: {
     formats: ['image/avif', 'image/webp'], // Optimización con AVIF y WebP
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -40,15 +40,15 @@ const nextConfig: NextConfig = {
   // Optimizaciones adicionales
   compress: true, // Compresión gzip
   poweredByHeader: false, // Remover header X-Powered-By por seguridad
-  
+
   // Optimizaciones de bundle
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
-  
+
   // Minimizar salida
   productionBrowserSourceMaps: false,
-  
+
   // Headers de seguridad
   async headers() {
     return [
@@ -87,16 +87,17 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://vercel.live https://va.vercel-scripts.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https: blob:",
               "font-src 'self' data:",
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://vercel.live https://va.vercel-scripts.com",
               "media-src 'self' https:",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
               "frame-ancestors 'self'",
+              "frame-src 'self' https://vercel.live",
               "upgrade-insecure-requests"
             ].join('; ')
           }

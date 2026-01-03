@@ -33,7 +33,7 @@ const STATIC_ASSETS = [
 /**
  * Install event - cache static assets
  */
-self.addEventListener('install', (event: ExtendableEvent) => {
+self.addEventListener('install', (event) => {
   console.log('[Service Worker] Installing...');
 
   event.waitUntil(
@@ -50,7 +50,7 @@ self.addEventListener('install', (event: ExtendableEvent) => {
 /**
  * Activate event - clean old caches
  */
-self.addEventListener('activate', (event: ExtendableEvent) => {
+self.addEventListener('activate', (event) => {
   console.log('[Service Worker] Activating...');
 
   event.waitUntil(
@@ -78,7 +78,7 @@ self.addEventListener('activate', (event: ExtendableEvent) => {
 /**
  * Fetch event - implement caching strategies
  */
-self.addEventListener('fetch', (event: FetchEvent) => {
+self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
@@ -132,7 +132,7 @@ self.addEventListener('fetch', (event: FetchEvent) => {
  * Cache-first strategy
  * Try cache first, fallback to network
  */
-async function cacheFirstStrategy(request: Request, cacheName: string): Promise<Response> {
+async function cacheFirstStrategy(request, cacheName) {
   try {
     // Try cache first
     const cachedResponse = await caches.match(request);
@@ -177,7 +177,7 @@ async function cacheFirstStrategy(request: Request, cacheName: string): Promise<
  * Network-first strategy
  * Try network first, fallback to cache
  */
-async function networkFirstStrategy(request: Request, cacheName: string): Promise<Response> {
+async function networkFirstStrategy(request, cacheName) {
   try {
     console.log('[Service Worker] Fetching from network:', request.url);
     const networkResponse = await fetch(request);
@@ -207,22 +207,22 @@ async function networkFirstStrategy(request: Request, cacheName: string): Promis
 /**
  * Get cache timestamp
  */
-async function getCacheTime(request: Request, cacheName: string): Promise<number | null> {
+async function getCacheTime(request, cacheName) {
   const cache = await caches.open(`${cacheName}-metadata`);
   const response = await cache.match(request.url);
-  
+
   if (response) {
     const text = await response.text();
     return parseInt(text, 10);
   }
-  
+
   return null;
 }
 
 /**
  * Set cache timestamp
  */
-async function setCacheTime(request: Request, cacheName: string): Promise<void> {
+async function setCacheTime(request, cacheName) {
   const cache = await caches.open(`${cacheName}-metadata`);
   const response = new Response(Date.now().toString());
   await cache.put(request.url, response);
@@ -231,7 +231,7 @@ async function setCacheTime(request: Request, cacheName: string): Promise<void> 
 /**
  * Get cache duration based on cache name
  */
-function getCacheDuration(cacheName: string): number {
+function getCacheDuration(cacheName) {
   if (cacheName.includes('static')) return CACHE_DURATION.static;
   if (cacheName.includes('images')) return CACHE_DURATION.images;
   return CACHE_DURATION.dynamic;
@@ -240,7 +240,7 @@ function getCacheDuration(cacheName: string): number {
 /**
  * Create offline response
  */
-function createOfflineResponse(): Response {
+function createOfflineResponse() {
   return new Response(
     `
     <!DOCTYPE html>
@@ -317,7 +317,7 @@ function createOfflineResponse(): Response {
 /**
  * Background sync for form submissions
  */
-self.addEventListener('sync', (event: any) => {
+self.addEventListener('sync', (event) => {
   if (event.tag === 'sync-contact-form') {
     event.waitUntil(syncContactForm());
   }
@@ -328,11 +328,11 @@ self.addEventListener('sync', (event: any) => {
  */
 async function syncContactForm() {
   console.log('[Service Worker] Syncing contact form...');
-  
+
   // Get pending submissions from IndexedDB
   // This would integrate with your form submission logic
   // For now, this is a placeholder
-  
+
   try {
     // Send pending forms
     console.log('[Service Worker] Contact forms synced');
@@ -345,7 +345,7 @@ async function syncContactForm() {
 /**
  * Push notifications (optional)
  */
-self.addEventListener('push', (event: any) => {
+self.addEventListener('push', (event) => {
   const data = event.data?.json() || {};
   const title = data.title || 'Portfolio Update';
   const options = {
@@ -366,7 +366,7 @@ self.addEventListener('push', (event: any) => {
 /**
  * Notification click handler
  */
-self.addEventListener('notificationclick', (event: any) => {
+self.addEventListener('notificationclick', (event) => {
   event.notification.close();
 
   event.waitUntil(
@@ -377,7 +377,7 @@ self.addEventListener('notificationclick', (event: any) => {
 /**
  * Message handler for cache updates
  */
-self.addEventListener('message', (event: any) => {
+self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
@@ -392,5 +392,3 @@ self.addEventListener('message', (event: any) => {
     );
   }
 });
-
-export {};

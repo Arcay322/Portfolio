@@ -108,14 +108,14 @@ export default function ProjectsPage() {
         )}
 
         {/* Search and Filter Bar */}
-        <div className="sticky top-20 z-30 bg-background/80 backdrop-blur-md py-4 -mx-4 px-4 mb-8 border-y border-border/50">
+        <div className="sticky top-16 z-30 bg-background/80 backdrop-blur-md py-4 -mx-4 px-4 mb-8 border-y border-border/50">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between">
 
             {/* Search Input */}
             <div className="relative w-full md:w-96">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/50" />
               <Input
-                placeholder="Buscar proyectos..."
+                placeholder={t('search_placeholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 bg-background border border-foreground/30 focus:border-primary transition-colors text-foreground placeholder:text-muted-foreground shadow-sm"
@@ -131,12 +131,14 @@ export default function ProjectsPage() {
             </div>
 
             {/* Sort Dropdown */}
-            <SortDropdown currentSort={sortBy} onSortChange={setSortBy} />
+            <div className="w-full md:w-auto">
+              <SortDropdown currentSort={sortBy} onSortChange={setSortBy} />
+            </div>
           </div>
 
           {/* Tags Filter */}
-          <div className="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
-            <Filter className="h-4 w-4 text-foreground/70 mr-2 mt-2" />
+          <div className="mt-4 flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto pb-2 md:pb-0 justify-start md:justify-start scrollbar-hide">
+            <Filter className="h-4 w-4 text-foreground/70 mr-2 mt-2 flex-shrink-0" />
             {allTags.map((tag) => {
               const isActive = selectedTag === tag;
               const color = techColors[tag] || "hsl(var(--primary))";
@@ -145,7 +147,7 @@ export default function ProjectsPage() {
                 <button
                   key={tag}
                   onClick={() => handleTagFilter(tag)}
-                  className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${isActive ? "" : "hover:bg-muted/50"
+                  className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 flex-shrink-0 ${isActive ? "" : "hover:bg-muted/50"
                     }`}
                   style={{
                     color: isActive ? "#fff" : "hsl(var(--foreground))",
@@ -189,18 +191,18 @@ export default function ProjectsPage() {
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4">
                     <Search className="h-8 w-8 text-muted-foreground" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">No se encontraron proyectos</h3>
+                  <h3 className="text-xl font-bold mb-2">{t('no_projects')}</h3>
                   <p className="text-muted-foreground mb-6">
-                    Intenta ajustar tu búsqueda o filtros
+                    {t('try_adjusting')}
                   </p>
                   <Button
                     variant="outline"
                     onClick={() => {
-                      setSelectedTag("Todos");
+                      setSelectedTag(t('all'));
                       setSearchQuery("");
                     }}
                   >
-                    Limpiar filtros
+                    {t('clear_filters')}
                   </Button>
                 </div>
               )}

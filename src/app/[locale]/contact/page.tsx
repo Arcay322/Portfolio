@@ -19,7 +19,7 @@ export default function ContactPage() {
   const socialLinks = [
     {
       name: "LinkedIn",
-      description: "Conectemos profesionalmente",
+      description: t('linkedin_desc'),
       href: "https://www.linkedin.com/in/arnie-calderon-869159305",
       icon: <Linkedin className="h-6 w-6" />,
       color: "hover:text-[#0077b5] hover:border-[#0077b5]",
@@ -27,7 +27,7 @@ export default function ContactPage() {
     },
     {
       name: "GitHub",
-      description: "Revisa mi código y proyectos",
+      description: t('github_desc'),
       href: "https://github.com/arcay322",
       icon: <Github className="h-6 w-6" />,
       color: "hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white",

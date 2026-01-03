@@ -55,30 +55,30 @@ export function ContactForm() {
     const hours = Math.floor(diff / 3600000);
     const days = Math.floor(diff / 86400000);
 
-    if (days > 0) return `hace ${days} día${days > 1 ? "s" : ""}`;
-    if (hours > 0) return `hace ${hours} hora${hours > 1 ? "s" : ""}`;
-    if (minutes > 0) return `hace ${minutes} minuto${minutes > 1 ? "s" : ""}`;
-    return "hace un momento";
-  }, []);
+    if (days > 0) return t('time.days', { count: days });
+    if (hours > 0) return t('time.hours', { count: hours });
+    if (minutes > 0) return t('time.minutes', { count: minutes });
+    return t('time.moment');
+  }, [t]);
 
   // Cargar borrador del localStorage al montar
   useEffect(() => {
     try {
       const draft = localStorage.getItem(DRAFT_KEY);
       const timestamp = localStorage.getItem(DRAFT_TIMESTAMP_KEY);
-      
+
       if (draft) {
         const parsedDraft = JSON.parse(draft);
         form.reset(parsedDraft);
         setHasDraft(true);
-        
+
         if (timestamp) {
           setDraftAge(calculateDraftAge(parseInt(timestamp)));
         }
-        
+
         toast({
-          title: "Borrador recuperado",
-          description: "Se ha cargado tu borrador anterior.",
+          title: t('draft_recovered'),
+          description: t('draft_recovered_desc'),
         });
       }
     } catch (error) {
@@ -117,10 +117,10 @@ export function ContactForm() {
       form.reset();
       setHasDraft(false);
       setDraftAge("");
-      
+
       toast({
-        title: "Borrador eliminado",
-        description: "El formulario se ha limpiado correctamente.",
+        title: t('draft_deleted'),
+        description: t('draft_deleted_desc'),
       });
     } catch (error) {
       console.error("Error clearing draft:", error);
@@ -138,10 +138,10 @@ export function ContactForm() {
     const rateLimitCheck = clientContactLimiter.check();
     if (!rateLimitCheck.allowed) {
       const timeLeft = Math.ceil((rateLimitCheck.resetTime - Date.now()) / 60000);
-      
+
       toast({
-        title: "Límite alcanzado",
-        description: `Has alcanzado el límite de mensajes. Por favor, espera ${timeLeft} minutos antes de intentar nuevamente.`,
+        title: t('rate_limit_title'),
+        description: t('rate_limit_desc', { time: timeLeft }),
         variant: "destructive",
       });
       return;
@@ -152,16 +152,15 @@ export function ContactForm() {
       const result = await sendContactEmail(values);
       if (result.success) {
         trackContactForm(true); // Track successful submission
-        
+
         // Limpiar borrador después de envío exitoso
         localStorage.removeItem(DRAFT_KEY);
         localStorage.removeItem(DRAFT_TIMESTAMP_KEY);
         setHasDraft(false);
-        
+
         toast({
-          title: "¡Mensaje enviado!",
-          description:
-            "Gracias por contactarme. Te responderé lo antes posible. También recibirás un email de confirmación.",
+          title: t('success_title'),
+          description: t('success_desc'),
         });
         form.reset();
       }
@@ -170,9 +169,9 @@ export function ContactForm() {
       const errorMessage =
         error instanceof Error
           ? error.message
-          : "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.";
+          : t('error_desc');
       toast({
-        title: "Error al enviar el mensaje",
+        title: t('error_title'),
         description: errorMessage,
         variant: "destructive",
       });
@@ -189,7 +188,7 @@ export function ContactForm() {
           <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50 border border-border">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Save className="h-4 w-4" />
-              <span>Borrador guardado {draftAge}</span>
+              <span>{t('draft_saved', { time: draftAge })}</span>
             </div>
             <Button
               type="button"
@@ -200,7 +199,7 @@ export function ContactForm() {
               className="gap-2"
             >
               <Trash2 className="h-4 w-4" />
-              Limpiar
+              {t('clear_draft')}
             </Button>
           </div>
         )}
@@ -271,7 +270,7 @@ export function ContactForm() {
                 />
               </FormControl>
               <FormDescription>
-                Tu borrador se guarda automáticamente cada 3 segundos
+                {t('draft_saved_auto')}
               </FormDescription>
               <FormMessage />
             </FormItem>

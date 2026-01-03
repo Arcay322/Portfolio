@@ -55,13 +55,13 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
   const sidebarItems = [
     { id: "about", label: t('about_project') },
     { id: "technologies", label: t('technologies_used') },
-    { id: "gallery", label: "Galería" }, // TODO: Add translation key
+    { id: "gallery", label: t('gallery') },
     { id: "features", label: t('main_features') },
     { id: "challenges", label: t('technical_challenges') },
   ]
 
   if (params.slug === 'ventify') {
-    sidebarItems.push({ id: "testimonial", label: "Testimonio" })
+    sidebarItems.push({ id: "testimonial", label: t('testimonial') })
   }
 
   return (
@@ -104,7 +104,7 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
                   {t('back_to_projects')}
                 </Button>
               </Link>
-              <ProjectSidebar items={sidebarItems} title={t('about_project')} />
+              <ProjectSidebar items={sidebarItems} title={t('table_of_contents')} />
             </div>
           </aside>
 
@@ -157,7 +157,7 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
             {/* Gallery Section */}
             <section id="gallery" className="scroll-mt-24">
               <ScrollReveal>
-                <h2 className="text-3xl font-bold font-headline mb-8">Galería</h2>
+                <h2 className="text-3xl font-bold font-headline mb-8">{t('gallery')}</h2>
                 {project.media && project.media.length > 0 ? (
                   <ProjectGallery media={project.media} />
                 ) : (

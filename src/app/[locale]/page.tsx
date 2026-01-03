@@ -94,7 +94,7 @@ export default function Home() {
           <div className="text-center mt-16">
             <Button asChild size="lg" variant="ghost" className="text-lg hover:bg-primary/10 hover:text-primary transition-colors group">
               <Link href="/projects">
-                Ver Todos los Proyectos <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                {t('view_all_projects')} <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </div>

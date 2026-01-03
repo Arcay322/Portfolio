@@ -20,6 +20,7 @@ import { techColors } from "@/lib/constants";
 
 export default function AboutPage() {
   const t = useTranslations('about');
+  const tA11y = useTranslations('a11y');
 
   const experiences = [
     {
@@ -102,7 +103,7 @@ export default function AboutPage() {
               >
                 <Link
                   href="/contact"
-                  aria-label="Contact"
+                  aria-label={tA11y('visit_contact')}
                 >
                   <Mail className="h-5 w-5" />
                 </Link>
@@ -117,7 +118,7 @@ export default function AboutPage() {
                   href="https://www.linkedin.com/in/arnie-calderon-869159305"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="LinkedIn"
+                  aria-label={tA11y('visit_linkedin')}
                 >
                   <Linkedin className="h-5 w-5" />
                 </Link>
@@ -132,7 +133,7 @@ export default function AboutPage() {
                   href="https://github.com/arcay322"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="GitHub"
+                  aria-label={tA11y('visit_github')}
                 >
                   <Github className="h-5 w-5" />
                 </Link>

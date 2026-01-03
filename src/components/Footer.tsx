@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 
 export function Footer() {
   const t = useTranslations('footer');
+  const tA11y = useTranslations('a11y');
   const currentYear = new Date().getFullYear();
 
   return (
@@ -13,30 +14,30 @@ export function Footer() {
           &copy; {currentYear} Arcay.dev. {t('rights')}.
         </p>
         <nav aria-label={t('social')} className="flex items-center gap-6 mt-4 sm:mt-0">
-          <Link 
-            href="https://github.com/arcay322" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <Link
+            href="https://github.com/arcay322"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Visitar perfil de GitHub"
+            aria-label={tA11y('visit_github')}
           >
             <Github className="h-6 w-6" aria-hidden="true" />
             <span className="sr-only">GitHub</span>
           </Link>
-          <Link 
-            href="https://www.linkedin.com/in/arnie-calderon-869159305" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <Link
+            href="https://www.linkedin.com/in/arnie-calderon-869159305"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Visitar perfil de LinkedIn"
+            aria-label={tA11y('visit_linkedin')}
           >
             <Linkedin className="h-6 w-6" aria-hidden="true" />
             <span className="sr-only">LinkedIn</span>
           </Link>
-          <Link 
-            href="/contact" 
+          <Link
+            href="/contact"
             className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Ir a página de contacto"
+            aria-label={tA11y('visit_contact')}
           >
             <Mail className="h-6 w-6" aria-hidden="true" />
             <span className="sr-only">Email</span>

@@ -4,6 +4,21 @@
     "description": "Professional portfolio of a full-stack developer with experience in creating modern and efficient web applications.",
     "ogImageAlt": "Preview of Arnie Calderon's portfolio"
   },
+  "a11y": {
+    "skip_to_content": "Skip to main content",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu",
+    "home_label": "Home - Arcay.dev",
+    "visit_github": "Visit GitHub profile",
+    "visit_linkedin": "Visit LinkedIn profile",
+    "visit_contact": "Go to contact page"
+  },
+  "social": {
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "email": "Email"
+  },
   "nav": {
     "home": "Home",
     "about": "About",
@@ -32,7 +47,8 @@
     "cta_description": "I'm available for freelance projects, collaborations and job opportunities. Let's talk about how I can help take your idea to the next level.",
     "cta_primary": "Start Conversation",
     "cta_secondary": "View Projects",
-    "download_cv": "Download CV"
+    "download_cv": "Download CV",
+    "view_all_projects": "View All Projects"
   },
   "about": {
     "title": "About Me",
@@ -40,7 +56,7 @@
     "name": "Arnie Calderon",
     "role": "Full-Stack Developer",
     "bio_title": "About Me",
-    "bio_paragraph1": "Hi! I'm Arnie, a proactive and self-taught full-stack web developer, currently in the 7th semester of Software Engineering. I'm passionate about creating efficient, functional, and user-centered web solutions.",
+    "bio_paragraph1": "Hi! I'm Arnie, a proactive and self-taught full-stack web developer, currently in the 9th semester of Software Engineering. I'm passionate about creating efficient, functional, and user-centered web solutions.",
     "bio_paragraph2": "With solid mastery of front-end technologies like React and back-end like Node.js and Python, I enjoy the challenge of continuous learning and improvement. My journey in development is demonstrated through innovative personal projects you can see in this portfolio.",
     "bio_paragraph3": "What drives me is transforming complex ideas into intuitive applications that solve real problems. My goal is to contribute to challenging projects where I can apply my passion for clean code, best practices, and continuous learning. I'm characterized by my quick adaptability, results-oriented approach, and commitment to technical excellence.",
     "stats_title": "My Journey in Numbers",
@@ -62,14 +78,17 @@
         "suffix": "+"
       },
       "commits": {
-        "value": 100,
-        "label": "Commits This Year",
-        "suffix": "+"
+        "cta_secondary": "Download CV"
       }
     },
     "skills_title": "My Skills",
     "timeline_title": "My Journey",
     "timeline": {
+      "imprex": {
+        "year": "2025",
+        "title": "Freelance Frontend Developer - Imprex Europe SL",
+        "description": "Frontend development with React, consuming Python backend APIs for a Spanish company."
+      },
       "portfolio": {
         "year": "2025",
         "title": "Professional Portfolio Development",
@@ -92,7 +111,7 @@
       },
       "university": {
         "year": "2022-2025",
-        "title": "Software Engineering - 7th Semester",
+        "title": "Software Engineering - 9th Semester",
         "description": "Software Engineering student, focused on full-stack web development."
       },
       "start": {
@@ -101,7 +120,7 @@
         "description": "Beginning of self-taught learning in modern web technologies."
       }
     },
-    "projects_title": "Methodologies and Skills",
+    "projects_title": "Methodologies & Skills",
     "projects": {
       "methodology": {
         "title": "Agile Methodologies",
@@ -317,28 +336,37 @@
     "sending": "Sending...",
     "success": "Message sent! I'll respond soon.",
     "error": "Error sending. Please try again.",
+    "other_ways": "Other ways to connect",
+    "phone": "Phone",
+    "linkedin_desc": "Let's connect professionally",
+    "github_desc": "Check out my code and projects",
+    "draft_saved": "Draft saved {time}",
+    "draft_saved_auto": "Your draft is saved automatically every 3 seconds",
+    "clear_draft": "Clear",
+    "draft_recovered": "Draft recovered",
+    "draft_recovered_desc": "Your previous draft has been loaded.",
+    "draft_deleted": "Draft deleted",
+    "draft_deleted_desc": "The form has been cleared successfully.",
+    "rate_limit_title": "Limit reached",
+    "rate_limit_desc": "You have reached the message limit. Please wait {time} minutes before trying again.",
+    "success_title": "Message sent!",
+    "success_desc": "Thanks for contacting me. I'll respond as soon as possible. You will also receive a confirmation email.",
+    "error_title": "Error sending message",
+    "error_desc": "There was a problem sending your message. Please try again.",
+    "bot_detected": "Bot detected via honeypot",
+    "time": {
+      "days": "{count} day{s} ago",
+      "hours": "{count} hour{s} ago",
+      "minutes": "{count} minute{s} ago",
+      "moment": "just now"
+    },
     "validation": {
       "name_required": "Name is required",
       "email_required": "Email is required",
       "email_invalid": "Invalid email",
       "message_required": "Message is required",
       "message_min": "Message must be at least 10 characters"
-    },
-    "other_ways": "Other ways to connect",
-    "phone": "Phone"
-  },
-  "blog": {
-    "title": "Blog",
-    "description": "Articles about web development, technology and programming best practices",
-    "read_more": "Read more",
-    "published": "Published on",
-    "reading_time": "min read",
-    "share": "Share",
-    "related_posts": "Related Articles",
-    "categories": "Categories",
-    "tags": "Tags",
-    "back_to_blog": "Back to Blog",
-    "no_posts": "No articles published yet. Come back soon!"
+    }
   },
   "footer": {
     "rights": "All rights reserved",
@@ -364,16 +392,6 @@
     "download": "Download",
     "share": "Share",
     "copy": "Copy",
-    "copied": "Copied",
-    "more": "More",
-    "less": "Less",
-    "home": "Home"
-  },
-  "seo": {
-    "home_title": "Portfolio - Full-Stack Developer",
-    "home_description": "Professional portfolio showcasing web development projects with modern technologies",
-    "about_title": "About Me - Portfolio",
-    "about_description": "Learn more about my experience, skills and professional journey",
     "projects_title": "Projects - Portfolio",
     "projects_description": "Explore my featured projects and recent work",
     "contact_title": "Contact - Portfolio",
