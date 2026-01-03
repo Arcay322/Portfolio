@@ -346,43 +346,6 @@
     "draft_deleted_desc": "El formulario ha sido limpiado exitosamente.",
     "rate_limit_title": "Límite alcanzado",
     "rate_limit_desc": "Has alcanzado el límite de mensajes. Por favor espera {time} minutos antes de intentar de nuevo.",
-    "success_title": "¡Mensaje enviado!",
-    "success_desc": "Gracias por contactarme. Responderé lo antes posible. También recibirás un correo de confirmación.",
-    "error_title": "Error al enviar mensaje",
-    "error_desc": "Hubo un problema al enviar tu mensaje. Por favor intenta de nuevo.",
-    "bot_detected": "Bot detectado vía honeypot",
-    "time": {
-      "days": "hace {count} día{s}",
-      "hours": "hace {count} hora{s}",
-      "minutes": "hace {count} minuto{s}",
-      "moment": "justo ahora"
-    }
-  },
-  "blog": {
-    "title": "Blog",
-    "description": "Artículos sobre desarrollo web, tecnología y buenas prácticas de programación",
-    "read_more": "Leer más",
-    "published": "Publicado el",
-    "reading_time": "min de lectura",
-    "share": "Compartir",
-    "related_posts": "Artículos Relacionados",
-    "categories": "Categorías",
-    "tags": "Etiquetas",
-    "back_to_blog": "Volver al Blog",
-    "no_posts": "No hay artículos publicados aún. ¡Vuelve pronto!"
-  },
-  "footer": {
-    "rights": "Todos los derechos reservados",
-    "social": "Redes Sociales"
-  },
-  "common": {
-    "loading": "Cargando...",
-    "error": "Error",
-    "back": "Volver",
-    "next": "Siguiente",
-    "previous": "Anterior",
-    "close": "Cerrar",
-    "open": "Abrir",
     "search": "Buscar",
     "filter": "Filtrar",
     "sort": "Ordenar",

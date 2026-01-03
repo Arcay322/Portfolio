@@ -78,7 +78,9 @@
         "suffix": "+"
       },
       "commits": {
-        "cta_secondary": "Download CV"
+        "value": 100,
+        "label": "Commits This Year",
+        "suffix": "+"
       }
     },
     "skills_title": "My Skills",
@@ -147,7 +149,7 @@
       },
       "learning": {
         "title": "Learning",
-        "description": "I constantly read documentation, tutorials, and technical articles to stay updated with the latest trends in development."
+        "description": "I constantly read documentation, tutoriales, and technical articles to stay updated with the latest trends in development."
       }
     },
     "cta_title": "Interested in working together?",
@@ -355,9 +357,9 @@
     "error_desc": "There was a problem sending your message. Please try again.",
     "bot_detected": "Bot detected via honeypot",
     "time": {
-      "days": "{count} day{s} ago",
-      "hours": "{count} hour{s} ago",
-      "minutes": "{count} minute{s} ago",
+      "days": "{count} days ago",
+      "hours": "{count} hours ago",
+      "minutes": "{count} minutes ago",
       "moment": "just now"
     },
     "validation": {
