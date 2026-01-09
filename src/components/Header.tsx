@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useTranslations } from 'next-intl';
 import { Code, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { cn } from "@/lib/utils";
@@ -138,6 +138,8 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left">
+                <SheetTitle className="sr-only">{tA11y('mobile_menu_title')}</SheetTitle>
+                <SheetDescription className="sr-only">{tA11y('mobile_menu_description')}</SheetDescription>
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between border-b pb-2">
                     <Link

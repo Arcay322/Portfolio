@@ -61,7 +61,7 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
   ]
 
   if (params.slug === 'ventify') {
-    sidebarItems.push({ id: "testimonial", label: t('testimonial') })
+    sidebarItems.push({ id: "testimonial", label: t('testimonial_label') })
   }
 
   return (

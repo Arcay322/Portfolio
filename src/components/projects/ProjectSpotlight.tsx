@@ -25,6 +25,7 @@ interface ProjectSpotlightProps {
 
 export function ProjectSpotlight({ project }: ProjectSpotlightProps) {
     const tBadges = useTranslations('projects.badges')
+    const tButtons = useTranslations('projects.buttons')
 
     return (
         <motion.div
@@ -88,13 +89,13 @@ export function ProjectSpotlight({ project }: ProjectSpotlightProps) {
                     <div className="flex flex-wrap gap-4">
                         <Button asChild size="lg" className="rounded-full px-8">
                             <Link href={`/projects/${project.slug}`}>
-                                Ver Detalles <ArrowRight className="ml-2 h-4 w-4" />
+                                {tButtons('view_details')} <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
                         </Button>
                         {project.liveUrl && (
                             <Button asChild variant="outline" size="lg" className="rounded-full px-6">
                                 <Link href={project.liveUrl} target="_blank">
-                                    <ExternalLink className="mr-2 h-4 w-4" /> Demo
+                                    <ExternalLink className="mr-2 h-4 w-4" /> {tButtons('demo')}
                                 </Link>
                             </Button>
                         )}

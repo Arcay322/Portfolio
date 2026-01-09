@@ -52,7 +52,7 @@ export function CustomCursor() {
                 }}
                 animate={{
                     scale: isPointer ? 1.5 : 1,
-                    backgroundColor: isPointer ? "rgba(var(--primary), 0.1)" : "transparent",
+                    backgroundColor: isPointer ? "rgba(139, 92, 246, 0.1)" : "rgba(139, 92, 246, 0)",
                 }}
             />
             <motion.div

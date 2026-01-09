@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Search, X, Clock, ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 interface SearchResult {
   type: 'project' | 'blog' | 'page';
@@ -59,6 +60,7 @@ const searchableContent: SearchResult[] = [
 ];
 
 export function SearchBar() {
+  const t = useTranslations('common');
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -199,14 +201,14 @@ export function SearchBar() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Buscar proyectos, artículos..."
+                  placeholder={t('search_placeholder')}
                   className="flex-1 bg-transparent outline-none text-base"
                 />
                 {query && (
                   <button
                     onClick={clearSearch}
                     className="p-1 hover:bg-muted rounded"
-                    aria-label="Limpiar búsqueda"
+                    aria-label={t('clear_search')}
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -223,13 +225,13 @@ export function SearchBar() {
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-sm font-semibold text-muted-foreground flex items-center gap-2">
                         <Clock className="w-4 h-4" />
-                        Búsquedas recientes
+                        {t('recent_searches')}
                       </span>
                       <button
                         onClick={clearRecentSearches}
                         className="text-xs text-muted-foreground hover:text-foreground"
                       >
-                        Limpiar
+                        {t('clear')}
                       </button>
                     </div>
                     <div className="space-y-1">
@@ -248,7 +250,7 @@ export function SearchBar() {
 
                 {query && results.length === 0 && (
                   <div className="p-8 text-center text-muted-foreground">
-                    <p>No se encontraron resultados para &quot;{query}&quot;</p>
+                    <p>{t('no_results')} &quot;{query}&quot;</p>
                   </div>
                 )}
 

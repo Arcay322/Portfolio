@@ -11,7 +11,9 @@
     "home_label": "Inicio - Arcay.dev",
     "visit_github": "Visitar perfil de GitHub",
     "visit_linkedin": "Visitar perfil de LinkedIn",
-    "visit_contact": "Ir a página de contacto"
+    "visit_contact": "Ir a página de contacto",
+    "mobile_menu_title": "Menú de Navegación",
+    "mobile_menu_description": "Enlaces de navegación principal para vista móvil"
   },
   "social": {
     "twitter": "Twitter",
@@ -86,6 +88,11 @@
     "skills_title": "Mis Habilidades",
     "timeline_title": "Mi Trayectoria",
     "timeline": {
+      "imprex": {
+        "year": "2025",
+        "title": "Desarrollador Frontend Freelance - Imprex Europe SL",
+        "description": "Desarrollo frontend con React, consumiendo APIs backend en Python para una empresa española."
+      },
       "portfolio": {
         "year": "2025",
         "title": "Desarrollo de Portafolio Profesional",
@@ -105,6 +112,16 @@
         "year": "2024",
         "title": "Ticket World - Plataforma de E-commerce",
         "description": "Sistema de venta de tickets con roles de usuario, métricas y pasarela de pagos."
+      },
+      "university": {
+        "year": "2022-2025",
+        "title": "Ingeniería de Software - 9no Semestre",
+        "description": "Estudiante de Ingeniería de Software, enfocado en desarrollo web full-stack."
+      },
+      "start": {
+        "year": "2022",
+        "title": "Inicio en Desarrollo Web",
+        "description": "Comienzo del aprendizaje autodidacta en tecnologías web modernas."
       }
     },
     "projects_title": "Metodologías y Habilidades",
@@ -147,6 +164,7 @@
     "description": "Una selección de mi trabajo. Siéntete libre de explorar.",
     "all": "Todos",
     "featured": "Destacados",
+    "search_placeholder": "Buscar proyectos por nombre o tecnología...",
     "view_project": "Ver Proyecto",
     "view_code": "Ver Código",
     "live_demo": "Demo en Vivo",
@@ -286,13 +304,16 @@
     "view_live_demo": "Ver Demo en Vivo",
     "view_source_code": "Código Fuente",
     "view_details": "Ver Detalles",
+    "table_of_contents": "Tabla de Contenidos",
     "technologies_used": "Tecnologías Utilizadas",
     "about_project": "Sobre el Proyecto",
+    "gallery": "Galería",
     "links": "Enlaces",
     "github_repository": "Repositorio GitHub",
     "main_features": "Características Principales",
     "technical_challenges": "Desafíos Técnicos",
     "related_projects": "Proyectos Relacionados",
+    "testimonial_label": "Testimonio",
     "interested_title": "¿Interesado en este proyecto?",
     "interested_description": "Si quieres saber más sobre cómo construí {project} o tienes alguna pregunta, no dudes en contactarme.",
     "contact_me": "Contáctame",
@@ -323,16 +344,6 @@
     "sending": "Enviando...",
     "success": "¡Mensaje enviado! Te responderé pronto.",
     "error": "Error al enviar. Intenta de nuevo.",
-    "validation": {
-      "name_required": "El nombre es requerido",
-      "reading_time": "min de lectura",
-      "share": "Compartir",
-      "related_posts": "Artículos Relacionados",
-      "categories": "Categorías",
-      "tags": "Etiquetas",
-      "back_to_blog": "Volver al Blog",
-      "no_posts": "No hay artículos publicados aún. ¡Vuelve pronto!"
-    },
     "other_ways": "Otras formas de conectar",
     "phone": "Teléfono",
     "linkedin_desc": "Conectemos profesionalmente",
@@ -346,6 +357,38 @@
     "draft_deleted_desc": "El formulario ha sido limpiado exitosamente.",
     "rate_limit_title": "Límite alcanzado",
     "rate_limit_desc": "Has alcanzado el límite de mensajes. Por favor espera {time} minutos antes de intentar de nuevo.",
+    "success_title": "¡Mensaje enviado!",
+    "success_desc": "Gracias por contactarme. Te responderé lo antes posible. También recibirás un email de confirmación.",
+    "error_title": "Error al enviar mensaje",
+    "error_desc": "Hubo un problema al enviar tu mensaje. Por favor intenta de nuevo.",
+    "bot_detected": "Bot detectado via honeypot",
+    "time": {
+      "days": "hace {count} días",
+      "hours": "hace {count} horas",
+      "minutes": "hace {count} minutos",
+      "moment": "justo ahora"
+    },
+    "validation": {
+      "name_required": "El nombre es requerido",
+      "email_required": "El email es requerido",
+      "email_invalid": "Email inválido",
+      "message_required": "El mensaje es requerido",
+      "message_min": "El mensaje debe tener al menos 10 caracteres"
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "social": "Redes Sociales"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "home": "Inicio",
     "search": "Buscar",
     "filter": "Filtrar",
     "sort": "Ordenar",
@@ -356,14 +399,32 @@
     "edit": "Editar",
     "delete": "Eliminar",
     "download": "Descargar",
+    "download_cv": "Descargar CV",
     "share": "Compartir",
     "copy": "Copiar",
+    "copied": "Copiado",
+    "copy_link": "Copiar enlace",
+    "search_placeholder": "Buscar proyectos, artículos...",
+    "clear_search": "Limpiar búsqueda",
+    "no_results": "No se encontraron resultados",
+    "recent_searches": "Búsquedas recientes",
     "projects_title": "Proyectos - Portfolio",
     "projects_description": "Explora mis proyectos más destacados y trabajos recientes",
     "contact_title": "Contacto - Portfolio",
     "contact_description": "Ponte en contacto conmigo para proyectos y colaboraciones",
     "blog_title": "Blog - Portfolio",
     "blog_description": "Artículos sobre desarrollo web, tecnología y buenas prácticas"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Artículos sobre desarrollo web, tecnología y buenas prácticas de programación",
+    "reading_time": "min de lectura",
+    "share": "Compartir",
+    "related_posts": "Artículos Relacionados",
+    "categories": "Categorías",
+    "tags": "Etiquetas",
+    "back_to_blog": "Volver al Blog",
+    "no_posts": "No hay artículos publicados aún. ¡Vuelve pronto!"
   },
   "faq": {
     "title": "Preguntas Frecuentes",

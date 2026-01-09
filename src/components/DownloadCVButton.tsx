@@ -8,7 +8,7 @@ import { trackCVDownload } from "@/lib/analytics"
 import { useTranslations } from 'next-intl';
 
 export function DownloadCVButton() {
-  const t = useTranslations();
+  const t = useTranslations('common');
   const [isDownloading, setIsDownloading] = useState(false)
 
   const handleDownload = () => {
@@ -39,7 +39,7 @@ export function DownloadCVButton() {
         variant="outline"
       >
         <Download className="h-5 w-5" />
-        {t('common.download_cv')}
+        {t('download_cv')}
       </Button>
     </motion.div>
   )
