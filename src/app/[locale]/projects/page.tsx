@@ -23,7 +23,9 @@ import { getProjectSlug } from "@/lib/project-utils";
 
 export default function ProjectsPage() {
   const t = useTranslations('projects');
-  const projects = getProjects((key: string) => t(key));
+
+  // Rule 5.10: Memoize expensive data derivation
+  const projects = useMemo(() => getProjects((key: string) => t(key)), [t]);
 
   // Add slug to projects for Spotlight
   const projectsWithSlug = projects.map(p => ({
@@ -187,7 +189,7 @@ export default function ProjectsPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 content-visibility-auto contain-intrinsic-size-[400px]"
             >
               {sortedProjects.length > 0 ? (
                 sortedProjects.map((project, index) => (
