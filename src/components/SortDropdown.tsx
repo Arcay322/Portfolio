@@ -20,7 +20,7 @@ interface SortDropdownProps {
 export function SortDropdown({ onSortChange, currentSort }: SortDropdownProps) {
   const t = useTranslations('projects.sort');
   const Icon = currentSort === "date-desc" || currentSort === "date-asc" ? Calendar :
-               currentSort === "featured" ? Star : Code2
+    currentSort === "featured" ? Star : Code2
 
   const sortOptions = [
     {
@@ -50,11 +50,11 @@ export function SortDropdown({ onSortChange, currentSort }: SortDropdownProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="gap-2">
+        <Button variant="outline" size="sm" className="gap-2 border-primary/20 bg-background/40 backdrop-blur-md hover:bg-primary/10 hover:text-primary transition-all duration-300 rounded-full h-10 px-4">
           <Icon className="h-4 w-4" />
           <span className="hidden sm:inline">{t('label')}</span>
           <span>{currentOption?.label || t('select')}</span>
-          <ArrowUpDown className="h-4 w-4 ml-2" />
+          <ArrowUpDown className="h-4 w-4 ml-2 opacity-50" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-48">
@@ -80,7 +80,7 @@ export function SortDropdown({ onSortChange, currentSort }: SortDropdownProps) {
 }
 
 // Función helper para ordenar proyectos
-export function sortProjects<T extends { 
+export function sortProjects<T extends {
   title: string
   featured?: boolean
   isNew?: boolean

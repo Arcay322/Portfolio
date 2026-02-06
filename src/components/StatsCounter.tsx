@@ -32,7 +32,7 @@ function AnimatedNumber({ value, suffix = "", prefix = "" }: { value: number; su
 
       // Easing function (easeOutExpo)
       const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress)
-      
+
       setCount(Math.floor(easeOutExpo * value))
 
       if (progress < 1) {
@@ -95,18 +95,29 @@ export function StatsCounter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: index * 0.1 }}
-          className="glass-card p-6 rounded-2xl hover:scale-105 transition-transform duration-300"
+          className="relative group overflow-hidden border border-primary/20 bg-background/40 backdrop-blur-md p-6 rounded-2xl hover:border-primary/50 transition-all duration-500"
         >
-          <div className="flex flex-col items-center text-center space-y-3">
-            <div className="text-primary">
+          {/* HUD Grid Background */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(var(--primary),0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(var(--primary),0.03)_1px,transparent_1px)] bg-[size:10px_10px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+          {/* Corner Accents */}
+          <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-primary/30 group-hover:border-primary/80 transition-colors" />
+          <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-primary/30 group-hover:border-primary/80 transition-colors" />
+          <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-primary/30 group-hover:border-primary/80 transition-colors" />
+          <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-primary/30 group-hover:border-primary/80 transition-colors" />
+
+          <div className="relative z-10 flex flex-col items-center text-center space-y-3">
+            <div className="text-primary group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(var(--primary),0.6)]">
               {stat.icon}
             </div>
-            <AnimatedNumber 
-              value={stat.value} 
-              suffix={stat.suffix} 
-              prefix={stat.prefix}
-            />
-            <p className="text-sm text-muted-foreground font-medium">
+            <div className="drop-shadow-[0_0_10px_rgba(var(--primary),0.4)]">
+              <AnimatedNumber
+                value={stat.value}
+                suffix={stat.suffix}
+                prefix={stat.prefix}
+              />
+            </div>
+            <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">
               {stat.label}
             </p>
           </div>

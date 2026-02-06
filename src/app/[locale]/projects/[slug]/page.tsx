@@ -114,8 +114,8 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
             {/* About Section */}
             <section id="about" className="scroll-mt-24">
               <FadeIn>
-                <Card className="border-none shadow-none bg-background/50 backdrop-blur-sm">
-                  <CardContent className="p-0">
+                <Card className="border border-[rgba(var(--glass-border),var(--glass-opacity))] bg-card/60 backdrop-blur-md shadow-sm">
+                  <CardContent className="p-8">
                     <h2 className="text-3xl font-bold font-headline mb-6 text-foreground">{t('about_project')}</h2>
                     <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground leading-relaxed">
                       <div dangerouslySetInnerHTML={{ __html: project.longDescription?.replace(/\n/g, '<br/>') || project.description }} />
@@ -134,20 +134,19 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
                 </h2>
                 <div className="flex flex-wrap gap-3">
                   {project.tags.map((tag) => {
-                    const color = techColors[tag] || "hsl(var(--foreground))";
+                    const color = techColors[tag] || "hsl(var(--primary))";
                     return (
-                      <Badge
+                      <span
                         key={tag}
-                        variant="outline"
-                        className="text-base px-4 py-2 transition-colors"
+                        className="text-sm font-medium px-4 py-2 rounded-lg backdrop-blur-sm transition-all duration-300 border hover:scale-105 cursor-default shadow-sm"
                         style={{
-                          borderColor: color,
-                          color: "hsl(var(--foreground))",
-                          backgroundColor: "transparent",
+                          backgroundColor: `${color}15`,
+                          color: color,
+                          borderColor: `${color}30`,
                         }}
                       >
                         {tag}
-                      </Badge>
+                      </span>
                     )
                   })}
                 </div>
@@ -161,7 +160,7 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
                 {project.media && project.media.length > 0 ? (
                   <ProjectGallery media={project.media} />
                 ) : (
-                  <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
+                  <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-[rgba(var(--glass-border),var(--glass-opacity))]">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -180,10 +179,10 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
                   <h2 className="text-3xl font-bold font-headline mb-8">{t('main_features')}</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {project.features.map((feature, index) => (
-                      <Card key={index} className="border-l-4 border-l-primary hover:shadow-md transition-shadow">
+                      <Card key={index} className="border border-[rgba(var(--glass-border),var(--glass-opacity))] bg-card/40 backdrop-blur-sm hover:bg-card/60 transition-colors group">
                         <CardContent className="pt-6 flex items-start gap-4">
-                          <CheckCircle2 className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                          <p className="text-lg">{feature}</p>
+                          <CheckCircle2 className="h-6 w-6 text-primary mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <p className="text-lg leading-relaxed">{feature}</p>
                         </CardContent>
                       </Card>
                     ))}
@@ -199,9 +198,9 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
                   <h2 className="text-3xl font-bold font-headline mb-8">{t('technical_challenges')}</h2>
                   <div className="space-y-4">
                     {project.challenges.map((challenge, index) => (
-                      <div key={index} className="flex gap-4 items-start p-4 rounded-lg bg-muted/50">
-                        <span className="text-primary font-bold text-xl">0{index + 1}</span>
-                        <p className="text-lg text-muted-foreground">{challenge}</p>
+                      <div key={index} className="flex gap-4 items-start p-6 rounded-xl border border-[rgba(var(--glass-border),var(--glass-opacity))] bg-muted/20 backdrop-blur-sm hover:bg-muted/30 transition-colors">
+                        <span className="text-primary/50 font-bold text-4xl leading-none -mt-1 select-none font-headline">0{index + 1}</span>
+                        <p className="text-lg text-muted-foreground leading-relaxed">{challenge}</p>
                       </div>
                     ))}
                   </div>

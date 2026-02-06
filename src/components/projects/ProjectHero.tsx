@@ -59,14 +59,14 @@ export function ProjectHero({
 
                     <div className="flex flex-wrap gap-4">
                         {liveUrl && (
-                            <Button asChild size="lg" className="text-lg px-8 h-14 rounded-full bg-white text-black hover:bg-gray-200 border-0">
+                            <Button asChild size="lg" className="text-lg px-8 h-14 rounded-full bg-white text-black hover:bg-gray-200 border-0 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all duration-300">
                                 <Link href={liveUrl} target="_blank" rel="noopener noreferrer">
                                     {t.view_live_demo} <ExternalLink className="ml-2 h-5 w-5" />
                                 </Link>
                             </Button>
                         )}
                         {githubUrl && (
-                            <Button asChild variant="outline" size="lg" className="text-lg px-8 h-14 rounded-full border-white/30 bg-black/30 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm">
+                            <Button asChild variant="outline" size="lg" className="text-lg px-8 h-14 rounded-full border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white backdrop-blur-md transition-all duration-300">
                                 <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
                                     <Github className="mr-2 h-5 w-5" />
                                     {t.view_source_code}

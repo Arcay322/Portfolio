@@ -29,24 +29,31 @@ function SkillBar({ name, percentage, color = "hsl(var(--primary))", icon, delay
         </div>
         <span className="text-sm text-muted-foreground font-mono">{percentage}%</span>
       </div>
-      <div className="h-3 bg-muted rounded-full overflow-hidden">
+      {/* Glass Tube Track */}
+      <div className="h-4 bg-background/40 border border-primary/20 rounded-full overflow-hidden backdrop-blur-sm shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: `${percentage}%` }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: delay + 0.2, ease: "easeOut" }}
-          className="h-full rounded-full relative overflow-hidden"
-          style={{ backgroundColor: color }}
+          transition={{ duration: 1.5, delay: delay + 0.2, ease: "circOut" }}
+          className="h-full rounded-full relative"
+          style={{
+            background: `linear-gradient(90deg, transparent, ${color})`,
+            boxShadow: `0 0 10px ${color}`
+          }}
         >
-          {/* Shimmer effect */}
+          {/* Glowing Tip */}
+          <div className="absolute right-0 top-0 bottom-0 w-1 bg-white opacity-50 blur-[2px]" />
+
+          {/* Pulsing Energy Effect */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
             initial={{ x: "-100%" }}
             animate={{ x: "200%" }}
             transition={{
-              duration: 2,
+              duration: 1.5,
               repeat: Infinity,
-              repeatDelay: 1,
+              repeatDelay: 0.5,
               ease: "linear",
             }}
           />

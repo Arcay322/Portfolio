@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
+import { cn } from "@/lib/utils";
 
 const Typewriter = ({
   text,
@@ -60,10 +61,14 @@ const Typewriter = ({
   }, [index, text, speed, isDeleting, displayedText, loop, deleteSpeed, pauseTime, isPaused]);
 
   return (
-    <h1 className={className}>
-      {displayedText}
+    <h1 className={cn(className, "transition-all duration-300")}>
+      <span className="relative z-10">{displayedText}</span>
+      {/* Neon Glow Effect */}
+      <span className="absolute inset-0 blur-lg opacity-50 z-0 select-none pointer-events-none text-primary" aria-hidden="true">
+        {displayedText}
+      </span>
       {showCursor && !(index === text.length && !loop) && (
-        <span className="animate-pulse text-primary">|</span>
+        <span className="animate-pulse text-primary drop-shadow-[0_0_8px_currentColor]">|</span>
       )}
     </h1>
   );

@@ -66,9 +66,9 @@ export default function ContactPage() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group flex items-center gap-4 p-4 rounded-xl border border-muted/40 bg-background/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${link.color}`}
+                    className={`group flex items-center gap-4 p-4 rounded-xl border border-[rgba(var(--glass-border),var(--glass-opacity))] bg-background/40 backdrop-blur-md transition-all duration-300 hover:shadow-[0_0_20px_rgba(var(--primary),0.15)] hover:border-primary/30 hover:-translate-y-1 ${link.color}`}
                   >
-                    <div className={`p-3 rounded-full bg-muted/20 transition-colors duration-300 ${link.bg}`}>
+                    <div className={`p-3 rounded-full bg-primary/5 border border-primary/10 transition-all duration-300 group-hover:scale-110 ${link.bg}`}>
                       {link.icon}
                     </div>
                     <div>
@@ -85,10 +85,10 @@ export default function ContactPage() {
 
           {/* Right Column: Form */}
           <ScrollReveal delay={0.3} className="w-full">
-            <Card className="border-none shadow-2xl bg-background/60 backdrop-blur-md relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-purple-500 to-primary opacity-50" />
+            <Card className="border border-[rgba(var(--glass-border),var(--glass-opacity))] shadow-2xl bg-card/40 backdrop-blur-xl relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-80" />
               <CardHeader className="pb-2">
-                <CardTitle className="text-2xl font-headline">{t('form_title')}</CardTitle>
+                <CardTitle className="text-2xl font-headline text-center md:text-left">{t('form_title')}</CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
                 <ContactForm />

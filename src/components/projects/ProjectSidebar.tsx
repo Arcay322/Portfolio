@@ -60,8 +60,8 @@ export function ProjectSidebar({ items, title = "Índice" }: ProjectSidebarProps
     }
 
     return (
-        <nav className="sticky top-24 hidden lg:block">
-            <h3 className="font-headline font-bold text-lg mb-4 px-4">{title}</h3>
+        <nav className="sticky top-24 hidden lg:block p-6 rounded-2xl border border-[rgba(var(--glass-border),var(--glass-opacity))] bg-background/40 backdrop-blur-xl shadow-lg">
+            <h3 className="font-headline font-bold text-lg mb-4 px-4 text-primary">{title}</h3>
             <ul className="space-y-1 relative border-l border-border/50 ml-2">
                 {items.map((item) => (
                     <li key={item.id} className="relative">

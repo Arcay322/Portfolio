@@ -31,7 +31,7 @@ export function ProjectGallery({ media }: ProjectGalleryProps) {
                         <DialogTrigger asChild>
                             <div
                                 className={cn(
-                                    "relative group cursor-pointer overflow-hidden rounded-xl bg-muted",
+                                    "relative group cursor-pointer overflow-hidden rounded-xl bg-muted border border-[rgba(var(--glass-border),var(--glass-opacity))]",
                                     isFeatured ? "md:col-span-2 md:row-span-2" : "col-span-1 row-span-1"
                                 )}
                             >

@@ -1,5 +1,6 @@
 "use client"
 import { useState, useMemo } from "react";
+import { cn } from "@/lib/utils";
 import { ProjectCard } from "@/components/ProjectCard";
 import { getProjects } from "@/lib/projects";
 import { FadeIn } from "@/components/animations/FadeIn";
@@ -108,24 +109,27 @@ export default function ProjectsPage() {
         )}
 
         {/* Search and Filter Bar */}
-        <div className="sticky top-16 z-30 bg-background/80 backdrop-blur-md py-4 -mx-4 px-4 mb-8 border-y border-border/50">
+        <div className="sticky top-16 z-30 py-6 -mx-4 px-4 mb-8">
+          {/* Glass Background Streamer */}
+          <div className="absolute inset-x-0 top-0 bottom-0 bg-background/60 backdrop-blur-xl border-y border-[rgba(var(--glass-border),var(--glass-opacity))] shadow-sm -z-10" />
+
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between">
 
-            {/* Search Input */}
-            <div className="relative w-full md:w-96">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/50" />
+            {/* Search Input - Glass Variant */}
+            <div className="relative w-full md:w-96 group">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
               <Input
                 placeholder={t('search_placeholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-background border border-foreground/30 focus:border-primary transition-colors text-foreground placeholder:text-muted-foreground shadow-sm"
+                className="pl-10 bg-background/40 border-primary/20 focus:border-primary/60 focus:bg-background/60 focus:ring-4 focus:ring-primary/10 transition-all duration-300 text-foreground placeholder:text-muted-foreground rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)]"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1 rounded-full hover:bg-background/50 transition-colors"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-3 w-3" />
                 </button>
               )}
             </div>
@@ -136,9 +140,12 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          {/* Tags Filter */}
-          <div className="mt-4 flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto pb-2 md:pb-0 justify-start md:justify-start scrollbar-hide">
-            <Filter className="h-4 w-4 text-foreground/70 mr-2 mt-2 flex-shrink-0" />
+          {/* Tags Filter - Glass Pills */}
+          <div className="max-w-7xl mx-auto mt-4 flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto p-4 md:p-2 justify-start md:justify-start scrollbar-hide mask-fade-sides">
+            <div className="flex items-center justify-center h-8 w-8 rounded-full bg-primary/10 border border-primary/20 mr-2 flex-shrink-0">
+              <Filter className="h-4 w-4 text-primary" />
+            </div>
+
             {allTags.map((tag) => {
               const isActive = selectedTag === tag;
               const color = techColors[tag] || "hsl(var(--primary))";
@@ -147,18 +154,20 @@ export default function ProjectsPage() {
                 <button
                   key={tag}
                   onClick={() => handleTagFilter(tag)}
-                  className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 flex-shrink-0 ${isActive ? "" : "hover:bg-muted/50"
-                    }`}
-                  style={{
-                    color: isActive ? "#fff" : "hsl(var(--foreground))",
-                    opacity: isActive ? 1 : 0.8
-                  }}
+                  className={cn(
+                    "relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 flex-shrink-0 border",
+                    isActive
+                      ? "border-transparent text-white shadow-[0_0_15px_rgba(var(--primary),0.4)]"
+                      : "border-primary/10 bg-background/30 text-muted-foreground hover:bg-primary/5 hover:border-primary/30 hover:text-foreground"
+                  )}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeTag"
                       className="absolute inset-0 rounded-full"
-                      style={{ backgroundColor: tag === t('all') ? "hsl(var(--primary))" : color }}
+                      style={{
+                        backgroundColor: tag === t('all') ? "hsl(var(--primary))" : color,
+                      }}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}

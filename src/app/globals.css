@@ -7,76 +7,96 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
+    /* Prismatic World - Light Mode (Clean, Ethereal) */
+    --background: 210 20% 98%;
+    /* Lighter background to contrast with text */
+    --foreground: 222 47% 11%;
+
+    /* Surfaces - Glass Layers */
     --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 207 90% 54%;
-    --primary-foreground: 210 20% 98%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary / Light Source */
+    --primary: 200 100% 40%;
+    /* Slightly darker for better readability on light */
+    --primary-foreground: 210 40% 98%;
+
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 222 47% 11%;
+
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 215 25% 40%;
+    /* Much darker for readability (was 16% 47%) */
+
     --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent-foreground: 222 47% 11%;
+
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 214.3 31.8% 91.4%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 85%;
+    /* Darker border */
     --input: 214.3 31.8% 91.4%;
-    --ring: 207 90% 54%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 207 90% 54%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 207 90% 54%;
-    --radius: 0.5rem;
+    --ring: 200 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom World Tokens */
+    --glass-border: 15, 23, 42;
+    /* Slate 900 - Dark grey for definition */
+    --glass-opacity: 0.5;
+    /* Increased to 50% per user request */
+    --light-glow: 200 100% 50%;
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 215 27.9% 16.9%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 207 90% 68%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
+    /* Prismatic World - Dark Mode (Deep, Neon, Glass) */
+    --background: 222 47% 6%;
+    /* Deep Space Navy */
+    --foreground: 210 40% 98%;
+
+    /* Surfaces - Glass Layers */
+    /* Instead of flat colors, we think in opacity from the background */
+    --card: 222 47% 8%;
+    /* Slightly lighter than bg */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* The Light Source */
+    --primary: 190 100% 50%;
+    /* Electric Cyan */
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 207 90% 68%;
-    --input: 215 27.9% 16.9%;
-    --ring: 207 90% 68%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 207 90% 68%;
-    --sidebar-primary-foreground: 240 5.9% 10%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 207 90% 68%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders are now Light Edges */
+    --border: 217 33% 20%;
+    --input: 217 33% 17%;
+    --ring: 190 100% 50%;
+
+    /* Custom World Tokens */
+    --glass-border: 51, 65, 85;
+    /* Slate 700 - Grey/Blue fitting the theme */
+    --glass-opacity: 0.5;
+    /* Visible but not glowing white */
+    --light-glow: 190 100% 50%;
   }
 }
+
 
 @layer base {
   * {
@@ -84,9 +104,16 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    justify-content: center;
-    cursor: none;
+    @apply bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground;
+    background-image:
+      radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.15), transparent 60%),
+      radial-gradient(circle at 80% 10%, hsl(var(--primary) / 0.08), transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* Utility to create glass surfaces easily */
+  .surface-glass {
+    @apply bg-background/60 backdrop-blur-xl border border-[rgba(var(--glass-border), var(--glass-opacity))] shadow-lg;
   }
 
   /* Hide default cursor on all interactive elements */
@@ -99,8 +126,6 @@
   .cursor-pointer {
     cursor: none !important;
   }
-
-  /* Patrón de fondo eliminado en favor de GridBackground component */
 }
 
 @layer utilities {
@@ -109,7 +134,7 @@
   }
 
   .shadow-glow {
-    box-shadow: 0 0 20px rgba(var(--primary), 0.3);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
   }
 
   .card-hover {

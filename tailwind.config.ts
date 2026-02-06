@@ -1,5 +1,5 @@
-import type {Config} from 'tailwindcss';
-const {fontFamily} = require('tailwindcss/defaultTheme');
+import type { Config } from 'tailwindcss';
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 export default {
   darkMode: ['class'],
@@ -82,6 +82,8 @@ export default {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
         },
+        'light-glow': 'hsl(var(--light-glow))',
+        'glass-border': 'rgb(var(--glass-border))', /* Using RGB for this specific one if defined as RGB, or HSL if HSL */
       },
       borderRadius: {
         lg: 'var(--radius)',

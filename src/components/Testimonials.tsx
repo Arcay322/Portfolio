@@ -54,7 +54,7 @@ export function Testimonials() {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
         >
-          <Card className="relative overflow-hidden">
+          <Card className="relative overflow-hidden border border-[rgba(var(--glass-border),var(--glass-opacity))] bg-card/75 backdrop-blur-md shadow-xl">
             {/* Quote Icon */}
             <div className="absolute top-4 right-4 opacity-10">
               <Quote className="h-24 w-24 text-primary" />
@@ -121,8 +121,8 @@ export function Testimonials() {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`h-2 rounded-full transition-all ${index === currentIndex
-                      ? 'w-8 bg-primary'
-                      : 'w-2 bg-muted hover:bg-muted-foreground'
+                    ? 'w-8 bg-primary'
+                    : 'w-2 bg-muted hover:bg-muted-foreground'
                     }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />

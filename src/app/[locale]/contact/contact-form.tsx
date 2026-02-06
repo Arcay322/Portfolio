@@ -182,12 +182,12 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         {/* Draft indicator */}
         {hasDraft && (
-          <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50 border border-border">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Save className="h-4 w-4" />
+          <div className="flex items-center justify-between p-4 rounded-xl border border-primary/20 bg-primary/5 backdrop-blur-sm shadow-sm animate-in fade-in slide-in-from-top-2 duration-300">
+            <div className="flex items-center gap-3 text-sm text-primary">
+              <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               <span>{t('draft_saved', { time: draftAge })}</span>
             </div>
             <Button
@@ -196,9 +196,9 @@ export function ContactForm() {
               size="sm"
               onClick={clearDraft}
               disabled={isSubmitting}
-              className="gap-2"
+              className="gap-2 h-8 text-muted-foreground hover:text-destructive hover:bg-destructive/10"
             >
-              <Trash2 className="h-4 w-4" />
+              <Trash2 className="h-3 w-3" />
               {t('clear_draft')}
             </Button>
           </div>
@@ -218,74 +218,87 @@ export function ContactForm() {
           />
         </div>
 
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field, fieldState }) => (
-            <FormItem>
-              <FormLabel>{t('name')}</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder={t('name_placeholder')}
-                  {...field}
-                  disabled={isSubmitting}
-                  className={fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field, fieldState }) => (
-            <FormItem>
-              <FormLabel>{t('email')}</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder={t('email_placeholder')}
-                  type="email"
-                  {...field}
-                  disabled={isSubmitting}
-                  className={fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field, fieldState }) => (
+              <FormItem>
+                <FormLabel className="text-foreground/80">{t('name')}</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder={t('name_placeholder')}
+                    {...field}
+                    disabled={isSubmitting}
+                    className={`bg-background/30 backdrop-blur-sm border-primary/10 focus:border-primary/60 focus:bg-background/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 h-12 rounded-xl ${fieldState.error ? "border-destructive/50 focus:border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500/50" : ""}`}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field, fieldState }) => (
+              <FormItem>
+                <FormLabel className="text-foreground/80">{t('email')}</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder={t('email_placeholder')}
+                    type="email"
+                    {...field}
+                    disabled={isSubmitting}
+                    className={`bg-background/30 backdrop-blur-sm border-primary/10 focus:border-primary/60 focus:bg-background/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 h-12 rounded-xl ${fieldState.error ? "border-destructive/50 focus:border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500/50" : ""}`}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
         <FormField
           control={form.control}
           name="message"
           render={({ field, fieldState }) => (
             <FormItem>
-              <FormLabel>{t('message')}</FormLabel>
+              <FormLabel className="text-foreground/80">{t('message')}</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder={t('message_placeholder')}
-                  className={`resize-none min-h-32 ${fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}`}
+                  className={`resize-none min-h-40 bg-background/30 backdrop-blur-sm border-primary/10 focus:border-primary/60 focus:bg-background/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 rounded-xl ${fieldState.error ? "border-destructive/50 focus:border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500/50" : ""}`}
                   {...field}
                   disabled={isSubmitting}
                 />
               </FormControl>
-              <FormDescription>
+              <FormDescription className="text-xs text-muted-foreground/60 text-right">
                 {t('draft_saved_auto')}
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isSubmitting} className="w-full">
-          {isSubmitting ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              {t('sending')}
-            </>
-          ) : (
-            t('send')
-          )}
-        </Button>
+
+        <div className="pt-2">
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full h-12 rounded-xl text-lg font-medium shadow-[0_0_20px_rgba(var(--primary),0.2)] hover:shadow-[0_0_30px_rgba(var(--primary),0.4)] transition-all duration-300 relative overflow-hidden group"
+          >
+            {/* Inner Glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-700 pointer-events-none" />
+
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                {t('sending')}
+              </>
+            ) : (
+              t('send')
+            )}
+          </Button>
+        </div>
       </form>
     </Form>
   );
