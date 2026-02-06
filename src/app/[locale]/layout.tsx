@@ -141,12 +141,14 @@ export default async function LocaleLayout({ children, params }: Props) {
               <GoogleAnalytics />
               <WebVitalsReporter />
               <ServiceWorkerRegistrar />
-              <PrefetchRoutes
+              <ServiceWorkerRegistrar />
+              {/* PrefetchRoutes removed to avoid redundant preloading warnings - Next.js handles viewport prefetching natively */}
+              {/* <PrefetchRoutes
                 routes={IMPORTANT_ROUTES}
                 delay={2000}
                 onHover={true}
                 onIdle={true}
-              />
+              /> */}
               <div className="relative flex min-h-dvh flex-col">
                 <Header />
                 <main id="main-content" className="flex-1" tabIndex={-1}>

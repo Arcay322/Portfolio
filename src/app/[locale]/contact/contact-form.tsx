@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { sendContactEmail } from "./actions";
+import { submitContactForm } from "./actions";
 import { useState, useEffect, useCallback } from "react";
 import { Loader2, Save, Trash2 } from "lucide-react";
 import { SendContactEmailInputSchema } from "@/ai/schemas/contact-email";
@@ -114,7 +114,11 @@ export function ContactForm() {
     try {
       localStorage.removeItem(DRAFT_KEY);
       localStorage.removeItem(DRAFT_TIMESTAMP_KEY);
-      form.reset();
+      form.reset({
+        name: "",
+        email: "",
+        message: "",
+      });
       setHasDraft(false);
       setDraftAge("");
 
@@ -149,9 +153,10 @@ export function ContactForm() {
 
     setIsSubmitting(true);
     try {
-      const result = await sendContactEmail(values);
+      const result = await submitContactForm(values);
       if (result.success) {
         trackContactForm(true); // Track successful submission
+        console.log("Submission successful:", result);
 
         // Limpiar borrador después de envío exitoso
         localStorage.removeItem(DRAFT_KEY);
@@ -163,6 +168,11 @@ export function ContactForm() {
           description: t('success_desc'),
         });
         form.reset();
+      } else {
+        console.error("Submission failed:", result);
+        // En caso de que el server devuelva success: false
+        const errorMsg = 'error' in result ? result.error : t('error_desc');
+        throw new Error(errorMsg);
       }
     } catch (error) {
       trackContactForm(false); // Track failed submission

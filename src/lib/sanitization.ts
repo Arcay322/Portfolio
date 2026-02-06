@@ -62,8 +62,9 @@ export function sanitizeEmail(email: string): string {
   // Limitar longitud
   sanitized = sanitized.slice(0, 254) // RFC 5321
 
-  // Remover caracteres peligrosos
-  sanitized = sanitized.replace(/[<>()[\]\\,;:\s@"]/g, "")
+  // Remover caracteres peligrosos pero permitir @ y .
+  // Eliminamos < > ( ) [ ] \ , ; : " y espacios
+  sanitized = sanitized.replace(/[<>()[\]\\,;:\s"]/g, "")
 
   return sanitized
 }
@@ -78,7 +79,7 @@ export function sanitizeUrl(url: string): string | null {
 
   try {
     const parsed = new URL(url)
-    
+
     // Solo permitir http y https
     if (!["http:", "https:"].includes(parsed.protocol)) {
       return null
@@ -236,12 +237,12 @@ export function validateSecurity(input: string): {
  */
 export function sanitizeForLog(input: string, maxLength: number = 100): string {
   let sanitized = input.slice(0, maxLength)
-  
+
   // Remover información sensible común
   sanitized = sanitized.replace(/\b\d{16}\b/g, "[CARD]") // Tarjetas
   sanitized = sanitized.replace(/\b\d{3}-\d{2}-\d{4}\b/g, "[SSN]") // SSN
   sanitized = sanitized.replace(/password[=:]\s*\S+/gi, "password=[REDACTED]")
-  
+
   return sanitized
 }
 
@@ -260,7 +261,7 @@ export function checkDuplicateSubmission(content: string, windowMs: number = 600
   }
 
   recentSubmissions.set(hash, now)
-  
+
   // Limpiar entries antiguos
   if (recentSubmissions.size > 1000) {
     const cutoff = now - windowMs

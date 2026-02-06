@@ -19,7 +19,7 @@ class RateLimiter {
 
   constructor(config: RateLimitConfig) {
     this.config = config
-    
+
     // Limpiar entradas expiradas cada minuto
     if (typeof window === "undefined") {
       setInterval(() => this.cleanup(), 60000)
@@ -102,11 +102,11 @@ export function getClientIdentifier(request: Request): string {
   // En producción, usar IP real del header
   const forwarded = request.headers.get("x-forwarded-for")
   const ip = forwarded ? forwarded.split(",")[0].trim() : "unknown"
-  
+
   // Combinar IP con user agent para mejor unicidad
   const userAgent = request.headers.get("user-agent") || "unknown"
   const hash = simpleHash(`${ip}-${userAgent}`)
-  
+
   return hash
 }
 
@@ -221,6 +221,6 @@ export class ClientRateLimiter {
 // Client-side limiter para formulario de contacto
 export const clientContactLimiter = new ClientRateLimiter(
   "contact_form",
-  3, // 3 intentos
+  5, // 5 intentos por hora (Production Safe)
   60 * 60 * 1000 // 1 hora
 )
