@@ -173,7 +173,6 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     ],
   },
   {
-    id: "arcay3dlabs",
     title: t('items.arcay3dlabs.title'),
     description: t('items.arcay3dlabs.description'),
     image: "/images/projects/arcay3dlabs/arcay3dlabs_1.webp",
