@@ -337,6 +337,30 @@
           "compose": "Full UI development using Jetpack Compose and custom components",
           "migrations": "Safe management of complex database migrations using Room"
         }
+      },
+      "arcay3dlabs": {
+        "title": "Arcay3Dlabs",
+        "description": "Comprehensive web platform for a 3D printing business featuring e-commerce, custom quotes, and an administrative management panel.",
+        "long_description": "Arcay3Dlabs is a complete platform built to empower a 3D printing business. The system combines an online store (E-commerce) experience with an advanced interactive quoter for 3D models and an administration panel for full business control.\n\nKey Features:\n- Full E-commerce: Product catalog, persistent localStorage cart, and direct WhatsApp checkout.\n- Quoting System: 3D file upload (STL, OBJ), material selection (PLA, Resin, etc.), customization, and order submission.\n- Dynamic Gallery: Image viewer of past projects with category filters and responsive design.\n- Admin Panel: Dashboard for CRUD product management, quote visualization, and gallery updates.\n\nTechnologies Used:\n- Framework: Next.js (App Router) with TypeScript.\n- UI & Styling: Tailwind CSS combined with shadcn/ui components and interactive effects.\n- Backend & DB: Firebase (Firestore and Storage) for database and hosting 3D files and images.\n- Forms: React Hook Form and Zod for strict data validation.",
+        "media": {
+          "main": "Arcay3Dlabs - Main Platform",
+          "ecommerce": "Arcay3Dlabs - Store & E-commerce",
+          "quote": "Arcay3Dlabs - Quoting System",
+          "admin": "Arcay3Dlabs - Admin Panel",
+          "gallery": "Arcay3Dlabs - Projects Gallery"
+        },
+        "features": {
+          "ecommerce": "Product catalog and cart with WhatsApp checkout",
+          "quotes": "Advanced 3D printing quote form",
+          "admin_panel": "Dashboard for product, gallery, and quote management",
+          "gallery": "Interactive lightbox for portfolio viewing",
+          "responsive": "Responsive design with micro-animations and visual effects"
+        },
+        "challenges": {
+          "state_management": "Complex global cart state management using Context API",
+          "ui_components": "Implementation of advanced and interactive components using Radix UI",
+          "firebase_integration": "Seamless integration of Firestore and Storage for 3D data and files"
+        }
       }
     },
     "cta_title": "Have a project in mind?",

@@ -337,6 +337,30 @@
           "compose": "Desarrollo completo de la interfaz usando Jetpack Compose y componentes personalizados",
           "migrations": "Gestión segura de migraciones complejas de base de datos usando Room"
         }
+      },
+      "arcay3dlabs": {
+        "title": "Arcay3Dlabs",
+        "description": "Plataforma web completa para negocio de impresión 3D con e-commerce, cotizaciones personalizadas y panel de gestión administrativa.",
+        "long_description": "Arcay3Dlabs es una plataforma integral desarrollada para potenciar un negocio de impresión 3D. El sistema combina una experiencia de tienda en línea (E-commerce) con un avanzado cotizador interactivo para modelos 3D y un panel de administración para el control total del negocio.\n\nCaracterísticas Principales:\n- E-commerce Completo: Catálogo de productos, carrito persistente en localStorage y proceso de checkout directo a WhatsApp.\n- Sistema de Cotizaciones: Subida de archivos (STL, OBJ), selección de materiales (PLA, Resina, etc.), personalización y envío de orden.\n- Galería Dinámica: Visor de imágenes de trabajos anteriores con filtros por categoría y diseño responsive.\n- Panel de Administración: Dashboard para gestión CRUD de productos, visualización de cotizaciones y actualización de la galería.\n\nTecnologías Utilizadas:\n- Framework: Next.js (App Router) con TypeScript.\n- UI & Estilos: Tailwind CSS combinado con componentes de shadcn/ui y efectos interactivos.\n- Backend & DB: Firebase (Firestore y Storage) para base de datos y alojamiento de archivos 3D e imágenes.\n- Formularios: React Hook Form y Zod para validación rigurosa de datos.",
+        "media": {
+          "main": "Arcay3Dlabs - Plataforma Principal",
+          "ecommerce": "Arcay3Dlabs - Tienda y E-commerce",
+          "quote": "Arcay3Dlabs - Sistema de Cotización",
+          "admin": "Arcay3Dlabs - Panel de Administración",
+          "gallery": "Arcay3Dlabs - Galería de Proyectos"
+        },
+        "features": {
+          "ecommerce": "Catálogo de productos y carrito con checkout vía WhatsApp",
+          "quotes": "Formulario avanzado de cotizaciones de impresión 3D",
+          "admin_panel": "Dashboard para la gestión de productos, galería y cotizaciones",
+          "gallery": "Lightbox interactivo para visualización de trabajos",
+          "responsive": "Diseño adaptable con micro-animaciones y efectos visuales"
+        },
+        "challenges": {
+          "state_management": "Manejo complejo del estado global del carrito con Context API",
+          "ui_components": "Implementación de componentes avanzados e interactivos usando Radix UI",
+          "firebase_integration": "Integración fluida de Firestore y Storage para datos y archivos 3D"
+        }
       }
     },
     "cta_title": "¿Tienes un proyecto en mente?",
