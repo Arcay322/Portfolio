@@ -8,7 +8,7 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     tags: ["Python", "Django", "PostgreSQL", "JavaScript", "HTML/CSS"],
     liveUrl: "https://ticket-world.onrender.com",
     githubUrl: "https://github.com/Arcay322/Ticket_World",
-    featured: true,
+    featured: false,
     isNew: false,
     date: "2024-09-15",
     // Multimedia gallery - cambia el número 3 por cuantas imágenes tengas
@@ -46,8 +46,8 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     featured: true,
     isNew: true,
     date: "2024-10-01",
-    // Multimedia gallery - cambia el número 9 por cuantas imágenes tengas
-    media: Array.from({ length: 9 }, (_, i) => ({
+    // Multimedia gallery - máximo 5 imágenes
+    media: Array.from({ length: 5 }, (_, i) => ({
       type: "image" as const,
       src: `/images/projects/sumaq-uywa/SumaqUywa_${i + 1}.webp`,
       alt: `Sumaq Uywa - Captura ${i + 1}`,
@@ -83,8 +83,8 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     isNew: true,
     inProduction: true,
     date: "2025-01-01",
-    // Multimedia gallery - cambia el número 12 por cuantas imágenes tengas
-    media: Array.from({ length: 12 }, (_, i) => ({
+    // Multimedia gallery - máximo 5 imágenes
+    media: Array.from({ length: 5 }, (_, i) => ({
       type: "image" as const,
       src: `/images/projects/ventify/Ventify_${i + 1}.webp`,
       alt: `Ventify - Captura ${i + 1}`,
