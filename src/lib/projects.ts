@@ -176,7 +176,6 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     title: t('items.arcay3dlabs.title'),
     description: t('items.arcay3dlabs.description'),
     image: "/images/projects/arcay3dlabs/arcay3dlabs_1.webp",
-    category: "Full Stack",
     tags: ["Next.js", "TypeScript", "Firebase", "Tailwind CSS"],
     liveUrl: "https://arcay3dlabs.com/", 
     githubUrl: "https://github.com/Arcay322/Arcay3Dlabs",
