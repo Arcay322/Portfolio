@@ -142,7 +142,7 @@ export const getProjects = (t: (key: string) => string): Project[] => [
       t('items.jrtours.challenges.branding'),
     ],
   },
-  {
+  /* {
     title: t('items.cashflow.title'),
     description: t('items.cashflow.description'),
     image: "/images/projects/cashflow/CashFlow_1.webp",
@@ -171,7 +171,7 @@ export const getProjects = (t: (key: string) => string): Project[] => [
       t('items.cashflow.challenges.compose'),
       t('items.cashflow.challenges.migrations'),
     ],
-  },
+  }, */
   {
     title: t('items.arcay3dlabs.title'),
     description: t('items.arcay3dlabs.description'),
