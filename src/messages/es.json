@@ -88,8 +88,18 @@
     "skills_title": "Mis Habilidades",
     "timeline_title": "Mi Trayectoria",
     "timeline": {
+      "arcay3dlabs": {
+        "year": "2026",
+        "title": "Arcay3Dlabs - Plataforma de Impresión 3D",
+        "description": "Desarrollo de plataforma web de e-commerce y cotizaciones interactivas con Next.js y Firebase."
+      },
+      "jrtours": {
+        "year": "2026",
+        "title": "JR Tours - Sitio Corporativo y Reservas",
+        "description": "Desarrollo de sitio web de alto rendimiento para agencia de transporte usando Astro y Tailwind CSS."
+      },
       "imprex": {
-        "year": "2025",
+        "year": "2025 - Presente",
         "title": "Desarrollador Frontend Freelance - Imprex Europe SL",
         "description": "Desarrollo frontend con React, consumiendo APIs backend en Python para una empresa española."
       },

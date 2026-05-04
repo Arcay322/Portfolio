@@ -30,6 +30,18 @@ export function Timeline() {
       icon: "work",
     },
     {
+      year: t('arcay3dlabs.year'),
+      title: t('arcay3dlabs.title'),
+      description: t('arcay3dlabs.description'),
+      icon: "project",
+    },
+    {
+      year: t('jrtours.year'),
+      title: t('jrtours.title'),
+      description: t('jrtours.description'),
+      icon: "project",
+    },
+    {
       year: t('portfolio.year'),
       title: t('portfolio.title'),
       description: t('portfolio.description'),

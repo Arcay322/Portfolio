@@ -88,8 +88,18 @@
     "skills_title": "My Skills",
     "timeline_title": "My Journey",
     "timeline": {
+      "arcay3dlabs": {
+        "year": "2026",
+        "title": "Arcay3Dlabs - 3D Printing Platform",
+        "description": "Development of an e-commerce and interactive quoting web platform with Next.js and Firebase."
+      },
+      "jrtours": {
+        "year": "2026",
+        "title": "JR Tours - Corporate & Booking Site",
+        "description": "High-performance website development for a transport agency using Astro and Tailwind CSS."
+      },
       "imprex": {
-        "year": "2025",
+        "year": "2025 - Present",
         "title": "Freelance Frontend Developer - Imprex Europe SL",
         "description": "Frontend development with React, consuming Python backend APIs for a Spanish company."
       },

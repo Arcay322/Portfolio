@@ -109,11 +109,17 @@ export function ProjectCard({ project, isPriority, className }: ProjectCardProps
           <div className="flex flex-wrap gap-2 mt-auto mb-6">
             {project.tags.slice(0, 4).map((tag) => {
               const color = techColors[tag] || "hsl(var(--primary))";
+              const isBlack = color === "#000000";
+              
               return (
                 <span
                   key={tag}
-                  className="text-xs font-mono font-medium px-2 py-1 rounded-md backdrop-blur-sm transition-colors duration-300"
-                  style={{
+                  className={`text-xs font-mono font-medium px-2 py-1 rounded-md backdrop-blur-sm transition-colors duration-300 ${
+                    isBlack 
+                      ? "bg-black/5 text-black border border-black/10 dark:bg-white/10 dark:text-white dark:border-white/20" 
+                      : ""
+                  }`}
+                  style={isBlack ? undefined : {
                     backgroundColor: `${color}15`, // ~8% opacity
                     color: color,
                     borderColor: `${color}30`, // ~19% opacity
