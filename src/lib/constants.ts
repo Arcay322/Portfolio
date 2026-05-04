@@ -13,4 +13,10 @@ export const techColors: { [key: string]: string } = {
     "Next.js": "#000000",
     Firebase: "#FFCA28",
     Docker: "#2496ED",
+    Astro: "#FF5D01",
+    Kotlin: "#7F52FF",
+    "Jetpack Compose": "#4285F4",
+    Android: "#3DDC84",
+    Room: "#1E88E5",
+    "Material 3": "#6750A4",
 };

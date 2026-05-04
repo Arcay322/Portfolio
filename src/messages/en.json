@@ -292,6 +292,51 @@
           "performance": "Performance optimization with large data volumes",
           "charts": "Interactive charts implementation"
         }
+      },
+      "jrtours": {
+        "title": "JR Transportes",
+        "description": "Corporate and booking website for an interprovincial transport company. Built with Astro and Tailwind CSS, focused on performance (SEO) and user experience (UX).",
+        "long_description": "JR Transportes is a web platform developed for an interprovincial transport company in Ayacucho. The main goal was to create a professional online presence, optimized for SEO and with exceptional performance. The landing page allows users to learn about services (passenger transport, tourism, and parcels), explore destinations, and connect directly to make reservations via WhatsApp.\n\nMain Features:\n- Modern UI/UX Design: Implementation of Andean visual identity with micro-animations and advanced visual effects.\n- SEO Optimization: Use of dynamic meta tags, structured data (JSON-LD), and auto-generated sitemap for better local positioning.\n- Extreme Performance: Built with Astro to generate static HTML, ensuring ultra-fast load times and excellent Core Web Vitals.\n- Routes System: Custom interactive components for destination selection and price display.\n- Direct Integration: Optimized WhatsApp connection for quick bookings and 24/7 customer support.\n\nTechnologies Used:\n- Framework: Astro 4, leveraging islands architecture.\n- Styling: Tailwind CSS v4 for responsive design and custom utilities.\n- Integrations: WhatsApp API for direct communication.",
+        "media": {
+          "main": "JR Transportes - Main Landing Page",
+          "services": "JR Transportes - Services Section",
+          "destinations": "JR Transportes - Route Selection"
+        },
+        "features": {
+          "seo": "Advanced search engine optimization (SEO)",
+          "performance": "High-performance static architecture",
+          "ui_ux": "Interface design with custom micro-animations",
+          "whatsapp": "WhatsApp booking integration",
+          "responsive": "100% responsive design for any device"
+        },
+        "challenges": {
+          "performance": "Achieving perfect scores in performance measurement tools",
+          "custom_ui": "Developing interactive components without relying on heavy JS libraries",
+          "branding": "Adapting a traditional brand identity to a modern digital environment"
+        }
+      },
+      "cashflow": {
+        "title": "CashFlow",
+        "description": "Android application for personal finance management. Developed natively with Kotlin and Jetpack Compose, allowing users to manage income, expenses, budgets, and savings goals.",
+        "long_description": "CashFlow (Admin_ingresos) is a native Android mobile application designed to help users take control of their personal finances. It offers a comprehensive set of tools to track transactions, visualize reports, and set financial goals intuitively.\n\nMain Features:\n- Transaction Management: Quick and easy logging and categorization of income and expenses.\n- Data Visualization: Category charts, real-time balances, and weekly flow using custom components and MPAndroidChart.\n- Budgets and Goals: Monthly budget management system and savings goal tracking.\n- Report Export: Generation of financial reports exportable to Excel (Apache POI) and PDF.\n- Background Operations: Use of WorkManager for background task processing.\n\nTechnologies Used:\n- Language: Kotlin, leveraging Flows and Coroutines.\n- User Interface: Jetpack Compose (Material 3) and Navigation Compose for a reactive and fluid UI.\n- Local Persistence: Room Database (with KSP) for structured, robust, and offline-first storage.\n- Utilities: Coil for image loading, MPAndroidChart for data visualization, and Apache POI for Excel exports.",
+        "media": {
+          "main": "CashFlow - Main Dashboard",
+          "transactions": "CashFlow - Transaction History",
+          "reports": "CashFlow - Charts and Reports",
+          "goals": "CashFlow - Savings Goals"
+        },
+        "features": {
+          "finance": "Income and expense logging and categorization",
+          "charts": "Interactive charts and real-time balances",
+          "budgets": "Budget management and savings goals",
+          "export": "Data export to Excel and PDF",
+          "offline": "Offline-first architecture with local database"
+        },
+        "challenges": {
+          "architecture": "Implementation of clean architecture with reactive flows (StateFlow) between UI and database",
+          "compose": "Full UI development using Jetpack Compose and custom components",
+          "migrations": "Safe management of complex database migrations using Room"
+        }
       }
     },
     "cta_title": "Have a project in mind?",

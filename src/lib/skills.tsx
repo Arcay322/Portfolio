@@ -12,6 +12,10 @@ import {
   ReactIcon,
   TailwindCssIcon,
   TypescriptIcon,
+  AstroIcon,
+  KotlinIcon,
+  AndroidIcon,
+  JetpackComposeIcon,
 } from "@/components/icons";
 
 export const skills = [
@@ -28,6 +32,10 @@ export const skills = [
   { name: "HTML", icon: <HtmlIcon className="h-10 w-10" /> },
   { name: "CSS", icon: <CssIcon className="h-10 w-10" /> },
   { name: "JavaScript", icon: <JavascriptIcon className="h-10 w-10" /> },
+  { name: "Astro", icon: <AstroIcon className="h-10 w-10" /> },
+  { name: "Kotlin", icon: <KotlinIcon className="h-10 w-10" /> },
+  { name: "Android", icon: <AndroidIcon className="h-10 w-10" /> },
+  { name: "Jetpack Compose", icon: <JetpackComposeIcon className="h-10 w-10" /> },
 ];
 
 export function getSkillsCount(): number {

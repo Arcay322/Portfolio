@@ -11,3 +11,7 @@ export * from './PythonIcon';
 export * from './ReactIcon';
 export * from './TailwindCssIcon';
 export * from './TypescriptIcon';
+export * from './AstroIcon';
+export * from './KotlinIcon';
+export * from './AndroidIcon';
+export * from './JetpackComposeIcon';

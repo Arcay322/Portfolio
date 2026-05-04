@@ -292,6 +292,51 @@
           "performance": "Optimización de rendimiento con grandes volúmenes de datos",
           "charts": "Implementación de gráficos interactivos"
         }
+      },
+      "jrtours": {
+        "title": "JR Transportes",
+        "description": "Sitio web corporativo y de reservas para una empresa de transporte interprovincial. Desarrollado con Astro y Tailwind CSS, enfocado en rendimiento (SEO) y experiencia de usuario (UX).",
+        "long_description": "JR Transportes es una plataforma web desarrollada para una empresa de transporte interprovincial en Ayacucho. El objetivo principal fue crear una presencia online profesional, optimizada para SEO y con un rendimiento excepcional. La landing page permite a los usuarios conocer los servicios (transporte de pasajeros, turismo y encomiendas), explorar los destinos y conectarse directamente para realizar reservas vía WhatsApp.\n\nCaracterísticas Principales:\n- Diseño UI/UX Moderno: Implementación de la identidad visual andina con micro-animaciones y efectos visuales avanzados.\n- Optimización SEO: Uso de meta tags dinámicos, datos estructurados (JSON-LD) y sitemap autogenerado para mejor posicionamiento local.\n- Rendimiento Extremo: Construido con Astro para generar HTML estático, asegurando tiempos de carga ultrarrápidos y excelentes Core Web Vitals.\n- Sistema de Rutas: Componentes interactivos personalizados para selección de destinos y visualización de precios.\n- Integración Directa: Conexión optimizada con WhatsApp para reservas rápidas y atención al cliente 24/7.\n\nTecnologías Utilizadas:\n- Framework: Astro 4, aprovechando la arquitectura de islas.\n- Estilos: Tailwind CSS v4 para diseño responsive y utilidades personalizadas.\n- Integraciones: API de WhatsApp para comunicación directa.",
+        "media": {
+          "main": "JR Transportes - Landing Page Principal",
+          "services": "JR Transportes - Sección de Servicios",
+          "destinations": "JR Transportes - Selección de Rutas"
+        },
+        "features": {
+          "seo": "Optimización avanzada para motores de búsqueda (SEO)",
+          "performance": "Arquitectura estática de alto rendimiento",
+          "ui_ux": "Diseño de interfaz con micro-animaciones personalizadas",
+          "whatsapp": "Integración para reservas por WhatsApp",
+          "responsive": "Diseño 100% responsivo para cualquier dispositivo"
+        },
+        "challenges": {
+          "performance": "Lograr puntajes perfectos en herramientas de medición de rendimiento",
+          "custom_ui": "Desarrollo de componentes interactivos sin depender de librerías JS pesadas",
+          "branding": "Adaptar una identidad de marca tradicional a un entorno digital moderno"
+        }
+      },
+      "cashflow": {
+        "title": "CashFlow",
+        "description": "Aplicación Android para la gestión de finanzas personales. Desarrollada de forma nativa con Kotlin y Jetpack Compose, permite administrar ingresos, gastos, presupuestos y metas de ahorro.",
+        "long_description": "CashFlow (Admin_ingresos) es una aplicación móvil nativa para Android diseñada para ayudar a los usuarios a tomar el control de sus finanzas personales. Ofrece un conjunto completo de herramientas para registrar transacciones, visualizar reportes y establecer objetivos financieros de manera intuitiva.\n\nCaracterísticas Principales:\n- Gestión de Transacciones: Registro y categorización de ingresos y gastos de forma rápida y sencilla.\n- Visualización de Datos: Gráficos por categoría, balances en tiempo real y flujo semanal usando componentes personalizados y MPAndroidChart.\n- Presupuestos y Metas: Sistema de gestión de presupuestos mensuales y seguimiento de metas de ahorro.\n- Exportación de Reportes: Generación de reportes financieros exportables a Excel (Apache POI) y PDF.\n- Operaciones en Background: Uso de WorkManager para procesamiento de tareas en segundo plano.\n\nTecnologías Utilizadas:\n- Lenguaje: Kotlin, aprovechando flujos (Flows) y corrutinas.\n- Interfaz de Usuario: Jetpack Compose (Material 3) y Navigation Compose para una UI reactiva y fluida.\n- Persistencia Local: Room Database (con KSP) para un almacenamiento estructurado, robusto y offline-first.\n- Utilidades: Coil para carga de imágenes, MPAndroidChart para visualización de datos y Apache POI para exportaciones a Excel.",
+        "media": {
+          "main": "CashFlow - Pantalla Principal (Dashboard)",
+          "transactions": "CashFlow - Historial de Transacciones",
+          "reports": "CashFlow - Gráficos y Reportes",
+          "goals": "CashFlow - Metas de Ahorro"
+        },
+        "features": {
+          "finance": "Registro y categorización de ingresos y gastos",
+          "charts": "Gráficos interactivos y balances en tiempo real",
+          "budgets": "Gestión de presupuestos y metas de ahorro",
+          "export": "Exportación de datos a Excel y PDF",
+          "offline": "Arquitectura offline-first con base de datos local"
+        },
+        "challenges": {
+          "architecture": "Implementación de arquitectura limpia con flujos reactivos (StateFlow) entre la UI y la base de datos",
+          "compose": "Desarrollo completo de la interfaz usando Jetpack Compose y componentes personalizados",
+          "migrations": "Gestión segura de migraciones complejas de base de datos usando Room"
+        }
       }
     },
     "cta_title": "¿Tienes un proyecto en mente?",
