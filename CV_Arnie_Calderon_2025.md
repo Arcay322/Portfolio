@@ -1,12 +1,8 @@
 # ARNIE CALDERÓN
 **Desarrollador Full-Stack | Ingeniero de Software**
 
-📧 Email: [arcay325@gmail.com](mailto:arcay325@gmail.com)  
-📱 Teléfono: +51 918 793 956 | 💬 WhatsApp: +51 917 455 538  
-🌐 Portfolio: [https://arcay.dev](https://arcay.dev)  
-💼 LinkedIn: [linkedin.com/in/arniecalderonayala](https://www.linkedin.com/in/arniecalderonayala/)  
-🐙 GitHub: [github.com/Arcay322](https://github.com/Arcay322)  
-📍 Lima, Perú
+arcay325@gmail.com | +51 918 793 956 (Tel) | +51 917 455 538 (WA)  
+[arcay.dev](https://arcay.dev) | [linkedin.com/in/arniecalderonayala](https://www.linkedin.com/in/arniecalderonayala/) | [github.com/Arcay322](https://github.com/Arcay322) | Lima, Perú
 
 ---
 
@@ -19,7 +15,7 @@ Desarrollador Full-Stack con +3 años de experiencia especializado en la creaci�
 ## EXPERIENCIA PROFESIONAL
 
 ### **Desarrollador Frontend Freelance**
-**IMPREX EUROPE S.L.** | Noviembre 2024 - Presente | Remoto (España)
+**IMPREX EUROPE S.L.** | Septiembre 2025 - Presente | Remoto (España)
 
 - **Desarrollé desde cero una aplicación web SPA robusta** orientada a la gestión interna corporativa, consumiendo múltiples APIs REST complejas y garantizando una modularidad de alto nivel.
 - **Lideré la migración de funcionalidades clave de una app móvil nativa** hacia una interfaz web responsive, optimizando la adaptabilidad en un 100% de dispositivos.
@@ -72,7 +68,7 @@ Desarrollador Full-Stack con +3 años de experiencia especializado en la creaci�
 
 **Backend, Nube y Bases de Datos:**
 - Node.js, Express, Django, Django REST Framework, Firebase (Firestore, Auth, Storage, Hosting).
-- PostgreSQL, SQL Server, Diseño y Consumo de APIs RESTful, Sincronización en tiempo real.
+- PostgreSQL, SQL Server, API RESTful Design, Real-time Data Synchronization.
 
 **Herramientas & DevOps:**
 - Git & GitHub (Git Flow), Docker, Vercel, Railway, Render, Postman, Linux CLI.
