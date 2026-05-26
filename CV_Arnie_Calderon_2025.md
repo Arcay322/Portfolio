@@ -6,184 +6,117 @@
 🌐 Portfolio: https://arcay.dev  
 💼 LinkedIn: [Tu LinkedIn]  
 🐙 GitHub: github.com/Arcay322  
-📍 Perú
+📍 Lima, Perú
 
 ---
 
 ## PERFIL PROFESIONAL
 
-Desarrollador Full-Stack con +3 años de experiencia en la creación de aplicaciones web modernas y escalables. Especializado en React, Next.js, Node.js, Python y Firebase. Estudiante de Ingeniería de Software (7mo ciclo) con sólida experiencia en desarrollo de sistemas empresariales que han generado resultados medibles, incluyendo un incremento del 97% en ventas para clientes. Apasionado por el código limpio, las mejores prácticas y la resolución de problemas complejos mediante soluciones innovadoras.
+Desarrollador Full-Stack con +3 años de experiencia especializado en la creación de aplicaciones web modernas, escalables y orientadas a resultados de negocio. Sólida experiencia en el desarrollo de arquitecturas frontend fluidas (React, Next.js) y backend empresariales integrando bases de datos relacionales y no relacionales. Estudiante de Ingeniería de Software (7mo ciclo) con un historial comprobado de impacto, incluyendo el desarrollo de un sistema POS que incrementó las ventas comerciales en un **97%** e integraciones de datos de nivel internacional con sistemas ERP SAP. Apasionado por las arquitecturas limpias, principios SOLID, seguridad y la resolución ágil de problemas complejos.
 
 ---
 
 ## EXPERIENCIA PROFESIONAL
 
+### **Desarrollador Frontend Freelance**
+**IMPREX EUROPE S.L.** | Noviembre 2024 - Presente | Remoto (España)
+
+- **Desarrollé desde cero una aplicación web SPA robusta** orientada a la gestión interna corporativa, consumiendo múltiples APIs REST complejas y garantizando una modularidad de alto nivel.
+- **Lideré la migración de funcionalidades clave de una app móvil nativa** hacia una interfaz web responsive, mejorando la compatibilidad móvil-primera y optimizando la adaptabilidad en un 100% de dispositivos.
+- **Implementé interfaces pixel-perfect y accesibles**, diseñando un sistema de componentes ágiles y reutilizables alineados estrictamente con las pautas de UI/UX de la compañía.
+- **Integré con éxito flujos de datos críticos** con el backend en Django y el **ERP SAP** mediante APIs REST seguras, asegurando la consistencia y sincronización en tiempo real de los datos empresariales.
+- **Colaboré activamente en un equipo internacional distribuido** bajo metodologías ágiles (Scrum), participando en revisiones de código cruzadas y coordinando entregables asíncronos eficientemente.
+- **Tecnologías:** React.js, Vite, JavaScript (ES6+), Django, SAP Integration, REST APIs, Tailwind CSS, Git.
+
+---
+
 ### **Desarrollador Full-Stack Freelance**
-**INVERSIONES MAX PERU S.A.C.** | Octubre 2024 - Presente | Perú
+**INVERSIONES MAX PERU S.A.C.** | Octubre 2024 - Octubre 2025 | Lima, Perú
 
-- **Desarrollé Ventify**, un sistema completo de Punto de Venta (POS) e inventario multi-sucursal que incrementó las ventas en un **97%** desde su implementación
-- Implementé arquitectura escalable usando **Next.js 14**, **Firebase** y **TypeScript** para manejar operaciones en tiempo real de múltiples ubicaciones comerciales
-- Diseñé e implementé sistema de permisos granulares basado en roles, permitiendo control de acceso específico para 20+ usuarios simultáneos
-- Desarrollé módulos de reservas de pedidos, pedidos personalizados, control de caja registradora y reportes de transacciones con análisis detallado
-- Optimicé la gestión de inventario con alertas automáticas de stock bajo, reduciendo pérdidas por desabastecimiento
-- Integré sistema de pagos mixtos y gestión de almacenes multi-ubicación con sincronización en tiempo real
-- **Tecnologías:** Next.js, TypeScript, Firebase (Firestore, Authentication, Storage), Tailwind CSS, Shadcn/ui, React Hook Form
-
-**Impacto Cuantificable:**
-- 97% de incremento en ventas del cliente
-- Sistema en producción desde Octubre 2025
-- Gestión eficiente de inventario multi-sucursal
-- Mayor control y seguimiento de márgenes de ganancia
+- **Diseñé y desarrollé Ventify**, un sistema de Punto de Venta (POS) e inventario multi-sucursal integral que **incrementó las ventas de la compañía en un 97%** en su primer año de uso.
+- **Implementé una arquitectura escalable y en tiempo real** utilizando **Next.js 14**, **Firebase** y **TypeScript**, optimizando la velocidad del sistema para transacciones simultáneas desde múltiples puntos de venta físicos.
+- **Desarrollé un sistema de control de accesos granulares basado en roles**, permitiendo un flujo de permisos seguro para más de 20 cajeros, administradores y supervisores comerciales de manera simultánea.
+- **Creé módulos críticos de negocio**, incluyendo reservas de pedidos, pedidos personalizados, control de arqueo de caja registradora y generación automatizada de reportes financieros detallados.
+- **Optimicé el control de inventario mediante alertas automatizadas** de stock bajo en tiempo real, lo que redujo las pérdidas operativas por desabastecimiento comercial.
+- **Tecnologías:** Next.js 14, TypeScript, Firebase (Firestore, Authentication, Storage), Tailwind CSS, Shadcn/ui, React Hook Form, Zod.
 
 ---
 
 ## PROYECTOS DESTACADOS
 
 ### **Sumaq Uywa - Sistema de Gestión Agrícola** | 2024
-**Aplicación fullstack para administración integral de granjas**
-
-- Desarrollé sistema completo de gestión con módulos de reproducción, salud veterinaria, alimentación, ventas y gastos
-- Implementé dashboard interactivo con métricas en tiempo real y visualización de datos mediante gráficos interactivos
-- Diseñé base de datos compleja en **PostgreSQL** optimizada para grandes volúmenes de información
-- Creé sistema de notificaciones automáticas para eventos críticos (ciclos reproductivos, alertas médicas, inventario)
-- **Tecnologías:** React, TypeScript, Node.js, Express, PostgreSQL, Tailwind CSS
-- **GitHub:** github.com/Arcay322/Sumaq_Uywa
+*Aplicación Full-Stack para la administración integral de producción ganadera y granjas*
+- **Desarrollé un sistema completo de gestión modular** con flujos dedicados a reproducción animal, salud veterinaria, alimentación, inventarios y control riguroso de gastos/ventas.
+- **Implementé un dashboard interactivo** con métricas en tiempo real y visualización de datos dinámica mediante gráficos interactivos para la toma ágil de decisiones de negocio.
+- **Diseñé una base de datos compleja en PostgreSQL** optimizada con índices y queries optimizadas para manejar grandes volúmenes de datos transaccionales históricos.
+- **GitHub:** [github.com/Arcay322/Sumaq_Uywa](https://github.com/Arcay322/Sumaq_Uywa)
+- **Tecnologías:** React, TypeScript, Node.js, Express, PostgreSQL, Tailwind CSS.
 
 ### **Ticket World - Plataforma E-commerce** | 2024
-**Sistema de venta de tickets para eventos con panel de administración**
-
-- Desarrollé plataforma e-commerce con sistema robusto de roles (Admin, Proveedor, Cliente) con permisos específicos
-- Implementé panel de métricas con dashboard interactivo y estadísticas en tiempo real
-- Integré **Google Maps API** para visualización de ubicaciones de eventos
-- Diseñé arquitectura backend escalable con **Django REST Framework** y **PostgreSQL**
-- Desarrollé sistema de carrito de compras con simulación de pasarela de pagos
-- **Tecnologías:** Python, Django, Django REST Framework, PostgreSQL, JavaScript, HTML5, CSS3
-- **GitHub:** github.com/Arcay322/Ticket_World
-
-### **Portfolio Profesional** | 2025
-**Sitio web personal con animaciones avanzadas y sistema multiidioma**
-
-- Desarrollé portfolio moderno con **Next.js 15**, sistema de internacionalización (ES/EN)
-- Implementé animaciones avanzadas y optimización SEO con schema markup
-- Diseñé sistema de componentes reutilizables con Shadcn/ui y Tailwind CSS
-- **Tecnologías:** Next.js 15, TypeScript, Next-intl, Tailwind CSS, Framer Motion
+*Sistema de compra-venta de entradas para eventos masivos con panel de administración*
+- **Creé una plataforma completa de comercio electrónico** soportando tres roles de usuario distintos (Administrador, Proveedor, Cliente) con flujos de permisos rigurosos.
+- **Integré la API de Google Maps** para permitir a los usuarios visualizar la ubicación exacta de los eventos en tiempo real.
+- **Diseñé un backend robusto y de alto rendimiento** utilizando **Django REST Framework** y **PostgreSQL**, facilitando el flujo rápido del carrito de compras y pasarela de pago simulada.
+- **GitHub:** [github.com/Arcay322/Ticket_World](https://github.com/Arcay322/Ticket_World)
+- **Tecnologías:** Python, Django, Django REST Framework, PostgreSQL, JavaScript.
 
 ---
 
 ## HABILIDADES TÉCNICAS
 
-**Lenguajes de Programación:**
-- JavaScript/TypeScript (Avanzado)
-- Python (Avanzado)
-- HTML5/CSS3 (Avanzado)
-- SQL (Intermedio)
+**Core Tecnológico (Dominio Avanzado):**
+- JavaScript, TypeScript, ES6+
+- React.js, Next.js 14/15
+- Tailwind CSS, Shadcn/ui
+- Firebase (Firestore, Auth, Storage, Hosting)
+- Git & GitHub (Git Flow)
 
-**Frontend:**
-- React.js (Avanzado)
-- Next.js 14/15 (Avanzado)
-- Tailwind CSS (Avanzado)
-- Shadcn/ui, Material-UI
-- Framer Motion, Animaciones CSS
-- React Hook Form, Zod Validation
-- Responsive Design, Mobile-First
+**Backend & Bases de Datos (Dominio Sólido / Intermedio):**
+- Node.js, Express
+- Python, Django, Django REST Framework
+- PostgreSQL, SQL Server
+- Diseño de Bases de Datos Relacionales (SQL) y No Relacionales (NoSQL)
+- Diseño y Consumo de APIs RESTful
 
-**Backend:**
-- Node.js, Express (Intermedio)
-- Django, Django REST Framework (Intermedio)
-- Firebase (Firestore, Authentication, Storage, Hosting)
-- API REST Design
-- Real-time Data Synchronization
-
-**Bases de Datos:**
-- PostgreSQL (Intermedio)
-- Firebase Firestore (Avanzado)
-- SQL Database Design
-- NoSQL Database Design
-
-**DevOps & Herramientas:**
-- Git, GitHub (Avanzado)
-- Docker (Básico)
-- Firebase Hosting, Vercel
-- Render, Railway
-- VS Code, Postman
+**Herramientas & DevOps:**
+- Docker (Básico / Intermedio)
+- Vercel, Railway, Render
+- Postman, VS Code, Linux CLI
+- Testing (Jest, React Testing Library, Playwright)
 
 **Metodologías & Prácticas:**
 - Metodologías Ágiles (Scrum)
-- Control de Versiones (Git Flow)
-- Code Reviews, Pair Programming
-- Clean Code, SOLID Principles
-- Testing (Jest, React Testing Library)
-- Debugging Sistemático
-- Documentación Técnica
-
-**Soft Skills:**
-- Resolución de Problemas Complejos
-- Aprendizaje Continuo y Autodidacta
-- Trabajo en Equipo y Colaboración
-- Comunicación Efectiva
-- Adaptabilidad y Flexibilidad
-- Orientación a Resultados
-- Gestión de Tiempo
-- Pensamiento Analítico
+- Clean Code & SOLID Principles
+- Prácticas de UI/UX & Responsive Design (Mobile-First)
+- Inyección defensiva y Sanitización de Datos (XSS / SQLi prevention)
 
 ---
 
 ## EDUCACIÓN
 
 **Ingeniería de Software** | 2022 - Presente (7mo Ciclo)  
-[Nombre de tu Universidad] | Perú  
-*Enfocado en desarrollo web full-stack, arquitectura de software y bases de datos*
-
----
-
-## CERTIFICACIONES & CURSOS
-
-- Desarrollo Web Autodidacta (2022 - Presente)
-- Metodologías Ágiles y Scrum
-- Git y GitHub para Equipos
-- React.js Avanzado
-- Next.js y Server-Side Rendering
-- Firebase y Bases de Datos en Tiempo Real
-- TypeScript para Desarrolladores
+[Nombre de tu Universidad] | Lima, Perú  
+*Foco académico: Arquitectura de software, bases de datos avanzadas, estructuras de datos y metodologías ágiles.*
 
 ---
 
 ## IDIOMAS
 
 - **Español:** Nativo
-- **Inglés:** Técnico (lectura y escritura de documentación)
-
----
-
-## INFORMACIÓN ADICIONAL
-
-**Disponibilidad:** Inmediata para proyectos freelance y posiciones full-time  
-**Modalidad:** Remoto, Híbrido o Presencial  
-**Tipo de Contrato:** Tiempo completo, Part-time, o Freelance  
-
-**Intereses Profesionales:**
-- Desarrollo de aplicaciones web escalables
-- Arquitectura de software y microservicios
-- Optimización de rendimiento y UX
-- Inteligencia Artificial y Machine Learning
-- DevOps y CI/CD
-- Open Source Contribution
+- **Inglés:** Intermedio / Técnico (Lectura, escritura y consumo fluido de documentación de software; capacidad de comunicación técnica escrita y conversacional básica).
 
 ---
 
 ## REFERENCIAS
 
 **René Foreest Minaya Isidro**  
-Gerente de Producción y Accionista  
-INVERSIONES MAX PERU S.A.C.  
+Gerente de Producción y Accionista | **INVERSIONES MAX PERU S.A.C.**  
 *"Destacamos el profesionalismo, compromiso y capacidad técnica de Arnie Calderón, quien desarrolló Ventify para nuestra empresa. Desde su implementación, hemos logrado incrementar nuestras ventas en un 97%, asegurar el orden y control de nuestro inventario, y mayor eficiencia en el conocimiento y seguimiento de nuestros márgenes de ganancia. Recomendamos ampliamente a Arnie y su sistema Ventify como un aliado estratégico confiable, innovador y eficaz."*
 
 ---
-
-**Última actualización:** Noviembre 2025
+*Última actualización: Mayo 2026*
 
 ---
 
 ## PALABRAS CLAVE PARA ATS
-
 Full-Stack Developer | Web Developer | Software Engineer | React Developer | Next.js Developer | JavaScript | TypeScript | Python | Django | Node.js | Firebase | PostgreSQL | Tailwind CSS | REST API | Frontend Development | Backend Development | Responsive Design | Real-time Applications | E-commerce | POS Systems | Inventory Management | Agile Methodologies | Git | Version Control | Database Design | UI/UX Implementation | Performance Optimization | Clean Code | SOLID Principles | Problem Solving | Team Collaboration
