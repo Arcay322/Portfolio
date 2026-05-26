@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from '@/navigation';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 import {
@@ -14,13 +14,14 @@ import {
 const languages = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
   { code: 'en', name: 'English', flag: '🇺🇸' },
-];
+] as const;
 
 export function LanguageSwitcher() {
   const locale = useLocale();
   const pathname = usePathname();
+  const router = useRouter();
 
-  const switchLocale = (newLocale: string) => {
+  const switchLocale = (newLocale: 'es' | 'en') => {
     // No hacer nada si ya estamos en ese idioma
     if (newLocale === locale) {
       console.log('🌍 Ya estás en', newLocale);
@@ -28,41 +29,10 @@ export function LanguageSwitcher() {
     }
 
     console.log('🌍 Cambiando idioma de', locale, 'a', newLocale);
-    console.log('📍 Pathname actual:', pathname);
+    console.log('📍 Pathname sin prefijo:', pathname);
 
-    // Construir la nueva ruta según el locale prefix 'as-needed'
-    let newPath: string;
-
-    if (newLocale === 'es') {
-      // Español no tiene prefijo (locale prefix 'as-needed')
-      if (pathname.startsWith('/en/')) {
-        newPath = pathname.substring(3); // Quitar '/en'
-      } else if (pathname === '/en') {
-        newPath = '/';
-      } else {
-        newPath = pathname;
-      }
-    } else {
-      // Inglés tiene prefijo '/en'
-      if (pathname.startsWith('/en/')) {
-        newPath = pathname; // Ya está en inglés
-      } else if (pathname === '/en') {
-        newPath = '/en';
-      } else if (pathname === '/' || !pathname.startsWith('/')) {
-        newPath = `/en${pathname}`;
-      } else {
-        newPath = `/en${pathname}`;
-      }
-    }
-
-    console.log('🔗 Nueva ruta:', newPath);
-
-    // Establecer cookie para persistencia (next-intl usa NEXT_LOCALE)
-    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
-    console.log('🍪 Cookie establecida:', `NEXT_LOCALE=${newLocale}`);
-
-    // Forzar cambio con window.location
-    window.location.href = newPath;
+    // Cambiar de idioma fluidamente sin recargar la página (modo SPA)
+    router.replace(pathname, { locale: newLocale });
   };
 
   const currentLanguage = languages.find((lang) => lang.code === locale);

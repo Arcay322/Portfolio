@@ -139,7 +139,6 @@ export default async function LocaleLayout({ children, params }: Props) {
               <GoogleAnalytics />
               <WebVitalsReporter />
               <ServiceWorkerRegistrar />
-              <ServiceWorkerRegistrar />
               {/* PrefetchRoutes removed to avoid redundant preloading warnings - Next.js handles viewport prefetching natively */}
               {/* <PrefetchRoutes
                 routes={IMPORTANT_ROUTES}
