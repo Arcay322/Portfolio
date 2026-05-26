@@ -1,18 +1,18 @@
 # ARNIE CALDERÓN
 **Desarrollador Full-Stack | Ingeniero de Software**
 
-📧 Email: [Tu Email]  
-📱 Teléfono: [Tu Teléfono]  
-🌐 Portfolio: https://arcay.dev  
-💼 LinkedIn: [Tu LinkedIn]  
-🐙 GitHub: github.com/Arcay322  
+📧 Email: [arcay325@gmail.com](mailto:arcay325@gmail.com)  
+📱 Teléfono: +51 918 793 956 | 💬 WhatsApp: +51 917 455 538  
+🌐 Portfolio: [https://arcay.dev](https://arcay.dev)  
+💼 LinkedIn: [linkedin.com/in/arniecalderonayala](https://www.linkedin.com/in/arniecalderonayala/)  
+🐙 GitHub: [github.com/Arcay322](https://github.com/Arcay322)  
 📍 Lima, Perú
 
 ---
 
 ## PERFIL PROFESIONAL
 
-Desarrollador Full-Stack con +3 años de experiencia especializado en la creación de aplicaciones web modernas, escalables y orientadas a resultados de negocio. Sólida experiencia en el desarrollo de arquitecturas frontend fluidas (React, Next.js) y backend empresariales integrando bases de datos relacionales y no relacionales. Estudiante de Ingeniería de Software (7mo ciclo) con un historial comprobado de impacto, incluyendo el desarrollo de un sistema POS que incrementó las ventas comerciales en un **97%** e integraciones de datos de nivel internacional con sistemas ERP SAP. Apasionado por las arquitecturas limpias, principios SOLID, seguridad y la resolución ágil de problemas complejos.
+Desarrollador Full-Stack con +3 años de experiencia especializado en la creación de aplicaciones web modernas, escalables y orientadas a resultados de negocio. Sólida experiencia en el desarrollo de arquitecturas frontend fluidas (React, Next.js) y backend empresariales integrando bases de datos relacionales y no relacionales. Estudiante de Ingeniería de Software (9no ciclo) en la Universidad Tecnológica del Perú, con un historial comprobado de impacto, incluyendo el desarrollo de un sistema POS a producción que incrementó las ventas comerciales en un **97%** (Ventify) e integraciones de datos de nivel internacional con sistemas ERP SAP. Apasionado por las arquitecturas limpias, principios SOLID, seguridad y la resolución ágil de problemas complejos.
 
 ---
 
@@ -22,7 +22,7 @@ Desarrollador Full-Stack con +3 años de experiencia especializado en la creaci�
 **IMPREX EUROPE S.L.** | Noviembre 2024 - Presente | Remoto (España)
 
 - **Desarrollé desde cero una aplicación web SPA robusta** orientada a la gestión interna corporativa, consumiendo múltiples APIs REST complejas y garantizando una modularidad de alto nivel.
-- **Lideré la migración de funcionalidades clave de una app móvil nativa** hacia una interfaz web responsive, mejorando la compatibilidad móvil-primera y optimizando la adaptabilidad en un 100% de dispositivos.
+- **Lideré la migración de funcionalidades clave de una app móvil nativa** hacia una interfaz web responsive, optimizando la adaptabilidad en un 100% de dispositivos.
 - **Implementé interfaces pixel-perfect y accesibles**, diseñando un sistema de componentes ágiles y reutilizables alineados estrictamente con las pautas de UI/UX de la compañía.
 - **Integré con éxito flujos de datos críticos** con el backend en Django y el **ERP SAP** mediante APIs REST seguras, asegurando la consistencia y sincronización en tiempo real de los datos empresariales.
 - **Colaboré activamente en un equipo internacional distribuido** bajo metodologías ágiles (Scrum), participando en revisiones de código cruzadas y coordinando entregables asíncronos eficientemente.
@@ -33,12 +33,12 @@ Desarrollador Full-Stack con +3 años de experiencia especializado en la creaci�
 ### **Desarrollador Full-Stack Freelance**
 **INVERSIONES MAX PERU S.A.C.** | Octubre 2024 - Octubre 2025 | Lima, Perú
 
-- **Diseñé y desarrollé Ventify**, un sistema de Punto de Venta (POS) e inventario multi-sucursal integral que **incrementó las ventas de la compañía en un 97%** en su primer año de uso.
+- **Diseñé y desarrollé Ventify (depliegue en [www.ventify.com.pe](https://www.ventify.com.pe))**, un sistema de Punto de Venta (POS) e inventario multi-sucursal integral que **incrementó las ventas de la compañía en un 97%** en su primer año de uso.
 - **Implementé una arquitectura escalable y en tiempo real** utilizando **Next.js 14**, **Firebase** y **TypeScript**, optimizando la velocidad del sistema para transacciones simultáneas desde múltiples puntos de venta físicos.
 - **Desarrollé un sistema de control de accesos granulares basado en roles**, permitiendo un flujo de permisos seguro para más de 20 cajeros, administradores y supervisores comerciales de manera simultánea.
 - **Creé módulos críticos de negocio**, incluyendo reservas de pedidos, pedidos personalizados, control de arqueo de caja registradora y generación automatizada de reportes financieros detallados.
 - **Optimicé el control de inventario mediante alertas automatizadas** de stock bajo en tiempo real, lo que redujo las pérdidas operativas por desabastecimiento comercial.
-- **Tecnologías:** Next.js 14, TypeScript, Firebase (Firestore, Authentication, Storage), Tailwind CSS, Shadcn/ui, React Hook Form, Zod.
+- **Tecnologías:** Next.js 14, TypeScript, Firebase (Firestore, Auth, Storage), Tailwind CSS, Shadcn/ui, React Hook Form, Zod.
 
 ---
 
@@ -64,38 +64,30 @@ Desarrollador Full-Stack con +3 años de experiencia especializado en la creaci�
 
 ## HABILIDADES TÉCNICAS
 
-**Core Tecnológico (Dominio Avanzado):**
-- JavaScript, TypeScript, ES6+
-- React.js, Next.js 14/15
-- Tailwind CSS, Shadcn/ui
-- Firebase (Firestore, Auth, Storage, Hosting)
-- Git & GitHub (Git Flow)
+**Lenguajes y Core Tecnológico:**
+- JavaScript, TypeScript, ES6+, Python, HTML5, CSS3, SQL.
 
-**Backend & Bases de Datos (Dominio Sólido / Intermedio):**
-- Node.js, Express
-- Python, Django, Django REST Framework
-- PostgreSQL, SQL Server
-- Diseño de Bases de Datos Relacionales (SQL) y No Relacionales (NoSQL)
-- Diseño y Consumo de APIs RESTful
+**Frameworks y Librerías Frontend:**
+- React.js, Next.js 14/15, Tailwind CSS, Shadcn/ui, Material-UI, Framer Motion.
+
+**Backend, Nube y Bases de Datos:**
+- Node.js, Express, Django, Django REST Framework, Firebase (Firestore, Auth, Storage, Hosting).
+- PostgreSQL, SQL Server, Diseño y Consumo de APIs RESTful, Sincronización en tiempo real.
 
 **Herramientas & DevOps:**
-- Docker (Básico / Intermedio)
-- Vercel, Railway, Render
-- Postman, VS Code, Linux CLI
-- Testing (Jest, React Testing Library, Playwright)
+- Git & GitHub (Git Flow), Docker, Vercel, Railway, Render, Postman, Linux CLI.
+- Testing (Jest, React Testing Library, Playwright).
 
 **Metodologías & Prácticas:**
-- Metodologías Ágiles (Scrum)
-- Clean Code & SOLID Principles
-- Prácticas de UI/UX & Responsive Design (Mobile-First)
-- Inyección defensiva y Sanitización de Datos (XSS / SQLi prevention)
+- Metodologías Ágiles (Scrum), SOLID, Clean Code, Responsive Design (Mobile-First).
+- Inyección defensiva y Sanitización de Datos (XSS / SQLi prevention).
 
 ---
 
 ## EDUCACIÓN
 
-**Ingeniería de Software** | 2022 - Presente (7mo Ciclo)  
-[Nombre de tu Universidad] | Lima, Perú  
+**Ingeniería de Software** | 2022 - Presente (9no Ciclo)  
+**Universidad Tecnológica del Perú** | Lima, Perú  
 *Foco académico: Arquitectura de software, bases de datos avanzadas, estructuras de datos y metodologías ágiles.*
 
 ---
