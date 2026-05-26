@@ -98,6 +98,46 @@ async function sendDiscordAlert(project: Project) {
 }
 
 /**
+ * Determina si un proyecto fue publicado hace un máximo de 1 día (24 horas)
+ */
+function isRecentProject(publishedText: string): boolean {
+  const text = publishedText.toLowerCase().trim();
+  
+  // Si dice recientemente o hace minutos/segundos/horas, es menor a 1 día
+  if (
+    text.includes('reciente') || 
+    text.includes('ahora') || 
+    text.includes('minuto') || 
+    text.includes('segundo') || 
+    text.includes('hora')
+  ) {
+    return true;
+  }
+  
+  // Si menciona días / dias
+  if (text.includes('día') || text.includes('dia')) {
+    // Si es "un día" o "1 día"
+    if (text.includes('un día') || text.includes('un dia')) {
+      return true;
+    }
+    
+    const match = text.match(/(\d+)/);
+    if (match) {
+      const days = parseInt(match[1], 10);
+      return days <= 1;
+    }
+  }
+  
+  // Excluir de forma explícita periodos más largos
+  if (text.includes('semana') || text.includes('mes') || text.includes('año') || text.includes('ano')) {
+    return false;
+  }
+  
+  // Por precaución, si el formato cambia o es desconocido, lo permitimos para no perder oportunidades
+  return true;
+}
+
+/**
  * Escanea proyectos de una query en Workana
  */
 async function scanQuery(page: any, keyword: string, seenProjects: Record<string, boolean>): Promise<Project[]> {
@@ -154,8 +194,8 @@ async function scanQuery(page: any, keyword: string, seenProjects: Record<string
       });
     });
 
-    // Filtrar proyectos vacíos o que ya hemos visto
-    return projects.filter(p => p.title && p.id && !seenProjects[p.id]);
+    // Filtrar proyectos vacíos, antiguos (más de 1 día) o que ya hemos visto
+    return (projects as Project[]).filter((p: Project) => p.title && p.id && !seenProjects[p.id] && isRecentProject(p.published));
 
   } catch (error) {
     console.error(`❌ Error escaneando query "${keyword}":`, error);
