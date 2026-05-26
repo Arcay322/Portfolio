@@ -115,17 +115,6 @@
   .surface-glass {
     @apply bg-background/60 backdrop-blur-xl border border-[rgba(var(--glass-border), var(--glass-opacity))] shadow-lg;
   }
-
-  /* Hide default cursor on all interactive elements */
-  a,
-  button,
-  input,
-  textarea,
-  select,
-  [role="button"],
-  .cursor-pointer {
-    cursor: none !important;
-  }
 }
 
 @layer utilities {
