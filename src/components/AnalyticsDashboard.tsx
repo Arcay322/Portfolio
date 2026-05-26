@@ -36,6 +36,15 @@ interface AnalyticsData {
   }>;
 }
 
+const DashboardSkeleton = (
+  <div className="space-y-6">
+    <div className="h-32 bg-muted animate-pulse rounded-lg" />
+    <div className="h-32 bg-muted animate-pulse rounded-lg" />
+    <div className="h-32 bg-muted animate-pulse rounded-lg" />
+    <div className="h-32 bg-muted animate-pulse rounded-lg" />
+  </div>
+);
+
 export function AnalyticsDashboard() {
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -94,13 +103,7 @@ export function AnalyticsDashboard() {
   }, [timeRange]);
 
   if (loading || !data) {
-    return (
-      <div className="space-y-6">
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="h-32 bg-muted animate-pulse rounded-lg" />
-        ))}
-      </div>
-    );
+    return DashboardSkeleton;
   }
 
   return (

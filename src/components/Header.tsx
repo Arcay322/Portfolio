@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from 'next-intl';
@@ -20,12 +20,12 @@ export function Header() {
   const t = useTranslations('nav');
   const tA11y = useTranslations('a11y');
 
-  const navLinks = [
+  const navLinks = useMemo(() => [
     { href: "/", label: t('home') },
     { href: "/about", label: t('about') },
     { href: "/projects", label: t('projects') },
     { href: "/contact", label: t('contact') },
-  ];
+  ], [t]);
 
   const { setItemRef, handleKeyDown } = useKeyboardNavigation<HTMLAnchorElement>(
     navLinks.length,

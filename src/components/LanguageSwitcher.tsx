@@ -2,6 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/navigation';
+import { useTransition } from 'react';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 import {
@@ -20,6 +21,7 @@ export function LanguageSwitcher() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
   const switchLocale = (newLocale: 'es' | 'en') => {
     // No hacer nada si ya estamos en ese idioma
@@ -31,8 +33,10 @@ export function LanguageSwitcher() {
     console.log('🌍 Cambiando idioma de', locale, 'a', newLocale);
     console.log('📍 Pathname sin prefijo:', pathname);
 
-    // Cambiar de idioma fluidamente sin recargar la página (modo SPA)
-    router.replace(pathname, { locale: newLocale });
+    // Cambiar de idioma fluidamente sin bloquear la UI (modo SPA con transiciones)
+    startTransition(() => {
+      router.replace(pathname, { locale: newLocale });
+    });
   };
 
   const currentLanguage = languages.find((lang) => lang.code === locale);
@@ -45,8 +49,9 @@ export function LanguageSwitcher() {
           size="icon"
           className="relative"
           aria-label={`Idioma actual: ${currentLanguage?.name}`}
+          disabled={isPending}
         >
-          <Globe className="h-5 w-5" />
+          <Globe className={`h-5 w-5 transition-all ${isPending ? 'animate-spin opacity-50' : ''}`} />
           <span className="ml-2 text-sm hidden md:inline">
             {currentLanguage?.flag}
           </span>
@@ -61,6 +66,7 @@ export function LanguageSwitcher() {
             key={language.code}
             onClick={() => switchLocale(language.code)}
             className={locale === language.code ? 'bg-accent font-semibold' : ''}
+            disabled={isPending}
           >
             <span className="mr-2 text-lg">{language.flag}</span>
             <span>{language.name}</span>
