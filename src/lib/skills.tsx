@@ -17,6 +17,7 @@ import {
   AndroidIcon,
   JetpackComposeIcon,
 } from "@/components/icons";
+import { Sparkles, Bot, Brain } from "lucide-react";
 
 export const skills = [
   { name: "Python", icon: <PythonIcon className="h-10 w-10" /> },
@@ -36,6 +37,9 @@ export const skills = [
   { name: "Kotlin", icon: <KotlinIcon className="h-10 w-10" /> },
   { name: "Android", icon: <AndroidIcon className="h-10 w-10" /> },
   { name: "Jetpack Compose", icon: <JetpackComposeIcon className="h-10 w-10" /> },
+  { name: "Firebase Genkit", icon: <Sparkles className="h-10 w-10" /> },
+  { name: "RAG & Vector Search", icon: <Brain className="h-10 w-10" /> },
+  { name: "Agentes de IA", icon: <Bot className="h-10 w-10" /> },
 ];
 
 export function getSkillsCount(): number {

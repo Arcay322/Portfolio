@@ -19,4 +19,7 @@ export const techColors: { [key: string]: string } = {
     Android: "#3DDC84",
     Room: "#1E88E5",
     "Material 3": "#6750A4",
+    "Firebase Genkit": "#FF8F00",
+    "Agentes de IA": "#10B981",
+    "RAG & Vector Search": "#6366F1",
 };
