@@ -14,13 +14,14 @@ import { generatePersonSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { Timeline } from "@/components/Timeline";
 import { StatsCounter } from "@/components/StatsCounter";
 import { CTASection } from "@/components/CTAComponents";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { skills } from "@/lib/skills";
 import { techColors } from "@/lib/constants";
 
 export default function AboutPage() {
   const t = useTranslations('about');
   const tA11y = useTranslations('a11y');
+  const locale = useLocale();
 
   const experiences = [
     {
@@ -309,7 +310,7 @@ export default function AboutPage() {
             }}
             secondaryAction={{
               label: t('cta_secondary'),
-              href: "/CV_ArnieCalderon.pdf",
+              href: locale === 'en' ? "/CV_ArnieCalderon_EN.pdf" : "/CV_ArnieCalderon.pdf",
               icon: "download"
             }}
           />

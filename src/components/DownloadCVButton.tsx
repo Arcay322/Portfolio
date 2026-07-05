@@ -5,23 +5,26 @@ import { Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { trackCVDownload } from "@/lib/analytics"
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export function DownloadCVButton() {
   const t = useTranslations('common');
+  const locale = useLocale();
   const [isDownloading, setIsDownloading] = useState(false)
 
   const handleDownload = () => {
     // Track CV download
     trackCVDownload()
 
-    // URL de tu CV en la carpeta public
-    const cvUrl = "/CV_ArnieCalderon.pdf"
+    // URL de tu CV en la carpeta public segun el idioma
+    const isEn = locale === 'en';
+    const cvUrl = isEn ? "/CV_ArnieCalderon_EN.pdf" : "/CV_ArnieCalderon.pdf"
+    const fileName = isEn ? "CV_ArnieCalderon_EN.pdf" : "CV_ArnieCalderon.pdf"
 
     // Crear un elemento 'a' temporal para forzar la descarga
     const link = document.createElement('a')
     link.href = cvUrl
-    link.download = 'CV_ArnieCalderon.pdf'
+    link.download = fileName
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
