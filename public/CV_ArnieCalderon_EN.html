@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Arnie Calderón - Harvard Format</title>
+    <style>
+        /* CSS reset & variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            color: #111111;
+            line-height: 1.25;
+            font-size: 9pt;
+            background-color: #ffffff;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Print optimization */
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+                font-size: 8.2pt;
+                line-height: 1.2;
+            }
+            .no-print {
+                display: none !important;
+            }
+            a {
+                text-decoration: none;
+                color: #111111;
+            }
+            @page {
+                size: letter;
+                margin: 0.28in 0.4in 0.28in 0.4in;
+            }
+            section {
+                margin-bottom: 5px;
+            }
+            h2 {
+                margin-bottom: 2px;
+            }
+            .entry {
+                margin-bottom: 3px;
+            }
+            li {
+                margin-bottom: 0px;
+            }
+            blockquote {
+                margin: 2px 0;
+            }
+        }
+
+        /* Header styling */
+        header {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        header h1 {
+            font-size: 18pt;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        .contact-info {
+            font-size: 8.5pt;
+            color: #222222;
+            margin-bottom: 2px;
+        }
+
+        .contact-links {
+            font-size: 8.5pt;
+        }
+
+        .contact-links a {
+            color: #0b4c8c; /* Navy blue accent for links, print-friendly */
+            text-decoration: none;
+        }
+        
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section styling */
+        section {
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 9.5pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid #111111;
+            padding-bottom: 1px;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Summary / Perfil */
+        .profile-summary {
+            text-align: justify;
+            font-size: 8.5pt;
+            margin-bottom: 4px;
+        }
+
+        /* Job & Education Entries */
+        .entry {
+            margin-bottom: 6px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: bold;
+        }
+
+        .company-school {
+            font-size: 9pt;
+        }
+
+        .date-location {
+            font-weight: normal;
+            font-style: italic;
+            font-size: 8.5pt;
+            text-align: right;
+        }
+
+        .entry-subheader {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1px;
+        }
+
+        .title-degree {
+            font-style: italic;
+            font-size: 8.5pt;
+            color: #222222;
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: disc;
+            margin-left: 14px;
+            font-size: 8.5pt;
+        }
+
+        li {
+            margin-bottom: 1px;
+            text-align: justify;
+        }
+
+        /* Habilidades */
+        .skills-list {
+            font-size: 8.5pt;
+            line-height: 1.3;
+        }
+
+        .skills-category {
+            font-weight: bold;
+        }
+
+        /* Quotes / References */
+        blockquote {
+            font-style: italic;
+            border-left: 2px solid #666666;
+            padding-left: 8px;
+            margin: 4px 0 2px 0;
+            font-size: 8pt;
+            color: #444444;
+            text-align: justify;
+        }
+
+        .quote-author {
+            font-weight: bold;
+            font-size: 8pt;
+            text-align: right;
+            margin-top: 1px;
+            color: #333333;
+        }
+
+        /* Top control bar for web view */
+        .control-bar {
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 13px;
+        }
+
+        .btn-print {
+            background-color: #0b4c8c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .btn-print:hover {
+            background-color: #083866;
+        }
+    </style>
+</head>
+<body>
+    <div class="control-bar no-print">
+        <span>📄 <strong>CV Preview in Harvard Format</strong> (Optimized to print/save to PDF)</span>
+        <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
+    </div>
+
+    <header>
+        <h1>Arnie Calderón</h1>
+        <div class="contact-info">
+            Lima, Peru &bull; +51 918 793 956 &bull; +51 917 455 538
+        </div>
+        <div class="contact-links">
+            <a href="mailto:arniecalderonayala@gmail.com">arniecalderonayala@gmail.com</a> &bull; 
+            <a href="https://arcay.engineer" target="_blank">arcay.engineer</a> &bull; 
+            <a href="https://linkedin.com/in/arniecalderonayala" target="_blank">linkedin.com/in/arniecalderonayala</a> &bull; 
+            <a href="https://github.com/Arcay322" target="_blank">github.com/Arcay322</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <div class="profile-summary">
+            Full-Stack Developer with solid experience in building modern, scalable, and business-oriented web applications. Specialized in developing smooth frontend architectures (React, Next.js) and enterprise backend solutions integrating relational and non-relational databases. Software Engineering senior student at Universidad Tecnológica del Perú, with a proven track record of technical and commercial impact, including developing a production POS system that boosted sales by 97% and data integrations with SAP ERP systems. Passionate about clean architecture, SOLID principles, and the agile resolution of complex problems.
+        </div>
+    </section>
+
+    <section>
+        <h2>Professional Experience</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company-school">IMPREX EUROPE S.L.</span>
+                <span class="date-location">Madrid, Spain (Remote)</span>
+            </div>
+            <div class="entry-subheader">
+                <span class="title-degree">Freelance Frontend Developer</span>
+                <span class="date-location">September 2025 – Present</span>
+            </div>
+            <ul>
+                <li>Designed and developed from scratch a robust corporate SPA web application for internal management, consuming multiple REST APIs and ensuring a high level of modularity and maintainability.</li>
+                <li>Led the migration of key features from a native mobile application to a responsive web interface, achieving optimal adaptive compatibility across multiple devices.</li>
+                <li>Implemented pixel-perfect and accessible interfaces, designing an agile and reusable component system aligned with the company's design guidelines and UI/UX style guides.</li>
+                <li>Successfully integrated critical data flows with a Django backend and SAP ERP via secure REST APIs, ensuring real-time consistency and synchronization of enterprise information.</li>
+                <li>Collaborated actively in a distributed international team under Scrum methodology, coordinating asynchronous deliverables and conducting constructive code reviews.</li>
+            </ul>
+        </div>
+
+        <div class="entry" style="margin-top: 10px;">
+            <div class="entry-header">
+                <span class="company-school">INVERSIONES MAX PERU S.A.C.</span>
+                <span class="date-location">Lima, Peru</span>
+            </div>
+            <div class="entry-subheader">
+                <span class="title-degree">Freelance Full-Stack Developer</span>
+                <span class="date-location">October 2024 – October 2025</span>
+            </div>
+            <ul>
+                <li>Designed and developed <strong>Ventify</strong> (<a href="https://www.ventify.com.pe" target="_blank">www.ventify.com.pe</a>), a comprehensive Point of Sale (POS) and multi-branch inventory management system that drove a 97% increase in sales during its first year of commercial use.</li>
+                <li>Designed and implemented an autonomous business AI assistant (Venty) integrated into the POS using <strong>Firebase Genkit</strong> (Gemini/DeepSeek) and <strong>RAG</strong> techniques, automating real-time analytical queries and executing POS actions via dynamic chat-driven widgets.</li>
+                <li>Implemented a real-time, multi-branch infrastructure using Next.js, Firebase, and TypeScript, designing a Role-Based Access Control (RBAC) system and automatic inventory alerts that reduced operational losses.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Featured Projects</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company-school">Sumaq Uywa – Agricultural Management System</span>
+                <span class="date-location"><a href="https://github.com/Arcay322/Sumaq_Uywa" target="_blank">github.com/Arcay322/Sumaq_Uywa</a></span>
+            </div>
+            <div class="entry-subheader">
+                <span class="title-degree">React, TypeScript, Node.js, Express, PostgreSQL</span>
+                <span class="date-location">Lead Developer</span>
+            </div>
+            <ul>
+                <li>Developed a modular system for the comprehensive administration of farms and livestock production, featuring dedicated workflows for animal reproduction, veterinary health, feeding, and expense/sales inventory.</li>
+                <li>Implemented an interactive dashboard with dynamic data visualization using interactive charts to facilitate agile business decisions based on real-time data.</li>
+            </ul>
+        </div>
+
+        <div class="entry" style="margin-top: 8px;">
+            <div class="entry-header">
+                <span class="company-school">Ticket World – E-commerce Platform</span>
+                <span class="date-location"><a href="https://github.com/Arcay322/Ticket_World" target="_blank">github.com/Arcay322/Ticket_World</a></span>
+            </div>
+            <div class="entry-subheader">
+                <span class="title-degree">Python, Django, Django REST Framework, PostgreSQL, JavaScript</span>
+                <span class="date-location">Lead Developer</span>
+            </div>
+            <ul>
+                <li>Created a complete ticket buying/selling platform for massive events, supporting three distinct user roles with a secure permission system and an advanced administration panel.</li>
+                <li>Integrated Google Maps API for interactive location visualization and implemented a simulated payment gateway.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company-school">Universidad Tecnológica del Perú</span>
+                <span class="date-location">Lima, Peru</span>
+            </div>
+            <div class="entry-subheader">
+                <span class="title-degree">Software Engineering</span>
+                <span class="date-location">2022 – December 2026 (Expected)</span>
+            </div>
+            <ul>
+                <li>Current Status: 9th Semester. Academic focus on software architecture, advanced databases, data structures, and agile methodologies.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Technical Skills & Languages</h2>
+        <div class="skills-list">
+            <div><span class="skills-category">Languages:</span> JavaScript, TypeScript, Python, HTML5, CSS3, SQL.</div>
+            <div><span class="skills-category">Frameworks & Libraries:</span> React.js, Next.js 14/15, <strong>Firebase Genkit</strong>, Tailwind CSS, Shadcn/ui, Material-UI, Framer Motion.</div>
+            <div><span class="skills-category">Backend & Cloud:</span> Node.js, Express, Django, Django REST Framework, Firebase (Firestore, Auth, Storage, Hosting), PostgreSQL, SQL Server, <strong>LLM Integration (Gemini, DeepSeek)</strong>.</div>
+            <div><span class="skills-category">Tools & Practices:</span> Git & GitHub (Git Flow), Docker, Vercel, Railway, <strong>RAG (Retrieval-Augmented Generation)</strong>, <strong>AI Agents</strong>, Testing (Jest, React Testing Library, Playwright), Scrum, SOLID, Clean Code, Responsive Design.</div>
+            <div><span class="skills-category">Languages:</span> Spanish (Native) | English (Intermediate - Capable of technical communication and fluent reading of software documentation).</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>References</h2>
+        <blockquote>
+            "We highlight the professionalism, commitment, and technical capacity of Arnie Calderón, who developed Ventify for our company. Since its implementation, we have managed to increase our sales by 97%, ensure order and control of our inventory, and achieve greater efficiency in the knowledge and monitoring of our profit margins. We highly recommend Arnie and his Ventify system as a reliable, innovative, and effective strategic ally."
+        </blockquote>
+        <div class="quote-author">
+            — René Foreest Minaya Isidro – Production Manager and Shareholder at INVERSIONES MAX PERU S.A.C.
+        </div>
+    </section>
+</body>
+</html>
