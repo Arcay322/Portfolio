@@ -92,6 +92,7 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     relatedProjects: ["ticket-world", "sumaq-uywa"],
     longDescription: t('items.ventify.long_description'),
     features: [
+      t('items.ventify.features.ai_agent'),
       t('items.ventify.features.multibranch'),
       t('items.ventify.features.realtime'),
       t('items.ventify.features.reservations'),
@@ -105,6 +106,7 @@ export const getProjects = (t: (key: string) => string): Project[] => [
       t('items.ventify.features.responsive'),
     ],
     challenges: [
+      t('items.ventify.challenges.ai_integration'),
       t('items.ventify.challenges.realtime_sync'),
       t('items.ventify.challenges.complex_permissions'),
       t('items.ventify.challenges.concurrent_access'),

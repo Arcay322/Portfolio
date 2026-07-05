@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { Code2, FileCode, Palette, Globe, Hexagon, FileJson, Database, Plug, Github, Box, Code, Figma } from "lucide-react"
+import { Code2, FileCode, Palette, Globe, Hexagon, FileJson, Database, Plug, Github, Box, Code, Figma, Sparkles, Cpu, Bot, Brain } from "lucide-react"
 
 interface SkillBarProps {
   name: string
@@ -84,6 +84,10 @@ const skillIcons: Record<string, React.ReactNode> = {
   "Docker": <Box className="h-5 w-5 text-blue-500" />,
   "VS Code": <Code className="h-5 w-5 text-blue-600" />,
   "Figma": <Figma className="h-5 w-5 text-purple-500" />,
+  "Firebase Genkit": <Sparkles className="h-5 w-5 text-amber-500" />,
+  "RAG & Vector Search": <Database className="h-5 w-5 text-indigo-500" />,
+  "Agentes de IA": <Bot className="h-5 w-5 text-emerald-500" />,
+  "Integración de LLMs": <Cpu className="h-5 w-5 text-red-500" />,
 }
 
 const skillsData: SkillCategory[] = [
@@ -103,6 +107,15 @@ const skillsData: SkillCategory[] = [
       { name: "Python / Django", percentage: 80 },
       { name: "PostgreSQL", percentage: 75 },
       { name: "REST APIs", percentage: 90 },
+    ],
+  },
+  {
+    category: "Inteligencia Artificial",
+    skills: [
+      { name: "Firebase Genkit", percentage: 85 },
+      { name: "Integración de LLMs", percentage: 85 },
+      { name: "RAG & Vector Search", percentage: 80 },
+      { name: "Agentes de IA", percentage: 80 },
     ],
   },
   {

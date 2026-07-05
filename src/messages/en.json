@@ -111,7 +111,7 @@
       "ventify": {
         "year": "2025",
         "title": "Ventify - POS & Inventory Management System",
-        "description": "Complete point of sale and inventory management system for multi-branch businesses using Next.js, Firebase and real-time technologies."
+        "description": "Multi-branch POS and inventory system with an autonomous AI assistant (RAG) developed with Firebase Genkit, Gemini/DeepSeek, and Next.js."
       },
       "sumaq_uywa": {
         "year": "2024",
@@ -220,8 +220,8 @@
     "items": {
       "ventify": {
         "title": "Ventify",
-        "description": "Complete POS and inventory management system for businesses with multiple branches. Features real-time sales tracking, order reservations, custom orders, cash register control, granular user permissions, transaction reports, and more.",
-        "long_description": "Ventify is a comprehensive Point of Sale (POS) and inventory management system developed for businesses with multiple branches. It enables complete management of products, real-time sales, order reservations, custom orders, cash register control, users with granular permissions, transaction reports, and more. It's designed to optimize business operations with mixed payment integration, warehouse management, and low stock alerts.\n\nMain Features:\n- Multi-Branch Management: Complete control of multiple business locations\n- Real-Time Sales: Live sales tracking and inventory updates\n- Order Reservations: Advanced reservation system for products\n- Custom Orders: Personalized order creation and management\n- Cash Register Control: Complete cash flow and transaction management\n- Granular Permissions: Role-based access control system\n- Transaction Reports: Detailed analytics and business intelligence\n- Mixed Payments: Support for multiple payment methods\n- Warehouse Management: Multi-location inventory control\n- Low Stock Alerts: Automatic notifications for inventory management\n\nTechnologies Used:\n- Frontend: Next.js 14 (React with App Router), TypeScript, Tailwind CSS, Shadcn/ui for UI components\n- Backend & Database: Firebase (Firestore for real-time data, Authentication for users, Storage for files, Hosting for deployment)\n- Other Libraries: date-fns for date handling, lucide-react for icons, react-hook-form for forms, and custom services for inventory management, reservations, and payments\n- Deployment: Firebase Hosting, with SSR/SSG support and production optimization\n\nThis project stands out for its scalable architecture, real-time state management, and focus on commercial environment UX. It was developed as a SaaS solution for multiple accounts and branches.",
+        "description": "Multi-branch POS and inventory system integrated with an autonomous conversational AI Assistant (Venty) developed using Firebase Genkit, RAG, and live POS cart actions.",
+        "long_description": "Ventify is a comprehensive Point of Sale (POS) and inventory management system developed for businesses with multiple branches. It enables complete management of products, real-time sales, order reservations, custom orders, cash register control, users with granular permissions, transaction reports, and more. It's designed to optimize business operations with mixed payment integration, warehouse management, and low stock alerts. It now features an autonomous AI agent for intelligent POS inquiries and control.\n\nMain Features:\n- AI Agent & RAG: Autonomous virtual assistant for metric queries and direct POS interaction by chat\n- Multi-Branch Management: Complete control of multiple business locations\n- Real-Time Sales: Live sales tracking and inventory updates\n- Order Reservations: Advanced reservation system for products\n- Custom Orders: Personalized order creation and management\n- Cash Register Control: Complete cash flow and transaction management\n- Granular Permissions: Role-based access control system\n- Transaction Reports: Detailed analytics and business intelligence\n- Mixed Payments: Support for multiple payment methods\n- Warehouse Management: Multi-location inventory control\n- Low Stock Alerts: Automatic notifications for inventory management\n\nTechnologies Used:\n- Artificial Intelligence: Firebase Genkit for agent orchestration, Gemini & DeepSeek models, and RAG (Retrieval-Augmented Generation) techniques\n- Frontend: Next.js 14/15 (React with App Router), TypeScript, Tailwind CSS, Shadcn/ui for UI components\n- Backend & Database: Firebase (Firestore for real-time data, Authentication for users, Storage for files, Hosting for deployment)\n- Other Libraries: date-fns for date handling, lucide-react for icons, react-hook-form for forms, and custom services for inventory management, reservations, and payments\n- Deployment: Firebase Hosting, with SSR/SSG support and production optimization\n\nThis project stands out for its scalable architecture, real-time state management, and focus on commercial environment UX. It was developed as a SaaS solution for multiple accounts and branches.",
         "media": {
           "dashboard": "Ventify - Main Dashboard",
           "pos": "Ventify - Point of Sale Interface",
@@ -229,6 +229,7 @@
           "reports": "Ventify - Transaction Reports"
         },
         "features": {
+          "ai_agent": "Autonomous AI Assistant (Venty) with RAG and action execution",
           "multibranch": "Multi-branch business management",
           "realtime": "Real-time sales and inventory tracking",
           "reservations": "Advanced order reservation system",
@@ -242,6 +243,7 @@
           "responsive": "Modern and responsive commercial interface"
         },
         "challenges": {
+          "ai_integration": "Designing agentic conversational flows with interactive confirmations for data changes",
           "realtime_sync": "Real-time data synchronization across multiple branches",
           "complex_permissions": "Implementation of complex granular permission system",
           "concurrent_access": "Handling concurrent user access and data consistency",

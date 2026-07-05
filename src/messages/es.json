@@ -111,7 +111,7 @@
       "ventify": {
         "year": "2025",
         "title": "Ventify - Sistema POS y Gestión de Inventario",
-        "description": "Sistema completo de punto de venta y gestión de inventario para negocios multi-sucursal usando Next.js, Firebase y tecnologías en tiempo real."
+        "description": "Sistema POS y gestión de inventario multisucursal con asistente de IA (RAG) autónomo desarrollado con Firebase Genkit, Gemini/DeepSeek y Next.js."
       },
       "sumaq_uywa": {
         "year": "2024",
@@ -220,8 +220,8 @@
     "items": {
       "ventify": {
         "title": "Ventify",
-        "description": "Sistema completo de punto de venta (POS) y gestión de inventario para negocios con múltiples sucursales. Incluye seguimiento de ventas en tiempo real, reservas de pedidos, pedidos personalizados, control de caja registradora, permisos granulares de usuario, reportes de transacciones y más.",
-        "long_description": "Ventify es un sistema completo de Punto de Venta (POS) y gestión de inventario desarrollado para negocios con múltiples sucursales. Permite gestionar productos, ventas en tiempo real, reservas de pedidos, pedidos personalizados, control de caja registradora, usuarios con permisos granulares, reportes de transacciones y más. Está diseñado para optimizar operaciones comerciales, con integración de pagos mixtos, gestión de depósitos y alertas de stock bajo.\n\nCaracterísticas Principales:\n- Gestión Multi-Sucursal: Control completo de múltiples ubicaciones comerciales\n- Ventas en Tiempo Real: Seguimiento de ventas en vivo y actualizaciones de inventario\n- Reservas de Pedidos: Sistema avanzado de reserva de productos\n- Pedidos Personalizados: Creación y gestión de pedidos personalizados\n- Control de Caja: Gestión completa de flujo de caja y transacciones\n- Permisos Granulares: Sistema de control de acceso basado en roles\n- Reportes de Transacciones: Análisis detallado e inteligencia de negocio\n- Pagos Mixtos: Soporte para múltiples métodos de pago\n- Gestión de Almacenes: Control de inventario multi-ubicación\n- Alertas de Stock Bajo: Notificaciones automáticas para gestión de inventario\n\nTecnologías Utilizadas:\n- Frontend: Next.js 14 (React con App Router), TypeScript, Tailwind CSS, Shadcn/ui para componentes UI\n- Backend y Base de Datos: Firebase (Firestore para datos en tiempo real, Authentication para usuarios, Storage para archivos, Hosting para despliegue)\n- Otras Librerías: date-fns para manejo de fechas, lucide-react para iconos, react-hook-form para formularios, y servicios personalizados para gestión de inventario, reservas y pagos\n- Despliegue: Firebase Hosting, con soporte para SSR/SSG y optimización para producción\n\nEste proyecto destaca por su arquitectura escalable, manejo de estado en tiempo real y enfoque en UX para entornos comerciales. Fue desarrollado como solución SaaS para múltiples cuentas y sucursales.",
+        "description": "Sistema de Punto de Venta (POS) e inventario multisucursal integrado con un asistente conversacional de IA autónomo (Venty) desarrollado con Firebase Genkit, RAG y control de carrito.",
+        "long_description": "Ventify es un sistema completo de Punto de Venta (POS) y gestión de inventario desarrollado para negocios con múltiples sucursales. Permite gestionar productos, ventas en tiempo real, reservas de pedidos, pedidos personalizados, control de caja registradora, usuarios con permisos granulares, reportes de transacciones y más. Está diseñado para optimizar operaciones comerciales, con integración de pagos mixtos, gestión de depósitos y alertas de stock bajo. Ahora cuenta con un agente de IA autónomo para la consulta y control inteligente del POS.\n\nCaracterísticas Principales:\n- Agente de IA y RAG: Asistente virtual autónomo para consultas de métricas e interacción directa con el POS por chat\n- Gestión Multi-Sucursal: Control completo de múltiples ubicaciones comerciales\n- Ventas en Tiempo Real: Seguimiento de ventas en vivo y actualizaciones de inventario\n- Reservas de Pedidos: Sistema avanzado de reserva de productos\n- Pedidos Personalizados: Creación y gestión de pedidos personalizados\n- Control de Caja: Gestión completa de flujo de caja y transacciones\n- Permisos Granulares: Sistema de control de acceso basado en roles\n- Reportes de Transacciones: Análisis detallado e inteligencia de negocio\n- Pagos Mixtos: Soporte para múltiples métodos de pago\n- Gestión de Almacenes: Control de inventario multi-ubicación\n- Alertas de Stock Bajo: Notificaciones automáticas para gestión de inventario\n\nTecnologías Utilizadas:\n- Inteligencia Artificial: Firebase Genkit para la orquestación del agente, modelos Gemini y DeepSeek, y técnicas RAG (Retrieval-Augmented Generation)\n- Frontend: Next.js 14/15 (React con App Router), TypeScript, Tailwind CSS, Shadcn/ui para componentes UI\n- Backend y Base de Datos: Firebase (Firestore para datos en tiempo real, Authentication para usuarios, Storage para archivos, Hosting para despliegue)\n- Otras Librerías: date-fns para manejo de fechas, lucide-react para iconos, react-hook-form para formularios, y servicios personalizados para gestión de inventario, reservas y pagos\n- Despliegue: Firebase Hosting, con soporte para SSR/SSG y optimización para producción\n\nEste proyecto destaca por su arquitectura escalable, manejo de estado en tiempo real y enfoque en UX para entornos comerciales. Fue desarrollado como solución SaaS para múltiples cuentas y sucursales.",
         "media": {
           "dashboard": "Ventify - Dashboard Principal",
           "pos": "Ventify - Interfaz de Punto de Venta",
@@ -229,6 +229,7 @@
           "reports": "Ventify - Reportes de Transacciones"
         },
         "features": {
+          "ai_agent": "Asistente de IA (Venty) autónomo con RAG y ejecución de acciones",
           "multibranch": "Gestión de negocios multi-sucursal",
           "realtime": "Seguimiento de ventas e inventario en tiempo real",
           "reservations": "Sistema avanzado de reservas de pedidos",
@@ -242,6 +243,7 @@
           "responsive": "Interfaz moderna y responsiva para comercios"
         },
         "challenges": {
+          "ai_integration": "Diseño del flujo conversacional del agente con confirmación interactiva para cambios de datos",
           "realtime_sync": "Sincronización de datos en tiempo real entre múltiples sucursales",
           "complex_permissions": "Implementación de sistema de permisos granulares complejo",
           "concurrent_access": "Manejo de acceso concurrente de usuarios y consistencia de datos",
