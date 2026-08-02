@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Arnie Calderón - Avatar Global</title>
+    <style>
+        /* CSS reset & variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            color: #111111;
+            line-height: 1.22;
+            font-size: 8.8pt;
+            background-color: #ffffff;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Print optimization */
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+                font-size: 8.0pt;
+                line-height: 1.18;
+            }
+            .no-print {
+                display: none !important;
+            }
+            a {
+                text-decoration: none;
+                color: #111111;
+            }
+            @page {
+                size: letter;
+                margin: 0.25in 0.38in 0.25in 0.38in;
+            }
+            section {
+                margin-bottom: 4px;
+            }
+            h2 {
+                margin-bottom: 2px;
+            }
+            .entry {
+                margin-bottom: 3px;
+            }
+            li {
+                margin-bottom: 0px;
+            }
+            blockquote {
+                margin: 2px 0;
+            }
+        }
+
+        /* Header styling */
+        header {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        header h1 {
+            font-size: 17pt;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-info {
+            font-size: 8.3pt;
+            color: #222222;
+            margin-bottom: 1px;
+        }
+
+        .contact-links {
+            font-size: 8.3pt;
+        }
+
+        .contact-links a {
+            color: #0b4c8c;
+            text-decoration: none;
+        }
+        
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section styling */
+        section {
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font-size: 9.2pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid #111111;
+            padding-bottom: 1px;
+            margin-bottom: 3px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Summary / Perfil */
+        .profile-summary {
+            text-align: justify;
+            font-size: 8.2pt;
+            margin-bottom: 3px;
+        }
+
+        /* Job & Education Entries */
+        .entry {
+            margin-bottom: 5px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: bold;
+        }
+
+        .company-school {
+            font-size: 8.8pt;
+        }
+
+        .date-location {
+            font-weight: normal;
+            font-style: italic;
+            font-size: 8.2pt;
+            text-align: right;
+        }
+
+        .entry-subheader {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1px;
+        }
+
+        .title-degree {
+            font-style: italic;
+            font-size: 8.2pt;
+            color: #222222;
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: disc;
+            margin-left: 14px;
+            font-size: 8.2pt;
+        }
+
+        li {
+            margin-bottom: 1px;
+            text-align: justify;
+        }
+
+        /* Habilidades */
+        .skills-list {
+            font-size: 8.2pt;
+            line-height: 1.25;
+        }
+
+        .skills-category {
+            font-weight: bold;
+        }
+
+        /* Quotes / References */
+        blockquote {
+            font-style: italic;
+            border-left: 2px solid #666666;
+            padding-left: 8px;
+            margin: 3px 0 1px 0;
+            font-size: 7.8pt;
+            color: #444444;
+            text-align: justify;
+        }
+
+        .quote-author {
+            font-weight: bold;
+            font-size: 7.8pt;
+            text-align: right;
+            margin-top: 1px;
+            color: #333333;
+        }
+
+        /* Top control bar for web view */
+        .control-bar {
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 12px;
+        }
+
+        .btn-print {
+            background-color: #0b4c8c;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .btn-print:hover {
+            background-color: #083866;
+        }
+    </style>
+</head>
+<body>
+    <div class="control-bar no-print">
+        <span>📄 <strong>CV Tailored for Avatar Global (Desarrollador Semi Senior)</strong></span>
+        <button class="btn-print" onclick="window.print()">Imprimir / Guardar PDF</button>
+    </div>
+
+    <header>
+        <h1>Arnie Calderón</h1>
+        <div class="contact-info">
+            Lima, Perú &bull; +51 918 793 956 &bull; +51 917 455 538
+        </div>
+        <div class="contact-links">
+            <a href="mailto:arniecalderonayala@gmail.com">arniecalderonayala@gmail.com</a> &bull; 
+            <a href="https://arcay.engineer" target="_blank">arcay.engineer</a> &bull; 
+            <a href="https://linkedin.com/in/arniecalderonayala" target="_blank">linkedin.com/in/arniecalderonayala</a> &bull; 
+            <a href="https://github.com/Arcay322" target="_blank">github.com/Arcay322</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Perfil Profesional</h2>
+        <div class="profile-summary">
+            Desarrollador Semi Senior Full-Stack con más de 2 años de experiencia especializada en el diseño, desarrollo e implementación de software web y soluciones eCommerce. Dominio avanzado de <strong>JavaScript, Node.js y React.js</strong>, diseño e integración de servicios <strong>REST y SOAP</strong>, y gestión de bases de datos relacionales (PostgreSQL, SQL Server). Estudiante de 9no ciclo de Ingeniería de Software en la UTP. Experiencia en entornos Unix/Linux (<strong>Bash scripting</strong>, automatización por CLI), contenedores <strong>Docker / CI/CD</strong>, testing de APIs (<strong>Postman</strong>, SOAP-UI) e integración de <strong>tecnologías de IA (Agentes autónomos, Prompt Engineering, Vibe Coding)</strong> para optimizar el ciclo de desarrollo. Metodología Scrum y manejo de Git.
+        </div>
+    </section>
+
+    <section>
+        <h2>Experiencia Profesional</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company-school">IMPREX EUROPE S.L.</span>
+                <span class="date-location">Madrid, España (Remoto)</span>
+            </div>
+            <div class="entry-subheader">
+                <span class="title-degree">Desarrollador Frontend & Backend JavaScript</span>
+                <span class="date-location">Septiembre 2025 – Presente</span>
+            </div>
+            <ul>
+                <li>Diseñé e implementé la arquitectura de una aplicación SPA corporativa robusta consumiendo y testeando múltiples servicios <strong>REST y SOAP</strong> mediante <strong>Postman</strong>, garantizando alta modularidad y mantenibilidad.</li>
+                <li>Integré flujos de datos críticos mediante <strong>Node.js/JavaScript</strong>, automatizando tareas operativas desde la terminal Unix/Linux con <strong>Bash scripting</strong> e integrando procesos con sistemas ERP SAP.</li>
+                <li>Desarrollé interfaces responsivas en <strong>React.js / JavaScript</strong>, migrando características de aplicaciones móviles hacia la web con pruebas de integración y estándares UI/UX.</li>
+                <li>Colaboré en equipos distribuidos bajo metodología <strong>Scrum</strong>, utilizando Git (Git Flow), contenedores <strong>Docker</strong>, integración continua y revisiones de código (code reviews).</li>
+            </ul>
+        </div>
+
+        <div class="entry" style="margin-top: 6px;">
+            <div class="entry-header">
+                <span class="company-school">INVERSIONES MAX PERU S.A.C.</span>
+                <span class="date-location">Lima, Perú</span>
+            </div>
+            <div class="entry-subheader">
+                <span class="title-degree">Desarrollador Full-Stack (Node.js & React)</span>
+                <span class="date-location">Octubre 2024 – Octubre 2025</span>
+            </div>
+            <ul>
+                <li>Diseñé y desarrollé <strong>Ventify</strong> (<a href="https://www.ventify.com.pe" target="_blank">www.ventify.com.pe</a>), una plataforma integral de Punto de Venta y eCommerce multisucursal en <strong>Node.js, Next.js / React</strong> y bases de datos relacionales/no-relacionales, impulsando un crecimiento del 97% en ventas.</li>
+                <li>Implementé un asistente inteligente (Venty) aplicando <strong>Prompt Engineering y Agentes de IA (Firebase Genkit/Gemini)</strong> con técnicas RAG para automatizar consultas analíticas y ejecuciones en la plataforma.</li>
+                <li>Configuré el control de versiones con <strong>Git</strong>, testing de APIs, arquitectura de control de accesos por roles (RBAC) y automatización de despliegues.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Proyectos Destacados</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company-school">Sumaq Uywa – Sistema de Gestión Agrícola & eCommerce</span>
+                <span class="date-location"><a href="https://github.com/Arcay322/Sumaq_Uywa" target="_blank">github.com/Arcay322/Sumaq_Uywa</a></span>
+            </div>
+            <div class="entry-subheader">
+                <span class="title-degree">React, TypeScript, Node.js, Express, PostgreSQL</span>
+                <span class="date-location">Desarrollador Principal</span>
+            </div>
+            <ul>
+                <li>Diseñé el backend con <strong>Node.js, Express y PostgreSQL</strong>, implementando servicios REST testeados con <strong>Postman</strong> para control de inventarios, presupuestos y ventas.</li>
+                <li>Desarrollé dashboards interactivos en React con gráficos dinámicos para soporte a la toma de decisiones empresariales.</li>
+            </ul>
+        </div>
+
+        <div class="entry" style="margin-top: 6px;">
+            <div class="entry-header">
+                <span class="company-school">Ticket World – Plataforma eCommerce de Venta de Entradas</span>
+                <span class="date-location"><a href="https://github.com/Arcay322/Ticket_World" target="_blank">github.com/Arcay322/Ticket_World</a></span>
+            </div>
+            <div class="entry-subheader">
+                <span class="title-degree">Python, Django REST Framework, PostgreSQL, JavaScript</span>
+                <span class="date-location">Desarrollador Principal</span>
+            </div>
+            <ul>
+                <li>Creé una solución eCommerce completa para eventos masivos con control de roles, pasarela de pago simulada y servicios REST integrados con la API de Google Maps.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Educación</h2>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company-school">Universidad Tecnológica del Perú</span>
+                <span class="date-location">Lima, Perú</span>
+            </div>
+            <div class="entry-subheader">
+                <span class="title-degree">Ingeniería de Software</span>
+                <span class="date-location">2022 – Diciembre 2026 (Esperado)</span>
+            </div>
+            <ul>
+                <li>Estado actual: 9no Ciclo. Enfoque en arquitectura de software, bases de datos relacionales, pruebas de software y metodologías ágiles.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Habilidades Técnicas e Idiomas</h2>
+        <div class="skills-list">
+            <div><span class="skills-category">Lenguajes & Backend:</span> JavaScript (Node.js, Express), TypeScript, Python (Django), HTML5, CSS3, SQL.</div>
+            <div><span class="skills-category">Frontend & UI:</span> React.js, Next.js 14/15, Tailwind CSS, Shadcn/ui, Material-UI, Framer Motion.</div>
+            <div><span class="skills-category">APIs & Testing:</span> Servicios REST & SOAP, Pruebas de APIs (Postman, SOAP-UI), Testing (Jest, Playwright).</div>
+            <div><span class="skills-category">Base de Datos & Entorno:</span> PostgreSQL, SQL Server, Firebase, Terminal Unix/Linux, Shell Scripting (Bash), Docker, CI/CD, Git & GitHub.</div>
+            <div><span class="skills-category">IA & Innovación:</span> Agentes de IA, Prompt Engineering, Vibe Coding, Firebase Genkit, RAG, LLMs (Gemini, DeepSeek).</div>
+            <div><span class="skills-category">Idiomas & Herramientas:</span> Inglés técnico (Lectura fluida de documentación y comunicación técnica) | Español (Nativo) | MS Office (Word, Excel).</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Referencias</h2>
+        <blockquote>
+            "Destacamos el profesionalismo, compromiso y capacidad técnica de Arnie Calderón, quien desarrolló Ventify para nuestra empresa. Desde su implementación, hemos logrado incrementar nuestras ventas en un 97%, asegurar el orden y control de nuestro inventario, y mayor eficiencia en el conocimiento y seguimiento de nuestros márgenes de ganancia. Recomendamos ampliamente a Arnie y su sistema Ventify como un aliado estratégico confiable."
+        </blockquote>
+        <div class="quote-author">
+            — René Foreest Minaya Isidro – Gerente de Producción y Accionista en INVERSIONES MAX PERU S.A.C.
+        </div>
+    </section>
+</body>
+</html>
