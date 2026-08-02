@@ -44,7 +44,7 @@ export function generateSeoMetadata(config: SeoConfig): Metadata {
     siteName = DEFAULT_CONFIG.siteName,
   } = config;
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://arcay.dev';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const fullImage = image ? `${siteUrl}${image}` : `${siteUrl}/og-image.jpg`;
 
@@ -116,7 +116,7 @@ export function generateSeoMetadata(config: SeoConfig): Metadata {
  * Generate JSON-LD structured data
  */
 export function generateJsonLd(type: string, data: Record<string, unknown>) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://arcay.dev';
 
   const schemas: Record<string, Record<string, unknown>> = {
     website: {
@@ -223,7 +223,7 @@ Allow: /
  * Generate canonical URL
  */
 export function getCanonicalUrl(path: string): string {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://arcay.dev';
   return `${siteUrl}${path}`;
 }
 
@@ -231,7 +231,7 @@ export function getCanonicalUrl(path: string): string {
  * Generate hreflang links for i18n
  */
 export function getHreflangLinks(path: string, locales: string[]) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://arcay.dev';
   
   return locales.map((locale) => ({
     hreflang: locale,
