@@ -350,3 +350,33 @@
 5. **E1–E10** — Metadata por página, sitemap/robots/RSS, schema, fix tags 404.
 6. **P1–P3** — Reducir coste de ParticlesBackground/SmoothScroll.
 7. Bajos cuando se toque cada archivo.
+
+---
+
+## ✅ Re-medición en producción (7 ago 2026, tras fixes)
+
+Verificación manual en `www.arcay.dev` de los hallazgos del analizador externo y la auditoría:
+
+| Check | Resultado |
+|---|---|
+| `og:image` | ✅ `https://www.arcay.dev/images/og/og-default.png` (local, 1200x630, HTTP 200) en todas las páginas |
+| `canonical` | ✅ Por ruta: `/`→arcay.dev, `/en`→arcay.dev/en, `/about`→/about (verificado home y /en) |
+| `hreflang` | ✅ `es` + `en` + `x-default` correctos por ruta |
+| `og:locale` | ✅ `es_ES` / `en_US` con `og:locale:alternate` |
+| `twitter` card | ✅ `summary_large_image` + `twitter:site/@arcaydev` |
+| Favicons/PWA | ✅ favicon.ico/svg/16/32 + apple-touch-icon + `site.webmanifest` |
+| `theme-color` | ✅ light (#ffffff) y dark (#0b0f1a) con media |
+| Cache (TTFB) | ✅ Home `/` → `x-vercel-cache: HIT`, TTFB ~0.45s (antes ~1.4s). `/en`, `/about`, `/projects`, `/faq`, `/changelog`, `/blog` → HIT/PRERENDER |
+| Home estática | ✅ `es.html`/`en.html` prerendered (SSG) — antes dinámica por `NEXT_LOCALE` cookie + `getLocale()` sin `setRequestLocale` |
+| HTML size | ⚠️ ~133 kB home (reportado 126 kB externo) — en el mismo orden, informativo |
+
+### Hallazgos externos verificados como resueltos
+- **og:image roto (bucket `storage.googleapis.com`)** → self-hosted en `/images/og/og-default.png`; bucket eliminado del código y de `remotePatterns`.
+- **Canonical/og:url hardcodeado a la home** → generado por ruta en `src/lib/metadata.ts` (`buildPageMetadata`).
+- **favicons/PWA ausentes** → añadidos todos los tamaños + manifest + theme-color.
+- **TTFB alto por cookie no cacheable** → `localeDetection: false` + `localeCookie: false` en middleware + `setRequestLocale` en todas las páginas.
+
+### Causa raíz del TTFB (resuelta)
+1. next-intl escribía `NEXT_LOCALE` (set-cookie) en cada request → Vercel no cachea respuestas con cookies.
+2. `getLocale()`/`getTranslations()` sin locale explícito leen `next/headers` → digest `DYNAMIC_SERVER_USAGE`, forzando render serverless con cold start.
+3. Fix: `setRequestLocale(locale)` + `params.locale` explícito en `generateMetadata` de todas las páginas (commits `9a2ae8a` y `7e56819`).
