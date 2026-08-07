@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations } from 'next-intl/server';
+import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
 import "../globals.css";
@@ -96,6 +96,10 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
+
+  // Habilitar render estático (SSG): sin setRequestLocale, getMessages()
+  // lee next/headers y fuerza render dinámico en cada request.
+  setRequestLocale(locale);
 
   // Validar que el locale es válido
   if (!locales.includes(locale as 'es' | 'en')) {

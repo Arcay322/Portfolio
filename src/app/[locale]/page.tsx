@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -15,9 +15,13 @@ import { generatePersonSchema, generateWebsiteSchema } from "@/lib/schema";
 import { getProjects } from "@/lib/projects";
 import { buildPageMetadata } from "@/lib/metadata";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
-  const t = await getTranslations('metadata');
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
 
   return {
     title: t('title'),
@@ -26,7 +30,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Home() {
+export default async function Home({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('home');
   const tContact = await getTranslations('contact');
   const tProjects = await getTranslations('projects');

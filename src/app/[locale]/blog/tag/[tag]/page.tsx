@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getAllTags, getPostsByTag, getTagFromSlug, slugifyTag } from '@/lib/blog';
 import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { buildPageMetadata } from '@/lib/metadata';
 
 interface BlogTagPageProps {
@@ -32,7 +32,8 @@ export async function generateMetadata({ params }: BlogTagPageProps): Promise<Me
 }
 
 export default async function BlogTagPage({ params }: BlogTagPageProps) {
-  const { tag } = await params;
+  const { tag, locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('blog');
   const displayTag = getTagFromSlug(tag);
 

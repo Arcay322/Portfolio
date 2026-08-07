@@ -8,6 +8,7 @@ import { ShareSection } from '@/components/ShareSection';
 import { JsonLd } from '@/components/JsonLd';
 import { generateArticleSchema } from '@/lib/schema';
 import { buildPageMetadata } from '@/lib/metadata';
+import { setRequestLocale } from 'next-intl/server';
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -54,7 +55,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  setRequestLocale(locale);
   const post = getPostBySlug(slug);
 
   if (!post) {

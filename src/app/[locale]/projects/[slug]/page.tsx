@@ -10,7 +10,7 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal"
 import { JsonLd } from "@/components/JsonLd"
 import { generateProjectSchema, generateBreadcrumbSchema } from "@/lib/schema"
 import { toAbsoluteUrl } from "@/lib/site-url"
-import { getTranslations } from "next-intl/server"
+import { getTranslations, setRequestLocale } from "next-intl/server"
 import Image from "next/image"
 import { buildPageMetadata } from "@/lib/metadata"
 import type { Metadata } from "next"
@@ -41,7 +41,7 @@ export async function generateMetadata(props: {
   params: Promise<{ slug: string; locale: string }>;
 }): Promise<Metadata> {
   const params = await props.params;
-  const tProjects = await getTranslations('projects');
+  const tProjects = await getTranslations({ locale: params.locale, namespace: 'projects' });
   const project = getProjectBySlug(params.slug, tProjects);
 
   if (!project) {
@@ -57,6 +57,7 @@ export async function generateMetadata(props: {
 
 export default async function ProjectDetailPage(props: { params: Promise<{ slug: string, locale: string }> }) {
   const params = await props.params
+  setRequestLocale(params.locale)
   const t = await getTranslations('project_detail')
   const tProjects = await getTranslations('projects')
   const project = getProjectBySlug(params.slug, tProjects)

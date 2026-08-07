@@ -3,12 +3,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getAllPosts, getAllTags, slugifyTag } from '@/lib/blog';
 import { Calendar, Clock, Tag } from 'lucide-react';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
-  const t = await getTranslations('metadata');
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
 
   return {
     title: t('blog_title'),
@@ -17,7 +21,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function BlogPage() {
+export default async function BlogPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('blog');
   const posts = getAllPosts();
   const tags = getAllTags();

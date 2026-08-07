@@ -1,11 +1,15 @@
 import { Metadata } from 'next';
 import { Calendar, GitCommit, Tag, CheckCircle2 } from 'lucide-react';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
-  const t = await getTranslations('metadata');
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
 
   return {
     title: t('changelog_title'),
@@ -181,7 +185,7 @@ const versionColors = {
   patch: 'bg-green-500',
 };
 
-export default function ChangelogPage() {
+export default function ChangelogPage({ params }: Props) {
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto px-4 max-w-4xl">

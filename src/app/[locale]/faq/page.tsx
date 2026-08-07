@@ -7,14 +7,18 @@ import {
 } from '@/components/ui/accordion';
 import { HelpCircle, Mail } from 'lucide-react';
 import Link from 'next/link';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { buildPageMetadata } from '@/lib/metadata';
 import { JsonLd } from '@/components/JsonLd';
 import { generateFaqSchema } from '@/lib/schema';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
-  const t = await getTranslations('metadata');
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
 
   return {
     title: t('faq_title'),
@@ -23,7 +27,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function FAQPage() {
+export default async function FAQPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('faq');
 
   const faqs = [
