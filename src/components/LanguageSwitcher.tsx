@@ -27,12 +27,8 @@ export function LanguageSwitcher() {
   const switchLocale = (newLocale: 'es' | 'en') => {
     // No hacer nada si ya estamos en ese idioma
     if (newLocale === locale) {
-      console.log('🌍 Ya estás en', newLocale);
       return;
     }
-
-    console.log('🌍 Cambiando idioma de', locale, 'a', newLocale);
-    console.log('📍 Pathname sin prefijo:', pathname);
 
     // Cambiar de idioma fluidamente sin bloquear la UI (modo SPA con transiciones)
     startTransition(() => {
