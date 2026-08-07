@@ -1,5 +1,5 @@
 "use client"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -78,14 +78,16 @@ export default function AboutPage() {
           <FadeIn className="lg:col-span-1 flex flex-col items-center text-center sticky top-24">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-full opacity-25 group-hover:opacity-50 blur transition duration-1000 group-hover:duration-200" />
-              <Avatar className="h-48 w-48 border-4 border-background relative shadow-xl">
-                <AvatarImage
+              <div className="relative h-48 w-48 rounded-full border-4 border-background shadow-xl overflow-hidden">
+                <Image
                   src="/images/profile/avatar.webp"
                   alt="Arnie Calderon"
-                  className="object-cover object-center"
+                  width={192}
+                  height={192}
+                  priority
+                  className="object-cover object-center h-full w-full"
                 />
-                <AvatarFallback>AC</AvatarFallback>
-              </Avatar>
+              </div>
             </div>
 
             <h1 className="mt-8 text-4xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/90">
