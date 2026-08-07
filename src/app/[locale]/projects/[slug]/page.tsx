@@ -9,6 +9,7 @@ import { FadeIn } from "@/components/animations/FadeIn"
 import { ScrollReveal } from "@/components/animations/ScrollReveal"
 import { JsonLd } from "@/components/JsonLd"
 import { generateProjectSchema, generateBreadcrumbSchema } from "@/lib/schema"
+import { toAbsoluteUrl } from "@/lib/site-url"
 import { getTranslations } from "next-intl/server"
 import Image from "next/image"
 import { buildPageMetadata } from "@/lib/metadata"
@@ -65,12 +66,11 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
   }
 
   const localePrefix = params.locale === 'en' ? '/en' : '';
-  const baseUrl = `https://arcay.dev${localePrefix}`;
-  const projectSchema = generateProjectSchema(project, `${baseUrl}/projects/${params.slug}`)
+  const projectSchema = generateProjectSchema(project, toAbsoluteUrl(`${localePrefix}/projects/${params.slug}`))
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Inicio', url: `${baseUrl}` },
-    { name: 'Proyectos', url: `${baseUrl}/projects` },
-    { name: project.title, url: `${baseUrl}/projects/${params.slug}` },
+    { name: 'Inicio', url: toAbsoluteUrl(localePrefix || '/') },
+    { name: 'Proyectos', url: toAbsoluteUrl(`${localePrefix}/projects`) },
+    { name: project.title, url: toAbsoluteUrl(`${localePrefix}/projects/${params.slug}`) },
   ])
 
   const sidebarItems = [

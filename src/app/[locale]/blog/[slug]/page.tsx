@@ -36,21 +36,20 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: `${post.title} | Blog`,
     description: post.description,
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: 'article',
-      publishedTime: post.date,
-      authors: [post.author],
-      images: post.image ? [post.image] : [],
-    },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
       images: post.image ? [post.image] : [],
     },
-    ...buildPageMetadata(locale, `/blog/${slug}`),
+    ...buildPageMetadata(locale, `/blog/${slug}`, {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      images: post.image ? [post.image] : [],
+    }),
   };
 }
 

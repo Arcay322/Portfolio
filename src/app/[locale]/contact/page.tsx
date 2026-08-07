@@ -7,13 +7,14 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { generateBreadcrumbSchema } from "@/lib/schema";
+import { toAbsoluteUrl } from "@/lib/site-url";
 import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
   const t = useTranslations('contact');
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Inicio', url: 'https://arcay.dev' },
-    { name: 'Contacto', url: 'https://arcay.dev/contact' },
+    { name: 'Inicio', url: toAbsoluteUrl('/') },
+    { name: 'Contacto', url: toAbsoluteUrl('/contact') },
   ]);
 
   const socialLinks = [

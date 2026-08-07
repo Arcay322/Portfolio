@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
@@ -68,9 +68,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t('description'),
       images: ["https://storage.googleapis.com/ticket_world_media/arcay-dev-portfolio.png"],
     },
-    metadataBase: new URL("https://arcay.dev"),
+    metadataBase: new URL("https://www.arcay.dev"),
+    manifest: "/site.webmanifest",
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+        { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+        { url: "/favicon.ico", sizes: "any" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    },
   };
 }
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0f1a" },
+  ],
+};
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

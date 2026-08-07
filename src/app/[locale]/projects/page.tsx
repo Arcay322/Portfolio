@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { motion, AnimatePresence } from "framer-motion";
 import { JsonLd } from "@/components/JsonLd";
 import { generateProjectSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { getSiteUrl, toAbsoluteUrl } from "@/lib/site-url";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { trackTechFilter } from "@/lib/analytics";
 import { CTASection } from "@/components/CTAComponents";
@@ -33,10 +34,10 @@ export default function ProjectsPage() {
     slug: getProjectSlug(p.title)
   }));
 
-  const projectSchemas = projectsWithSlug.map(project => generateProjectSchema(project, `https://arcay.dev/projects/${project.slug}`));
+  const projectSchemas = projectsWithSlug.map(project => generateProjectSchema(project, toAbsoluteUrl(`/projects/${project.slug}`)));
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Inicio', url: 'https://arcay.dev' },
-    { name: 'Proyectos', url: 'https://arcay.dev/projects' },
+    { name: 'Inicio', url: toAbsoluteUrl('/') },
+    { name: 'Proyectos', url: toAbsoluteUrl('/projects') },
   ]);
 
   const [selectedTag, setSelectedTag] = useState<string>("Todos");

@@ -11,6 +11,7 @@ import { DownloadCVButton } from "@/components/DownloadCVButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { generatePersonSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { toAbsoluteUrl } from "@/lib/site-url";
 import { Timeline } from "@/components/Timeline";
 import { StatsCounter } from "@/components/StatsCounter";
 import { CTASection } from "@/components/CTAComponents";
@@ -61,8 +62,8 @@ export default function AboutPage() {
 
   const personSchema = generatePersonSchema();
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Inicio', url: 'https://arcay.dev' },
-    { name: 'Sobre Mí', url: 'https://arcay.dev/about' },
+    { name: 'Inicio', url: toAbsoluteUrl('/') },
+    { name: 'Sobre Mí', url: toAbsoluteUrl('/about') },
   ]);
 
   return (

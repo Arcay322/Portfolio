@@ -7,7 +7,7 @@ export function generatePersonSchema() {
     name: 'Arnie Calderon',
     jobTitle: 'Desarrollador Full-Stack',
     description: 'Desarrollador web full-stack especializado en React, Next.js, Node.js y TypeScript',
-    url: 'https://arcay.dev',
+    url: toAbsoluteUrl('/'),
     image: 'https://storage.googleapis.com/ticket_world_media/foto%20portfolio.png',
     sameAs: [
       'https://github.com/arcay322',
@@ -34,7 +34,7 @@ export function generateWebsiteSchema() {
     '@type': 'WebSite',
     name: 'Arnie Calderon - Portafolio',
     description: 'Portafolio profesional de un desarrollador full-stack',
-    url: 'https://arcay.dev',
+    url: toAbsoluteUrl('/'),
     author: {
       '@type': 'Person',
       name: 'Arnie Calderon',
