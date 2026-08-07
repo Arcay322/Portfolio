@@ -14,6 +14,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { KeyboardNavigationProvider } from "@/hooks/useKeyboardNavigation";
 import { cn } from "@/lib/utils";
+import { toAbsoluteUrl } from "@/lib/site-url";
 import Script from "next/script";
 import { WebVitalsReporter } from "@/components/WebVitalsReporter";
 import { ServiceWorkerRegistrar } from "@/components/ServiceWorkerRegistrar";
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t('description'),
       images: [
         {
-          url: "https://storage.googleapis.com/ticket_world_media/arcay-dev-portfolio.png",
+          url: toAbsoluteUrl("/images/og/og-default.png"),
           width: 1200,
           height: 630,
           alt: t('ogImageAlt'),
@@ -66,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       creator: "@arcaydev",
       title: t('title'),
       description: t('description'),
-      images: ["https://storage.googleapis.com/ticket_world_media/arcay-dev-portfolio.png"],
+      images: [toAbsoluteUrl("/images/og/og-default.png")],
     },
     metadataBase: new URL("https://www.arcay.dev"),
     manifest: "/site.webmanifest",

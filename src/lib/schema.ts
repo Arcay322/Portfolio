@@ -8,7 +8,7 @@ export function generatePersonSchema() {
     jobTitle: 'Desarrollador Full-Stack',
     description: 'Desarrollador web full-stack especializado en React, Next.js, Node.js y TypeScript',
     url: toAbsoluteUrl('/'),
-    image: 'https://storage.googleapis.com/ticket_world_media/foto%20portfolio.png',
+    image: toAbsoluteUrl('/images/og/og-default.png'),
     sameAs: [
       'https://github.com/arcay322',
       'https://www.linkedin.com/in/arnie-calderon-869159305',

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { getSiteUrl } from "@/lib/site-url";
+import { getSiteUrl, toAbsoluteUrl } from "@/lib/site-url";
 
 export const SITE_URL = getSiteUrl();
 
 const OG_IMAGE = {
-  url: "https://storage.googleapis.com/ticket_world_media/arcay-dev-portfolio.png",
+  url: toAbsoluteUrl("/images/og/og-default.png"),
   width: 1200,
   height: 630,
   alt: "Arnie Calderon - Portafolio",
