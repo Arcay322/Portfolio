@@ -71,6 +71,16 @@ export function ParticlesBackground() {
             }
         };
 
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const drawFrame = () => {
+            if (!ctx || !canvas) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((particle) => {
+                particle.draw();
+            });
+        };
+
         const animate = () => {
             if (!ctx || !canvas) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -128,7 +138,12 @@ export function ParticlesBackground() {
         window.addEventListener('mousemove', handleMouseMove);
 
         resizeCanvas();
-        animate();
+
+        if (reducedMotion) {
+            drawFrame(); // Sin animación, solo frame estático
+        } else {
+            animate();
+        }
 
         return () => {
             window.removeEventListener('resize', resizeCanvas);

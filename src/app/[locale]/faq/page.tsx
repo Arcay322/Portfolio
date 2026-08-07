@@ -7,12 +7,21 @@ import {
 } from '@/components/ui/accordion';
 import { HelpCircle, Mail } from 'lucide-react';
 import Link from 'next/link';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { buildPageMetadata } from '@/lib/metadata';
+import { JsonLd } from '@/components/JsonLd';
+import { generateFaqSchema } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'FAQ - Preguntas Frecuentes | Portfolio',
-  description: 'Encuentra respuestas a las preguntas más frecuentes sobre desarrollo web, colaboraciones y servicios.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations('metadata');
+
+  return {
+    title: t('faq_title'),
+    description: t('faq_description'),
+    ...buildPageMetadata(locale, '/faq'),
+  };
+}
 
 export default async function FAQPage() {
   const t = await getTranslations('faq');
@@ -109,8 +118,12 @@ export default async function FAQPage() {
     },
   ];
 
+  const allQuestions = faqs.flatMap((category) => category.questions);
+  const faqSchema = generateFaqSchema(allQuestions);
+
   return (
     <div className="min-h-screen py-20">
+      <JsonLd data={faqSchema} />
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-16">

@@ -159,6 +159,12 @@ export function Header() {
               animate={{ opacity: 1, y: 8, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
+              aria-label={tA11y('mobile_menu_title')}
+              onKeyDown={(e) => {
+                if (e.key === "Escape") {
+                  setIsMobileMenuOpen(false);
+                }
+              }}
               className="pointer-events-auto md:hidden absolute top-full w-[calc(100%-2rem)] max-w-sm rounded-[2rem] border border-[rgba(var(--glass-border),var(--glass-opacity))] bg-background/80 backdrop-blur-xl shadow-2xl overflow-hidden p-4 flex flex-col gap-2"
             >
               {navLinks.map(({ href, label }) => (

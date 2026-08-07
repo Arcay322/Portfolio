@@ -33,7 +33,7 @@ export default function ProjectsPage() {
     slug: getProjectSlug(p.title)
   }));
 
-  const projectSchemas = projects.map(project => generateProjectSchema(project));
+  const projectSchemas = projectsWithSlug.map(project => generateProjectSchema(project, `https://arcay.dev/projects/${project.slug}`));
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Inicio', url: 'https://arcay.dev' },
     { name: 'Proyectos', url: 'https://arcay.dev/projects' },
@@ -124,11 +124,13 @@ export default function ProjectsPage() {
                 placeholder={t('search_placeholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                aria-label={t('search_placeholder')}
                 className="pl-10 bg-background/40 border-primary/20 focus:border-primary/60 focus:bg-background/60 focus:ring-4 focus:ring-primary/10 transition-all duration-300 text-foreground placeholder:text-muted-foreground rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)]"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
+                  aria-label={t('clear_search')}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1 rounded-full hover:bg-background/50 transition-colors"
                 >
                   <X className="h-3 w-3" />

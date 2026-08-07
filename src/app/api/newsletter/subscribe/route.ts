@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { apiLimiter, isValidOrigin, withRateLimit } from '@/lib/rate-limiter';
 
 // Newsletter subscription endpoint
 // Replace with actual email service (Mailchimp, SendGrid, ConvertKit, etc.)
@@ -13,7 +14,24 @@ const subscribers = new Set<string>();
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    if (!isValidOrigin(request.headers.get('origin'))) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
+
+    const rateLimit = await withRateLimit(request, apiLimiter);
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        { error: rateLimit.error },
+        { status: 429, headers: rateLimit.headers }
+      );
+    }
+
+    const text = await request.text();
+    if (text.length > 1024) {
+      return NextResponse.json({ error: 'Payload too large' }, { status: 413 });
+    }
+
+    const body = JSON.parse(text);
     const { email } = subscribeSchema.parse(body);
 
     // Check if already subscribed
@@ -60,6 +78,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (error instanceof SyntaxError) {
+      return NextResponse.json(
+        { error: 'Invalid JSON payload' },
+        { status: 400 }
+      );
+    }
+
     console.error('Newsletter subscription error:', error);
     return NextResponse.json(
       { error: 'Error al procesar la suscripción' },
@@ -71,6 +96,18 @@ export async function POST(request: NextRequest) {
 // Unsubscribe endpoint
 export async function DELETE(request: NextRequest) {
   try {
+    if (!isValidOrigin(request.headers.get('origin'))) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
+
+    const rateLimit = await withRateLimit(request, apiLimiter);
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        { error: rateLimit.error },
+        { status: 429, headers: rateLimit.headers }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const email = searchParams.get('email');
 

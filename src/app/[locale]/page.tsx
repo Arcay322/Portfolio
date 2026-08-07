@@ -1,8 +1,8 @@
-"use client"
+import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from 'next-intl';
 import Typewriter from "@/components/Typewriter";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
@@ -13,11 +13,23 @@ import { CTASection } from "@/components/CTAComponents";
 import { JsonLd } from "@/components/JsonLd";
 import { generatePersonSchema, generateWebsiteSchema } from "@/lib/schema";
 import { getProjects } from "@/lib/projects";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export default function Home() {
-  const t = useTranslations('home');
-  const tContact = useTranslations('contact');
-  const tProjects = useTranslations('projects');
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations('metadata');
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    ...buildPageMetadata(locale, '/'),
+  };
+}
+
+export default async function Home() {
+  const t = await getTranslations('home');
+  const tContact = await getTranslations('contact');
+  const tProjects = await getTranslations('projects');
   const personSchema = generatePersonSchema();
   const websiteSchema = generateWebsiteSchema();
 
@@ -68,7 +80,7 @@ export default function Home() {
         </section>
 
         {/* Featured Projects Section */}
-        < section className="py-24 relative z-10" >
+        <section className="py-24 relative z-10">
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50" />
 
           <ScrollReveal>
@@ -98,10 +110,10 @@ export default function Home() {
               </Link>
             </Button>
           </div>
-        </section >
+        </section>
 
         {/* Testimonials Section */}
-        < section className="py-20 relative z-10" >
+        <section className="py-20 relative z-10">
           <div className="absolute top-0 right-0 w-1/2 h-full mesh-gradient-2 opacity-20 -z-10 blur-3xl pointer-events-none" />
 
           <ScrollReveal>
@@ -115,10 +127,10 @@ export default function Home() {
           <ScrollReveal delay={0.2}>
             <Testimonials />
           </ScrollReveal>
-        </section >
+        </section>
 
         {/* CTA Section */}
-        < div className="mb-20" >
+        <div className="mb-20">
           <CTASection
             title={t('cta_title')}
             description={t('cta_description')}
@@ -133,8 +145,8 @@ export default function Home() {
               icon: "arrow"
             }}
           />
-        </div >
-      </div >
+        </div>
+      </div>
     </>
   );
 }

@@ -2,7 +2,19 @@
   "metadata": {
     "title": "Arnie Calderon - Portfolio",
     "description": "Professional portfolio of a full-stack developer with experience in creating modern and efficient web applications.",
-    "ogImageAlt": "Preview of Arnie Calderon's portfolio"
+    "ogImageAlt": "Preview of Arnie Calderon's portfolio",
+    "about_title": "About Me - Arnie Calderon",
+    "about_description": "Meet Arnie Calderon, full-stack developer. Skills, experience, journey and more.",
+    "projects_title": "Projects - Arnie Calderon",
+    "projects_description": "Explore Arnie Calderon's projects: web and mobile applications built with Next.js, React, Node.js and more.",
+    "contact_title": "Contact - Arnie Calderon",
+    "contact_description": "Get in touch with Arnie Calderon for projects, collaborations and job opportunities.",
+    "blog_title": "Blog - Arnie Calderon",
+    "blog_description": "Articles about web development, technology and programming best practices.",
+    "faq_title": "FAQ - Arnie Calderon",
+    "faq_description": "Answers to the most common questions about services, processes and technologies.",
+    "changelog_title": "Changelog - Arnie Calderon",
+    "changelog_description": "Changelog of updates and improvements to the portfolio."
   },
   "a11y": {
     "skip_to_content": "Skip to main content",
@@ -175,6 +187,7 @@
     "all": "All",
     "featured": "Featured",
     "search_placeholder": "Search projects by name or technology...",
+    "clear_search": "Clear search",
     "view_project": "View Project",
     "view_code": "View Code",
     "live_demo": "Live Demo",
@@ -485,6 +498,7 @@
     "copy": "Copy",
     "copied": "Copied",
     "copy_link": "Copy link",
+    "open_fullscreen": "Open fullscreen",
     "search_placeholder": "Search projects, articles...",
     "clear_search": "Clear search",
     "no_results": "No results found",
@@ -505,7 +519,9 @@
     "categories": "Categories",
     "tags": "Tags",
     "back_to_blog": "Back to Blog",
-    "no_posts": "No articles published yet. Come back soon!"
+    "read_more": "Read more",
+    "no_posts": "No articles published yet. Come back soon!",
+    "tag_title": "Posts by tag"
   },
   "faq": {
     "title": "Frequently Asked Questions",

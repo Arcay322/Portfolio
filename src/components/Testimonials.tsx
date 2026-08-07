@@ -109,6 +109,7 @@ export function Testimonials() {
               variant="outline"
               size="icon"
               onClick={previous}
+              aria-label="Testimonio anterior"
               className="hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -133,6 +134,7 @@ export function Testimonials() {
               variant="outline"
               size="icon"
               onClick={next}
+              aria-label="Siguiente testimonio"
               className="hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               <ChevronRight className="h-5 w-5" />

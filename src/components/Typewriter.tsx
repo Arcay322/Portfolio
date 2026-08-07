@@ -23,8 +23,19 @@ const Typewriter = ({
   const [index, setIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) return;
+
     if (isPaused) {
       const pauseTimeout = setTimeout(() => {
         setIsPaused(false);
@@ -58,17 +69,23 @@ const Typewriter = ({
     } else if (loop && !isPaused) {
       setIsPaused(true);
     }
-  }, [index, text, speed, isDeleting, displayedText, loop, deleteSpeed, pauseTime, isPaused]);
+  }, [index, text, speed, isDeleting, displayedText, loop, deleteSpeed, pauseTime, isPaused, reducedMotion]);
+
+  const animatedText = reducedMotion ? text : displayedText;
+  const isComplete = index === text.length && !loop;
 
   return (
     <h1 className={cn(className, "transition-all duration-300")}>
-      <span className="relative z-10">{displayedText}</span>
+      {/* Texto completo para lectores de pantalla y SEO (visible en SSR) */}
+      <span className="sr-only">{text}</span>
+      {/* Texto animado decorativo */}
+      <span aria-hidden="true" className="relative z-10">{animatedText}</span>
       {/* Neon Glow Effect */}
-      <span className="absolute inset-0 blur-lg opacity-50 z-0 select-none pointer-events-none text-primary" aria-hidden="true">
-        {displayedText}
+      <span aria-hidden="true" className="absolute inset-0 blur-lg opacity-50 z-0 select-none pointer-events-none text-primary">
+        {animatedText}
       </span>
-      {showCursor && !(index === text.length && !loop) && (
-        <span className="animate-pulse text-primary drop-shadow-[0_0_8px_currentColor]">|</span>
+      {showCursor && !(reducedMotion || isComplete) && (
+        <span aria-hidden="true" className="animate-pulse text-primary drop-shadow-[0_0_8px_currentColor]">|</span>
       )}
     </h1>
   );

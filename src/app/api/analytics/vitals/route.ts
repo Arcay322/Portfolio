@@ -1,10 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { apiLimiter, isValidOrigin, withRateLimit } from '@/lib/rate-limiter';
+import { analyticsVitalsSchema, readValidatedBody } from '@/lib/api-validation';
 
 // Web Vitals endpoint
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { name, value, rating, delta, id, timestamp } = body;
+    if (!isValidOrigin(request.headers.get('origin'))) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
+
+    const rateLimit = await withRateLimit(request, apiLimiter);
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        { error: rateLimit.error },
+        { status: 429, headers: rateLimit.headers }
+      );
+    }
+
+    const { data, error } = await readValidatedBody(request, analyticsVitalsSchema);
+    if (error === 'too_large') {
+      return NextResponse.json({ error: 'Payload too large' }, { status: 413 });
+    }
+    if (!data) {
+      return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
+    }
+
+    const { name, value, rating, delta, id, timestamp } = data;
 
     // Log metrics (in production, save to database or send to analytics service)
     console.log('Web Vital:', {

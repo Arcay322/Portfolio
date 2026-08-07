@@ -9,10 +9,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { MotionProvider } from "@/components/MotionProvider";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { KeyboardNavigationProvider } from "@/hooks/useKeyboardNavigation";
-import { PrefetchRoutes, IMPORTANT_ROUTES } from "@/hooks/usePrefetch";
 import { cn } from "@/lib/utils";
 import Script from "next/script";
 import { WebVitalsReporter } from "@/components/WebVitalsReporter";
@@ -42,11 +42,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
-    keywords: ["desarrollador full-stack", "React", "Next.js", "Node.js", "TypeScript", "portafolio", "full-stack developer", "portfolio"],
+    // El canonical, og:url y hreflang se generan por ruta en cada página
+    // (ver src/lib/metadata.ts). Sin ellos, Next.js usa la URL actual como canonical.
     openGraph: {
       title: t('title'),
       description: t('description'),
-      url: "https://arcay.dev",
       images: [
         {
           url: "https://storage.googleapis.com/ticket_world_media/arcay-dev-portfolio.png",
@@ -56,7 +56,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
       ],
       siteName: "Arnie Calderon",
-      locale: locale,
+      locale: locale === 'en' ? 'en_US' : 'es_ES',
+      alternateLocale: locale === 'en' ? 'es_ES' : 'en_US',
       type: 'website',
     },
     twitter: {
@@ -67,13 +68,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: ["https://storage.googleapis.com/ticket_world_media/arcay-dev-portfolio.png"],
     },
     metadataBase: new URL("https://arcay.dev"),
-    alternates: {
-      canonical: "https://arcay.dev",
-      languages: {
-        'es': '/',
-        'en': '/en',
-      },
-    },
   };
 }
 
@@ -134,27 +128,29 @@ export default async function LocaleLayout({ children, params }: Props) {
             disableTransitionOnChange
           >
             <KeyboardNavigationProvider enableShortcuts={true}>
-              <SmoothScroll />
-              <ParticlesBackground />
-              <GoogleAnalytics />
-              <WebVitalsReporter />
-              <ServiceWorkerRegistrar />
-              {/* PrefetchRoutes removed to avoid redundant preloading warnings - Next.js handles viewport prefetching natively */}
-              {/* <PrefetchRoutes
-                routes={IMPORTANT_ROUTES}
-                delay={2000}
-                onHover={true}
-                onIdle={true}
-              /> */}
-              <div className="relative flex min-h-dvh flex-col">
-                <Header />
-                <main id="main-content" className="flex-1" tabIndex={-1}>
-                  {children}
-                </main>
-                <Footer />
-              </div>
-              <ScrollToTop />
-              <Toaster />
+              <MotionProvider>
+                <SmoothScroll />
+                <ParticlesBackground />
+                <GoogleAnalytics />
+                <WebVitalsReporter />
+                <ServiceWorkerRegistrar />
+                {/* PrefetchRoutes removed to avoid redundant preloading warnings - Next.js handles viewport prefetching natively */}
+                {/* <PrefetchRoutes
+                  routes={IMPORTANT_ROUTES}
+                  delay={2000}
+                  onHover={true}
+                  onIdle={true}
+                /> */}
+                <div className="relative flex min-h-dvh flex-col">
+                  <Header />
+                  <main id="main-content" className="flex-1" tabIndex={-1}>
+                    {children}
+                  </main>
+                  <Footer />
+                </div>
+                <ScrollToTop />
+                <Toaster />
+              </MotionProvider>
             </KeyboardNavigationProvider>
           </ThemeProvider>
         </NextIntlClientProvider>

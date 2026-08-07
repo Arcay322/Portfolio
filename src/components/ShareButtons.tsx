@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Share2, Twitter, Facebook, Linkedin, Mail, Link as LinkIcon, CheckCircle2 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useTranslations } from 'next-intl';
+import { useFocusTrap } from "@/lib/keyboard-navigation";
 
 interface ShareButtonsProps {
   url: string
@@ -16,6 +17,12 @@ export function ShareButtons({ url, title, description }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
   const t = useTranslations('common');
   const tSocial = useTranslations('social');
+  const popupRef = useFocusTrap<HTMLDivElement>(isOpen);
+
+  const handleClose = () => {
+    setIsOpen(false)
+    setCopied(false)
+  }
 
   const shareLinks = {
     twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
@@ -52,12 +59,20 @@ export function ShareButtons({ url, title, description }: ShareButtonsProps) {
     }
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      handleClose()
+    }
+  }
+
   return (
     <div className="relative">
       <button
         onClick={handleNativeShare}
         className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-semibold"
         aria-label={t('share')}
+        aria-expanded={isOpen}
+        aria-haspopup="dialog"
       >
         <Share2 className="w-4 h-4" />
         {t('share')}
@@ -71,12 +86,17 @@ export function ShareButtons({ url, title, description }: ShareButtonsProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm"
-              onClick={() => setIsOpen(false)}
+              onClick={handleClose}
             />
             <motion.div
+              ref={popupRef}
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              role="dialog"
+              aria-modal="true"
+              aria-label={t('share')}
+              onKeyDown={handleKeyDown}
               className="absolute right-0 top-full mt-2 z-50 min-w-[200px] p-4 rounded-xl border bg-card text-card-foreground shadow-xl"
             >
               <div className="space-y-2">

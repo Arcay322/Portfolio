@@ -2,13 +2,17 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getAllPosts, getPostBySlug, getRelatedPosts } from '@/lib/blog';
+import { getAllPosts, getPostBySlug, getRelatedPosts, slugifyTag } from '@/lib/blog';
 import { Calendar, Clock, ArrowLeft, Tag } from 'lucide-react';
 import { ShareSection } from '@/components/ShareSection';
+import { JsonLd } from '@/components/JsonLd';
+import { generateArticleSchema } from '@/lib/schema';
+import { buildPageMetadata } from '@/lib/metadata';
 
 interface BlogPostPageProps {
   params: Promise<{
     slug: string;
+    locale: string;
   }>;
 }
 
@@ -20,7 +24,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const post = getPostBySlug(slug);
 
   if (!post) {
@@ -46,6 +50,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       description: post.description,
       images: post.image ? [post.image] : [],
     },
+    ...buildPageMetadata(locale, `/blog/${slug}`),
   };
 }
 
@@ -58,9 +63,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   const relatedPosts = getRelatedPosts(slug);
+  const articleSchema = generateArticleSchema(post);
 
   return (
     <article className="min-h-screen py-20">
+      <JsonLd data={articleSchema} />
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Back Button */}
         <Link
@@ -79,7 +86,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.tags.map((tag) => (
                 <Link
                   key={tag}
-                  href={`/blog/tag/${tag}`}
+                  href={`/blog/tag/${slugifyTag(tag)}`}
                   className="inline-flex items-center gap-1 text-sm px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors"
                 >
                   <Tag className="w-3 h-3" />

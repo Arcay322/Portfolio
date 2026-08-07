@@ -74,6 +74,7 @@ export function NewsletterSubscription() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="tu@email.com"
+              aria-label="Email para el newsletter"
               disabled={status === 'loading' || status === 'success'}
               className="flex-1 px-4 py-3 bg-background border border-border rounded-lg outline-none focus:ring-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed"
             />
@@ -90,6 +91,8 @@ export function NewsletterSubscription() {
 
           {message && (
             <div
+              role="status"
+              aria-live="polite"
               className={`flex items-center gap-2 p-3 rounded-lg text-sm ${
                 status === 'success'
                   ? 'bg-green-500/10 text-green-500 border border-green-500/20'

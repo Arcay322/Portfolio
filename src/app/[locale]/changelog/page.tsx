@@ -1,10 +1,19 @@
 import { Metadata } from 'next';
 import { Calendar, GitCommit, Tag, CheckCircle2 } from 'lucide-react';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Changelog | Portfolio',
-  description: 'Historial de cambios, mejoras y nuevas características del portfolio.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations('metadata');
+
+  return {
+    title: t('changelog_title'),
+    description: t('changelog_description'),
+    robots: { index: false, follow: true },
+    ...buildPageMetadata(locale, '/changelog'),
+  };
+}
 
 const changelog = [
   {

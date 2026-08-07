@@ -4,7 +4,8 @@
  * Helper functions for generating SEO metadata
  */
 
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { getSiteUrl } from '@/lib/site-url';
 
 interface SeoConfig {
   title: string;
@@ -44,7 +45,7 @@ export function generateSeoMetadata(config: SeoConfig): Metadata {
     siteName = DEFAULT_CONFIG.siteName,
   } = config;
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://arcay.dev';
+  const siteUrl = getSiteUrl();
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const fullImage = image ? `${siteUrl}${image}` : `${siteUrl}/og-image.jpg`;
 
@@ -116,7 +117,7 @@ export function generateSeoMetadata(config: SeoConfig): Metadata {
  * Generate JSON-LD structured data
  */
 export function generateJsonLd(type: string, data: Record<string, unknown>) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://arcay.dev';
+  const baseUrl = getSiteUrl();
 
   const schemas: Record<string, Record<string, unknown>> = {
     website: {
@@ -223,7 +224,7 @@ Allow: /
  * Generate canonical URL
  */
 export function getCanonicalUrl(path: string): string {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://arcay.dev';
+  const siteUrl = getSiteUrl();
   return `${siteUrl}${path}`;
 }
 
@@ -231,7 +232,7 @@ export function getCanonicalUrl(path: string): string {
  * Generate hreflang links for i18n
  */
 export function getHreflangLinks(path: string, locales: string[]) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://arcay.dev';
+  const siteUrl = getSiteUrl();
   
   return locales.map((locale) => ({
     hreflang: locale,

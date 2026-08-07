@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { useTranslations } from "next-intl"
 
 interface MediaItem {
   type: "image" | "video" | "gif"
@@ -28,6 +29,7 @@ export function ImageCarousel({
 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(autoPlay)
+  const t = useTranslations('common')
 
   // Navegación
   const goToPrevious = useCallback(() => {
@@ -102,7 +104,8 @@ export function ImageCarousel({
             <Button
               size="icon"
               variant="secondary"
-              className="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+              aria-label={t('previous')}
+              className="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 focus:opacity-100 focus-visible:ring-2 focus-visible:ring-primary transition-opacity shadow-lg"
               onClick={() => {
                 goToPrevious()
                 handleUserInteraction()
@@ -113,7 +116,8 @@ export function ImageCarousel({
             <Button
               size="icon"
               variant="secondary"
-              className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+              aria-label={t('next')}
+              className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 focus:opacity-100 focus-visible:ring-2 focus-visible:ring-primary transition-opacity shadow-lg"
               onClick={() => {
                 goToNext()
                 handleUserInteraction()
@@ -130,12 +134,16 @@ export function ImageCarousel({
             <Button
               size="icon"
               variant="secondary"
-              className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+              aria-label={t('open_fullscreen')}
+              className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 focus:opacity-100 focus-visible:ring-2 focus-visible:ring-primary transition-opacity shadow-lg"
             >
               <Maximize2 className="h-4 w-4" />
             </Button>
           </DialogTrigger>
           <DialogContent className="max-w-7xl w-full p-0">
+            <DialogTitle className="sr-only">
+              {currentMedia.alt}
+            </DialogTitle>
             <div className="relative aspect-video bg-black flex items-center justify-center">
               <img
                 src={currentMedia.src}

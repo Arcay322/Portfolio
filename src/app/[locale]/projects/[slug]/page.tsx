@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
@@ -12,6 +11,8 @@ import { JsonLd } from "@/components/JsonLd"
 import { generateProjectSchema, generateBreadcrumbSchema } from "@/lib/schema"
 import { getTranslations } from "next-intl/server"
 import Image from "next/image"
+import { buildPageMetadata } from "@/lib/metadata"
+import type { Metadata } from "next"
 
 // New Components
 import { ProjectHero } from "@/components/projects/ProjectHero"
@@ -35,6 +36,24 @@ export async function generateStaticParams() {
   return getAllProjectSlugs(tProjects);
 }
 
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string; locale: string }>;
+}): Promise<Metadata> {
+  const params = await props.params;
+  const tProjects = await getTranslations('projects');
+  const project = getProjectBySlug(params.slug, tProjects);
+
+  if (!project) {
+    notFound();
+  }
+
+  return {
+    title: `${project.title} - Arnie Calderon`,
+    description: project.description,
+    ...buildPageMetadata(params.locale, `/projects/${params.slug}`),
+  };
+}
+
 export default async function ProjectDetailPage(props: { params: Promise<{ slug: string, locale: string }> }) {
   const params = await props.params
   const t = await getTranslations('project_detail')
@@ -45,11 +64,13 @@ export default async function ProjectDetailPage(props: { params: Promise<{ slug:
     notFound()
   }
 
-  const projectSchema = generateProjectSchema(project)
+  const localePrefix = params.locale === 'en' ? '/en' : '';
+  const baseUrl = `https://arcay.dev${localePrefix}`;
+  const projectSchema = generateProjectSchema(project, `${baseUrl}/projects/${params.slug}`)
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Inicio', url: 'https://arcay.dev' },
-    { name: 'Proyectos', url: 'https://arcay.dev/projects' },
-    { name: project.title, url: `https://arcay.dev/projects/${params.slug}` },
+    { name: 'Inicio', url: `${baseUrl}` },
+    { name: 'Proyectos', url: `${baseUrl}/projects` },
+    { name: project.title, url: `${baseUrl}/projects/${params.slug}` },
   ])
 
   const sidebarItems = [

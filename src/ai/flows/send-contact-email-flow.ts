@@ -7,6 +7,7 @@
  */
 import { Resend } from 'resend';
 import { SendContactEmailInputSchema } from '@/ai/schemas/contact-email';
+import { escapeHtml } from '@/lib/sanitization';
 import type { z } from 'zod';
 
 export type SendContactEmailInput = z.infer<typeof SendContactEmailInputSchema>;
@@ -30,10 +31,10 @@ export async function sendContactEmail(input: SendContactEmailInput) {
       to: toEmail,
       subject: `New message from ${validatedInput.name} via your portfolio`,
       reply_to: validatedInput.email,
-      html: `<p><strong>Name:</strong> ${validatedInput.name}</p>
-             <p><strong>Email:</strong> ${validatedInput.email}</p>
+      html: `<p><strong>Name:</strong> ${escapeHtml(validatedInput.name)}</p>
+             <p><strong>Email:</strong> ${escapeHtml(validatedInput.email)}</p>
              <p><strong>Message:</strong></p>
-             <p>${validatedInput.message}</p>`,
+             <p>${escapeHtml(validatedInput.message).replace(/\n/g, '<br>')}</p>`,
     });
 
     if (error) {

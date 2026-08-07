@@ -261,9 +261,9 @@ class ErrorTracker {
       });
 
       if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
-        navigator.sendBeacon('/api/analytics/errors', body);
+        navigator.sendBeacon('/api/analytics/error', body);
       } else {
-        fetch('/api/analytics/errors', {
+        fetch('/api/analytics/error', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body,

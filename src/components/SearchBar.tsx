@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Search, X, Clock, ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { useFocusTrap } from '@/lib/keyboard-navigation';
 
 interface SearchResult {
   type: 'project' | 'blog' | 'page';
@@ -67,6 +68,7 @@ export function SearchBar() {
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const modalRef = useFocusTrap<HTMLDivElement>(isOpen);
   const router = useRouter();
 
   // Load recent searches from localStorage
@@ -184,6 +186,10 @@ export function SearchBar() {
       {/* Search modal */}
       {isOpen && (
         <div
+          ref={modalRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={t('search_placeholder')}
           className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         >
@@ -202,6 +208,8 @@ export function SearchBar() {
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder={t('search_placeholder')}
+                  aria-label={t('search_placeholder')}
+                  autoComplete="off"
                   className="flex-1 bg-transparent outline-none text-base"
                 />
                 {query && (

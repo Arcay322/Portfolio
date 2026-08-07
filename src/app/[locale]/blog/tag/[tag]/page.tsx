@@ -1,67 +1,71 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllPosts, getAllTags, slugifyTag } from '@/lib/blog';
-import { Calendar, Clock, Tag } from 'lucide-react';
+import { notFound } from 'next/navigation';
+import { getAllTags, getPostsByTag, getTagFromSlug, slugifyTag } from '@/lib/blog';
+import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
-  const t = await getTranslations('metadata');
+interface BlogTagPageProps {
+  params: Promise<{
+    tag: string;
+    locale: string;
+  }>;
+}
+
+export function generateStaticParams() {
+  const tags = getAllTags();
+  return tags.map((tag) => ({ tag: slugifyTag(tag) }));
+}
+
+export async function generateMetadata({ params }: BlogTagPageProps): Promise<Metadata> {
+  const { tag, locale } = await params;
+  const t = await getTranslations('blog');
+  const displayTag = getTagFromSlug(tag);
 
   return {
-    title: t('blog_title'),
-    description: t('blog_description'),
-    ...buildPageMetadata(locale, '/blog'),
+    title: `${t('tag_title')}: ${displayTag ?? tag}`,
+    description: `${t('tag_title')}: ${displayTag ?? tag}`,
+    ...buildPageMetadata(locale, `/blog/tag/${tag}`),
   };
 }
 
-export default async function BlogPage() {
+export default async function BlogTagPage({ params }: BlogTagPageProps) {
+  const { tag } = await params;
   const t = await getTranslations('blog');
-  const posts = getAllPosts();
-  const tags = getAllTags();
+  const displayTag = getTagFromSlug(tag);
+
+  if (!displayTag) {
+    notFound();
+  }
+
+  const posts = getPostsByTag(displayTag);
 
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto px-4">
-        {/* Header */}
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          {t('back_to_blog')}
+        </Link>
+
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-headline font-bold mb-4">
-            {t('title')}
+          <h1 className="text-4xl md:text-5xl font-headline font-bold mb-4 flex items-center justify-center gap-3">
+            <Tag className="w-8 h-8 text-primary" />
+            {displayTag}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('description')}
+            {t('tag_title')}: {posts.length}
           </p>
         </div>
 
-        {/* Tags */}
-        {tags.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-              <Tag className="w-5 h-5" />
-              {t('categories')}
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <Link
-                  key={tag}
-                  href={`/blog/tag/${slugifyTag(tag)}`}
-                  className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-full text-sm transition-colors"
-                >
-                  {tag}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Posts Grid */}
         {posts.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-lg text-muted-foreground">
-              {t('no_posts')}
-            </p>
+            <p className="text-lg text-muted-foreground">{t('no_posts')}</p>
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -82,33 +86,29 @@ export default async function BlogPage() {
                 )}
 
                 <div className="p-6">
-                  {/* Tags */}
                   {post.tags.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-3">
-                      {post.tags.slice(0, 3).map((tag) => (
+                      {post.tags.slice(0, 3).map((postTag) => (
                         <span
-                          key={tag}
+                          key={postTag}
                           className="text-xs px-2 py-1 bg-primary/10 text-primary rounded"
                         >
-                          {tag}
+                          {postTag}
                         </span>
                       ))}
                     </div>
                   )}
 
-                  {/* Title */}
                   <Link href={`/blog/${post.slug}`}>
                     <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
                       {post.title}
                     </h2>
                   </Link>
 
-                  {/* Description */}
                   <p className="text-muted-foreground mb-4 line-clamp-3">
                     {post.description}
                   </p>
 
-                  {/* Meta */}
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
@@ -124,7 +124,6 @@ export default async function BlogPage() {
                     </span>
                   </div>
 
-                  {/* Read More */}
                   <Link
                     href={`/blog/${post.slug}`}
                     className="mt-4 inline-flex items-center text-primary hover:underline font-medium"

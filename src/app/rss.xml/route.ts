@@ -1,7 +1,8 @@
 import { generateRSSFeed } from '@/lib/blog';
+import { getSiteUrl } from '@/lib/site-url';
 
 export async function GET() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const siteUrl = getSiteUrl();
   const rssFeed = generateRSSFeed(siteUrl);
 
   return new Response(rssFeed, {

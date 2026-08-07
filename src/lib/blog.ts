@@ -114,6 +114,19 @@ export function getPostsByTag(tag: string): BlogPostMetadata[] {
 }
 
 /**
+ * URL-safe slug for a tag (E7). Remove dots and lower/morph spaces so the
+ * path never collides with the middleware's static-asset dot exclusion
+ * (`.*\..*`).
+ */
+export function slugifyTag(tag: string): string {
+  return tag
+    .toLowerCase()
+    .replace(/\./g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-_]/g, '');
+}
+
+/**
  * Get all unique tags
  */
 export function getAllTags(): string[] {
@@ -125,6 +138,13 @@ export function getAllTags(): string[] {
   });
 
   return Array.from(tags).sort();
+}
+
+/**
+ * Resolve a (possibly slugified) tag string back to its original display tag.
+ */
+export function getTagFromSlug(slug: string): string | undefined {
+  return getAllTags().find((tag) => slugifyTag(tag) === slug.toLowerCase());
 }
 
 /**

@@ -96,15 +96,34 @@ export const apiLimiter = new RateLimiter({
 })
 
 /**
+ * Obtiene la IP real del cliente sin permitir spoofing.
+ * - Prefiere `x-real-ip` (lo fija la plataforma/proxy, no el cliente).
+ * - Si solo hay `x-forwarded-for`, toma el ÚLTIMO valor de la cadena:
+ *   los proxies añaden la IP del cliente al final tras los valores que
+ *   este pudiera enviar, así que el último es el que añadió el proxy.
+ */
+export function getClientIp(headers: Headers): string {
+  const realIp = headers.get("x-real-ip")
+  if (realIp) return realIp.trim()
+
+  const forwarded = headers.get("x-forwarded-for")
+  if (forwarded) {
+    const parts = forwarded.split(",").map((part) => part.trim()).filter(Boolean)
+    const last = parts[parts.length - 1]
+    if (last) return last
+  }
+
+  return "unknown"
+}
+
+/**
  * Helper para obtener identificador del cliente
  */
-export function getClientIdentifier(request: Request): string {
-  // En producción, usar IP real del header
-  const forwarded = request.headers.get("x-forwarded-for")
-  const ip = forwarded ? forwarded.split(",")[0].trim() : "unknown"
+export function getClientIdentifier(headers: Headers): string {
+  const ip = getClientIp(headers)
 
   // Combinar IP con user agent para mejor unicidad
-  const userAgent = request.headers.get("user-agent") || "unknown"
+  const userAgent = headers.get("user-agent") || "unknown"
   const hash = simpleHash(`${ip}-${userAgent}`)
 
   return hash
@@ -130,7 +149,7 @@ export async function withRateLimit(
   request: Request,
   limiter: RateLimiter = apiLimiter
 ): Promise<{ success: boolean; error?: string; headers?: Record<string, string> }> {
-  const identifier = getClientIdentifier(request)
+  const identifier = getClientIdentifier(request.headers)
   const { allowed, remaining, resetTime } = limiter.check(identifier)
 
   const headers = {
@@ -224,3 +243,25 @@ export const clientContactLimiter = new ClientRateLimiter(
   5, // 5 intentos por hora (Production Safe)
   60 * 60 * 1000 // 1 hora
 )
+
+/**
+ * Orígenes permitidos para peticiones state-changing.
+ * Valida el header Origin contra los dominios propios.
+ */
+export function isValidOrigin(origin: string | null | undefined): boolean {
+  if (!origin) return false
+
+  try {
+    const parsed = new URL(origin)
+    const allowedOrigins = [
+      "https://arcay.dev",
+      "https://www.arcay.dev",
+      ...(process.env.NODE_ENV !== "production"
+        ? ["http://localhost:3000", "http://localhost:3002"]
+        : []),
+    ]
+    return allowedOrigins.includes(parsed.origin)
+  } catch {
+    return false
+  }
+}

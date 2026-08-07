@@ -23,6 +23,11 @@ function AnimatedNumber({ value, suffix = "", prefix = "" }: { value: number; su
   useEffect(() => {
     if (!isInView) return
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setCount(value)
+      return
+    }
+
     let startTime: number
     const duration = 2000 // 2 seconds
 

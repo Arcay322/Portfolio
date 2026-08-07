@@ -2,9 +2,10 @@
 
 import { useState } from "react"
 import { Play, Pause, Maximize2, Volume2, VolumeX } from "lucide-react"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { OptimizedImage } from "./OptimizedImage"
+import { useTranslations } from "next-intl"
 
 export type MediaType = "image" | "video" | "gif"
 
@@ -28,6 +29,7 @@ export function MediaViewer({ media, className = "" }: MediaViewerProps) {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState<Record<number, boolean>>({})
   const [isMuted, setIsMuted] = useState<Record<number, boolean>>({})
+  const t = useTranslations('common')
 
   const currentMedia = media[selectedIndex]
 
@@ -87,12 +89,16 @@ export function MediaViewer({ media, className = "" }: MediaViewerProps) {
             <Button
               size="icon"
               variant="secondary"
-              className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-label={t('open_fullscreen')}
+              className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 focus:opacity-100 focus-visible:ring-2 focus-visible:ring-primary transition-opacity"
             >
               <Maximize2 className="h-4 w-4" />
             </Button>
           </DialogTrigger>
           <DialogContent className="max-w-7xl w-full p-0">
+            <DialogTitle className="sr-only">
+              {currentMedia.alt}
+            </DialogTitle>
             <div className="relative aspect-video bg-black">
               {currentMedia.type === "image" && (
                 <OptimizedImage
@@ -134,6 +140,8 @@ export function MediaViewer({ media, className = "" }: MediaViewerProps) {
             <button
               key={idx}
               onClick={() => setSelectedIndex(idx)}
+              aria-label={`${item.alt} (${idx + 1}/${media.length})`}
+              aria-current={selectedIndex === idx}
               className={`
                 relative aspect-video rounded-md overflow-hidden border-2 transition-all
                 ${
@@ -217,11 +225,12 @@ function VideoPlayer({
       />
 
       {/* Video Controls Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
         <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2">
           <Button
             size="icon"
             variant="secondary"
+            aria-label={isPlaying ? "Pausar video" : "Reproducir video"}
             onClick={(e) => {
               e.stopPropagation()
               const video = e.currentTarget.parentElement?.parentElement?.querySelector("video")
@@ -238,6 +247,7 @@ function VideoPlayer({
           <Button
             size="icon"
             variant="secondary"
+            aria-label={isMuted ? "Activar sonido" : "Silenciar video"}
             onClick={(e) => {
               e.stopPropagation()
               const video = e.currentTarget.parentElement?.parentElement?.querySelector("video")

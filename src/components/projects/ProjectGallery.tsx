@@ -2,7 +2,8 @@
 
 import Image from "next/image"
 import { useState, useEffect, useCallback } from "react"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { useTranslations } from "next-intl"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
 import { Maximize2, PlayCircle, ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -19,6 +20,7 @@ interface ProjectGalleryProps {
 
 export function ProjectGallery({ media }: ProjectGalleryProps) {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+    const t = useTranslations('common')
 
     const handleNext = useCallback((e?: React.MouseEvent) => {
         if (e) e.stopPropagation();
@@ -35,8 +37,14 @@ export function ProjectGallery({ media }: ProjectGalleryProps) {
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (selectedIndex === null) return;
-            if (e.key === "ArrowRight") handleNext();
-            if (e.key === "ArrowLeft") handlePrev();
+            if (e.key === "ArrowRight") {
+                e.preventDefault();
+                handleNext();
+            }
+            if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                handlePrev();
+            }
         };
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
@@ -58,11 +66,14 @@ export function ProjectGallery({ media }: ProjectGalleryProps) {
                     const isBottomRow = media.length === 5 && (index === 3 || index === 4);
 
                     return (
-                        <div
+                        <button
                             key={index}
+                            type="button"
                             onClick={() => setSelectedIndex(index)}
+                            aria-label={`${t('open')} ${item.alt}`}
                             className={cn(
-                                "relative group cursor-pointer overflow-hidden rounded-xl bg-muted border border-[rgba(var(--glass-border),var(--glass-opacity))]",
+                                "relative group cursor-pointer overflow-hidden rounded-xl bg-muted border border-[rgba(var(--glass-border),var(--glass-opacity))] text-left",
+                                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2",
                                 isFeatured ? "md:col-span-4 md:row-span-2" : isBottomRow ? "md:col-span-3 row-span-1" : "md:col-span-2 row-span-1"
                             )}
                         >
@@ -70,35 +81,41 @@ export function ProjectGallery({ media }: ProjectGalleryProps) {
                                 src={item.thumbnail || item.src}
                                 alt={item.alt}
                                 fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
 
                             {/* Overlay */}
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            <span className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
                                     {item.type === 'video' ? (
-                                        <PlayCircle className="h-12 w-12 text-white drop-shadow-lg" />
+                                        <PlayCircle className="h-12 w-12 text-white drop-shadow-lg" aria-hidden="true" />
                                     ) : (
-                                        <Maximize2 className="h-8 w-8 text-white drop-shadow-lg" />
+                                        <Maximize2 className="h-8 w-8 text-white drop-shadow-lg" aria-hidden="true" />
                                     )}
-                                </div>
-                            </div>
-                        </div>
+                                </span>
+                            </span>
+                        </button>
                     )
                 })}
             </div>
 
             <Dialog open={selectedIndex !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
                 <DialogContent className="max-w-7xl w-full p-0 bg-transparent border-none shadow-none flex items-center justify-center h-[90vh]">
+                    <DialogTitle className="sr-only">
+                        {activeItem ? activeItem.alt : t('projects_title')}
+                    </DialogTitle>
                     {activeItem && (
                         <div className="relative w-full h-full flex items-center justify-center group">
                             {/* Previous Button */}
                             {media.length > 1 && (
                                 <button
+                                    type="button"
                                     onClick={handlePrev}
-                                    className="absolute left-2 md:left-8 z-50 p-2 md:p-3 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 outline-none backdrop-blur-sm"
+                                    aria-label={t('previous')}
+                                    className="absolute left-2 md:left-8 z-50 p-2 md:p-3 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 focus-visible:ring-2 focus-visible:ring-primary/70 outline-none backdrop-blur-sm"
                                 >
-                                    <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
+                                    <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" aria-hidden="true" />
                                 </button>
                             )}
 
@@ -112,9 +129,11 @@ export function ProjectGallery({ media }: ProjectGalleryProps) {
                                         className="max-w-full max-h-full"
                                     />
                                 ) : (
-                                    <img
+                                    <Image
                                         src={activeItem.src}
                                         alt={activeItem.alt}
+                                        fill
+                                        sizes="90vw"
                                         className="max-w-full max-h-full object-contain select-none"
                                     />
                                 )}
@@ -123,16 +142,18 @@ export function ProjectGallery({ media }: ProjectGalleryProps) {
                             {/* Next Button */}
                             {media.length > 1 && (
                                 <button
+                                    type="button"
                                     onClick={handleNext}
-                                    className="absolute right-2 md:right-8 z-50 p-2 md:p-3 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 outline-none backdrop-blur-sm"
+                                    aria-label={t('next')}
+                                    className="absolute right-2 md:right-8 z-50 p-2 md:p-3 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 focus-visible:ring-2 focus-visible:ring-primary/70 outline-none backdrop-blur-sm"
                                 >
-                                    <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
+                                    <ChevronRight className="h-6 w-6 md:h-8 md:w-8" aria-hidden="true" />
                                 </button>
                             )}
-                            
+
                             {/* Image Counter */}
                             {media.length > 1 && (
-                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black/50 text-white text-sm backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black/50 text-white text-sm backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
                                     {selectedIndex! + 1} / {media.length}
                                 </div>
                             )}
