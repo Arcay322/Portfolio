@@ -49,7 +49,7 @@ export default function ContactPage() {
           {/* Left Column: Info & Social */}
           <div className="space-y-8 lg:sticky lg:top-24">
             <FadeIn>
-              <h1 className="text-5xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+              <h1 className="text-5xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/90">
                 {t('title')}
               </h1>
               <p className="mt-6 text-xl text-muted-foreground leading-relaxed max-w-lg">

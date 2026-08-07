@@ -16,13 +16,14 @@ interface BreadcrumbsProps {
 
 export function Breadcrumbs({ items }: BreadcrumbsProps) {
   const t = useTranslations('common');
+  const tA11y = useTranslations('a11y');
 
   return (
     <motion.nav
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      aria-label="Breadcrumb"
+      aria-label={tA11y('breadcrumb')}
       className="flex items-center space-x-2 text-sm text-muted-foreground mb-6"
     >
       <Link 

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { apiLimiter, isValidOrigin, withRateLimit } from '@/lib/rate-limiter';
 import { analyticsErrorSchema, readValidatedBody } from '@/lib/api-validation';
+import { sanitizeForLog } from '@/lib/sanitization';
 
 // Analytics error endpoint
 export async function POST(request: NextRequest) {
@@ -29,11 +30,11 @@ export async function POST(request: NextRequest) {
 
     // Log error (in production, save to database or send to monitoring service)
     console.error('Client error:', {
-      error: clientError,
-      context,
+      error: sanitizeForLog(String(clientError ?? ''), 200),
+      context: sanitizeForLog(String(context ?? ''), 200),
       timestamp,
-      userAgent,
-      url,
+      userAgent: sanitizeForLog(String(userAgent ?? ''), 100),
+      url: sanitizeForLog(String(url ?? ''), 200),
     });
 
     // TODO: Save to database

@@ -94,7 +94,7 @@ export function ProjectCard({ project, isPriority, className }: ProjectCardProps
           <div className="mb-4">
             {/* Title with decorative element */}
             <div className="flex items-center justify-between mb-2">
-              <h3 className="font-headline text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70 group-hover:to-primary transition-all duration-300">
+              <h3 className="font-headline text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/90 group-hover:to-primary transition-all duration-300">
                 {project.title}
               </h3>
               <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />

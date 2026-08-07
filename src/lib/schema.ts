@@ -39,11 +39,6 @@ export function generateWebsiteSchema() {
       '@type': 'Person',
       name: 'Arnie Calderon',
     },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://arcay.dev/projects?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
-    },
   }
 }
 

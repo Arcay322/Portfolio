@@ -8,7 +8,7 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { ProjectCard } from "@/components/ProjectCard";
 import { DownloadCVButton } from "@/components/DownloadCVButton";
-import { Testimonials } from "@/components/Testimonials";
+import { DynamicTestimonials } from "@/components/DynamicTestimonials";
 import { CTASection } from "@/components/CTAComponents";
 import { JsonLd } from "@/components/JsonLd";
 import { generatePersonSchema, generateWebsiteSchema } from "@/lib/schema";
@@ -125,7 +125,7 @@ export default async function Home() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <Testimonials />
+            <DynamicTestimonials />
           </ScrollReveal>
         </section>
 

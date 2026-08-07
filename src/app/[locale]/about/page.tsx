@@ -88,7 +88,7 @@ export default function AboutPage() {
               </Avatar>
             </div>
 
-            <h1 className="mt-8 text-4xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+            <h1 className="mt-8 text-4xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/90">
               {t('name')}
             </h1>
             <p className="mt-2 text-xl text-muted-foreground font-medium">

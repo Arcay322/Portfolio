@@ -174,10 +174,10 @@ export function SearchBar() {
       <button
         onClick={() => setIsOpen(true)}
         className="flex items-center gap-2 px-4 py-2 bg-muted hover:bg-muted/80 rounded-lg transition-colors text-sm"
-        aria-label="Buscar"
+        aria-label={t('search')}
       >
         <Search className="w-4 h-4" />
-        <span className="hidden md:inline">Buscar...</span>
+        <span className="hidden md:inline">{t('search')}</span>
         <kbd className="hidden md:inline-flex items-center gap-1 px-2 py-1 bg-background border border-border rounded text-xs">
           <span>⌘</span>K
         </kbd>
@@ -204,6 +204,13 @@ export function SearchBar() {
                 <input
                   ref={inputRef}
                   type="text"
+                  role="combobox"
+                  aria-expanded={results.length > 0}
+                  aria-controls="search-results-listbox"
+                  aria-autocomplete="list"
+                  aria-activedescendant={
+                    results[selectedIndex] ? `search-result-${selectedIndex}` : undefined
+                  }
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -263,10 +270,18 @@ export function SearchBar() {
                 )}
 
                 {results.length > 0 && (
-                  <div className="p-2">
+                  <div
+                    id="search-results-listbox"
+                    role="listbox"
+                    aria-label={t('search')}
+                    className="p-2"
+                  >
                     {results.map((result, index) => (
                       <button
                         key={result.url}
+                        id={`search-result-${index}`}
+                        role="option"
+                        aria-selected={selectedIndex === index}
                         onClick={() => handleSelect(result)}
                         onMouseEnter={() => setSelectedIndex(index)}
                         className={`w-full flex items-start gap-3 p-3 rounded-lg transition-colors text-left ${

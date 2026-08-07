@@ -142,7 +142,7 @@ export function SkillBars() {
               {category.skills.map((skill, skillIndex) => (
                 <Tooltip key={skill.name}>
                   <TooltipTrigger asChild>
-                    <div>
+                    <div tabIndex={0} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 rounded-md" data-accessible-tooltip>
                       <SkillBar
                         name={skill.name}
                         percentage={skill.percentage}

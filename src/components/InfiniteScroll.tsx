@@ -81,7 +81,7 @@ export function InfiniteScroll<T>({
 
       {/* Loading indicator */}
       {loading && (
-        <div className="flex justify-center items-center py-8">
+        <div role="status" aria-live="polite" className="flex justify-center items-center py-8">
           {loader || (
             <div className="flex items-center gap-2 text-muted-foreground">
               <Loader2 className="w-5 h-5 animate-spin" />

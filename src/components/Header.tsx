@@ -80,7 +80,7 @@ export function Header() {
           <nav
             ref={navRef}
             className="hidden md:flex items-center gap-1"
-            aria-label="Navegación principal"
+            aria-label={tA11y('navigation')}
           >
             {navLinks.map(({ href, label }, index) => (
               <Link

@@ -72,6 +72,8 @@ export function ParticlesBackground() {
         };
 
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isTouch = window.matchMedia('(pointer: coarse)').matches;
+        const isSmallScreen = window.innerWidth < 640;
 
         const drawFrame = () => {
             if (!ctx || !canvas) return;
@@ -135,19 +137,24 @@ export function ParticlesBackground() {
         };
 
         window.addEventListener('resize', resizeCanvas);
-        window.addEventListener('mousemove', handleMouseMove);
+        const shouldTrackMouse = !reducedMotion && !isTouch && !isSmallScreen;
+        if (shouldTrackMouse) {
+            window.addEventListener('mousemove', handleMouseMove);
+        }
 
         resizeCanvas();
 
-        if (reducedMotion) {
-            drawFrame(); // Sin animación, solo frame estático
+        if (reducedMotion || isTouch || isSmallScreen) {
+            drawFrame(); // Sin animación ni conexiones, solo frame estático
         } else {
             animate();
         }
 
         return () => {
             window.removeEventListener('resize', resizeCanvas);
-            window.removeEventListener('mousemove', handleMouseMove);
+            if (shouldTrackMouse) {
+                window.removeEventListener('mousemove', handleMouseMove);
+            }
             cancelAnimationFrame(animationFrameId);
         };
     }, [theme, mounted]);

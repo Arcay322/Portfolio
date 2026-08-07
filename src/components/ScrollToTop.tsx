@@ -4,9 +4,11 @@ import { useState, useEffect } from "react"
 import { ArrowUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
+import { useTranslations } from "next-intl"
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
+  const tA11y = useTranslations('a11y')
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -43,7 +45,7 @@ export function ScrollToTop() {
             onClick={scrollToTop}
             size="icon"
             className="h-12 w-12 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all"
-            aria-label="Volver arriba"
+            aria-label={tA11y('back_to_top')}
           >
             <ArrowUp className="h-6 w-6" />
           </Button>

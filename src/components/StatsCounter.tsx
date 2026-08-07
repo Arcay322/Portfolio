@@ -51,7 +51,7 @@ function AnimatedNumber({ value, suffix = "", prefix = "" }: { value: number; su
   }, [isInView, value])
 
   return (
-    <span ref={ref} className="text-5xl font-bold font-headline text-primary">
+    <span ref={ref} className="text-5xl font-bold font-headline text-primary" aria-hidden="true">
       {prefix}{count}{suffix}
     </span>
   )
@@ -121,6 +121,9 @@ export function StatsCounter() {
                 suffix={stat.suffix}
                 prefix={stat.prefix}
               />
+              <span className="sr-only">
+                {stat.prefix}{stat.value}{stat.suffix}
+              </span>
             </div>
             <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">
               {stat.label}

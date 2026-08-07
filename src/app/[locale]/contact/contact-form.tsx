@@ -282,7 +282,7 @@ export function ContactForm() {
                   disabled={isSubmitting}
                 />
               </FormControl>
-              <FormDescription className="text-xs text-muted-foreground/60 text-right">
+              <FormDescription className="text-xs text-muted-foreground/90 text-right">
                 {t('draft_saved_auto')}
               </FormDescription>
               <FormMessage />

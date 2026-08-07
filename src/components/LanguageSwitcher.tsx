@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/navigation';
 import { useTransition } from 'react';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,7 @@ const languages = [
 
 export function LanguageSwitcher() {
   const locale = useLocale();
+  const tA11y = useTranslations('a11y');
   const pathname = usePathname();
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -48,7 +49,7 @@ export function LanguageSwitcher() {
           variant="ghost"
           size="icon"
           className="relative"
-          aria-label={`Idioma actual: ${currentLanguage?.name}`}
+          aria-label={tA11y('current_language', { language: currentLanguage?.name ?? '' })}
           disabled={isPending}
         >
           <Globe className={`h-5 w-5 transition-all ${isPending ? 'animate-spin opacity-50' : ''}`} />

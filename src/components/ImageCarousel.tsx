@@ -64,28 +64,37 @@ export function ImageCarousel({
     setIsAutoPlaying(false)
   }
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") {
-        goToPrevious()
-        handleUserInteraction()
-      } else if (e.key === "ArrowRight") {
-        goToNext()
-        handleUserInteraction()
-      }
+  // Keyboard navigation: only when focus is within the carousel
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.target !== e.currentTarget &&
+        !(e.target as HTMLElement).closest?.('[data-carousel]')) {
+      return;
     }
-
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [goToPrevious, goToNext])
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      goToPrevious();
+      handleUserInteraction();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      goToNext();
+      handleUserInteraction();
+    }
+  }, [goToPrevious, goToNext]);
 
   const currentMedia = media[currentIndex]
 
   if (!media || media.length === 0) return null
 
   return (
-    <div className={cn("group", className)}>
+    <div
+      data-carousel
+      className={cn("group", className)}
+      onKeyDown={handleKeyDown}
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(autoPlay)}
+      onFocus={() => setIsAutoPlaying(false)}
+      onBlur={() => setIsAutoPlaying(autoPlay)}
+    >
       {/* Main Carousel Display */}
       <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
         {/* Current Image */}

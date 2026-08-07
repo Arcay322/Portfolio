@@ -18,7 +18,7 @@ import Script from "next/script";
 import { WebVitalsReporter } from "@/components/WebVitalsReporter";
 import { ServiceWorkerRegistrar } from "@/components/ServiceWorkerRegistrar";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { ParticlesBackground } from "@/components/ParticlesBackground";
+import { DynamicParticlesBackground } from "@/components/DynamicParticlesBackground";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -62,6 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
+      site: "@arcaydev",
       creator: "@arcaydev",
       title: t('title'),
       description: t('description'),
@@ -130,7 +131,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <KeyboardNavigationProvider enableShortcuts={true}>
               <MotionProvider>
                 <SmoothScroll />
-                <ParticlesBackground />
+                <DynamicParticlesBackground />
                 <GoogleAnalytics />
                 <WebVitalsReporter />
                 <ServiceWorkerRegistrar />

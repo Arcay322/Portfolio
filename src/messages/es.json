@@ -25,7 +25,12 @@
     "visit_linkedin": "Visitar perfil de LinkedIn",
     "visit_contact": "Ir a página de contacto",
     "mobile_menu_title": "Menú de Navegación",
-    "mobile_menu_description": "Enlaces de navegación principal para vista móvil"
+    "mobile_menu_description": "Enlaces de navegación principal para vista móvil",
+    "navigation": "Navegación principal",
+    "back_to_top": "Volver arriba",
+    "toggle_theme": "Cambiar tema",
+    "breadcrumb": "Ruta de navegación",
+    "current_language": "Idioma actual: {language}"
   },
   "social": {
     "twitter": "Twitter",

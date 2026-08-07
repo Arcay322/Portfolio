@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { createHmac, timingSafeEqual } from 'crypto';
 import { z } from 'zod';
 import { apiLimiter, isValidOrigin, withRateLimit } from '@/lib/rate-limiter';
+import { sanitizeForLog } from '@/lib/sanitization';
 
 // Newsletter subscription endpoint
 // Replace with actual email service (Mailchimp, SendGrid, ConvertKit, etc.)
@@ -11,6 +13,21 @@ const subscribeSchema = z.object({
 
 // In-memory storage for demo (replace with database)
 const subscribers = new Set<string>();
+
+const UNSUBSCRIBE_SECRET =
+  process.env.NEWSLETTER_HMAC_SECRET || 'insecure-default-rotate-me';
+
+function signEmail(email: string): string {
+  return createHmac('sha256', UNSUBSCRIBE_SECRET).update(email).digest('hex');
+}
+
+function verifyEmail(email: string, token: string): boolean {
+  const expected = signEmail(email);
+  const a = Buffer.from(expected);
+  const b = Buffer.from(token);
+  if (a.length !== b.length) return false;
+  return timingSafeEqual(a, b);
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -61,12 +78,13 @@ export async function POST(request: NextRequest) {
     subscribers.add(email);
 
     // Log the subscription
-    console.log(`New subscriber: ${email}`);
+    console.log(`New subscriber: ${sanitizeForLog(email)}`);
 
     return NextResponse.json(
       {
         success: true,
         message: 'Suscripción exitosa! Revisa tu email para confirmar.',
+        unsubscribeUrl: `/api/newsletter/subscribe?email=${encodeURIComponent(email)}&token=${signEmail(email)}`,
       },
       { status: 200 }
     );
@@ -110,15 +128,23 @@ export async function DELETE(request: NextRequest) {
 
     const { searchParams } = new URL(request.url);
     const email = searchParams.get('email');
+    const token = searchParams.get('token');
 
-    if (!email) {
+    if (!email || !token) {
       return NextResponse.json(
-        { error: 'Email requerido' },
+        { error: 'Email y token requeridos' },
         { status: 400 }
       );
     }
 
     const { email: validEmail } = subscribeSchema.parse({ email });
+
+    if (!verifyEmail(validEmail, token)) {
+      return NextResponse.json(
+        { error: 'Token inválido o expirado' },
+        { status: 403 }
+      );
+    }
 
     // Remove from subscribers
     subscribers.delete(validEmail);

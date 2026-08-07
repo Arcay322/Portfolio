@@ -44,7 +44,7 @@ export function Footer() {
           </Link>
         </nav>
 
-        <p className="text-xs text-muted-foreground/60 font-medium tracking-wide">
+        <p className="text-xs text-muted-foreground/90 font-medium tracking-wide">
           &copy; {currentYear} Arnie Calderon. {t('rights')}.
         </p>
       </div>
