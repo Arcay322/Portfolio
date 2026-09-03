@@ -21,6 +21,7 @@ type Project = {
   featured?: boolean;
   isNew?: boolean;
   inProduction?: boolean;
+  impactMetric?: string;
 };
 
 type ProjectCardProps = {
@@ -75,6 +76,12 @@ export function ProjectCard({ project, isPriority, className }: ProjectCardProps
 
           {/* Badges Floating on Image */}
           <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-20">
+            {project.inProduction && (
+              <Badge className="bg-emerald-500/15 text-emerald-400 border-emerald-500/30 backdrop-blur-md flex items-center gap-1.5 font-mono text-xs shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                {t('in_production')}
+              </Badge>
+            )}
             {project.featured && (
               <Badge className="bg-yellow-500/10 text-yellow-500 border-yellow-500/20 backdrop-blur-md">
                 <Star className="w-3 h-3 mr-1" /> {t('featured')}
@@ -94,15 +101,23 @@ export function ProjectCard({ project, isPriority, className }: ProjectCardProps
           <div className="mb-4">
             {/* Title with decorative element */}
             <div className="flex items-center justify-between mb-2">
-              <h3 className="font-headline text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/90 group-hover:to-primary transition-all duration-300">
+              <h3 className="font-headline text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
                 {project.title}
               </h3>
               <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
             </div>
 
-            <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed mb-4">
+            <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed mb-3">
               {project.description}
             </p>
+
+            {/* Impact Metric Pill */}
+            {project.impactMetric && (
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20 text-xs font-mono font-medium text-primary">
+                <Sparkles className="w-3 h-3 flex-shrink-0" />
+                <span>{project.impactMetric}</span>
+              </div>
+            )}
           </div>
 
           {/* Tech Stack - Minimalist Pills */}
@@ -120,9 +135,9 @@ export function ProjectCard({ project, isPriority, className }: ProjectCardProps
                       : ""
                   }`}
                   style={isBlack ? undefined : {
-                    backgroundColor: `${color}15`, // ~8% opacity
+                    backgroundColor: `${color}15`,
                     color: color,
-                    borderColor: `${color}30`, // ~19% opacity
+                    borderColor: `${color}30`,
                     borderWidth: '1px',
                     borderStyle: 'solid'
                   }}
@@ -132,7 +147,11 @@ export function ProjectCard({ project, isPriority, className }: ProjectCardProps
               );
             })}
             {project.tags.length > 4 && (
-              <span className="text-xs font-mono px-2 py-1 text-muted-foreground">
+              <span 
+                className="text-xs font-mono px-2 py-1 text-muted-foreground border border-muted-foreground/20 rounded-md cursor-help hover:text-foreground transition-colors"
+                title={project.tags.slice(4).join(', ')}
+                aria-label={`Otras tecnologías: ${project.tags.slice(4).join(', ')}`}
+              >
                 +{project.tags.length - 4}
               </span>
             )}
@@ -140,18 +159,18 @@ export function ProjectCard({ project, isPriority, className }: ProjectCardProps
         </div>
       </Link>
 
-      {/* Action Footer - Only visible on hover/focus if needed, or subtle always */}
-      <div className="absolute bottom-4 right-4 z-20 flex gap-2 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+      {/* Action Footer - Always accessible on touch/mobile, smooth hover/focus on desktop */}
+      <div className="absolute bottom-4 right-4 z-20 flex gap-2 opacity-100 translate-y-0 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 md:group-focus-within:opacity-100 md:group-focus-within:translate-y-0 transition-all duration-300">
         {project.liveUrl && (
-          <Button size="icon" variant="glass" className="h-9 w-9 rounded-full" asChild>
-            <Link href={project.liveUrl} target="_blank" title={tButtons('demo')}>
+          <Button size="icon" variant="glass" className="h-9 w-9 rounded-full focus-visible:ring-2 focus-visible:ring-primary shadow-md" asChild>
+            <Link href={project.liveUrl} target="_blank" title={tButtons('demo')} aria-label={`${tButtons('demo')} - ${project.title}`}>
               <MonitorPlay className="h-4 w-4" />
             </Link>
           </Button>
         )}
         {project.githubUrl && (
-          <Button size="icon" variant="glass" className="h-9 w-9 rounded-full" asChild>
-            <Link href={project.githubUrl} target="_blank" title={tButtons('code')}>
+          <Button size="icon" variant="glass" className="h-9 w-9 rounded-full focus-visible:ring-2 focus-visible:ring-primary shadow-md" asChild>
+            <Link href={project.githubUrl} target="_blank" title={tButtons('code')} aria-label={`${tButtons('code')} - ${project.title}`}>
               <Github className="h-4 w-4" />
             </Link>
           </Button>

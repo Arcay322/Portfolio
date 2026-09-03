@@ -35,7 +35,6 @@ export default async function Home({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations('home');
-  const tContact = await getTranslations('contact');
   const tProjects = await getTranslations('projects');
   const personSchema = generatePersonSchema();
   const websiteSchema = generateWebsiteSchema();
@@ -55,28 +54,25 @@ export default async function Home({ params }: Props) {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] mesh-gradient-1 opacity-40 -z-10 blur-3xl rounded-full pointer-events-none" />
 
           <div className="max-w-5xl relative">
-            <div className="text-5xl sm:text-7xl md:text-9xl font-bold font-headline tracking-tighter mb-8">
-              <Typewriter text="Arnie Calderon" speed={150} className="text-primary drop-shadow-2xl" />
+            <div className="text-5xl sm:text-7xl md:text-9xl font-bold font-headline tracking-tighter mb-8 min-h-[1.1em] flex items-center justify-center">
+              <Typewriter text="Arnie Calderon" speed={60} className="text-primary drop-shadow-2xl" />
             </div>
-            <FadeIn delay={0.3} direction="up">
-              <p className="mt-4 text-2xl sm:text-3xl md:text-4xl text-foreground/90 font-headline font-light tracking-wide">
+            <FadeIn delay={0.2} direction="up">
+              <p className="mt-4 text-2xl sm:text-3xl md:text-4xl text-foreground font-headline font-semibold tracking-wide">
                 {t('title')}
               </p>
             </FadeIn>
-            <FadeIn delay={0.5} direction="up">
-              <p className="mt-8 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <FadeIn delay={0.3} direction="up">
+              <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed">
                 {t('subtitle')}
               </p>
             </FadeIn>
-            <FadeIn delay={0.7} direction="up">
-              <div className="mt-12 flex justify-center gap-6 flex-wrap">
-                <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 bg-primary text-primary-foreground border-0">
-                  <Link href="/projects">
+            <FadeIn delay={0.4} direction="up">
+              <div className="mt-10 flex justify-center items-center gap-5 flex-wrap">
+                <Button asChild size="lg" className="h-14 px-8 text-base sm:text-lg rounded-full hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 bg-primary text-primary-foreground border-0 font-semibold">
+                  <Link href="#featured">
                     {t('cta')} <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="h-14 px-8 text-lg rounded-full hover:scale-105 transition-all duration-300 backdrop-blur-md bg-background/30 border-muted-foreground/20 hover:bg-background/50 hover:border-primary/50">
-                  <Link href="/contact">{tContact('title')}</Link>
                 </Button>
                 <div className="h-14 flex items-center">
                   <DownloadCVButton />
@@ -87,7 +83,7 @@ export default async function Home({ params }: Props) {
         </section>
 
         {/* Featured Projects Section */}
-        <section className="py-24 relative z-10">
+        <section id="featured" className="py-24 relative z-10 scroll-mt-16">
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50" />
 
           <ScrollReveal>

@@ -79,10 +79,10 @@ export function ProjectHero({
 
             {/* Scroll Indicator */}
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 1 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce"
+                initial={{ opacity: 0, y: 0 }}
+                animate={{ opacity: [0.3, 0.8, 0.3], y: [0, 6, 0] }}
+                transition={{ delay: 1, duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60"
             >
                 <ArrowDown className="h-8 w-8" />
             </motion.div>

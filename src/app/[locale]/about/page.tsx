@@ -91,7 +91,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <h1 className="mt-8 text-4xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/90">
+            <h1 className="mt-8 text-4xl font-bold font-headline text-foreground">
               {t('name')}
             </h1>
             <p className="mt-2 text-xl text-muted-foreground font-medium">

@@ -62,7 +62,7 @@ export function ProjectSpotlight({ project }: ProjectSpotlightProps) {
                         )}
                     </div>
 
-                    <h2 className="text-3xl md:text-5xl font-bold font-headline mb-4 lg:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/90">
+                    <h2 className="text-3xl md:text-5xl font-bold font-headline mb-4 lg:mb-6 text-foreground">
                         {project.title}
                     </h2>
 

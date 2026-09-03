@@ -80,8 +80,9 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     liveUrl: "https://ventify-one.vercel.app/",
     githubUrl: "https://github.com/Arcay322/Ventify.git",
     featured: true,
-    isNew: true,
+    isNew: false,
     inProduction: true,
+    impactMetric: "+97% Ventas en Cliente Real · Agente RAG",
     date: "2025-01-01",
     // Multimedia gallery - máximo 5 imágenes
     media: Array.from({ length: 5 }, (_, i) => ({
@@ -122,7 +123,9 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     liveUrl: "https://jrtoursmorochucos.vercel.app/",
     githubUrl: "https://github.com/Arcay322/JRToursMorochucos",
     featured: true,
-    isNew: true,
+    isNew: false,
+    inProduction: true,
+    impactMetric: "100/100 Core Web Vitals · MercadoPago",
     date: "2024-05-01",
     media: Array.from({ length: 5 }, (_, i) => ({
       type: "image" as const,
@@ -182,7 +185,9 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     liveUrl: "https://arcay3dlabs.com/", 
     githubUrl: "https://github.com/Arcay322/Arcay3Dlabs",
     featured: true,
-    isNew: true,
+    isNew: false,
+    inProduction: true,
+    impactMetric: "Cotizador 3D Automatizado · WebGL",
     date: "2025-02-01",
     media: Array.from({ length: 5 }, (_, i) => ({
       type: "image" as const,

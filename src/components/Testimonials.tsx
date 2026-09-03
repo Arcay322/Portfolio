@@ -61,6 +61,25 @@ export function Testimonials() {
             </div>
 
             <CardContent className="pt-8 pb-6 px-8">
+              {/* Impact Metric Banner */}
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-border/40">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-3xl sm:text-4xl font-extrabold font-headline text-primary tracking-tight">+97%</span>
+                    <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">Ventas</span>
+                  </div>
+                  <span className="hidden sm:inline-block w-px h-8 bg-border/60" />
+                  <div className="text-xs text-muted-foreground hidden sm:block font-mono">
+                    Impacto Real en Retail · Sistema Ventify
+                  </div>
+                </div>
+
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Caso de Éxito Verificado
+                </div>
+              </div>
+
               {/* Stars Rating */}
               <div className="flex gap-1 mb-4">
                 {[...Array(currentTestimonial.rating)].map((_, i) => (
@@ -75,19 +94,19 @@ export function Testimonials() {
               </div>
 
               {/* Testimonial Content */}
-              <p className="text-lg text-foreground mb-6 leading-relaxed">
+              <p className="text-lg text-foreground mb-6 leading-relaxed italic">
                 &ldquo;{currentTestimonial.content}&rdquo;
               </p>
 
               {/* Author Info */}
               <div className="flex items-center gap-4">
-                <Avatar className="h-16 w-16 border-2 border-primary bg-gradient-to-br from-blue-600 to-cyan-600">
-                  <AvatarFallback className="bg-gradient-to-br from-blue-600 to-cyan-600 text-white font-bold text-xl">
+                <Avatar className="h-14 w-14 border-2 border-primary bg-gradient-to-br from-blue-600 to-cyan-600">
+                  <AvatarFallback className="bg-gradient-to-br from-blue-600 to-cyan-600 text-white font-bold text-lg">
                     IMP
                   </AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="font-bold text-foreground">{currentTestimonial.name}</p>
+                  <p className="font-bold text-foreground text-base">{currentTestimonial.name}</p>
                   <p className="text-sm text-muted-foreground">
                     {currentTestimonial.role}
                   </p>

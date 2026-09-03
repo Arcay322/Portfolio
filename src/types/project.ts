@@ -21,6 +21,7 @@ export interface Project {
   featured?: boolean
   isNew?: boolean
   inProduction?: boolean
+  impactMetric?: string
   longDescription: string
   features: string[]
   challenges: string[]
