@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Award, CheckCircle2, ExternalLink } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/navigation";
 
 interface Certification {
   title: string

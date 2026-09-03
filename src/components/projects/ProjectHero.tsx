@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import Link from "next/link"
+import { Link } from "@/navigation";
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, ArrowDown } from "lucide-react"
 

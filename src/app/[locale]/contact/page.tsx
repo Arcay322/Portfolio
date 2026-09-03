@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github, Linkedin, Mail, MapPin } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { ContactForm } from "./contact-form";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";

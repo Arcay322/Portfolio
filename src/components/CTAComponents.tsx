@@ -2,7 +2,7 @@
 
 import { ArrowRight, Mail, Phone, Download, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Link } from "@/navigation"
 import { motion } from "framer-motion"
 
 interface CTAButtonProps {
