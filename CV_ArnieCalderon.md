@@ -1,66 +1,66 @@
 # ARNIE CALDERÓN
-**Desarrollador Full-Stack | Ingeniero de Software**  
-Lima, Perú | +51 918 793 956 / +51 917 455 538  
-[arniecalderonayala@gmail.com](mailto:arniecalderonayala@gmail.com) | [arcay.dev](https://arcay.dev) | [linkedin.com/in/arniecalderonayala](https://linkedin.com/in/arniecalderonayala) | [github.com/Arcay322](https://github.com/Arcay322)
 
----
+Desarrollador Full-Stack | React · Next.js · TypeScript · Python
+
+Lima, Perú · Llamadas: +51 918 793 956 · WhatsApp: +51 917 455 538
+arniecalderonayala@gmail.com · [arcay.dev](https://arcay.dev)
+[github.com/Arcay322](https://github.com/Arcay322) · [linkedin.com/in/arniecalderonayala](https://linkedin.com/in/arniecalderonayala)
 
 ## PERFIL PROFESIONAL
-Desarrollador Full-Stack con sólida experiencia en la creación de aplicaciones web modernas, escalables y orientadas a resultados de negocio. Especializado en el desarrollo de arquitecturas frontend fluidas (React, Next.js) y backend empresariales integrando bases de datos relacionales y no relacionales. Estudiante de último año de Ingeniería de Software en la Universidad Tecnológica del Perú, con un historial comprobado de impacto técnico y comercial, incluyendo el desarrollo de un sistema POS a producción que incrementó las ventas en un 97% e integraciones de datos con sistemas ERP SAP. Apasionado por las arquitecturas limpias, principios SOLID y la resolución ágil de problemas complejos.
 
----
+Desarrollador Full-Stack con experiencia en aplicaciones de gestión empresarial, integración de APIs y desarrollo de productos SaaS. Desarrollo de la plataforma web comercial de IMPREX EUROPE (España), con integración SAP. Creador de Ventify, un POS multisucursal utilizado por tres clientes, con más de S/ 5,5 millones en ventas registradas. Estudiante de último año de Ingeniería de Software en la UTP.
 
 ## EXPERIENCIA PROFESIONAL
 
-### **IMPREX EUROPE S.L.** | Madrid, España (Remoto)
-*Desarrollador Frontend Freelance* | *Septiembre 2025 – Presente*
-* **Desarrollo de Aplicaciones SPA:** Diseñé y desarrollé desde cero una aplicación web SPA robusta para la gestión interna corporativa, consumiendo múltiples APIs REST y garantizando un alto nivel de modularidad y mantenibilidad.
-* **Migración Móvil a Web:** Lideré la migración de funcionalidades clave de una aplicación móvil nativa hacia una interfaz web responsiva, logrando una compatibilidad adaptativa óptima en múltiples dispositivos.
-* **Sistemas de Componentes UI/UX:** Implementé interfaces pixel-perfect y accesibles, diseñando un sistema de componentes ágiles y reutilizables alineados con las pautas de diseño de la compañía.
-* **Integración ERP & SAP:** Integré con éxito flujos de datos críticos con el backend en Django y el ERP SAP mediante APIs REST seguras, asegurando la consistencia y sincronización en tiempo real de la información empresarial.
-* **Metodologías Ágiles:** Colaboré activamente en un equipo internacional distribuido bajo la metodología Scrum, coordinando entregables asíncronos y realizando revisiones de código (code reviews) constructivas.
+### IMPREX EUROPE S.L. | Desarrollador Frontend Freelance
 
-### **INVERSIONES MAX PERU S.A.C.** | Lima, Perú
-*Desarrollador Full-Stack Freelance* | *Octubre 2024 – Octubre 2025*
-* **Desarrollo de Ventify (POS):** Diseñé y desarrollé [Ventify](https://www.ventify.com.pe), un sistema integral de Punto de Venta (POS) y control de inventario multisucursal que impulsó un incremento de ventas de la compañía en un 97% durante su primer año de uso comercial.
-* **Agente de Inteligencia Artificial (RAG):** Diseñé e implementé un asistente de negocios autónomo (Venty) integrado al POS utilizando **Firebase Genkit** (Gemini/DeepSeek) y técnicas de **RAG**, permitiendo automatizar consultas analíticas en tiempo real y ejecutar acciones en el POS mediante widgets y flujos conversacionales dinámicos.
-* **Arquitectura y Seguridad:** Implementé una infraestructura multisucursal en tiempo real usando Next.js, Firebase y TypeScript, diseñando un sistema de control de accesos basado en roles (RBAC) y alertas automáticas de inventario que redujeron pérdidas operativas.
+Septiembre 2025 - Actualidad · Remoto, España
 
----
+- Desarrollé la aplicación web comercial con **React y Vite**: clientes, catálogo, carrito, pedidos y visitas, adaptando al navegador los flujos de la aplicación móvil Kotlin.
+
+- Implementé la **simulación y creación de pedidos en SAP** mediante APIs corporativas, generación de XML, validaciones y manejo de respuestas y errores del ERP.
+
+- Integré el catálogo de **Sales Layer** con búsqueda, filtros y paginación; desarrollé importación de productos desde Excel y flujos de pedidos múltiples.
+
+- Desarrollé visitas comerciales con calendario, rutas, geolocalización, formularios dinámicos y reglas de surtido por cliente.
+
+- Optimicé peticiones en lote y eliminé consultas duplicadas; incorporé pruebas de formularios, visitas y payloads SAP, trabajando en un repositorio compartido con el equipo.
+
+### Ventify | Creador y desarrollador Full-Stack
+
+Octubre 2024 - Actualidad · Perú
+
+- Convertí un POS desarrollado para **INVERSIONES MAX PERU** en un SaaS multisucursal utilizado por **tres clientes**, con más de **S/ 5,5 millones en ventas registradas** entre dos clientes al 15/10/2026.
+
+- Implementé inventario en tiempo real, caja, pagos mixtos, reservas, pedidos y reportes con **Next.js, TypeScript y Firebase**.
+
+- Desarrollé aislamiento de datos por cuenta y control de accesos basado en roles y permisos para distintos negocios y sucursales.
+
+- Integré **Venty**, asistente con Genkit y modelos Gemini/DeepSeek, para consultar datos comerciales y proponer acciones con permisos por rol y confirmación del usuario.
 
 ## PROYECTOS DESTACADOS
 
-### **Sumaq Uywa – Sistema de Gestión Agrícola**
-*Desarrollador Principal* | *React, TypeScript, Node.js, Express, PostgreSQL* | [Repositorio GitHub](https://github.com/Arcay322/Sumaq_Uywa)
-* Desarrollé un sistema modular para la administración integral de granjas y producción ganadera, con flujos dedicados a reproducción animal, salud veterinaria, alimentación e inventario de gastos/ventas.
-* Implementé un panel de control (dashboard) interactivo con visualización dinámica de datos mediante gráficos interactivos para facilitar la toma de decisiones comerciales ágiles basadas en datos reales.
+### Sumaq Uywa | React, TypeScript, Node.js, Express, PostgreSQL
 
-### **Ticket World – Plataforma E-commerce**
-*Desarrollador Principal* | *Python, Django, Django REST Framework, PostgreSQL, JavaScript* | [Repositorio GitHub](https://github.com/Arcay322/Ticket_World)
-* Creé una plataforma completa de compra-venta de entradas para eventos masivos, soportando tres roles de usuario distintos con sistema de permisos seguro y panel de administración avanzado.
-* Integré la API de Google Maps para visualización interactiva de locaciones e implementé una pasarela de pago simulada.
+Sistema de gestión ganadera: reproducción, salud, alimentación, inventario, ventas y gastos; dashboard de indicadores operativos. [Repositorio](https://github.com/Arcay322/Sumaq_Uywa).
 
----
+### Ticket World | Python, Django REST Framework, PostgreSQL, JavaScript
 
-## EDUCACIÓN
+Plataforma de venta de entradas con roles de administrador, proveedor y cliente, gestión de órdenes, Google Maps y pasarela de pago simulada. [Repositorio](https://github.com/Arcay322/Ticket_World).
 
-### **Universidad Tecnológica del Perú** | Lima, Perú
-*Ingeniería de Software* | *2022 – Diciembre 2026 (Esperado)*
-* **Estado actual:** 9no Ciclo. Enfoque académico en arquitectura de software, bases de datos avanzadas, estructuras de datos y metodologías ágiles.
+## HABILIDADES TÉCNICAS
 
----
+**Frontend:** React, Next.js, TypeScript, JavaScript, HTML/CSS, Tailwind CSS, shadcn/ui.
 
-## HABILIDADES TÉCNICAS E IDIOMAS
+**Backend y datos:** Node.js, Express, Python, Django REST Framework, PostgreSQL, Firebase/Firestore, APIs REST. **Integraciones:** SAP, XML, Sales Layer.
 
-* **Lenguajes:** JavaScript, TypeScript, Python, HTML5, CSS3, SQL.
-* **Frameworks y Librerías:** React.js, Next.js 14/15, **Firebase Genkit**, Tailwind CSS, Shadcn/ui, Material-UI, Framer Motion.
-* **Backend y Nube:** Node.js, Express, Django, Django REST Framework, Firebase (Firestore, Auth, Storage, Hosting), PostgreSQL, SQL Server, **Integración de LLMs (Gemini, DeepSeek)**.
-* **Herramientas y Prácticas:** Git & GitHub (Git Flow), Docker, Vercel, Railway, **RAG (Retrieval-Augmented Generation)**, **Agentes de IA**, Testing (Jest, React Testing Library, Playwright), Scrum, SOLID, Clean Code, Diseño Responsivo.
-* **Idiomas:** Español (Nativo) | Inglés (Intermedio - Capacidad para comunicación técnica y lectura fluida de documentación de software).
+**Herramientas y pruebas:** Git, GitHub, Linux, Docker, Vercel, Postman, Vitest, Jest, React Testing Library, Playwright.
 
----
+**IA aplicada:** Firebase Genkit, integración de LLMs (Gemini/DeepSeek) y asistentes con herramientas.
 
-## REFERENCIAS
+## EDUCACIÓN E IDIOMAS
 
-> "Destacamos el profesionalismo, compromiso y capacidad técnica de Arnie Calderón, quien desarrolló Ventify para nuestra empresa. Desde su implementación, hemos logrado incrementar nuestras ventas en un 97%, asegurar el orden y control de nuestro inventario, y mayor eficiencia en el conocimiento y seguimiento de nuestros márgenes de ganancia. Recomendamos ampliamente a Arnie y su sistema Ventify como un aliado estratégico confiable."  
-> — **René Foreest Minaya Isidro** – Gerente de Producción y Accionista en INVERSIONES MAX PERU S.A.C.
+**Ingeniería de Software | Universidad Tecnológica del Perú**
+2022 - Diciembre de 2026 (egreso previsto) · Lima, Perú
+
+**Español:** nativo. **Inglés:** intermedio; lectura de documentación y comunicación técnica.

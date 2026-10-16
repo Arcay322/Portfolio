@@ -1,0 +1,213 @@
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": true,
+    "predeploy": [
+      "npm run build:firebase",
+      "npm run test:portfolio"
+    ],
+    "redirects": [
+      {
+        "source": "/es",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/es/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects",
+        "destination": "/projects/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/",
+        "destination": "/projects/",
+        "type": 301
+      },
+      {
+        "source": "/es/about",
+        "destination": "/about/",
+        "type": 301
+      },
+      {
+        "source": "/es/about/",
+        "destination": "/about/",
+        "type": 301
+      },
+      {
+        "source": "/es/contact",
+        "destination": "/contact/",
+        "type": 301
+      },
+      {
+        "source": "/es/contact/",
+        "destination": "/contact/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/imprex",
+        "destination": "/projects/imprex/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/imprex/",
+        "destination": "/projects/imprex/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/ventify",
+        "destination": "/projects/ventify/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/ventify/",
+        "destination": "/projects/ventify/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/arcay3dlabs",
+        "destination": "/projects/arcay3dlabs/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/arcay3dlabs/",
+        "destination": "/projects/arcay3dlabs/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/sumaq-uywa",
+        "destination": "/projects/sumaq-uywa/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/sumaq-uywa/",
+        "destination": "/projects/sumaq-uywa/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/ticket-world",
+        "destination": "/projects/ticket-world/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/ticket-world/",
+        "destination": "/projects/ticket-world/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/jr-transportes",
+        "destination": "/projects/jr-transportes/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/jr-transportes/",
+        "destination": "/projects/jr-transportes/",
+        "type": 301
+      },
+      {
+        "source": "/projects/ticket_world",
+        "destination": "/projects/ticket-world/",
+        "type": 301
+      },
+      {
+        "source": "/projects/sumaq_uywa",
+        "destination": "/projects/sumaq-uywa/",
+        "type": 301
+      },
+      {
+        "source": "/en/projects/ticket_world",
+        "destination": "/en/projects/ticket-world/",
+        "type": 301
+      },
+      {
+        "source": "/en/projects/sumaq_uywa",
+        "destination": "/en/projects/sumaq-uywa/",
+        "type": 301
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "Permissions-Policy",
+            "value": "camera=(), microphone=(), geolocation=()"
+          },
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self'; script-src 'self' 'sha256-nV7HxPtU8Y1UkT5hGq1qkMR5JNj98SmWE5c8Nam+33w=' 'sha256-09gQoKUT82C2UY9dbgPZuUrX5X785HnktHsMT8p2UQY='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public,max-age=0,must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(js|css|html)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,max-age=0,must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "/assets/fonts/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,max-age=604800"
+          }
+        ]
+      },
+      {
+        "source": "/images/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,max-age=86400"
+          }
+        ]
+      },
+      {
+        "source": "/sw.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          }
+        ]
+      }
+    ]
+  },
+  "emulators": {
+    "hosting": {
+      "port": 5000
+    },
+    "ui": {
+      "enabled": false
+    }
+  }
+}

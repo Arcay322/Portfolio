@@ -1,50 +1,44 @@
-# Portafolio de Arnie Calderon
+# Arnie Calderón — Entre piedra y código
 
-¡Bienvenido a mi portafolio! Este proyecto es una aplicación web creada con Next.js que muestra mis habilidades, proyectos y experiencia como desarrollador full-stack. El diseño es limpio, profesional y está diseñado para ofrecer una experiencia de usuario excepcional.
+Portfolio personal con un paisaje andino en Three.js, páginas de proyectos,
+experiencia, contacto y CV en español e inglés. Listo para Firebase Hosting
+en el proyecto **portfolio-2242b**.
 
-## 🚀 Stack de Tecnologías
+## Desarrollo
 
-- **Framework:** [Next.js](https://nextjs.org/)
-- **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
-- **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
-- **UI:** [Shadcn UI](https://ui.shadcn.com/)
-- **Formularios:** [React Hook Form](https://react-hook-form.com/) y [Zod](https://zod.dev/)
-- **Envío de correos:** [Resend](https://resend.com/)
-- **Inteligencia Artificial:** [Genkit](https://firebase.google.com/docs/genkit)
+Node.js 24 (ver `.nvmrc`).
 
-## 📋 Variables de Entorno
-
-Para ejecutar este proyecto, necesitarás crear un archivo `.env` en la raíz y añadir las siguientes variables de entorno:
-
-```bash
-# Clave de API de Resend para el envío de correos electrónicos
-RESEND_API_KEY=tu_clave_de_api_de_resend
-
-# Dirección de correo electrónico donde se recibirán los mensajes del formulario
-TO_EMAIL_ADDRESS=tu_correo@ejemplo.com
+```sh
+npm ci --legacy-peer-deps
+npm run dev
 ```
 
-## ⚙️ Instalación
+Abrir **http://127.0.0.1:3012**. La escena es una mejora progresiva del contenido:
+se puede navegar en modo lectura o sin WebGL. El sitio final es estático.
 
-Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local:
+```sh
+npm run verify:portfolio   # ESLint, sintaxis, build y 7 pruebas automatizadas
+npm run test:hosting      # Integración con el emulador oficial de Firebase
+npm run deploy:firebase   # Build + pruebas + despliegue de Hosting
+```
 
-1.  **Clona el repositorio:**
-    ```bash
-    git clone https://github.com/arcay322/portfolio.git
-    cd portfolio-dev
-    ```
+Antes de publicar, iniciar sesión con `npx --yes firebase-tools@15.34.0 login`.
+No hay credenciales en el código de la aplicación.
 
-2.  **Instala las dependencias:**
-    ```bash
-    npm install
-    ```
+La guía completa para publicar, configurar el dominio y editar contenido está en
+[docs/FIREBASE-HOSTING.md](docs/FIREBASE-HOSTING.md).
 
-3.  **Configura las variables de entorno:**
-    Crea un archivo `.env` en la raíz del proyecto y añade las variables como se explica en la sección anterior.
+## Estructura
 
-4.  **Ejecuta el servidor de desarrollo:**
-    ```bash
-    npm run dev
-    ```
+- `portfolio/`: contenido ES/EN, HTML, CSS y JavaScript del sitio nuevo.
+- `portfolio/assets/`: fuentes, librerías locales y PDFs actuales.
+- `public/images/`: imágenes existentes que el build copia según cada proyecto.
+- `dist/`: salida generada y única carpeta publicada (ignorada por Git).
+- `tests/portfolio/`: pruebas de recursos, metadatos e interacciones.
 
-¡Y listo! Ahora puedes abrir [http://localhost:3000](http://localhost:3000) en tu navegador para ver el proyecto.
+[Decisión de arquitectura](docs/adr/001-andes-static-hosting.md).
+[Identidad visual](DESIGN.md). [Contexto del producto](PRODUCT.md).
+
+El código Next.js anterior se conserva en `src/`, con los comandos `dev:legacy`,
+`build:legacy` y `start:legacy`. Su README anterior está en
+[docs/legacy-nextjs-readme.md](docs/legacy-nextjs-readme.md).
