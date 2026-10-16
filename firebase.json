@@ -156,7 +156,7 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src 'self' 'sha256-nV7HxPtU8Y1UkT5hGq1qkMR5JNj98SmWE5c8Nam+33w=' 'sha256-09gQoKUT82C2UY9dbgPZuUrX5X785HnktHsMT8p2UQY='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests"
+            "value": "default-src 'self'; script-src 'self' 'sha256-Ka58UPQ0yfAMGRRkYEQgj+blHQTlf72V5XEt/i3CXKA=' 'sha256-4iu4O0KgN0PqA+rLX9tZT4KWRzTA6PArQJFsgAuKHJs='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests"
           },
           {
             "key": "Cache-Control",

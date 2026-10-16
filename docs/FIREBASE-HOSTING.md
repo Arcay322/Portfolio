@@ -41,15 +41,31 @@ https://portfolio-2242b.web.app
 
 ## Dominio propio
 
-Si usarás `www.arcay.dev`, conéctalo desde Firebase Console → Hosting → Agregar
-dominio personalizado y aplica los registros DNS que muestre Firebase.
-Después genera los metadatos y publica con ese dominio:
+El dominio principal es `www.arcay.dev`. El build lo usa por defecto para los
+metadatos; `arcay.dev` está configurado en Firebase para redirigir a `www.arcay.dev`.
+Ambos dominios se añadieron al sitio `portfolio-2242b` el 16 de octubre de 2026.
+Los siguientes registros se guardaron en el DNS avanzado de Spaceship:
+
+| Tipo | Host | Valor |
+| --- | --- | --- |
+| A | `@` | `199.36.158.100` |
+| CNAME | `www` | `portfolio-2242b.web.app.` |
+| TXT | `@` | `hosting-site=portfolio-2242b` |
+
+Se conservó el TXT `google-site-verification` existente. El A anterior era
+`216.198.79.1` y el CNAME de `www` era
+`4f1e18967cc4ebd0.vercel-dns-017.com.`; ambos apuntaban a Vercel. El TTL es de
+30 minutos. Después de un cambio, revisar propagación DNS y certificado HTTPS
+en Firebase Console → Hosting; guardar los registros no implica que la
+validación del certificado haya terminado.
+
+Para usar otro origen en un despliegue puntual:
 
 ```sh
 SITE_URL=https://www.arcay.dev npm run deploy:firebase
 ```
 
-Conserva esa variable en tu entorno de despliegue. `SITE_URL` debe ser solo un
+`SITE_URL` debe ser solo un
 origen HTTP(S), sin rutas ni parámetros. Define canonical, hreflang, sitemap,
 Open Graph y datos estructurados. El build rechaza valores no válidos.
 

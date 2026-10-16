@@ -6,7 +6,7 @@ import { projects, places } from '../portfolio/content.mjs';
 import { renderPage, route } from '../portfolio/templates.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export async function buildPortfolio() {
-  const origin = (process.env.SITE_URL || 'https://portfolio-2242b.web.app').replace(/\/+$/, '');
+  const origin = (process.env.SITE_URL || 'https://www.arcay.dev').replace(/\/+$/, '');
   const parsed = new URL(origin);
   if (!['http:', 'https:'].includes(parsed.protocol) || parsed.pathname !== '/' || parsed.search || parsed.hash || parsed.username || parsed.password) throw new Error('SITE_URL must be a plain HTTP(S) origin without a path, query or credentials.');
   const out = path.join(root, 'dist');
