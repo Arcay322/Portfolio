@@ -6,7 +6,11 @@ const { JSDOM } = createRequire(import.meta.url)('jsdom');
 const script = await readFile('portfolio/client.js', 'utf8');
 async function load(file, pathname) {
   const html = await readFile(`dist/${file}`, 'utf8');
-  const dom = new JSDOM(html, { url: `https://portfolio.test/${pathname}`, runScripts: 'outside-only', pretendToBeVisual: true });
+  const dom = new JSDOM(html, {
+    url: `https://portfolio.test/${pathname}`,
+    runScripts: 'outside-only',
+    pretendToBeVisual: true,
+  });
   dom.window.matchMedia = () => ({ matches: false, addEventListener() {} });
   dom.window.scrollTo = () => {};
   return dom;
@@ -18,7 +22,10 @@ test('gallery wraps in both directions and keeps the original-image link in sync
   const first = d.querySelector('[data-gallery-image]').getAttribute('src');
   d.querySelector('[data-gallery-prev]').click();
   assert.equal(d.querySelector('[data-gallery-status]').textContent, '3 / 3');
-  assert.equal(d.querySelector('[data-gallery-link]').getAttribute('href'), 'https://portfolio.test/images/projects/ventify/Ventify_3.webp');
+  assert.equal(
+    d.querySelector('[data-gallery-link]').getAttribute('href'),
+    'https://portfolio.test/images/projects/ventify/Ventify_3.webp'
+  );
   d.querySelector('[data-gallery-next]').click();
   assert.equal(d.querySelector('[data-gallery-image]').getAttribute('src'), first);
   d.querySelector('[data-gallery-thumb="1"]').click();
@@ -48,19 +55,50 @@ test('reading-only entry never needs a WebGL context and keeps project URLs acce
   assert.ok(d.querySelector('.reading-content a[href="/projects/imprex/"]'));
   dom.window.close();
 });
+test('motion toggle preserves icons and announces pause and resume in both languages', async () => {
+  for (const [file, pathname, pause, resume] of [
+    ['index.html', '?view=reading', 'Pausar movimiento ambiental', 'Activar movimiento ambiental'],
+    ['en/index.html', 'en/?view=reading', 'Pause ambient motion', 'Enable ambient motion'],
+  ]) {
+    const dom = await load(file, pathname);
+    try {
+      dom.window.eval(script);
+      const button = dom.window.document.getElementById('motion-toggle');
+      button.click();
+      assert.equal(button.getAttribute('aria-pressed'), 'true');
+      assert.equal(button.getAttribute('aria-label'), resume);
+      assert.equal(button.querySelectorAll('svg').length, 2);
+      button.click();
+      assert.equal(button.getAttribute('aria-pressed'), 'false');
+      assert.equal(button.getAttribute('aria-label'), pause);
+      assert.equal(button.querySelectorAll('svg').length, 2);
+    } finally {
+      dom.window.close();
+    }
+  }
+});
 test('copy email reports success and handles unavailable clipboard gracefully', async () => {
   const dom = await load('en/contact/index.html', 'en/contact/');
   let copied;
-  Object.defineProperty(dom.window.navigator, 'clipboard', { configurable: true, value: { async writeText(value) { copied = value; } } });
+  Object.defineProperty(dom.window.navigator, 'clipboard', {
+    configurable: true,
+    value: {
+      async writeText(value) {
+        copied = value;
+      },
+    },
+  });
   dom.window.eval(script);
   const d = dom.window.document;
   d.querySelector('[data-copy]').click();
-  await new Promise(resolve => setImmediate(resolve));
+  await new Promise((resolve) => setImmediate(resolve));
   assert.equal(copied, 'arniecalderonayala@gmail.com');
   assert.equal(d.querySelector('.copy-status').textContent, 'Email copied');
-  dom.window.navigator.clipboard.writeText = async () => { throw new Error('Permission denied'); };
+  dom.window.navigator.clipboard.writeText = async () => {
+    throw new Error('Permission denied');
+  };
   d.querySelector('[data-copy]').click();
-  await new Promise(resolve => setImmediate(resolve));
+  await new Promise((resolve) => setImmediate(resolve));
   assert.match(d.querySelector('.copy-status').textContent, /Could not copy/);
   dom.window.close();
 });

@@ -54,16 +54,6 @@
         "type": 301
       },
       {
-        "source": "/es/projects/imprex",
-        "destination": "/projects/imprex/",
-        "type": 301
-      },
-      {
-        "source": "/es/projects/imprex/",
-        "destination": "/projects/imprex/",
-        "type": 301
-      },
-      {
         "source": "/es/projects/ventify",
         "destination": "/projects/ventify/",
         "type": 301
@@ -74,6 +64,16 @@
         "type": 301
       },
       {
+        "source": "/es/projects/imprex",
+        "destination": "/projects/imprex/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/imprex/",
+        "destination": "/projects/imprex/",
+        "type": 301
+      },
+      {
         "source": "/es/projects/arcay3dlabs",
         "destination": "/projects/arcay3dlabs/",
         "type": 301
@@ -81,6 +81,16 @@
       {
         "source": "/es/projects/arcay3dlabs/",
         "destination": "/projects/arcay3dlabs/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/jr-transportes",
+        "destination": "/projects/jr-transportes/",
+        "type": 301
+      },
+      {
+        "source": "/es/projects/jr-transportes/",
+        "destination": "/projects/jr-transportes/",
         "type": 301
       },
       {
@@ -101,16 +111,6 @@
       {
         "source": "/es/projects/ticket-world/",
         "destination": "/projects/ticket-world/",
-        "type": 301
-      },
-      {
-        "source": "/es/projects/jr-transportes",
-        "destination": "/projects/jr-transportes/",
-        "type": 301
-      },
-      {
-        "source": "/es/projects/jr-transportes/",
-        "destination": "/projects/jr-transportes/",
         "type": 301
       },
       {
