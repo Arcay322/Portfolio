@@ -45,7 +45,7 @@ function header(locale, page, home) {
       <div class="header-actions">
         ${home ? html`<button id="view-mode" class="quiet-button" hidden>${t.reading}</button>` : ''}
         <a class="language-switch" href="${route(other(locale), page)}" lang="${other(locale)}" hreflang="${other(locale)}" aria-label="${locale === 'es' ? 'Read this page in English' : 'Leer esta página en español'}">${other(locale).toUpperCase()}</a>
-        <a class="cv" href="${cv(locale)}" download>${t.cv} <span aria-hidden="true">↓</span></a>
+        <a class="cv" href="${cv(locale)}" aria-label="${t.cv}" download>${t.cv} <span aria-hidden="true">↓</span></a>
         <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="${t.menu}">
           <span></span><span></span>
         </button>
