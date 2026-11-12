@@ -27,6 +27,7 @@ const motionQuery = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = motionQuery.matches;
 let world = null;
 let loadingWorld = false;
+let worldLoadId = 0;
 let activePlace = null;
 let previousFocus;
 let fallbackTimer;
@@ -90,6 +91,9 @@ function readingMode(enable) {
   $('view-mode').setAttribute('aria-pressed', String(enable));
   // Release the GPU completely while reading; a new scene is created only on return.
   if (enable) {
+    clearTimeout(fallbackTimer);
+    loadingWorld = false;
+    worldLoadId++;
     world?.dispose();
     world = null;
     window.scrollTo({ top: 0 });
@@ -118,6 +122,7 @@ motionQuery.addEventListener('change', (event) => {
 function failedWorld() {
   clearTimeout(fallbackTimer);
   loadingWorld = false;
+  worldLoadId++;
   world?.dispose();
   world = null;
   document.body.classList.remove('world-ready', 'scene-active');
@@ -134,13 +139,17 @@ function failedWorld() {
 async function loadWorld() {
   if (world || loadingWorld) return;
   loadingWorld = true;
-  fallbackTimer = setTimeout(failedWorld, 12000);
+  const loadId = ++worldLoadId;
+  fallbackTimer = setTimeout(() => {
+    if (loadId === worldLoadId) failedWorld();
+  }, 12000);
   try {
     const { startWorld } = await import('./world.js');
-    if (!loadingWorld) return;
+    if (!loadingWorld || loadId !== worldLoadId) return;
     world = startWorld({
       onSelect: openStory,
       isReducedMotion: paused,
+      sceneLabel: $('landscape')?.dataset.sceneLabel,
       onReady() {
         clearTimeout(fallbackTimer);
         document.body.classList.add('world-ready');
@@ -155,10 +164,12 @@ async function loadWorld() {
       },
       onFailure: failedWorld,
     });
-    loadingWorld = false;
-    if (world) updateMotion();
+    if (loadId === worldLoadId) {
+      loadingWorld = false;
+      if (world) updateMotion();
+    }
   } catch {
-    failedWorld();
+    if (loadId === worldLoadId) failedWorld();
   }
 }
 if (document.body.classList.contains('home-page')) {

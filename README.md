@@ -17,7 +17,7 @@ Abrir **http://127.0.0.1:3012**. La escena es una mejora progresiva del contenid
 se puede navegar en modo lectura o sin WebGL. El sitio final es estático.
 
 ```sh
-npm run verify:portfolio   # ESLint, sintaxis, build y 7 pruebas automatizadas
+npm run verify:portfolio   # ESLint, sintaxis, build y pruebas automatizadas
 npm run test:hosting      # Integración con el emulador oficial de Firebase
 npm run deploy:firebase   # Build + pruebas + despliegue de Hosting
 ```
@@ -27,6 +27,18 @@ No hay credenciales en el código de la aplicación.
 
 La guía completa para publicar, configurar el dominio y editar contenido está en
 [docs/FIREBASE-HOSTING.md](docs/FIREBASE-HOSTING.md).
+
+## Acceso y CV
+
+La portada ofrece un acceso directo a proyectos y un modo lectura sin WebGL.
+Con el foco en el paisaje o en sus controles, las flechas orientan la cámara,
+`+` y `-` cambian la distancia e `Inicio` restaura la vista general. El resto de
+la página conserva su navegación normal por teclado.
+
+Los PDF públicos se regeneran con `python3 scripts/generate-portfolio-cvs.py`.
+El script requiere ReportLab y las fuentes Liberation Serif instaladas en el
+sistema. Después de actualizar datos, revisar ambos documentos antes de ejecutar
+el build; este copia los PDF de `portfolio/assets/cv/`.
 
 ## Estructura
 

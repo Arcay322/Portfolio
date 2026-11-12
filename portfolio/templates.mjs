@@ -28,6 +28,12 @@ const symbol = html`
 const external = 'target="_blank" rel="noopener noreferrer"';
 const cv = (locale) => `/assets/cv/Arnie_Calderon_${locale.toUpperCase()}.pdf`;
 const other = (locale) => (locale === 'es' ? 'en' : 'es');
+const displayPhone = (value) => {
+  const digits = value.replace(/\D/g, '');
+  return digits.startsWith('51') && digits.length === 11
+    ? `+51 ${digits.slice(2, 5)} ${digits.slice(5, 8)} ${digits.slice(8)}`
+    : value;
+};
 
 function header(locale, page, home) {
   const t = ui[locale];
@@ -91,6 +97,7 @@ function projectRow(project, locale, heading = 3) {
       <a class="project-preview ${project.images.length ? '' : 'imprex-preview'}" href="${href}" tabindex="-1" aria-hidden="true">${preview}</a>
       <div class="project-info">
         <span class="project-type">${project.type[locale]}</span>
+        <span class="project-dates">${escape(project.dates[locale])}</span>
         <h${heading}><a href="${href}">${project.name}<span aria-hidden="true">↗</span></a></h${heading}>
         <p>${escape(c.summary)}</p>
         ${tags(project)}
@@ -130,7 +137,7 @@ function home(locale) {
   const t = ui[locale];
   const labels = Object.entries(t.labels);
   return html`
-    <div id="landscape" class="landscape" aria-hidden="true"></div>
+    <div id="landscape" class="landscape" data-scene-label="${escape(t.sceneLabel)}"></div>
     <div class="world-shade" aria-hidden="true"></div>
     <main id="main" tabindex="-1">
       <section class="home-hero" aria-labelledby="name">
@@ -138,9 +145,13 @@ function home(locale) {
           <div class="intro-line"></div>
           <h1 id="name">Arnie<br>Calderón<span>.</span></h1>
           <p class="profession">${t.role}</p>
+          <p class="professional-summary">${t.professionalSummary}</p>
           <p class="description">${t.roots}</p>
           <p class="personal-note">${t.intro}</p>
-          <a class="enter" id="enter" href="${route(locale, 'about')}" data-place="origen">${t.explore} <span aria-hidden="true">↗</span></a>
+          <div class="hero-actions">
+            <a class="enter" id="enter" href="${route(locale, 'about')}" data-place="origen">${t.explore} <span aria-hidden="true">↗</span></a>
+            <a class="projects-cta" href="${route(locale, 'projects')}">${t.viewProjects} <span aria-hidden="true">↗</span></a>
+          </div>
           <a class="direct-link" href="${route(locale, 'contact')}">${t.direct}</a>
         </div>
         <p id="scene-status" role="status" class="scene-status">${t.loading}</p>
@@ -183,6 +194,7 @@ function home(locale) {
         <p class="controls-hint">
           <span class="desktop-controls">${t.controls}</span>
           <span class="mobile-controls">${t.touch}</span>
+          <span class="keyboard-controls" id="keyboard-controls">${t.keyboardControls}</span>
         </p>
       </div>
       <div class="home-caption">
@@ -379,8 +391,8 @@ function contact(locale) {
           <p class="copy-status" role="status" aria-live="polite"></p>
         </div>
         <div class="contact-options">
-          ${option(`tel:${person.phone}`, t.calls, '+51 918 793 956')}
-          ${option(`https://wa.me/${person.whatsapp}`, t.whatsapp, '+51 917 455 538', external)}
+          ${option(`tel:${person.phone}`, t.calls, displayPhone(person.phone))}
+          ${option(`https://wa.me/${person.whatsapp}`, t.whatsapp, displayPhone(person.whatsapp), external)}
           ${option(person.linkedin, 'LinkedIn', 'Arnie Calderón Ayala', external)}
           ${option(person.github, 'GitHub', 'Arcay322', external)}
         </div>

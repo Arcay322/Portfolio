@@ -32,6 +32,51 @@ test('project indexes separate featured work from secondary projects in both lan
     dom.window.close();
   }
 });
+test('contact actions, project dates, language switch and home CTAs stay localized and connected', async () => {
+  for (const [prefix, locale, expectedDate] of [
+    ['', 'es', 'Octubre 2024'],
+    ['en/', 'en', 'October 2024'],
+  ]) {
+    const home = new JSDOM(await readFile(path.join(root, prefix, 'index.html'), 'utf8')).window
+      .document;
+    assert.equal(home.documentElement.lang, locale);
+    assert.equal(home.getElementById('enter').getAttribute('href'), `/${prefix}about/`);
+    assert.equal(home.querySelector('.direct-link').getAttribute('href'), `/${prefix}contact/`);
+    assert.equal(home.querySelector('.home-caption a').getAttribute('href'), `/${prefix}projects/`);
+    assert.equal(home.querySelector('.projects-cta').getAttribute('href'), `/${prefix}projects/`);
+    assert.equal(home.querySelector('.projects-cta').textContent.replace('↗', '').trim(),
+      locale === 'es' ? 'Ver proyectos' : 'View projects');
+    assert.ok(home.querySelector('#keyboard-controls')?.textContent.trim());
+    const landscape = home.getElementById('landscape');
+    assert.ok(landscape.dataset.sceneLabel);
+    assert.notEqual(landscape.getAttribute('aria-hidden'), 'true');
+
+    const projects = new JSDOM(
+      await readFile(path.join(root, prefix, 'projects/index.html'), 'utf8')
+    ).window.document;
+    const firstCardDate = projects.querySelector('.project-dates').textContent.trim();
+    assert.ok(firstCardDate.startsWith(expectedDate));
+    assert.equal(
+      projects.querySelector('.language-switch').getAttribute('href'),
+      `/${prefix ? '' : 'en/'}projects/`
+    );
+
+    const contact = new JSDOM(
+      await readFile(path.join(root, prefix, 'contact/index.html'), 'utf8')
+    ).window.document;
+    const phone = contact.querySelector('a[href^="tel:"]');
+    const whatsapp = contact.querySelector('a[href*="wa.me/"]');
+    const digits = (text) => text.replace(/\D/g, '');
+    assert.equal(digits(phone.textContent), '51918793956');
+    assert.equal(digits(whatsapp.textContent), digits(phone.textContent));
+    assert.equal(digits(phone.getAttribute('href').slice('tel:'.length)), digits(phone.textContent));
+    assert.equal(
+      digits(whatsapp.getAttribute('href').split('/').at(-1)),
+      digits(whatsapp.textContent)
+    );
+    assert.equal(contact.querySelector('.footer-call').getAttribute('href'), `/${prefix}contact/`);
+  }
+});
 test('localized pages have working local links, assets, unique IDs and one primary heading', async () => {
   const pages = (await files(root)).filter((p) => p.endsWith('.html'));
   assert.ok(

@@ -3,12 +3,73 @@ import { OrbitControls } from './vendor/OrbitControls.js';
 import { mergeGeometries } from './vendor/BufferGeometryUtils.js';
 import { places as locations } from './places.js';
 
-export function startWorld({ onSelect, onReady, onFailure, isReducedMotion = false }) {
+const KEYBOARD_ANGLE = Math.PI / 36;
+
+export function applyKeyboardControl(key, camera, controls) {
+  if (key === 'Home') {
+    controls.reset();
+    controls.update();
+    return true;
+  }
+
+  const spherical = new THREE.Spherical().setFromVector3(camera.position.clone().sub(controls.target));
+  switch (key) {
+    case 'ArrowLeft':
+      spherical.theta -= KEYBOARD_ANGLE;
+      break;
+    case 'ArrowRight':
+      spherical.theta += KEYBOARD_ANGLE;
+      break;
+    case 'ArrowUp':
+      spherical.phi -= KEYBOARD_ANGLE;
+      break;
+    case 'ArrowDown':
+      spherical.phi += KEYBOARD_ANGLE;
+      break;
+    case '+':
+    case '=':
+      spherical.radius *= 0.9;
+      break;
+    case '-':
+    case '_':
+      spherical.radius *= 1.1;
+      break;
+    default:
+      return false;
+  }
+
+  spherical.theta = THREE.MathUtils.clamp(
+    spherical.theta,
+    controls.minAzimuthAngle,
+    controls.maxAzimuthAngle
+  );
+  spherical.phi = THREE.MathUtils.clamp(
+    spherical.phi,
+    controls.minPolarAngle,
+    controls.maxPolarAngle
+  );
+  spherical.radius = THREE.MathUtils.clamp(spherical.radius, controls.minDistance, controls.maxDistance);
+  spherical.makeSafe();
+  camera.position.setFromSpherical(spherical).add(controls.target);
+  camera.lookAt(controls.target);
+  controls.update();
+  return true;
+}
+
+export function startWorld({
+  onSelect,
+  onReady,
+  onFailure,
+  isReducedMotion = false,
+  sceneLabel,
+}) {
   const $ = (id) => document.getElementById(id);
   let reducedMotion = isReducedMotion;
   let activePlace = null,
     cameraTransition = null;
   let controls, camera, renderer, scene, animationId;
+  let keyboardTargets = [];
+  let sceneKeydown;
   const home = { camera: [21, 17, 25], target: [0, 1.4, 0] };
   function openPlace(name) {
     onSelect(name);
@@ -63,6 +124,22 @@ export function startWorld({ onSelect, onReady, onFailure, isReducedMotion = fal
     controls.addEventListener('start', () => {
       cameraTransition = null;
     });
+    sceneKeydown = (event) => {
+      if (event.defaultPrevented || event.isComposing || event.altKey || event.ctrlKey || event.metaKey)
+        return;
+      const target = event.currentTarget;
+      if (target === renderer.domElement && event.target !== renderer.domElement) return;
+      const handled = applyKeyboardControl(event.key, camera, controls);
+      if (handled) {
+        cameraTransition = null;
+        event.preventDefault();
+      }
+    };
+    keyboardTargets = [renderer.domElement, $('motion-toggle'), $('reset-view')].filter(Boolean);
+    renderer.domElement.tabIndex = 0;
+    if (sceneLabel) renderer.domElement.setAttribute('aria-label', sceneLabel);
+    if ($('keyboard-controls'))
+      renderer.domElement.setAttribute('aria-describedby', 'keyboard-controls');
     scene.add(new THREE.HemisphereLight('#d8e0c3', '#253d35', 2.2));
     const sun = new THREE.DirectionalLight('#ffe4b4', 3.6);
     sun.position.set(-8, 22, 11);
@@ -415,7 +492,9 @@ export function startWorld({ onSelect, onReady, onFailure, isReducedMotion = fal
     resize();
     if (innerWidth < 600) camera.position.multiplyScalar(1.2);
     controls.update();
+    controls.saveState();
     onReady?.();
+    keyboardTargets.forEach((target) => target.addEventListener('keydown', sceneKeydown));
     const labelVector = new THREE.Vector3();
     const labels = [...document.querySelectorAll('.world-label')];
     let lastFrame = 0;
@@ -482,6 +561,7 @@ export function startWorld({ onSelect, onReady, onFailure, isReducedMotion = fal
       },
       dispose() {
         cancelAnimationFrame(animationId);
+        keyboardTargets.forEach((target) => target.removeEventListener('keydown', sceneKeydown));
         removeEventListener('resize', resize);
         document.removeEventListener('visibilitychange', visibilityChanged);
         controls.dispose();
@@ -498,6 +578,7 @@ export function startWorld({ onSelect, onReady, onFailure, isReducedMotion = fal
     };
   } catch (error) {
     cancelAnimationFrame(animationId);
+    keyboardTargets.forEach((target) => target.removeEventListener('keydown', sceneKeydown));
     controls?.dispose();
     renderer?.dispose();
     renderer?.domElement.remove();
