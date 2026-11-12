@@ -11,7 +11,8 @@ poder consultarse rápidamente, sin tener que jugar o usar WebGL.
 Desarrollador Full-Stack peruano; experiencia frontend en IMPREX EUROPE y creador
 de Ventify, SaaS con tres clientes. Las ventas registradas de clientes no son
 los ingresos del SaaS. Formación en Ingeniería de Software en la UTP, egreso
-previsto en diciembre de 2026. Idiomas: español e inglés intermedio.
+previsto en diciembre de 2026. Idiomas: español nativo e inglés básico, con
+lectura de documentación técnica y conversación en desarrollo.
 
 ## Preferencias aprobadas
 

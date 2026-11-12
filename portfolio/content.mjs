@@ -2,7 +2,7 @@ export const person = {
   name: 'Arnie Calderón',
   email: 'arniecalderonayala@gmail.com',
   phone: '+51918793956',
-  whatsapp: '51917455538',
+  whatsapp: '51918793956',
   github: 'https://github.com/Arcay322',
   linkedin: 'https://www.linkedin.com/in/arniecalderonayala/',
 };
@@ -15,6 +15,10 @@ export const ui = {
   es: {
     title: 'Entre piedra y código',
     role: 'Desarrollador Full-Stack',
+    professionalSummary: 'React · Next.js · Node.js. SaaS en producción e integración SAP.',
+    viewProjects: 'Ver proyectos',
+    keyboardControls: 'Con el paisaje enfocado: flechas para girar, + y − para acercar o alejar, Inicio para restablecer.',
+    sceneLabel: 'Paisaje interactivo inspirado en la arquitectura andina',
     roots: 'De raíces peruanas.<br>De mundos por construir.',
     intro: 'Construyo software para negocios reales.<br>Este pequeño mundo cuenta mi historia.',
     explore: 'Explorar mi mundo',
@@ -69,7 +73,7 @@ export const ui = {
     skills: 'Herramientas de trabajo',
     education: 'Formación e idiomas',
     educationText:
-      'Ingeniería de Software · Universidad Tecnológica del Perú<br>2022 – diciembre de 2026 (egreso previsto).<br>Español nativo · Inglés intermedio para documentación y comunicación técnica.',
+      'Ingeniería de Software · Universidad Tecnológica del Perú<br>2022 – diciembre de 2026 (egreso previsto).<br>Español nativo · Inglés básico: lectura de documentación técnica y conversación en desarrollo.',
     contactTitle: 'El próximo camino<br>puede empezar aquí.',
     contactIntro:
       'Estoy abierto a oportunidades de desarrollo y colaboraciones. Cuéntame el contexto, el problema y qué te gustaría construir.',
@@ -113,6 +117,10 @@ export const ui = {
   en: {
     title: 'Between stone and code',
     role: 'Full-Stack Developer',
+    professionalSummary: 'React · Next.js · Node.js. Production SaaS and SAP integrations.',
+    viewProjects: 'View projects',
+    keyboardControls: 'With the landscape focused: use the arrow keys to turn, + and − to zoom in or out, and Home to reset.',
+    sceneLabel: 'Interactive landscape inspired by Andean architecture',
     roots: 'Peruvian roots.<br>Worlds yet to build.',
     intro: 'I build software for real businesses.<br>This small world tells my story.',
     explore: 'Explore my world',
@@ -167,7 +175,7 @@ export const ui = {
     skills: 'My toolkit',
     education: 'Education and languages',
     educationText:
-      'Software Engineering · Universidad Tecnológica del Perú<br>2022 – December 2026 (expected graduation).<br>Native Spanish · Intermediate English for technical documentation and communication.',
+      'Software Engineering · Universidad Tecnológica del Perú<br>2022 – December 2026 (expected graduation).<br>Native Spanish · Basic English: technical documentation reading and developing conversational skills.',
     contactTitle: 'The next journey<br>could start here.',
     contactIntro:
       'I’m open to development opportunities and collaborations. Tell me about the context, the problem and what you would like to build.',
@@ -226,7 +234,7 @@ export const projects = [
     es: {
       subtitle: 'De un problema de negocio a un producto propio.',
       summary:
-        'POS e inventario multisucursal en producción, usado por tres negocios. Dos de ellos ya registran más de S/ 5,5 millones en ventas.',
+        'POS e inventario multisucursal en producción, usado por tres negocios. Dos clientes registraron más de S/ 5,5 millones en ventas a través de Ventify al 15/10/2026.',
       context:
         'Ventify comenzó como un POS a medida para INVERSIONES MAX PERU. Después lo evolucioné a un SaaS para operar negocios y sucursales independientes.',
       contributions: [
@@ -240,12 +248,12 @@ export const projects = [
         'Usar herramientas y confirmación explícita para que las acciones de IA mantengan al usuario en control.',
       ],
       outcome:
-        'Tres clientes usan Ventify en su operación. MAX PERU y otro cliente han registrado más de S/ 5,5 millones en ventas a través de la plataforma (netas de adelantos, anulaciones y devoluciones, a octubre de 2026).',
+        'Tres clientes usan Ventify en su operación. MAX PERU y otro cliente han registrado más de S/ 5,5 millones en ventas a través de la plataforma al 15/10/2026 (netas de adelantos, anulaciones y devoluciones).',
     },
     en: {
       subtitle: 'From a business problem to a product of my own.',
       summary:
-        'A multi-branch POS and inventory SaaS in production, used by three businesses. Two of them have already recorded over PEN 5.5 million in sales.',
+        'A multi-branch POS and inventory SaaS in production, used by three businesses. Two clients recorded over PEN 5.5 million in sales through Ventify as of October 15, 2026.',
       context:
         'Ventify began as a custom POS for INVERSIONES MAX PERU. I later evolved it into a SaaS for independent businesses and branches.',
       contributions: [
@@ -259,7 +267,7 @@ export const projects = [
         'Used tools and explicit confirmation to keep users in control of AI-proposed actions.',
       ],
       outcome:
-        'Three clients run their operations on Ventify. MAX PERU and another client have recorded over PEN 5.5 million in sales through the platform (net of deposits, cancellations and refunds, as of October 2026).',
+        'Three clients run their operations on Ventify. MAX PERU and another client recorded over PEN 5.5 million in sales through the platform as of October 15, 2026 (net of deposits, cancellations and refunds).',
     },
   },
   {
