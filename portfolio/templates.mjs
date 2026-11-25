@@ -337,7 +337,7 @@ function about(locale) {
   const t = ui[locale];
   const es = locale === 'es';
   const skills = [
-    ['Frontend', 'React, Next.js, TypeScript, JavaScript, HTML/CSS, Tailwind CSS'],
+    ['Frontend', 'React, Next.js, Astro, TypeScript, JavaScript, HTML/CSS, Tailwind CSS, shadcn/ui'],
     ['Backend', 'Node.js, Express, Python, Django REST Framework, PostgreSQL, Firebase'],
     [es ? 'Integraciones' : 'Integrations', 'APIs REST, SAP, XML, Sales Layer, Firebase Genkit'],
     [

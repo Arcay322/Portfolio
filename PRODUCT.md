@@ -8,11 +8,11 @@ poder consultarse rápidamente, sin tener que jugar o usar WebGL.
 
 ## Verdad del producto
 
-Desarrollador Full-Stack peruano; experiencia frontend en IMPREX EUROPE y creador
-de Ventify, SaaS con tres clientes. Las ventas registradas de clientes no son
-los ingresos del SaaS. Formación en Ingeniería de Software en la UTP, egreso
-previsto en diciembre de 2026. Idiomas: español nativo e inglés básico, con
-lectura de documentación técnica y conversación en desarrollo.
+Desarrollador Full-Stack peruano; experiencia frontend en IMPREX EUROPE (sep. 2025 – sep. 2026),
+modernizaciones web con Astro (oct. – nov. 2026) y creador de Ventify, SaaS con tres clientes.
+Las ventas registradas de clientes no son los ingresos del SaaS. Formación en Ingeniería de
+Software en la UTP, egreso previsto en diciembre de 2026. Idiomas: español nativo e inglés
+intermedio (B1), con lectura técnica fluida y comunicación en equipo.
 
 ## Preferencias aprobadas
 

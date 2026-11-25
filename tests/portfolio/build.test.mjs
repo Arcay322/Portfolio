@@ -22,11 +22,11 @@ test('project indexes separate featured work from secondary projects in both lan
     const primary = [...doc.querySelectorAll('.project-list .project-info h2 a')];
     assert.deepEqual(primary.map((a) => a.getAttribute('href')), [
       `/${prefix}projects/ventify/`, `/${prefix}projects/imprex/`,
-      `/${prefix}projects/arcay3dlabs/`, `/${prefix}projects/jr-transportes/`,
+      `/${prefix}projects/sumaq-uywa/`, `/${prefix}projects/ticket-world/`,
     ]);
     const secondary = [...doc.querySelectorAll('.more-projects li a')];
     assert.deepEqual(secondary.map((a) => a.getAttribute('href')), [
-      `/${prefix}projects/sumaq-uywa/`, `/${prefix}projects/ticket-world/`,
+      `/${prefix}projects/arcay3dlabs/`, `/${prefix}projects/jr-transportes/`,
     ]);
     assert.equal(doc.getElementById('more-projects-title').textContent, prefix ? 'More projects' : 'Más proyectos');
     dom.window.close();

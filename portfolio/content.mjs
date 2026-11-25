@@ -15,7 +15,7 @@ export const ui = {
   es: {
     title: 'Entre piedra y código',
     role: 'Desarrollador Full-Stack',
-    professionalSummary: 'React · Next.js · Node.js. SaaS en producción e integración SAP.',
+    professionalSummary: 'React · Next.js · TypeScript · Node.js · Python. SaaS en producción e integración SAP.',
     viewProjects: 'Ver proyectos',
     keyboardControls: 'Con el paisaje enfocado: flechas para girar, + y − para acercar o alejar, Inicio para restablecer.',
     sceneLabel: 'Paisaje interactivo inspirado en la arquitectura andina',
@@ -59,7 +59,7 @@ export const ui = {
     aboutBody: [
       [
         'La forma de trabajar',
-        'En IMPREX EUROPE desarrollo una plataforma comercial con React e integraciones SAP para un equipo en España. Con Ventify asumí el recorrido completo: entender una necesidad, desarrollar el producto y mantenerlo para clientes reales.',
+        'En IMPREX EUROPE (España) desarrollé durante un año una plataforma comercial con React e integraciones SAP. Con Ventify asumí el recorrido completo: entender una necesidad, construir el SaaS y mantenerlo para clientes reales. Recientemente también realicé modernizaciones web con Astro enfocadas en rendimiento y SEO técnico.',
       ],
       [
         'Mis raíces, mi curiosidad',
@@ -73,10 +73,10 @@ export const ui = {
     skills: 'Herramientas de trabajo',
     education: 'Formación e idiomas',
     educationText:
-      'Ingeniería de Software · Universidad Tecnológica del Perú<br>2022 – diciembre de 2026 (egreso previsto).<br>Español nativo · Inglés básico: lectura de documentación técnica y conversación en desarrollo.',
+      'Ingeniería de Software · Universidad Tecnológica del Perú (UTP)<br>2022 – diciembre de 2026 (egreso previsto).<br>Español nativo · Inglés intermedio (B1): lectura técnica fluida y comunicación en equipo.',
     contactTitle: 'El próximo camino<br>puede empezar aquí.',
     contactIntro:
-      'Estoy abierto a oportunidades de desarrollo y colaboraciones. Cuéntame el contexto, el problema y qué te gustaría construir.',
+      'Disponible para integrarme a un equipo de ingeniería a tiempo completo (Frontend, Backend o Full-Stack) o colaborar en proyectos exigentes. Cuéntame el contexto y qué te gustaría construir.',
     email: 'Escríbeme',
     calls: 'Llamadas',
     whatsapp: 'WhatsApp',
@@ -117,7 +117,7 @@ export const ui = {
   en: {
     title: 'Between stone and code',
     role: 'Full-Stack Developer',
-    professionalSummary: 'React · Next.js · Node.js. Production SaaS and SAP integrations.',
+    professionalSummary: 'React · Next.js · TypeScript · Node.js · Python. Production SaaS and SAP integrations.',
     viewProjects: 'View projects',
     keyboardControls: 'With the landscape focused: use the arrow keys to turn, + and − to zoom in or out, and Home to reset.',
     sceneLabel: 'Interactive landscape inspired by Andean architecture',
@@ -161,7 +161,7 @@ export const ui = {
     aboutBody: [
       [
         'How I work',
-        'At IMPREX EUROPE, I develop a React sales platform with SAP integrations for a team in Spain. With Ventify, I have taken a product from understanding a business need to developing and maintaining it for real clients.',
+        'At IMPREX EUROPE (Spain), I spent a year developing a React commercial platform with SAP integrations. With Ventify, I took a product from understanding a business need to building and maintaining a live SaaS for real clients. More recently, I also modernized client websites with Astro focused on performance and technical SEO.',
       ],
       [
         'My roots, my curiosity',
@@ -175,10 +175,10 @@ export const ui = {
     skills: 'My toolkit',
     education: 'Education and languages',
     educationText:
-      'Software Engineering · Universidad Tecnológica del Perú<br>2022 – December 2026 (expected graduation).<br>Native Spanish · Basic English: technical documentation reading and developing conversational skills.',
+      'Software Engineering · Universidad Tecnológica del Perú (UTP)<br>2022 – December 2026 (expected graduation).<br>Native Spanish · Intermediate English (B1): fluent technical reading and team communication.',
     contactTitle: 'The next journey<br>could start here.',
     contactIntro:
-      'I’m open to development opportunities and collaborations. Tell me about the context, the problem and what you would like to build.',
+      'Available for full-time engineering roles (Frontend, Backend, or Full-Stack) and high-impact collaborations. Tell me about the context and what you would like to build.',
     email: 'Email me',
     calls: 'Phone calls',
     whatsapp: 'WhatsApp',
@@ -222,7 +222,7 @@ export const projects = [
     slug: 'ventify',
     name: 'Ventify',
     type: { es: 'SaaS en producción', en: 'Production SaaS' },
-    role: { es: 'Creador y desarrollador Full-Stack', en: 'Creator and Full-Stack Developer' },
+    role: { es: 'Desarrollador Full-Stack (Producto SaaS)', en: 'Full-Stack Developer (SaaS Product)' },
     dates: { es: 'Octubre 2024 – actualidad · Perú', en: 'October 2024 – present · Peru' },
     stack: ['Next.js', 'TypeScript', 'Firebase', 'Genkit', 'Tailwind CSS'],
     url: 'https://www.ventify.com.pe',
@@ -234,7 +234,7 @@ export const projects = [
     es: {
       subtitle: 'De un problema de negocio a un producto propio.',
       summary:
-        'POS e inventario multisucursal en producción, usado por tres negocios. Dos clientes registraron más de S/ 5,5 millones en ventas a través de Ventify al 15/10/2026.',
+        'POS e inventario multisucursal en producción, usado por tres negocios, con más de S/ 5,5 millones en ventas registradas.',
       context:
         'Ventify comenzó como un POS a medida para INVERSIONES MAX PERU. Después lo evolucioné a un SaaS para operar negocios y sucursales independientes.',
       contributions: [
@@ -248,12 +248,12 @@ export const projects = [
         'Usar herramientas y confirmación explícita para que las acciones de IA mantengan al usuario en control.',
       ],
       outcome:
-        'Tres clientes usan Ventify en su operación. MAX PERU y otro cliente han registrado más de S/ 5,5 millones en ventas a través de la plataforma al 15/10/2026 (netas de adelantos, anulaciones y devoluciones).',
+        'Tres clientes operan diariamente con Ventify, con más de S/ 5,5 millones en ventas registradas en producción a través de la plataforma.',
     },
     en: {
       subtitle: 'From a business problem to a product of my own.',
       summary:
-        'A multi-branch POS and inventory SaaS in production, used by three businesses. Two clients recorded over PEN 5.5 million in sales through Ventify as of October 15, 2026.',
+        'A multi-branch POS and inventory SaaS in production, used by three businesses, with over PEN 5.5 million in recorded sales.',
       context:
         'Ventify began as a custom POS for INVERSIONES MAX PERU. I later evolved it into a SaaS for independent businesses and branches.',
       contributions: [
@@ -267,17 +267,17 @@ export const projects = [
         'Used tools and explicit confirmation to keep users in control of AI-proposed actions.',
       ],
       outcome:
-        'Three clients run their operations on Ventify. MAX PERU and another client recorded over PEN 5.5 million in sales through the platform as of October 15, 2026 (net of deposits, cancellations and refunds).',
+        'Three clients run their daily operations on Ventify, with over PEN 5.5 million in recorded sales in production through the platform.',
     },
   },
   {
     slug: 'imprex',
     name: 'IMPREX EUROPE',
     type: { es: 'Experiencia profesional', en: 'Professional experience' },
-    role: { es: 'Desarrollador Frontend Freelance', en: 'Freelance Frontend Developer' },
+    role: { es: 'Desarrollador Frontend', en: 'Frontend Developer' },
     dates: {
-      es: 'Septiembre 2025 – actualidad · España, remoto',
-      en: 'September 2025 – present · Spain, remote',
+      es: 'Septiembre 2025 – septiembre 2026 · España, remoto',
+      en: 'September 2025 – September 2026 · Spain, remote',
     },
     stack: ['React', 'Vite', 'JavaScript', 'SAP', 'XML', 'Sales Layer', 'Vitest'],
     images: [],
@@ -323,110 +323,13 @@ export const projects = [
     },
   },
   {
-    slug: 'arcay3dlabs',
-    name: 'Arcay3Dlabs',
-    type: { es: 'Plataforma web', en: 'Web platform' },
-    role: { es: 'Desarrollador Full-Stack', en: 'Full-Stack Developer' },
-    dates: { es: 'Proyecto propio', en: 'Independent project' },
-    stack: ['Next.js', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-    url: 'https://arcay3dlabs.com/',
-    github: 'https://github.com/Arcay322/Arcay3Dlabs',
-    images: [
-      '/images/projects/arcay3dlabs/arcay3dlabs_1.webp',
-      '/images/projects/arcay3dlabs/arcay3dlabs_2.webp',
-    ],
-    es: {
-      subtitle: 'Una plataforma para dar forma a nuevas ideas.',
-      summary:
-        'Plataforma para un negocio de impresión 3D, con catálogo, cotizaciones personalizadas y gestión administrativa.',
-      context:
-        'El proyecto reúne la presentación del servicio, los productos y las solicitudes de cotización de impresión 3D.',
-      contributions: [
-        'Desarrollo del catálogo y los flujos de cotización.',
-        'Panel administrativo y organización de información con Firebase.',
-      ],
-      decisions: [
-        'Crear componentes reutilizables y separar los flujos de cliente y administración.',
-        'Usar TypeScript para mantener contratos claros entre los datos y la interfaz.',
-      ],
-      outcome:
-        'Una plataforma que conecta la presentación comercial del negocio con su gestión.',
-    },
-    en: {
-      subtitle: 'A platform for shaping new ideas.',
-      summary:
-        'A 3D printing business platform with a catalog, custom quotes and administrative management.',
-      context:
-        'The project brings service information, products and 3D printing quote requests together.',
-      contributions: [
-        'Developed the catalog and quotation workflows.',
-        'Built an administration panel and organized information with Firebase.',
-      ],
-      decisions: [
-        'Created reusable components and separated customer and administration workflows.',
-        'Used TypeScript to keep contracts between data and interfaces clear.',
-      ],
-      outcome:
-        'A platform connecting the business’s public presence with its administration.',
-    },
-  },
-  {
-    slug: 'jr-transportes',
-    name: 'JR Transportes',
-    type: { es: 'Sitio corporativo', en: 'Business website' },
-    role: { es: 'Desarrollador web', en: 'Web Developer' },
-    dates: {
-      es: 'Proyecto para transporte interprovincial',
-      en: 'Interprovincial transport project',
-    },
-    stack: ['Astro', 'TypeScript', 'Tailwind CSS'],
-    url: 'https://jrtoursmorochucos.vercel.app/',
-    github: 'https://github.com/Arcay322/JRToursMorochucos',
-    images: ['/images/projects/JR/JR_1.webp', '/images/projects/JR/JR_2.webp'],
-    es: {
-      subtitle: 'Un recorrido más claro, desde la web.',
-      summary:
-        'Sitio corporativo para una empresa de transporte interprovincial, con servicios, destinos y contacto para reservas.',
-      context:
-        'La empresa necesitaba una presencia digital para presentar sus rutas y facilitar el contacto de pasajeros.',
-      contributions: [
-        'Desarrollo de páginas de servicios y destinos con Astro y Tailwind CSS.',
-        'Integración de contacto vía WhatsApp y estructura de contenidos para buscadores.',
-      ],
-      decisions: [
-        'Usar generación estática para servir el contenido sin depender de un backend.',
-        'Priorizar navegación y lectura adaptables a móvil.',
-      ],
-      outcome:
-        'Un sitio estático y pensado para móvil, desde el que los pasajeros conocen rutas y servicios y contactan directamente por WhatsApp para reservar.',
-    },
-    en: {
-      subtitle: 'A clearer journey, starting on the web.',
-      summary:
-        'A business website for an interprovincial transport company, featuring services, destinations and booking enquiries.',
-      context:
-        'The company needed a digital presence to explain its routes and make passenger enquiries easier.',
-      contributions: [
-        'Developed service and destination pages using Astro and Tailwind CSS.',
-        'Integrated WhatsApp contact and search-friendly content structure.',
-      ],
-      decisions: [
-        'Used static generation to serve content without a backend.',
-        'Prioritized mobile-friendly navigation and reading.',
-      ],
-      outcome:
-        'A static, mobile-first website where passengers discover routes and services and contact the company directly on WhatsApp to book.',
-    },
-  },
-  {
     slug: 'sumaq-uywa',
-    featured: false,
     name: 'Sumaq Uywa',
     type: { es: 'Proyecto de desarrollo', en: 'Development project' },
     role: { es: 'Desarrollador Full-Stack', en: 'Full-Stack Developer' },
     dates: { es: '2024', en: '2024' },
     stack: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL'],
-    github: 'https://github.com/Arcay322/Granja_cuyes',
+    github: 'https://github.com/Arcay322/Sumaq_Uywa',
     images: [
       '/images/projects/sumaq-uywa/SumaqUywa_1.webp',
       '/images/projects/sumaq-uywa/SumaqUywa_2.webp',
@@ -468,7 +371,6 @@ export const projects = [
   },
   {
     slug: 'ticket-world',
-    featured: false,
     name: 'Ticket World',
     type: { es: 'Proyecto de desarrollo', en: 'Development project' },
     role: { es: 'Desarrollador Full-Stack', en: 'Full-Stack Developer' },
@@ -512,6 +414,102 @@ export const projects = [
       ],
       outcome:
         'A backend-focused Python project: REST API, relational model, role-based permissions and a complete end-to-end purchase flow.',
+    },
+  },
+  {
+    slug: 'arcay3dlabs',
+    featured: false,
+    name: 'Arcay3Dlabs',
+    type: { es: 'Plataforma web', en: 'Web platform' },
+    role: { es: 'Desarrollador Full-Stack', en: 'Full-Stack Developer' },
+    dates: { es: 'Proyecto propio', en: 'Independent project' },
+    stack: ['Next.js', 'TypeScript', 'Firebase', 'Tailwind CSS'],
+    github: 'https://github.com/Arcay322/Arcay3Dlabs',
+    images: [
+      '/images/projects/arcay3dlabs/arcay3dlabs_1.webp',
+      '/images/projects/arcay3dlabs/arcay3dlabs_2.webp',
+    ],
+    es: {
+      subtitle: 'Una plataforma para dar forma a nuevas ideas.',
+      summary:
+        'Plataforma para un negocio de impresión 3D, con catálogo, cotizaciones personalizadas y gestión administrativa.',
+      context:
+        'El proyecto reúne la presentación del servicio, los productos y las solicitudes de cotización de impresión 3D.',
+      contributions: [
+        'Desarrollo del catálogo y los flujos de cotización.',
+        'Panel administrativo y organización de información con Firebase.',
+      ],
+      decisions: [
+        'Crear componentes reutilizables y separar los flujos de cliente y administración.',
+        'Usar TypeScript para mantener contratos claros entre los datos y la interfaz.',
+      ],
+      outcome:
+        'Una plataforma que conecta la presentación comercial del negocio con su gestión.',
+    },
+    en: {
+      subtitle: 'A platform for shaping new ideas.',
+      summary:
+        'A 3D printing business platform with a catalog, custom quotes and administrative management.',
+      context:
+        'The project brings service information, products and 3D printing quote requests together.',
+      contributions: [
+        'Developed the catalog and quotation workflows.',
+        'Built an administration panel and organized information with Firebase.',
+      ],
+      decisions: [
+        'Created reusable components and separated customer and administration workflows.',
+        'Used TypeScript to keep contracts between data and interfaces clear.',
+      ],
+      outcome:
+        'A platform connecting the business’s public presence with its administration.',
+    },
+  },
+  {
+    slug: 'jr-transportes',
+    featured: false,
+    name: 'JR Transportes',
+    type: { es: 'Sitio corporativo', en: 'Business website' },
+    role: { es: 'Desarrollador web', en: 'Web Developer' },
+    dates: {
+      es: 'Proyecto para transporte interprovincial',
+      en: 'Interprovincial transport project',
+    },
+    stack: ['Astro', 'TypeScript', 'Tailwind CSS'],
+    github: 'https://github.com/Arcay322/jrtrasnportes',
+    images: ['/images/projects/JR/JR_1.webp', '/images/projects/JR/JR_2.webp'],
+    es: {
+      subtitle: 'Un recorrido más claro, desde la web.',
+      summary:
+        'Sitio corporativo para una empresa de transporte interprovincial, con servicios, destinos y contacto para reservas.',
+      context:
+        'La empresa necesitaba una presencia digital para presentar sus rutas y facilitar el contacto de pasajeros.',
+      contributions: [
+        'Desarrollo de páginas de servicios y destinos con Astro y Tailwind CSS.',
+        'Integración de contacto vía WhatsApp y estructura de contenidos para buscadores.',
+      ],
+      decisions: [
+        'Usar generación estática para servir el contenido sin depender de un backend.',
+        'Priorizar navegación y lectura adaptables a móvil.',
+      ],
+      outcome:
+        'Un sitio estático y pensado para móvil, desde el que los pasajeros conocen rutas y servicios y contactan directamente por WhatsApp para reservar.',
+    },
+    en: {
+      subtitle: 'A clearer journey, starting on the web.',
+      summary:
+        'A business website for an interprovincial transport company, featuring services, destinations and booking enquiries.',
+      context:
+        'The company needed a digital presence to explain its routes and make passenger enquiries easier.',
+      contributions: [
+        'Developed service and destination pages using Astro and Tailwind CSS.',
+        'Integrated WhatsApp contact and search-friendly content structure.',
+      ],
+      decisions: [
+        'Used static generation to serve content without a backend.',
+        'Prioritized mobile-friendly navigation and reading.',
+      ],
+      outcome:
+        'A static, mobile-first website where passengers discover routes and services and contact the company directly on WhatsApp to book.',
     },
   },
 ];

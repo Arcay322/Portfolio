@@ -1,56 +1,55 @@
 # ARNIE CALDERÓN
 
-Full-Stack Developer | React · Next.js · TypeScript · Python
+Full-Stack Developer | React · Next.js · TypeScript · Node.js · Python
 
-Lima, Peru · Phone: +51 918 793 956 · WhatsApp: +51 917 455 538
-arniecalderonayala@gmail.com · [arcay.dev](https://arcay.dev)
-[github.com/Arcay322](https://github.com/Arcay322) · [linkedin.com/in/arniecalderonayala](https://linkedin.com/in/arniecalderonayala)
+Lima, Peru · Phone/WhatsApp: +51 918 793 956 · arniecalderonayala@gmail.com
+[arcay.dev](https://arcay.dev) · [github.com/Arcay322](https://github.com/Arcay322) · [linkedin.com/in/arniecalderonayala](https://linkedin.com/in/arniecalderonayala)
 
 ## PROFESSIONAL SUMMARY
 
-Full-Stack Developer experienced in business management applications, API integration, and SaaS development. Develops the SAP-integrated sales web platform for IMPREX EUROPE (Spain). Creator of Ventify, a multi-branch POS used by three clients, with over PEN 5.5 million in recorded client sales. Final-year Software Engineering student at Universidad Tecnológica del Perú.
+Full-Stack Developer experienced in enterprise web applications, API/ERP integrations, and SaaS product development. Built IMPREX EUROPE's (Spain) SAP-integrated commercial web platform and created Ventify, a production multi-branch POS used by three clients. Graduating in Software Engineering at Universidad Tecnológica del Perú (Dec. 2026), available immediately for full-time roles.
 
 ## PROFESSIONAL EXPERIENCE
 
-### IMPREX EUROPE S.L. | Freelance Frontend Developer
+### Ventify | Full-Stack Developer (SaaS Product)
 
-September 2025 - Present · Remote, Spain
+October 2024 – Present · Peru
 
-- Developed the sales web application with **React and Vite**: customer management, product catalog, shopping cart, orders, and sales visits, adapting workflows from the Kotlin mobile application.
+- Evolved a POS built for **INVERSIONES MAX PERU** into a multi-branch SaaS used by **three clients**, recording over **PEN 5.5 million in sales** in production.
+- Implemented real-time inventory, cash register management, split payments, reservations, orders, and operational reporting with **Next.js, TypeScript, and Firebase**.
+- Built multi-tenant data isolation and role- and permission-based access control (RBAC) across separate businesses and branches.
+- Integrated **Venty**, an AI assistant powered by Firebase Genkit and Gemini/DeepSeek models, to query commercial metrics and propose actions subject to role permissions and user confirmation.
 
-- Implemented **SAP order simulation and creation** through corporate APIs, including XML payload generation, validation, and ERP response and error handling.
+### Freelance Projects — Web Modernization | Frontend Developer
 
-- Integrated the **Sales Layer** catalog with search, filtering, and pagination; developed Excel product imports and workflows for placing multiple orders.
+October 2026 – November 2026 · Remote, Peru
 
-- Built sales visit management with calendars, routes, geolocation, dynamic forms, and customer-specific product assortment rules.
+- Migrated and modernized two client websites from initial prototypes to **Astro**, delivering responsive interfaces with a performance-focused static architecture.
+- Optimized **technical SEO** (semantic structure, metadata, and load performance) and guided the client through production deployment setup.
 
-- Optimized data fetching through batch requests and duplicate-call elimination; added tests for forms, visits, and SAP payloads while collaborating in a shared team repository.
+### IMPREX EUROPE S.L. | Frontend Developer
 
-### Ventify | Creator and Full-Stack Developer
+September 2025 – September 2026 · Remote, Spain
 
-October 2024 - Present · Peru
-
-- Evolved a POS built for **INVERSIONES MAX PERU** into a multi-branch SaaS used by **three clients**, with over **PEN 5.5 million in recorded sales** across two clients as of October 15, 2026.
-
-- Implemented real-time inventory, cash register management, split payments, reservations, orders, and reporting with **Next.js, TypeScript, and Firebase**.
-
-- Built tenant-level data isolation and role- and permission-based access control for separate businesses and branches.
-
-- Integrated **Venty**, an assistant using Genkit and Gemini/DeepSeek models, to query business data and propose actions subject to role permissions and user confirmation.
+- Developed the commercial web application with **React and Vite** (customers, catalog, cart, orders, and visits), adapting workflows from the Kotlin mobile app to the browser.
+- Implemented **SAP** order simulation and creation via corporate APIs, including XML payload generation, business validations, and ERP response and error handling.
+- Integrated the **Sales Layer** catalog with search, filtering, and pagination; built Excel product imports and multi-order workflows.
+- Built the sales visits module featuring calendars, routes, geolocation, dynamic forms, and customer-specific assortment rules.
+- Optimized API consumption through batch requests and duplicate-call elimination; added tests for forms, visits, and SAP payloads while collaborating in a shared team repository.
 
 ## SELECTED PROJECTS
 
 ### Sumaq Uywa | React, TypeScript, Node.js, Express, PostgreSQL
 
-Livestock management system covering reproduction, health, feeding, inventory, sales, and expenses, with an operational metrics dashboard. [Repository](https://github.com/Arcay322/Sumaq_Uywa).
+Full-stack livestock management system (reproduction, health, feeding, inventory, sales, and expenses) with a Node.js/Express REST API, relational PostgreSQL schema, and operational metrics dashboard. [github.com/Arcay322/Sumaq_Uywa](https://github.com/Arcay322/Sumaq_Uywa).
 
 ### Ticket World | Python, Django REST Framework, PostgreSQL, JavaScript
 
-Event ticketing platform with administrator, vendor, and customer roles, order management, Google Maps integration, and a simulated payment gateway. [Repository](https://github.com/Arcay322/Ticket_World).
+Event ticketing platform with a Django REST API, role-based access (admin, vendor, customer), PostgreSQL order management, Google Maps integration, and a simulated payment gateway. [github.com/Arcay322/Ticket_World](https://github.com/Arcay322/Ticket_World).
 
 ## TECHNICAL SKILLS
 
-**Frontend:** React, Next.js, TypeScript, JavaScript, HTML/CSS, Tailwind CSS, shadcn/ui.
+**Frontend:** React, Next.js, Astro, TypeScript, JavaScript, HTML5/CSS3, Tailwind CSS, shadcn/ui.
 
 **Backend and data:** Node.js, Express, Python, Django REST Framework, PostgreSQL, Firebase/Firestore, REST APIs. **Integrations:** SAP, XML, Sales Layer.
 
@@ -60,7 +59,6 @@ Event ticketing platform with administrator, vendor, and customer roles, order m
 
 ## EDUCATION AND LANGUAGES
 
-**Software Engineering | Universidad Tecnológica del Perú**
-2022 - December 2026 (expected graduation) · Lima, Peru
+**Software Engineering | Universidad Tecnológica del Perú (UTP)** — 2022 – December 2026 (expected graduation) · Lima, Peru
 
-**Spanish:** native. **English:** intermediate; technical documentation reading and technical communication.
+**Spanish:** native. **English:** intermediate (B1) — fluent technical reading and team communication.
