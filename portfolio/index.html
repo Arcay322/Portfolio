@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        const saved = localStorage.getItem('color-scheme');
+        if (saved === 'light' || saved === 'dark') {
+          document.querySelector('meta[name="color-scheme"]').content = saved;
+        }
+      } catch {}
+    </script>
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4EFE2" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#141714" />
+    <title>Arnie Calderón — Desarrollador Full-Stack</title>
+    <meta
+      name="description"
+      content="Portfolio de Arnie Calderón, desarrollador Full-Stack en Lima. Productos SaaS en producción (Ventify), integración SAP (IMPREX EUROPE), Astro, Node.js y Python."
+    />
+    <!--SEO_HEAD-->
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/assets/fonts/cormorant-semibold.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/assets/fonts/bricolage-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script type="module" src="/assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content" data-i18n="skip">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="header-inner container">
+        <a class="wordmark" href="#top"><span class="wordmark-mark" aria-hidden="true"></span>Arnie Calderón</a>
+
+        <nav class="site-nav" aria-label="Navegación principal">
+          <a href="#mapa" data-i18n="navMap">Mapa</a>
+          <a href="#proyectos" data-i18n="navProjects">Proyectos</a>
+          <a href="#trayectoria" data-i18n="navExperience">Experiencia</a>
+          <a href="#contacto" data-i18n="navContact">Contacto</a>
+          <button id="theme-toggle" class="btn-icon" type="button">
+            <span class="theme-opt theme-to-dark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+              </svg>
+              <span class="sr-only" data-i18n="switchDark">Cambiar a modo oscuro</span>
+            </span>
+            <span class="theme-opt theme-to-light">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41" />
+              </svg>
+              <span class="sr-only" data-i18n="switchLight">Cambiar a modo claro</span>
+            </span>
+          </button>
+          <button
+            id="lang-toggle"
+            class="btn-text"
+            type="button"
+            aria-label="Cambiar idioma a inglés"
+          >
+            EN
+          </button>
+          <a
+            id="header-cv-link"
+            class="btn-outline"
+            href="/assets/cv/Arnie_Calderon_ES.pdf"
+            download
+          >
+            <span data-i18n="downloadCv">Descargar CV</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section id="top" class="hero-vista">
+        <img
+          class="hero-vista-bg"
+          src="/assets/images/hero-vista.webp"
+          width="1600"
+          height="900"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="hero-vista-scrim" aria-hidden="true"></div>
+
+        <div class="hero-inner container">
+          <div class="hero-grid">
+            <div class="hero-main">
+              <h1>Arnie Calderón</h1>
+              <div class="hyrule-rule hyrule-rule-left" aria-hidden="true"></div>
+              <p class="hero-sub" data-i18n="heroSub">
+                Desarrollador Full-Stack en Lima. Construyo productos SaaS en producción e integraciones empresariales con SAP.
+              </p>
+              <div class="hero-actions">
+                <a class="btn-primary" href="#proyectos" data-i18n="ctaProjects">Ver proyectos</a>
+                <a
+                  id="hero-cv-link"
+                  class="btn-outline btn-hero-outline"
+                  href="/assets/cv/Arnie_Calderon_ES.pdf"
+                  download
+                  data-i18n="downloadCv"
+                >
+                  Descargar CV
+                </a>
+              </div>
+            </div>
+
+            <dl class="hero-facts" aria-label="Resumen profesional">
+              <div>
+                <dt data-i18n="factAvailLabel">Disponibilidad</dt>
+                <dd data-i18n="factAvailVal">Tiempo completo</dd>
+              </div>
+              <div>
+                <dt data-i18n="factEduLabel">Formación</dt>
+                <dd data-i18n="factEduVal">Ing. de Software UTP, Dic. 2026</dd>
+              </div>
+              <div>
+                <dt data-i18n="factLangLabel">Idiomas</dt>
+                <dd data-i18n="factLangVal">Español nativo, Inglés B1</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="mapa" class="atlas-section container" aria-labelledby="atlas-heading">
+        <div class="region-header">
+          <h2 id="atlas-heading" data-i18n="atlasTitle">Mapa de trayectoria</h2>
+          <div class="hyrule-rule" aria-hidden="true"></div>
+        </div>
+
+        <figure class="atlas-stage" aria-labelledby="atlas-caption">
+          <div class="atlas-canvas">
+            <img
+              class="atlas-plate"
+              src="/assets/images/sheikah-map-plate.webp"
+              width="1600"
+              height="900"
+              alt="Mapa topográfico estilo cartografía de Hyrule y costa andina con los proyectos de Arnie Calderón"
+              data-i18n-alt="atlasAlt"
+            />
+            <span class="atlas-inner-frame" aria-hidden="true"></span>
+            <span class="map-corner tl" aria-hidden="true"></span>
+            <span class="map-corner tr" aria-hidden="true"></span>
+            <span class="map-corner bl" aria-hidden="true"></span>
+            <span class="map-corner br" aria-hidden="true"></span>
+
+            <span id="map-progress" class="map-hud-badge top-left tabular-meta" aria-live="polite">
+              1 / 5 descubiertos
+            </span>
+            <span id="map-hud-coords" class="map-hud-badge bottom-left tabular-meta" aria-hidden="true">
+              12°02'S 77°02'W · LIMA
+            </span>
+
+            <svg
+              class="atlas-route-svg"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <line id="active-route-line" x1="46" y1="54" x2="77" y2="28" />
+            </svg>
+
+            <div class="map-pins" id="map-pins">
+              <button
+                type="button"
+                class="map-pin is-active is-visited"
+                data-waypoint="ventify"
+                aria-pressed="true"
+                style="--pin-x: 46%; --pin-y: 54%"
+              >
+                <span class="pin-reticle" aria-hidden="true"></span>
+                <span class="pin-mark" aria-hidden="true"></span>
+                <span class="pin-label">Ventify</span>
+              </button>
+
+              <button
+                type="button"
+                class="map-pin"
+                data-waypoint="imprex"
+                aria-pressed="false"
+                style="--pin-x: 77%; --pin-y: 28%"
+              >
+                <span class="pin-reticle" aria-hidden="true"></span>
+                <span class="pin-mark" aria-hidden="true"></span>
+                <span class="pin-label">IMPREX EUROPE</span>
+              </button>
+
+              <button
+                type="button"
+                class="map-pin"
+                data-waypoint="astro"
+                aria-pressed="false"
+                style="--pin-x: 72%; --pin-y: 72%"
+              >
+                <span class="pin-reticle" aria-hidden="true"></span>
+                <span class="pin-mark" aria-hidden="true"></span>
+                <span class="pin-label" data-wp-pin="astro">Modernización Astro</span>
+              </button>
+
+              <button
+                type="button"
+                class="map-pin"
+                data-waypoint="sumaq"
+                aria-pressed="false"
+                style="--pin-x: 28%; --pin-y: 70%"
+              >
+                <span class="pin-reticle" aria-hidden="true"></span>
+                <span class="pin-mark" aria-hidden="true"></span>
+                <span class="pin-label">Sumaq Uywa</span>
+              </button>
+
+              <button
+                type="button"
+                class="map-pin"
+                data-waypoint="ticket"
+                aria-pressed="false"
+                style="--pin-x: 24%; --pin-y: 32%"
+              >
+                <span class="pin-reticle" aria-hidden="true"></span>
+                <span class="pin-mark" aria-hidden="true"></span>
+                <span class="pin-label">Ticket World</span>
+              </button>
+            </div>
+          </div>
+
+          <figcaption id="atlas-caption" class="atlas-readout" aria-live="polite">
+            <div class="readout-id">
+              <strong id="readout-title">Ventify — SaaS POS Multisucursal</strong>
+              <span id="readout-role">Desarrollador Full-Stack (Producto SaaS)</span>
+              <span class="tabular-meta" id="readout-meta">Octubre 2024 – Actualidad · 12°02'S 77°02'W</span>
+            </div>
+
+            <div class="readout-summary">
+              <p id="readout-text"></p>
+              <p class="readout-stack" id="readout-stack"></p>
+            </div>
+
+            <div class="readout-actions">
+              <button type="button" id="readout-open" class="btn-primary" data-i18n="openFullCase">
+                Abrir registro completo
+              </button>
+              <a
+                id="readout-ext"
+                class="link-quiet"
+                href="https://www.ventify.com.pe"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span id="readout-ext-label">ventify.com.pe</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="proyectos" class="projects-section container" aria-labelledby="projects-heading">
+        <div class="region-header">
+          <h2 id="projects-heading" data-i18n="projectsTitle">Proyectos seleccionados</h2>
+          <div class="hyrule-rule" aria-hidden="true"></div>
+        </div>
+
+        <div id="projects-showcase" class="projects-showcase"></div>
+      </section>
+
+      <section id="trayectoria" class="experience-section container" aria-labelledby="experience-heading">
+        <div class="region-header">
+          <h2 id="experience-heading" data-i18n="expTitle">Experiencia y formación</h2>
+          <div class="hyrule-rule" aria-hidden="true"></div>
+        </div>
+
+        <div id="experience-rows" class="experience-rows"></div>
+
+        <div class="stack-columns" aria-labelledby="stack-heading">
+          <h3 id="stack-heading" data-i18n="stackTitle">Stack técnico</h3>
+          <dl id="stack-list" class="stack-grid"></dl>
+        </div>
+      </section>
+
+      <section id="contacto" class="contact-section container" aria-labelledby="contact-heading">
+        <div class="contact-layout">
+          <div>
+            <h2 id="contact-heading" data-i18n="contactTitle">Contacto</h2>
+            <div class="hyrule-rule hyrule-rule-left" aria-hidden="true"></div>
+            <p class="contact-lead" data-i18n="contactLead">
+              Disponible para posiciones a tiempo completo en Frontend, Backend o Full-Stack, en Lima o remoto.
+            </p>
+          </div>
+
+          <div class="contact-right">
+            <div class="email-bar">
+              <a class="email-address" href="mailto:arniecalderonayala@gmail.com">
+                arniecalderonayala@gmail.com
+              </a>
+              <button type="button" id="copy-email" class="btn-outline" data-i18n="copyEmail">
+                Copiar
+              </button>
+              <span id="copy-status" class="copy-status" role="status" aria-live="polite"></span>
+            </div>
+
+            <ul class="contact-links">
+              <li><a href="tel:+51918793956">+51 918 793 956</a></li>
+              <li>
+                <a href="https://www.linkedin.com/in/arniecalderonayala/" target="_blank" rel="noopener noreferrer">
+                  LinkedIn ↗
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Arcay322" target="_blank" rel="noopener noreferrer">
+                  GitHub ↗
+                </a>
+              </li>
+              <li>
+                <a id="footer-cv-link" href="/assets/cv/Arnie_Calderon_ES.pdf" download data-i18n="downloadCv">
+                  Descargar CV
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <span>Arnie Calderón · Lima, Perú</span>
+      <span data-i18n="footerNote">HTML semántico, CSS moderno e ilustraciones inspiradas en Breath of the Wild.</span>
+    </footer>
+
+    <dialog id="case-dialog" closedby="any" aria-labelledby="dialog-title">
+      <div class="dialog-shell">
+        <span class="dialog-inner-frame" aria-hidden="true"></span>
+        <header class="dialog-header">
+          <div>
+            <p class="tabular-meta dialog-meta" id="dialog-meta"></p>
+            <h2 id="dialog-title"></h2>
+            <div class="hyrule-rule hyrule-rule-left" aria-hidden="true"></div>
+          </div>
+          <button
+            type="button"
+            id="dialog-close"
+            class="btn-outline dialog-close"
+            aria-label="Cerrar registro"
+          >
+            ✕
+          </button>
+        </header>
+
+        <div class="dialog-body" id="dialog-body"></div>
+      </div>
+    </dialog>
+  </body>
+</html>

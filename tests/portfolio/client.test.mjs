@@ -2,8 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
+
 const { JSDOM } = createRequire(import.meta.url)('jsdom');
-const script = await readFile('portfolio/client.js', 'utf8');
+const script = await readFile('portfolio/app.js', 'utf8');
+
 async function load(file, pathname) {
   const html = await readFile(`dist/${file}`, 'utf8');
   const dom = new JSDOM(html, {
@@ -12,73 +14,63 @@ async function load(file, pathname) {
     pretendToBeVisual: true,
   });
   dom.window.matchMedia = () => ({ matches: false, addEventListener() {} });
+  dom.window.CSS = { supports: () => false };
   dom.window.scrollTo = () => {};
   return dom;
 }
-test('gallery wraps in both directions and keeps the original-image link in sync', async () => {
-  const dom = await load('projects/ventify/index.html', 'projects/ventify/');
+
+test('map pins update discovery progress, coordinates, and active readout', async () => {
+  const dom = await load('index.html', '');
   dom.window.eval(script);
   const d = dom.window.document;
-  const first = d.querySelector('[data-gallery-image]').getAttribute('src');
-  d.querySelector('[data-gallery-prev]').click();
-  assert.equal(d.querySelector('[data-gallery-status]').textContent, '3 / 3');
-  assert.equal(
-    d.querySelector('[data-gallery-link]').getAttribute('href'),
-    'https://portfolio.test/images/projects/ventify/Ventify_3.webp'
-  );
-  d.querySelector('[data-gallery-next]').click();
-  assert.equal(d.querySelector('[data-gallery-image]').getAttribute('src'), first);
-  d.querySelector('[data-gallery-thumb="1"]').click();
-  assert.equal(d.querySelector('[data-gallery-status]').textContent, '2 / 3');
-  assert.equal(d.querySelectorAll('[data-gallery-thumb][aria-current="true"]').length, 1);
+
+  assert.equal(d.getElementById('map-progress').textContent.trim(), '1 / 5 descubiertos');
+  d.querySelector('[data-waypoint="imprex"]').click();
+  assert.equal(d.getElementById('map-progress').textContent.trim(), '2 / 5 descubiertos');
+  assert.equal(d.getElementById('map-hud-coords').textContent.trim(), "40°25'N 03°42'W · MADRID");
+  assert.match(d.getElementById('readout-title').textContent, /IMPREX EUROPE/);
+  assert.ok(d.querySelector('[data-waypoint="imprex"]').classList.contains('is-visited'));
+
   dom.window.close();
 });
-test('mobile navigation announces state and Escape closes it with restored focus', async () => {
-  const dom = await load('about/index.html', 'about/');
+
+test('language toggle switches UI, map progress, and CV download hrefs', async () => {
+  const dom = await load('index.html', '');
   dom.window.eval(script);
   const d = dom.window.document;
-  const menu = d.getElementById('menu-toggle');
-  menu.click();
-  assert.equal(menu.getAttribute('aria-expanded'), 'true');
-  d.dispatchEvent(new dom.window.KeyboardEvent('keydown', { key: 'Escape' }));
-  assert.equal(menu.getAttribute('aria-expanded'), 'false');
-  assert.equal(d.activeElement, menu);
+
+  d.getElementById('lang-toggle').click();
+  assert.equal(d.documentElement.lang, 'en');
+  assert.equal(d.getElementById('map-progress').textContent.trim(), '1 / 5 discovered');
+  assert.equal(d.getElementById('header-cv-link').getAttribute('href'), '/assets/cv/Arnie_Calderon_EN.pdf');
+
+  d.getElementById('lang-toggle').click();
+  assert.equal(d.documentElement.lang, 'es');
+  assert.equal(d.getElementById('header-cv-link').getAttribute('href'), '/assets/cv/Arnie_Calderon_ES.pdf');
+
   dom.window.close();
 });
-test('reading-only entry never needs a WebGL context and keeps project URLs accessible', async () => {
-  const dom = await load('index.html', '?view=reading');
+
+test('theme toggle persists color-scheme override on meta tag and localStorage', async () => {
+  const dom = await load('index.html', '');
   dom.window.eval(script);
   const d = dom.window.document;
-  assert.ok(d.body.classList.contains('reading-mode'));
-  assert.equal(d.getElementById('enable-world').hidden, false);
-  assert.equal(d.querySelector('canvas'), null);
-  assert.ok(d.querySelector('.reading-content a[href="/projects/imprex/"]'));
+  const meta = d.querySelector('meta[name="color-scheme"]');
+
+  assert.equal(meta.getAttribute('content'), 'light dark');
+  d.getElementById('theme-toggle').click();
+  assert.equal(meta.getAttribute('content'), 'dark');
+  assert.equal(dom.window.localStorage.getItem('color-scheme'), 'dark');
+
+  d.getElementById('theme-toggle').click();
+  assert.equal(meta.getAttribute('content'), 'light dark');
+  assert.equal(dom.window.localStorage.getItem('color-scheme'), null);
+
   dom.window.close();
 });
-test('motion toggle preserves icons and announces pause and resume in both languages', async () => {
-  for (const [file, pathname, pause, resume] of [
-    ['index.html', '?view=reading', 'Pausar movimiento ambiental', 'Activar movimiento ambiental'],
-    ['en/index.html', 'en/?view=reading', 'Pause ambient motion', 'Enable ambient motion'],
-  ]) {
-    const dom = await load(file, pathname);
-    try {
-      dom.window.eval(script);
-      const button = dom.window.document.getElementById('motion-toggle');
-      button.click();
-      assert.equal(button.getAttribute('aria-pressed'), 'true');
-      assert.equal(button.getAttribute('aria-label'), resume);
-      assert.equal(button.querySelectorAll('svg').length, 2);
-      button.click();
-      assert.equal(button.getAttribute('aria-pressed'), 'false');
-      assert.equal(button.getAttribute('aria-label'), pause);
-      assert.equal(button.querySelectorAll('svg').length, 2);
-    } finally {
-      dom.window.close();
-    }
-  }
-});
+
 test('copy email reports success and handles unavailable clipboard gracefully', async () => {
-  const dom = await load('en/contact/index.html', 'en/contact/');
+  const dom = await load('en/index.html', 'en/');
   let copied;
   Object.defineProperty(dom.window.navigator, 'clipboard', {
     configurable: true,
@@ -90,15 +82,18 @@ test('copy email reports success and handles unavailable clipboard gracefully', 
   });
   dom.window.eval(script);
   const d = dom.window.document;
-  d.querySelector('[data-copy]').click();
+
+  d.getElementById('copy-email').click();
   await new Promise((resolve) => setImmediate(resolve));
   assert.equal(copied, 'arniecalderonayala@gmail.com');
-  assert.equal(d.querySelector('.copy-status').textContent, 'Email copied');
+  assert.equal(d.getElementById('copy-status').textContent, 'Email copied');
+
   dom.window.navigator.clipboard.writeText = async () => {
     throw new Error('Permission denied');
   };
-  d.querySelector('[data-copy]').click();
+  d.getElementById('copy-email').click();
   await new Promise((resolve) => setImmediate(resolve));
-  assert.match(d.querySelector('.copy-status').textContent, /Could not copy/);
+  assert.match(d.getElementById('copy-status').textContent, /Could not copy/);
+
   dom.window.close();
 });

@@ -24,6 +24,7 @@ const types = {
   '.png': 'image/png',
   '.svg': 'image/svg+xml',
   '.ttf': 'font/ttf',
+  '.woff2': 'font/woff2',
   '.pdf': 'application/pdf',
 };
 const server = http.createServer(async (req, res) => {

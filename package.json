@@ -28,7 +28,7 @@
     "emulate:firebase": "npx --yes firebase-tools@15.34.0 emulators:start --only hosting",
     "deploy:firebase": "npx --yes firebase-tools@15.34.0 deploy --only hosting",
     "test:hosting": "npx --yes firebase-tools@15.34.0 emulators:exec --only hosting \"node scripts/verify-hosting.mjs\"",
-    "lint:portfolio": "eslint --no-config-lookup --config portfolio/eslint.config.mjs portfolio/*.mjs portfolio/client.js portfolio/world.js scripts/*portfolio.mjs scripts/verify-hosting.mjs tests/portfolio/*.mjs",
+    "lint:portfolio": "eslint --no-config-lookup --config portfolio/eslint.config.mjs portfolio/app.js portfolio/eslint.config.mjs scripts/*portfolio.mjs scripts/verify-hosting.mjs tests/portfolio/*.mjs",
     "verify:portfolio": "npm run lint:portfolio && npm run check:portfolio && npm run build:firebase && npm run test:portfolio"
   },
   "dependencies": {

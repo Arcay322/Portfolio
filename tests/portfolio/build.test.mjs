@@ -1,11 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, stat, readdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+
 const require = createRequire(import.meta.url);
 const { JSDOM } = require('jsdom');
 const root = path.resolve('dist');
+
 async function files(dir) {
   return (
     await Promise.all(
@@ -15,86 +18,31 @@ async function files(dir) {
     )
   ).flat();
 }
-test('project indexes separate featured work from secondary projects in both languages', async () => {
-  for (const prefix of ['', 'en/']) {
-    const dom = new JSDOM(await readFile(path.join(root, prefix, 'projects/index.html'), 'utf8'));
-    const doc = dom.window.document;
-    const primary = [...doc.querySelectorAll('.project-list .project-info h2 a')];
-    assert.deepEqual(primary.map((a) => a.getAttribute('href')), [
-      `/${prefix}projects/ventify/`, `/${prefix}projects/imprex/`,
-      `/${prefix}projects/sumaq-uywa/`, `/${prefix}projects/ticket-world/`,
-    ]);
-    const secondary = [...doc.querySelectorAll('.more-projects li a')];
-    assert.deepEqual(secondary.map((a) => a.getAttribute('href')), [
-      `/${prefix}projects/arcay3dlabs/`, `/${prefix}projects/jr-transportes/`,
-    ]);
-    assert.equal(doc.getElementById('more-projects-title').textContent, prefix ? 'More projects' : 'Más proyectos');
-    dom.window.close();
-  }
-});
-test('contact actions, project dates, language switch and home CTAs stay localized and connected', async () => {
-  for (const [prefix, locale, expectedDate] of [
-    ['', 'es', 'Octubre 2024'],
-    ['en/', 'en', 'October 2024'],
+
+test('localized pages have working local links, assets, unique IDs and color-scheme support', async () => {
+  for (const [rel, locale] of [
+    ['index.html', 'es'],
+    ['en/index.html', 'en'],
   ]) {
-    const home = new JSDOM(await readFile(path.join(root, prefix, 'index.html'), 'utf8')).window
-      .document;
-    assert.equal(home.documentElement.lang, locale);
-    assert.equal(home.getElementById('enter').getAttribute('href'), `/${prefix}about/`);
-    assert.equal(home.querySelector('.direct-link').getAttribute('href'), `/${prefix}contact/`);
-    assert.equal(home.querySelector('.home-caption a').getAttribute('href'), `/${prefix}projects/`);
-    assert.equal(home.querySelector('.projects-cta').getAttribute('href'), `/${prefix}projects/`);
-    assert.equal(home.querySelector('.projects-cta').textContent.replace('↗', '').trim(),
-      locale === 'es' ? 'Ver proyectos' : 'View projects');
-    assert.ok(home.querySelector('#keyboard-controls')?.textContent.trim());
-    const landscape = home.getElementById('landscape');
-    assert.ok(landscape.dataset.sceneLabel);
-    assert.notEqual(landscape.getAttribute('aria-hidden'), 'true');
-
-    const projects = new JSDOM(
-      await readFile(path.join(root, prefix, 'projects/index.html'), 'utf8')
-    ).window.document;
-    const firstCardDate = projects.querySelector('.project-dates').textContent.trim();
-    assert.ok(firstCardDate.startsWith(expectedDate));
-    assert.equal(
-      projects.querySelector('.language-switch').getAttribute('href'),
-      `/${prefix ? '' : 'en/'}projects/`
-    );
-
-    const contact = new JSDOM(
-      await readFile(path.join(root, prefix, 'contact/index.html'), 'utf8')
-    ).window.document;
-    const phone = contact.querySelector('a[href^="tel:"]');
-    const whatsapp = contact.querySelector('a[href*="wa.me/"]');
-    const digits = (text) => text.replace(/\D/g, '');
-    assert.equal(digits(phone.textContent), '51918793956');
-    assert.equal(digits(whatsapp.textContent), digits(phone.textContent));
-    assert.equal(digits(phone.getAttribute('href').slice('tel:'.length)), digits(phone.textContent));
-    assert.equal(
-      digits(whatsapp.getAttribute('href').split('/').at(-1)),
-      digits(whatsapp.textContent)
-    );
-    assert.equal(contact.querySelector('.footer-call').getAttribute('href'), `/${prefix}contact/`);
-  }
-});
-test('localized pages have working local links, assets, unique IDs and one primary heading', async () => {
-  const pages = (await files(root)).filter((p) => p.endsWith('.html'));
-  assert.ok(
-    pages.length >= 18,
-    'home, projects, cases, about and contact must exist in both languages'
-  );
-  for (const page of pages) {
+    const page = path.join(root, rel);
     const source = await readFile(page, 'utf8');
     const doc = new JSDOM(source).window.document;
-    assert.equal(doc.querySelectorAll('h1').length, 1, page);
-    assert.ok(['es', 'en'].includes(doc.documentElement.lang), page);
+
+    assert.equal(doc.documentElement.lang, locale);
+    assert.equal(doc.querySelectorAll('h1').length, 1, rel);
+    assert.equal(
+      doc.querySelector('meta[name="color-scheme"]')?.getAttribute('content'),
+      'light dark'
+    );
+
     const ids = [...doc.querySelectorAll('[id]')].map((e) => e.id);
-    assert.equal(new Set(ids).size, ids.length, `duplicate IDs: ${page}`);
+    assert.equal(new Set(ids).size, ids.length, `duplicate IDs: ${rel}`);
+
     for (const el of doc.querySelectorAll('[href], [src]')) {
       const ref = el.getAttribute('href') ?? el.getAttribute('src');
       if (!ref || /^(https?:|mailto:|tel:|data:)/.test(ref)) continue;
       if (ref.startsWith('#')) {
-        assert.ok(doc.getElementById(ref.slice(1)), `missing anchor ${ref}: ${page}`);
+        assert.ok(doc.getElementById(ref.slice(1)), `missing anchor ${ref}: ${rel}`);
         continue;
       }
       const clean = decodeURI(ref.split('#')[0].split('?')[0]);
@@ -102,45 +50,70 @@ test('localized pages have working local links, assets, unique IDs and one prima
         ? path.join(root, clean)
         : path.resolve(path.dirname(page), clean);
       const item = await stat(target).catch(() => null);
-      assert.ok(item, `missing local resource ${ref}: ${page}`);
-      if (item.isDirectory()) await stat(path.join(target, 'index.html'));
+      assert.ok(item, `missing local resource ${ref}: ${rel}`);
     }
   }
 });
-test('production output contains the real CVs and no demos, server code or credentials', async () => {
+
+test('production output contains the real CVs, artwork and no demos, server code or credentials', async () => {
   const all = await files(root);
   const names = all.map((f) => path.relative(root, f));
-  assert.ok(names.some((f) => f.endsWith('Arnie_Calderon_ES.pdf')));
-  assert.ok(names.some((f) => f.endsWith('Arnie_Calderon_EN.pdf')));
+
+  assert.ok(names.includes('assets/cv/Arnie_Calderon_ES.pdf'));
+  assert.ok(names.includes('assets/cv/Arnie_Calderon_EN.pdf'));
+  assert.ok(names.includes('assets/images/hero-vista.webp'));
+  assert.ok(names.includes('assets/images/sheikah-map-plate.webp'));
+  assert.ok(names.includes('assets/styles.css'));
+  assert.ok(names.includes('assets/app.js'));
   assert.equal(
     names.filter((f) =>
       /(^|\/)(demo|node_modules|api|\.git)(\/|$)|service.account|\.env|\.map$/.test(f)
     ).length,
     0
   );
-  const es = await readFile(path.join(root, 'index.html'), 'utf8');
-  const en = await readFile(path.join(root, 'en/index.html'), 'utf8');
-  assert.match(es, /IMPREX/);
-  assert.match(es, /5,5/);
-  assert.match(en, /Full-Stack Developer/);
-  assert.doesNotMatch(es + en, /Agente RAG|3\+ años|97%/);
-});
-test('search engines and error pages have complete metadata without SPA catch-all', async () => {
-  const sitemap = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
-  assert.match(sitemap, /\/en\/projects\/ventify\//);
-  assert.match(await readFile(path.join(root, '404.html'), 'utf8'), /noindex/);
-  for (const file of (await files(root)).filter(
-    (p) => p.endsWith('.html') && !p.endsWith('404.html')
-  )) {
-    const doc = new JSDOM(await readFile(file, 'utf8')).window.document;
-    assert.ok(doc.querySelector('link[rel="canonical"]'), file);
-    assert.equal(doc.querySelectorAll('link[rel="alternate"][hreflang]').length, 3, file);
-    assert.ok(doc.querySelector('meta[property="og:image"]'), file);
+
+  const appCode = await readFile(path.join(root, 'assets/app.js'), 'utf8');
+  for (const match of appCode.matchAll(/\/assets\/[^"'\s`)]+/g)) {
+    const assetPath = path.join(root, match[0]);
+    await stat(assetPath);
   }
+  assert.match(appCode, /IMPREX EUROPE/);
+  assert.match(appCode, /5,5 millones/);
+  assert.doesNotMatch(appCode, /Agente RAG|3\+ años|97%/);
+});
+
+test('search engines, error pages and CSP hashes match generated inline scripts', async () => {
+  const sitemap = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
+  assert.match(sitemap, /https:\/\/www\.arcay\.dev\//);
+  assert.match(sitemap, /https:\/\/www\.arcay\.dev\/en\//);
+
+  const notFound = await readFile(path.join(root, '404.html'), 'utf8');
+  assert.match(notFound, /noindex/);
+
   const config = JSON.parse(await readFile('firebase.json', 'utf8'));
   assert.equal(config.hosting.public, 'dist');
   assert.ok(
     !config.hosting.rewrites?.some((r) => r.source === '**'),
     'unknown URLs must return 404, not the homepage'
   );
+
+  const csp = config.hosting.headers[0].headers.find(
+    (h) => h.key === 'Content-Security-Policy'
+  ).value;
+
+  for (const rel of ['index.html', 'en/index.html', '404.html']) {
+    const html = await readFile(path.join(root, rel), 'utf8');
+    if (rel !== '404.html') {
+      const doc = new JSDOM(html).window.document;
+      assert.ok(doc.querySelector('link[rel="canonical"]'), rel);
+      assert.equal(doc.querySelectorAll('link[rel="alternate"][hreflang]').length, 3, rel);
+      assert.ok(doc.querySelector('meta[property="og:image"]'), rel);
+    }
+    for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
+      const [, attrs, body] = match;
+      if (/\bsrc\s*=/i.test(attrs)) continue;
+      const hash = `'sha256-${createHash('sha256').update(body).digest('base64')}'`;
+      assert.ok(csp.includes(hash), `missing inline script CSP hash ${hash} for ${rel}`);
+    }
+  }
 });

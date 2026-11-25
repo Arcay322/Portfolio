@@ -24,113 +24,63 @@
         "type": 301
       },
       {
-        "source": "/es/projects",
-        "destination": "/projects/",
+        "source": "/projects",
+        "destination": "/#proyectos",
         "type": 301
       },
       {
-        "source": "/es/projects/",
-        "destination": "/projects/",
+        "source": "/projects/",
+        "destination": "/#proyectos",
         "type": 301
       },
       {
-        "source": "/es/about",
-        "destination": "/about/",
+        "source": "/about",
+        "destination": "/#trayectoria",
         "type": 301
       },
       {
-        "source": "/es/about/",
-        "destination": "/about/",
+        "source": "/about/",
+        "destination": "/#trayectoria",
         "type": 301
       },
       {
-        "source": "/es/contact",
-        "destination": "/contact/",
+        "source": "/contact",
+        "destination": "/#contacto",
         "type": 301
       },
       {
-        "source": "/es/contact/",
-        "destination": "/contact/",
+        "source": "/contact/",
+        "destination": "/#contacto",
         "type": 301
       },
       {
-        "source": "/es/projects/ventify",
-        "destination": "/projects/ventify/",
+        "source": "/en/projects",
+        "destination": "/en/#proyectos",
         "type": 301
       },
       {
-        "source": "/es/projects/ventify/",
-        "destination": "/projects/ventify/",
+        "source": "/en/projects/",
+        "destination": "/en/#proyectos",
         "type": 301
       },
       {
-        "source": "/es/projects/imprex",
-        "destination": "/projects/imprex/",
+        "source": "/en/about",
+        "destination": "/en/#trayectoria",
         "type": 301
       },
       {
-        "source": "/es/projects/imprex/",
-        "destination": "/projects/imprex/",
+        "source": "/en/about/",
+        "destination": "/en/#trayectoria",
         "type": 301
       },
       {
-        "source": "/es/projects/arcay3dlabs",
-        "destination": "/projects/arcay3dlabs/",
+        "source": "/en/contact",
+        "destination": "/en/#contacto",
         "type": 301
       },
       {
-        "source": "/es/projects/arcay3dlabs/",
-        "destination": "/projects/arcay3dlabs/",
-        "type": 301
-      },
-      {
-        "source": "/es/projects/jr-transportes",
-        "destination": "/projects/jr-transportes/",
-        "type": 301
-      },
-      {
-        "source": "/es/projects/jr-transportes/",
-        "destination": "/projects/jr-transportes/",
-        "type": 301
-      },
-      {
-        "source": "/es/projects/sumaq-uywa",
-        "destination": "/projects/sumaq-uywa/",
-        "type": 301
-      },
-      {
-        "source": "/es/projects/sumaq-uywa/",
-        "destination": "/projects/sumaq-uywa/",
-        "type": 301
-      },
-      {
-        "source": "/es/projects/ticket-world",
-        "destination": "/projects/ticket-world/",
-        "type": 301
-      },
-      {
-        "source": "/es/projects/ticket-world/",
-        "destination": "/projects/ticket-world/",
-        "type": 301
-      },
-      {
-        "source": "/projects/ticket_world",
-        "destination": "/projects/ticket-world/",
-        "type": 301
-      },
-      {
-        "source": "/projects/sumaq_uywa",
-        "destination": "/projects/sumaq-uywa/",
-        "type": 301
-      },
-      {
-        "source": "/en/projects/ticket_world",
-        "destination": "/en/projects/ticket-world/",
-        "type": 301
-      },
-      {
-        "source": "/en/projects/sumaq_uywa",
-        "destination": "/en/projects/sumaq-uywa/",
+        "source": "/en/contact/",
+        "destination": "/en/#contacto",
         "type": 301
       }
     ],
@@ -156,7 +106,7 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src 'self' 'sha256-Ka58UPQ0yfAMGRRkYEQgj+blHQTlf72V5XEt/i3CXKA=' 'sha256-4iu4O0KgN0PqA+rLX9tZT4KWRzTA6PArQJFsgAuKHJs='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests"
+            "value": "default-src 'self'; script-src 'self' 'sha256-o+Xsy/d2DQRVCxbHpPK7IOQqVV3d2qQxvDVKCmpTE9c=' 'sha256-Ka58UPQ0yfAMGRRkYEQgj+blHQTlf72V5XEt/i3CXKA=' 'sha256-4iu4O0KgN0PqA+rLX9tZT4KWRzTA6PArQJFsgAuKHJs='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests"
           },
           {
             "key": "Cache-Control",
