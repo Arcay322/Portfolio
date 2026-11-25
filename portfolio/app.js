@@ -37,6 +37,28 @@ const DATA = {
     copiedEmail: 'Correo copiado',
     copyError: 'No se pudo copiar',
     footerNote: 'HTML semántico, CSS moderno e ilustraciones inspiradas en Breath of the Wild.',
+    chatLauncherTitle: 'Arnie IA',
+    chatLauncherSub: 'Pregúntame sobre mi perfil',
+    chatTitle: 'Arnie IA · Asistente',
+    chatStatusIdle: 'Listo para reclutadores · DeepSeek',
+    chatStatusThinking: 'Consultando el compendio...',
+    chatStatusTalking: 'Respondiendo...',
+    chatStatusGreeting: '¡Hola! ¿En qué te ayudo?',
+    chatInputLabel: 'Escribe tu pregunta',
+    chatInputPlaceholder: 'Pregunta sobre SAP, Ventify, stack, disponibilidad...',
+    chatSend: 'Enviar',
+    chatResetAria: 'Reiniciar conversación',
+    chatCloseAria: 'Cerrar asistente',
+    chatWelcome:
+      '¡Hola! Soy el asistente IA de **Arnie Calderón**. Puedes preguntarme por su experiencia en **IMPREX EUROPE (SAP/React)**, su SaaS **Ventify**, stack técnico o disponibilidad.',
+    chatError:
+      'No pude conectar con el asistente en este momento. Puedes escribir directo a arniecalderonayala@gmail.com.',
+    chatPrompts: [
+      'Resumen para reclutador (30s)',
+      'Experiencia con SAP y React',
+      '¿Qué construyó en Ventify?',
+      'Stack técnico y disponibilidad',
+    ],
     specLabels: {
       category: 'Categoría',
       impact: 'Impacto',
@@ -303,6 +325,28 @@ const DATA = {
     copiedEmail: 'Email copied',
     copyError: 'Could not copy',
     footerNote: 'Semantic HTML, modern CSS, and Breath of the Wild-inspired artwork.',
+    chatLauncherTitle: 'Arnie AI',
+    chatLauncherSub: 'Ask about my experience',
+    chatTitle: 'Arnie AI · Assistant',
+    chatStatusIdle: 'Ready for recruiters · DeepSeek',
+    chatStatusThinking: 'Searching the compendium...',
+    chatStatusTalking: 'Replying...',
+    chatStatusGreeting: 'Hi! How can I help?',
+    chatInputLabel: 'Type your question',
+    chatInputPlaceholder: 'Ask about SAP, Ventify, stack, availability...',
+    chatSend: 'Send',
+    chatResetAria: 'Reset conversation',
+    chatCloseAria: 'Close assistant',
+    chatWelcome:
+      'Hi! I am **Arnie Calderón’s** AI assistant. Ask me about his work at **IMPREX EUROPE (SAP/React)**, his **Ventify** SaaS, tech stack, or full-time availability.',
+    chatError:
+      'Could not reach the assistant right now. You can contact Arnie directly at arniecalderonayala@gmail.com.',
+    chatPrompts: [
+      '30-second recruiter summary',
+      'SAP & React experience',
+      'What did he build at Ventify?',
+      'Tech stack & availability',
+    ],
     specLabels: {
       category: 'Category',
       impact: 'Impact',
@@ -910,6 +954,7 @@ function applyLocale(locale) {
   renderAtlasReadout();
   renderProjectsShowcase();
   renderExperienceAndStack();
+  renderChatLocale();
 
   if (dialog?.open && activeDialogId) {
     renderDialogBody(activeDialogId);
@@ -999,6 +1044,256 @@ function initInteractions() {
       status.textContent = DATA[currentLocale].copiedEmail;
     } catch {
       status.textContent = DATA[currentLocale].copyError;
+    }
+  });
+
+  initChatWidget();
+}
+
+const CHAT_AVATARS = {
+  idle: '/assets/avatar/arnie_idle.svg',
+  thinking: '/assets/avatar/arnie_thinking.svg',
+  talking: '/assets/avatar/arnie_talking.svg',
+  greeting: '/assets/avatar/arnie_greeting.svg',
+};
+
+let chatHistory = [];
+let chatBusy = false;
+let chatStateTimer = null;
+
+function setChatAvatarState(state, revertAfterMs = 0) {
+  const panel = $('#chat-panel');
+  const avatar = $('#chat-header-avatar');
+  const statusEl = $('#chat-status');
+  const dict = DATA[currentLocale];
+  if (!panel || !avatar || !statusEl) return;
+
+  if (chatStateTimer) {
+    clearTimeout(chatStateTimer);
+    chatStateTimer = null;
+  }
+
+  const safeState = CHAT_AVATARS[state] ? state : 'idle';
+  panel.dataset.state = safeState;
+  avatar.src = CHAT_AVATARS[safeState];
+
+  const statusMap = {
+    idle: dict.chatStatusIdle,
+    thinking: dict.chatStatusThinking,
+    talking: dict.chatStatusTalking,
+    greeting: dict.chatStatusGreeting,
+  };
+  statusEl.textContent = statusMap[safeState] || dict.chatStatusIdle;
+
+  if (revertAfterMs > 0) {
+    chatStateTimer = setTimeout(() => {
+      if (!chatBusy) setChatAvatarState('idle');
+    }, revertAfterMs);
+  }
+}
+
+function appendFormattedText(container, text) {
+  const tokenRegex = /(\*\*[^*]+\*\*|`[^`]+`|https?:\/\/[^\s)]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+  let lastIndex = 0;
+  for (const match of text.matchAll(tokenRegex)) {
+    const idx = match.index ?? 0;
+    if (idx > lastIndex) {
+      container.appendChild(document.createTextNode(text.slice(lastIndex, idx)));
+    }
+    const token = match[0];
+    if (token.startsWith('**') && token.endsWith('**')) {
+      const strong = document.createElement('strong');
+      strong.textContent = token.slice(2, -2);
+      container.appendChild(strong);
+    } else if (token.startsWith('`') && token.endsWith('`')) {
+      const code = document.createElement('code');
+      code.textContent = token.slice(1, -1);
+      container.appendChild(code);
+    } else if (token.startsWith('http://') || token.startsWith('https://')) {
+      const a = document.createElement('a');
+      a.href = token;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = token.replace(/^https?:\/\/(www\.)?/, '');
+      container.appendChild(a);
+    } else {
+      const a = document.createElement('a');
+      a.href = `mailto:${token}`;
+      a.textContent = token;
+      container.appendChild(a);
+    }
+    lastIndex = idx + token.length;
+  }
+  if (lastIndex < text.length) {
+    container.appendChild(document.createTextNode(text.slice(lastIndex)));
+  }
+}
+
+function appendChatBubble(role, content, extraClass = '') {
+  const log = $('#chat-messages');
+  if (!log) return null;
+  const el = document.createElement('div');
+  el.className = `chat-msg chat-msg-${role}${extraClass ? ` ${extraClass}` : ''}`;
+  appendFormattedText(el, content);
+  log.appendChild(el);
+  log.scrollTop = log.scrollHeight;
+  return el;
+}
+
+function renderChatPrompts() {
+  const wrap = $('#chat-prompts');
+  if (!wrap) return;
+  wrap.replaceChildren();
+  const dict = DATA[currentLocale];
+  dict.chatPrompts.forEach((promptText) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'chat-prompt-chip';
+    btn.textContent = promptText;
+    btn.addEventListener('click', () => sendChatMessage(promptText));
+    wrap.appendChild(btn);
+  });
+}
+
+function resetChatMessages() {
+  chatHistory = [];
+  const log = $('#chat-messages');
+  if (!log) return;
+  log.replaceChildren();
+  appendChatBubble('assistant', DATA[currentLocale].chatWelcome);
+}
+
+function renderChatLocale() {
+  const dict = DATA[currentLocale];
+  const input = $('#chat-input');
+  if (input) input.placeholder = dict.chatInputPlaceholder;
+  $('#chat-reset')?.setAttribute('aria-label', dict.chatResetAria);
+  $('#chat-reset')?.setAttribute('title', dict.chatResetAria);
+  $('#chat-close')?.setAttribute('aria-label', dict.chatCloseAria);
+  $('#chat-close')?.setAttribute('title', dict.chatCloseAria);
+  renderChatPrompts();
+
+  const log = $('#chat-messages');
+  if (log && chatHistory.length === 0) {
+    log.replaceChildren();
+    appendChatBubble('assistant', dict.chatWelcome);
+  }
+  const panel = $('#chat-panel');
+  if (panel && !panel.hidden && !chatBusy) {
+    setChatAvatarState(panel.dataset.state || 'idle');
+  }
+}
+
+async function sendChatMessage(rawText) {
+  const text = String(rawText || '').trim();
+  if (!text || chatBusy) return;
+
+  const input = $('#chat-input');
+  const sendBtn = $('#chat-send');
+  const prompts = $('#chat-prompts');
+
+  chatBusy = true;
+  if (input) {
+    input.value = '';
+    input.disabled = true;
+  }
+  if (sendBtn) sendBtn.disabled = true;
+  if (prompts) prompts.hidden = true;
+
+  chatHistory.push({ role: 'user', content: text });
+  appendChatBubble('user', text);
+
+  setChatAvatarState('thinking');
+  const pendingBubble = appendChatBubble('assistant', DATA[currentLocale].chatStatusThinking, 'chat-msg-thinking');
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        locale: currentLocale,
+        messages: chatHistory.slice(-12),
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || typeof data.reply !== 'string') {
+      throw new Error(data.error || 'Chat request failed');
+    }
+
+    pendingBubble?.remove();
+    chatHistory.push({ role: 'assistant', content: data.reply });
+    appendChatBubble('assistant', data.reply);
+    const talkDuration = Math.min(4800, Math.max(2000, data.reply.length * 14));
+    chatBusy = false;
+    setChatAvatarState('talking', talkDuration);
+  } catch {
+    pendingBubble?.remove();
+    appendChatBubble('assistant', DATA[currentLocale].chatError);
+    chatBusy = false;
+    setChatAvatarState('idle');
+  } finally {
+    chatBusy = false;
+    if (input) {
+      input.disabled = false;
+      input.focus();
+    }
+    if (sendBtn) sendBtn.disabled = false;
+  }
+}
+
+function openChatPanel() {
+  const panel = $('#chat-panel');
+  const launcher = $('#chat-launcher');
+  if (!panel || !launcher) return;
+  panel.hidden = false;
+  launcher.setAttribute('aria-expanded', 'true');
+  if (chatHistory.length === 0) {
+    resetChatMessages();
+  }
+  setChatAvatarState('greeting', 2800);
+  $('#chat-input')?.focus();
+}
+
+function closeChatPanel() {
+  const panel = $('#chat-panel');
+  const launcher = $('#chat-launcher');
+  if (!panel || !launcher) return;
+  panel.hidden = true;
+  launcher.setAttribute('aria-expanded', 'false');
+  launcher.focus();
+}
+
+function initChatWidget() {
+  const launcher = $('#chat-launcher');
+  const launcherAvatar = $('#chat-launcher-avatar');
+  const form = $('#chat-form');
+
+  launcher?.addEventListener('click', openChatPanel);
+  launcher?.addEventListener('mouseenter', () => {
+    if (launcherAvatar) launcherAvatar.src = CHAT_AVATARS.greeting;
+  });
+  launcher?.addEventListener('mouseleave', () => {
+    if (launcherAvatar) launcherAvatar.src = CHAT_AVATARS.idle;
+  });
+
+  $('#chat-close')?.addEventListener('click', closeChatPanel);
+  $('#chat-reset')?.addEventListener('click', () => {
+    const prompts = $('#chat-prompts');
+    if (prompts) prompts.hidden = false;
+    resetChatMessages();
+    setChatAvatarState('greeting', 2200);
+  });
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const input = $('#chat-input');
+    if (input) sendChatMessage(input.value);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    const panel = $('#chat-panel');
+    if (event.key === 'Escape' && panel && !panel.hidden) {
+      closeChatPanel();
     }
   });
 }

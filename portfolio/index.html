@@ -351,5 +351,98 @@
         <div class="dialog-body" id="dialog-body"></div>
       </div>
     </dialog>
+
+    <aside class="ai-chat-widget" id="ai-chat-widget" aria-label="Asistente IA de Arnie Calderón">
+      <button
+        type="button"
+        id="chat-launcher"
+        class="chat-launcher"
+        aria-expanded="false"
+        aria-controls="chat-panel"
+      >
+        <span class="chat-launcher-avatar-wrap" aria-hidden="true">
+          <img
+            id="chat-launcher-avatar"
+            src="/assets/avatar/arnie_idle.svg"
+            width="48"
+            height="48"
+            alt=""
+          />
+          <span class="chat-online-dot"></span>
+        </span>
+        <span class="chat-launcher-copy">
+          <strong data-i18n="chatLauncherTitle">Arnie IA</strong>
+          <small data-i18n="chatLauncherSub">Pregúntame sobre mi perfil</small>
+        </span>
+      </button>
+
+      <section
+        id="chat-panel"
+        class="chat-panel"
+        role="dialog"
+        aria-modal="false"
+        aria-labelledby="chat-heading"
+        hidden
+      >
+        <span class="chat-inner-frame" aria-hidden="true"></span>
+        <header class="chat-header">
+          <div class="chat-identity">
+            <img
+              id="chat-header-avatar"
+              class="chat-header-avatar"
+              src="/assets/avatar/arnie_greeting.svg"
+              width="58"
+              height="58"
+              alt="Avatar animado de Arnie Calderón"
+            />
+            <div>
+              <h2 id="chat-heading" data-i18n="chatTitle">Arnie IA · Asistente</h2>
+              <p id="chat-status" class="tabular-meta chat-status" aria-live="polite" data-i18n="chatStatusIdle">
+                Listo para reclutadores · DeepSeek
+              </p>
+            </div>
+          </div>
+          <div class="chat-header-actions">
+            <button
+              type="button"
+              id="chat-reset"
+              class="chat-icon-btn"
+              aria-label="Reiniciar conversación"
+              title="Reiniciar conversación"
+            >
+              ↺
+            </button>
+            <button
+              type="button"
+              id="chat-close"
+              class="chat-icon-btn"
+              aria-label="Cerrar asistente"
+              title="Cerrar"
+            >
+              ✕
+            </button>
+          </div>
+        </header>
+
+        <div id="chat-messages" class="chat-messages" role="log" aria-live="polite"></div>
+
+        <div id="chat-prompts" class="chat-prompts" aria-label="Preguntas rápidas"></div>
+
+        <form id="chat-form" class="chat-form" novalidate>
+          <label class="sr-only" for="chat-input" data-i18n="chatInputLabel">Escribe tu pregunta</label>
+          <input
+            id="chat-input"
+            class="chat-input"
+            type="text"
+            maxlength="600"
+            autocomplete="off"
+            placeholder="Pregunta sobre experiencia, SAP, Ventify, stack..."
+          />
+          <button type="submit" id="chat-send" class="btn-primary chat-send" data-i18n="chatSend">
+            Enviar
+          </button>
+        </form>
+      </section>
+    </aside>
   </body>
 </html>

@@ -1,0 +1,429 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Arnie Calderón AI Avatar — talking">
+  <style>
+    
+      .breath {
+        transform-origin: 256px 460px;
+        animation: breath 3.8s ease-in-out infinite;
+      }
+      .head-group {
+        transform-origin: 256px 350px;
+      }
+      .eyelids-blink {
+        transform-origin: 256px 258px;
+        animation: blink 4.6s ease-in-out infinite;
+      }
+      .lens-glint {
+        animation: glint 5.5s ease-in-out infinite;
+      }
+      @keyframes breath {
+        0%, 100% { transform: translateY(0px) scaleY(1); }
+        50% { transform: translateY(-2.5px) scaleY(1.006); }
+      }
+      @keyframes blink {
+        0%, 92%, 100% { opacity: 0; }
+        95%, 97% { opacity: 1; }
+      }
+      @keyframes glint {
+        0%, 72%, 100% { transform: translateX(0px); opacity: 0.24; }
+        84% { transform: translateX(16px); opacity: 0.48; }
+      }
+    
+    
+          .head-group { animation: talkHead 1.8s ease-in-out infinite; }
+          .mouth-talk-open {
+            transform-origin: 256px 324px;
+            animation: talkMouth 0.46s ease-in-out infinite;
+          }
+          .sound-wave-1 { animation: wavePulse 0.9s ease-in-out 0s infinite; }
+          .sound-wave-2 { animation: wavePulse 0.9s ease-in-out 0.25s infinite; }
+          @keyframes talkHead {
+            0%, 100% { transform: rotate(0deg) translateY(0px); }
+            25% { transform: rotate(1.6deg) translateY(-2px); }
+            75% { transform: rotate(-1.2deg) translateY(-1px); }
+          }
+          @keyframes talkMouth {
+            0%, 100% { transform: scaleY(0.25); opacity: 0.5; }
+            45% { transform: scaleY(1.0); opacity: 1; }
+            70% { transform: scaleY(0.55); opacity: 0.85; }
+          }
+          @keyframes wavePulse {
+            0%, 100% { opacity: 0.25; transform: scale(0.95); }
+            50% { opacity: 0.95; transform: scale(1.04); }
+          }
+        
+  </style>
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#222D40"/>
+      <stop offset="65%" stop-color="#141A25"/>
+      <stop offset="100%" stop-color="#0D1119"/>
+    </radialGradient>
+
+    <radialGradient id="rimGlow" cx="50%" cy="44%" r="44%">
+      <stop offset="0%" stop-color="#4A9EFF" stop-opacity="0.18"/>
+      <stop offset="58%" stop-color="#C8A258" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#141A25" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="skinGrad" x1="25%" y1="15%" x2="78%" y2="88%">
+      <stop offset="0%" stop-color="#EBC0A0"/>
+      <stop offset="52%" stop-color="#DFAC8A"/>
+      <stop offset="100%" stop-color="#CA916E"/>
+    </linearGradient>
+
+    <radialGradient id="foreheadGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F7DAC2" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#F7DAC2" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="cheekBlush" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D47E6B" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#D47E6B" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="neckGrad" x1="35%" y1="0%" x2="65%" y2="100%">
+      <stop offset="0%" stop-color="#B67E5D"/>
+      <stop offset="38%" stop-color="#D59F7E"/>
+      <stop offset="100%" stop-color="#C48C6A"/>
+    </linearGradient>
+
+    <linearGradient id="hairMain" x1="20%" y1="5%" x2="80%" y2="95%">
+      <stop offset="0%" stop-color="#202534"/>
+      <stop offset="45%" stop-color="#131620"/>
+      <stop offset="100%" stop-color="#0A0C12"/>
+    </linearGradient>
+
+    <linearGradient id="hairLayer" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#252B3C"/>
+      <stop offset="60%" stop-color="#151924"/>
+      <stop offset="100%" stop-color="#0E1018"/>
+    </linearGradient>
+
+    <linearGradient id="hairSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5A6B91" stop-opacity="0.46"/>
+      <stop offset="55%" stop-color="#313B54" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#12141C" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="shirtGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#26334D"/>
+      <stop offset="55%" stop-color="#1A2438"/>
+      <stop offset="100%" stop-color="#111826"/>
+    </linearGradient>
+
+    <linearGradient id="teeGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#191C23"/>
+      <stop offset="100%" stop-color="#0C0E13"/>
+    </linearGradient>
+
+    <linearGradient id="frameMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F6F0E4"/>
+      <stop offset="45%" stop-color="#D5CCB9"/>
+      <stop offset="100%" stop-color="#A69D8B"/>
+    </linearGradient>
+
+    <linearGradient id="lensAR" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#87B6FF" stop-opacity="0.25"/>
+      <stop offset="45%" stop-color="#A298FF" stop-opacity="0.11"/>
+      <stop offset="72%" stop-color="#6EA2FF" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#7EA8FF" stop-opacity="0.20"/>
+    </linearGradient>
+
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C37E" stop-opacity="0.68"/>
+      <stop offset="50%" stop-color="#B9924A" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#E2C37E" stop-opacity="0.58"/>
+    </linearGradient>
+
+    <clipPath id="avatarClip">
+      <rect x="16" y="16" width="480" height="480" rx="96" ry="96"/>
+    </clipPath>
+
+    <clipPath id="lensClipL">
+      <path d="M 164 258 C 164 241, 182 234, 206 235 C 228 236, 241 246, 240 264 C 239 284, 222 298, 201 298 C 178 298, 164 282, 164 258 Z"/>
+    </clipPath>
+    <clipPath id="lensClipR">
+      <path d="M 272 264 C 271 246, 284 236, 306 235 C 330 234, 348 241, 348 258 C 348 282, 334 298, 311 298 C 290 298, 273 284, 272 264 Z"/>
+    </clipPath>
+    <clipPath id="eyeClipL">
+      <path d="M 185 260 C 195 253, 215 253, 225 261 C 216 267, 196 267, 185 260 Z"/>
+    </clipPath>
+    <clipPath id="eyeClipR">
+      <path d="M 287 261 C 297 253, 317 253, 327 260 C 316 267, 296 267, 287 261 Z"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#avatarClip)">
+    <!-- 1. Editorial Dark-Slate Backdrop & Subtle Cartographic Contours -->
+    <rect x="16" y="16" width="480" height="480" fill="url(#bgGrad)"/>
+    <rect x="16" y="16" width="480" height="480" fill="url(#rimGlow)"/>
+
+    <g fill="none" stroke="#8EB6E6" stroke-opacity="0.06" stroke-width="1.2">
+      <circle cx="256" cy="242" r="148"/>
+      <circle cx="256" cy="242" r="192"/>
+      <circle cx="256" cy="242" r="238"/>
+      <path d="M 30 370 Q 150 320 260 355 T 490 310"/>
+      <path d="M 20 120 Q 170 160 280 110 T 500 155"/>
+    </g>
+
+    <g class="breath">
+      <!-- 2. Shoulders, Black Crew-Neck Tee & Open Dark-Navy Collared Overshirt -->
+      <g id="outfit">
+        <path d="M 74 504 C 84 438, 122 402, 178 386 L 256 378 L 334 386 C 390 402, 428 438, 438 504 Z" fill="url(#shirtGrad)"/>
+        <path d="M 186 388 L 326 388 L 314 504 L 198 504 Z" fill="url(#teeGrad)"/>
+        <path d="M 196 386 C 212 420, 300 420, 316 386 C 306 381, 294 379, 286 380 C 274 402, 238 402, 226 380 C 218 379, 206 381, 196 386 Z" fill="#1C2029"/>
+        <path d="M 202 388 C 218 414, 294 414, 310 388" fill="none" stroke="#2D3240" stroke-width="2" stroke-linecap="round"/>
+
+        <path d="M 74 504 C 84 438, 122 402, 178 386 L 204 382 L 198 504 Z" fill="url(#shirtGrad)"/>
+        <path d="M 102 456 C 122 424, 152 404, 182 394" fill="none" stroke="#36486B" stroke-width="2.4" stroke-opacity="0.52" stroke-linecap="round"/>
+
+        <path d="M 438 504 C 428 438, 390 402, 334 386 L 308 382 L 314 504 Z" fill="url(#shirtGrad)"/>
+        <path d="M 410 456 C 390 424, 360 404, 330 394" fill="none" stroke="#36486B" stroke-width="2.4" stroke-opacity="0.44" stroke-linecap="round"/>
+        <path d="M 334 450 L 378 450 L 378 488 C 378 492, 374 495, 369 495 L 343 495 C 338 495, 334 492, 334 488 Z" fill="#182235" stroke="#2E3E5C" stroke-width="1.5"/>
+
+        <path d="M 188 384 C 194 366, 210 358, 224 358 L 288 358 C 302 358, 318 366, 324 384 Z" fill="#0F1522"/>
+        <path d="M 212 362 L 182 380 L 154 420 L 198 432 L 210 392 Z" fill="#212E47" stroke="#334569" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M 300 362 L 330 380 L 358 420 L 314 432 L 302 392 Z" fill="#1D2940" stroke="#2F4062" stroke-width="1.4" stroke-linejoin="round"/>
+        <line x1="312" y1="430" x2="313" y2="504" stroke="#2C3B59" stroke-width="1.5"/>
+        <circle cx="321" cy="458" r="3.4" fill="#0E131F" stroke="#37486B" stroke-width="1"/>
+        <circle cx="322" cy="490" r="3.4" fill="#0E131F" stroke="#37486B" stroke-width="1"/>
+      </g>
+
+      <!-- 3. Neck -->
+      <g id="neck">
+        <path d="M 218 332 L 294 332 L 300 390 C 280 406, 232 406, 212 390 Z" fill="url(#neckGrad)"/>
+        <path d="M 218 336 C 236 368, 276 368, 294 336 L 296 354 C 276 380, 236 380, 216 354 Z" fill="#9E6A4E" opacity="0.56"/>
+        <path d="M 234 378 Q 256 389 278 378" fill="none" stroke="#B67F60" stroke-width="1.5" opacity="0.38" stroke-linecap="round"/>
+      </g>
+
+      <!-- 4. Animated Head Group -->
+      <g class="head-group">
+        <!-- Back Korean Two-Block Hair Volume (fuller on upper sides & crown!) -->
+        <path d="M 134 220 C 122 146, 160 72, 258 68 C 356 72, 390 144, 378 220 C 374 252, 362 276, 344 292 L 168 292 C 150 276, 138 252, 134 220 Z" fill="#0C0E15"/>
+
+        <!-- Ears -->
+        <g id="ears">
+          <path d="M 167 250 C 152 248, 148 267, 152 285 C 155 299, 163 306, 172 302 Z" fill="#D59E7C"/>
+          <path d="M 165 260 C 156 261, 155 275, 158 287 C 160 293, 165 296, 169 293" fill="none" stroke="#B07A5B" stroke-width="2.1" stroke-linecap="round"/>
+          <path d="M 345 250 C 360 248, 364 267, 360 285 C 357 299, 349 306, 340 302 Z" fill="#CE9775"/>
+          <path d="M 347 260 C 356 261, 357 275, 354 287 C 352 293, 347 296, 343 293" fill="none" stroke="#A67153" stroke-width="2.1" stroke-linecap="round"/>
+        </g>
+
+        <!-- Lean, Defined Adult Masculine Face -->
+        <g id="face">
+          <path d="M 169 208
+                   C 167 148, 200 114, 256 114
+                   C 312 114, 345 148, 343 208
+                   L 341 274
+                   C 340 301, 330 324, 314 339
+                   C 297 355, 275 369, 256 370
+                   C 237 369, 215 355, 198 339
+                   C 182 324, 172 301, 171 274 Z"
+                fill="url(#skinGrad)"/>
+
+          <!-- Sculptural cheek & jawline shadow planes -->
+          <path d="M 341 254 L 339 278 C 337 303, 327 326, 311 340 C 294 356, 274 368, 256 369 C 275 361, 296 346, 310 330 C 323 315, 330 293, 333 262 Z" fill="#BC8463" opacity="0.34"/>
+          <path d="M 171 264 C 173 294, 182 319, 199 336 C 213 350, 229 361, 246 368 C 228 358, 210 343, 198 326 C 187 310, 180 288, 178 262 Z" fill="#C48D6C" opacity="0.22"/>
+          <ellipse cx="198" cy="288" rx="22" ry="12" fill="url(#cheekBlush)"/>
+          <ellipse cx="314" cy="288" rx="22" ry="12" fill="url(#cheekBlush)"/>
+          <ellipse cx="264" cy="204" rx="30" ry="16" fill="url(#foreheadGlow)"/>
+
+          <!-- Refined Straight Nose (matching Arnie's photo!) -->
+          <path d="M 254 240 C 252 258, 249 278, 247 291 C 245 298, 250 303, 256 303 C 262 303, 266 299, 265 293"
+                fill="none" stroke="#B57D5D" stroke-width="2.0" stroke-linecap="round"/>
+          <path d="M 258 242 L 264 289 C 266 296, 262 303, 256 303 C 264 303, 270 299, 269 292 L 262 244 Z" fill="#BD8565" opacity="0.25"/>
+          <path d="M 254 250 L 252 288" stroke="#F8DEC9" stroke-width="1.9" stroke-linecap="round" opacity="0.48"/>
+          <ellipse cx="249" cy="299" rx="3.1" ry="1.6" fill="#8C5941" opacity="0.52" transform="rotate(-12 249 299)"/>
+          <ellipse cx="263" cy="299" rx="3.1" ry="1.6" fill="#8C5941" opacity="0.52" transform="rotate(12 263 299)"/>
+
+          <!-- State-specific Mouth + Subtle Chin Shadow -->
+          
+          <!-- Natural animated speaking mouth -->
+          <path d="M 230 324 C 240 319, 250 319, 256 321 C 262 319, 272 319, 282 324 C 272 325, 240 325, 230 324 Z" fill="#B57367"/>
+          <g class="mouth-talk-open">
+            <path d="M 234 324 C 244 337, 268 337, 278 324 Z" fill="#5D2B29"/>
+            <path d="M 240 324 L 272 324 C 270 328, 242 328, 240 324 Z" fill="#F4F1EC" opacity="0.92"/>
+            <ellipse cx="256" cy="333" rx="10" ry="3.2" fill="#B85C57" opacity="0.7"/>
+          </g>
+          <path d="M 233 331 C 244 339, 268 339, 279 331" fill="none" stroke="#C9877A" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M 230 324 C 243 326, 269 326, 282 324" fill="none" stroke="#7A453E" stroke-width="1.6" stroke-linecap="round"/>
+        
+          <path d="M 244 344 Q 256 348 268 344" fill="none" stroke="#AD7758" stroke-width="2.0" stroke-linecap="round" opacity="0.36"/>
+        </g>
+
+        <!-- Focused Calm Eyes & Thick Straight Brows -->
+        <g id="eyes-and-brows">
+          <!-- Viewer's Left Eye (sleek focused almond, clipped cleanly inside sclera!) -->
+          <g>
+            <path d="M 183 252 C 194 246, 214 246, 226 253" fill="none" stroke="#B67F60" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
+            <path d="M 185 260 C 195 253, 215 253, 225 261 C 216 267, 196 267, 185 260 Z" fill="#F4F1EB"/>
+            <g clip-path="url(#eyeClipL)">
+              <g class="pupils" >
+                <circle cx="206" cy="260" r="7.4" fill="#281811"/>
+                <circle cx="206" cy="260" r="3.8" fill="#0A0809"/>
+                <circle cx="206" cy="260" r="7.4" fill="none" stroke="#130B08" stroke-width="1.1"/>
+                <circle cx="209" cy="257.5" r="2.0" fill="#FFFFFF" opacity="0.95"/>
+                <circle cx="203.5" cy="262.5" r="0.9" fill="#FFFFFF" opacity="0.5"/>
+              </g>
+            </g>
+            <!-- Calm slightly hooded upper lid line -->
+            <path d="M 183 260 C 194 252, 215 252, 227 261" fill="none" stroke="#141216" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M 190 265 C 200 268, 213 267, 222 264" fill="none" stroke="#B57E60" stroke-width="1.3" stroke-linecap="round" opacity="0.58"/>
+          </g>
+
+          <!-- Viewer's Right Eye -->
+          <g>
+            <path d="M 286 253 C 298 246, 318 246, 329 252" fill="none" stroke="#B67F60" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
+            <path d="M 287 261 C 297 253, 317 253, 327 260 C 316 267, 296 267, 287 261 Z" fill="#F4F1EB"/>
+            <g clip-path="url(#eyeClipR)">
+              <g class="pupils" >
+                <circle cx="306" cy="260" r="7.4" fill="#281811"/>
+                <circle cx="306" cy="260" r="3.8" fill="#0A0809"/>
+                <circle cx="306" cy="260" r="7.4" fill="none" stroke="#130B08" stroke-width="1.1"/>
+                <circle cx="309" cy="257.5" r="2.0" fill="#FFFFFF" opacity="0.95"/>
+                <circle cx="303.5" cy="262.5" r="0.9" fill="#FFFFFF" opacity="0.5"/>
+              </g>
+            </g>
+            <path d="M 285 261 C 297 252, 318 252, 329 260" fill="none" stroke="#141216" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M 290 264 C 299 267, 312 268, 322 265" fill="none" stroke="#B57E60" stroke-width="1.3" stroke-linecap="round" opacity="0.58"/>
+          </g>
+
+          <!-- Periodic Natural Blink Overlay (default opacity=0 so eyes stay open!) -->
+          <g class="eyelids-blink" opacity="0">
+            <path d="M 183 260 C 194 252, 215 252, 227 261 C 216 268, 195 268, 183 260 Z" fill="#DFAC8A"/>
+            <path d="M 184 261 Q 205 265 226 261" fill="none" stroke="#141216" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M 285 261 C 297 252, 318 252, 329 260 C 317 268, 296 268, 285 261 Z" fill="#DFAC8A"/>
+            <path d="M 286 261 Q 307 265 328 261" fill="none" stroke="#141216" stroke-width="2.6" stroke-linecap="round"/>
+          </g>
+
+          <!-- State-specific Eyebrows -->
+          
+          <path d="M 176 227 C 194 219, 216 220, 237 226 C 239 230, 236 234, 231 233 C 213 229, 193 229, 178 233 C 175 233, 174 229, 176 227 Z" fill="#11131B"/>
+          <path d="M 336 227 C 318 219, 296 220, 275 226 C 273 230, 276 234, 281 233 C 299 229, 319 229, 334 233 C 337 233, 338 229, 336 227 Z" fill="#11131B"/>
+        
+        </g>
+
+        <!-- Featherlight Champagne-Silver Geometric-Round Glasses + Animated Blue-Violet AR Glint -->
+        <g id="glasses">
+          <path d="M 166 264 C 166 286, 180 302, 202 302 C 223 302, 239 288, 241 270" fill="none" stroke="#8C5941" stroke-width="1.8" opacity="0.14"/>
+          <path d="M 271 270 C 273 288, 289 302, 310 302 C 332 302, 346 286, 346 264" fill="none" stroke="#8C5941" stroke-width="1.8" opacity="0.14"/>
+
+          <path d="M 164 258 C 164 241, 182 234, 206 235 C 228 236, 241 246, 240 264 C 239 284, 222 298, 201 298 C 178 298, 164 282, 164 258 Z" fill="url(#lensAR)"/>
+          <path d="M 272 264 C 271 246, 284 236, 306 235 C 330 234, 348 241, 348 258 C 348 282, 334 298, 311 298 C 290 298, 273 284, 272 264 Z" fill="url(#lensAR)"/>
+
+          <g clip-path="url(#lensClipL)">
+            <g class="lens-glint" opacity="0.22">
+              <path d="M 156 292 L 214 228 L 228 228 L 170 292 Z" fill="#A9C8FF"/>
+              <path d="M 180 302 L 238 238 L 244 238 L 186 302 Z" fill="#FFFFFF" opacity="0.5"/>
+            </g>
+          </g>
+          <g clip-path="url(#lensClipR)">
+            <g class="lens-glint" opacity="0.22">
+              <path d="M 264 292 L 322 228 L 336 228 L 278 292 Z" fill="#A9C8FF"/>
+              <path d="M 288 302 L 346 238 L 352 238 L 294 302 Z" fill="#FFFFFF" opacity="0.5"/>
+            </g>
+          </g>
+
+          <ellipse cx="243" cy="262" rx="2.3" ry="5.0" fill="#EDE7DF" opacity="0.60" transform="rotate(14 243 262)"/>
+          <ellipse cx="269" cy="262" rx="2.3" ry="5.0" fill="#EDE7DF" opacity="0.60" transform="rotate(-14 269 262)"/>
+
+          <path d="M 164 258 C 164 241, 182 234, 206 235 C 228 236, 241 246, 240 264 C 239 284, 222 298, 201 298 C 178 298, 164 282, 164 258 Z"
+                fill="none" stroke="url(#frameMetal)" stroke-width="2.1"/>
+          <path d="M 272 264 C 271 246, 284 236, 306 235 C 330 234, 348 241, 348 258 C 348 282, 334 298, 311 298 C 290 298, 273 284, 272 264 Z"
+                fill="none" stroke="url(#frameMetal)" stroke-width="2.1"/>
+          <path d="M 240 254 Q 256 246 272 254" fill="none" stroke="url(#frameMetal)" stroke-width="2.0" stroke-linecap="round"/>
+          <path d="M 164 254 L 153 252 L 147 256" fill="none" stroke="url(#frameMetal)" stroke-width="2.0" stroke-linecap="round"/>
+          <path d="M 348 254 L 359 252 L 365 256" fill="none" stroke="url(#frameMetal)" stroke-width="2.0" stroke-linecap="round"/>
+        </g>
+
+        <!-- 5. Authentic 60:40 Korean Curtain / Comma Hair (part at x≈290, fuller 60% sweep left, 40% comma right!) -->
+        <g id="hair-korean-6040">
+          <!-- Soft cast shadow under swept 60:40 bangs -->
+          <path d="M 168 232 C 194 222, 224 202, 254 182 C 272 170, 284 156, 290 144 C 304 170, 324 198, 344 226 L 344 212 C 324 184, 304 156, 290 134 C 276 146, 252 164, 224 184 C 198 202, 178 214, 168 220 Z" fill="#9B674C" opacity="0.26"/>
+
+          <!-- 60% Side (Viewer's Left): Thick, fluffy Korean swept volume arcing UP from the 60:40 part (x=290) and sweeping across left forehead & temple! -->
+          <path d="M 290 96
+                   C 262 72, 198 72, 156 118
+                   C 130 148, 126 196, 138 238
+                   C 144 256, 152 268, 160 274
+                   C 156 248, 160 226, 174 212
+                   C 192 194, 222 184, 248 168
+                   C 268 156, 282 140, 290 124 Z"
+                fill="url(#hairMain)"/>
+
+          <!-- 60% Layered Sweeping Comma-Bang Lock 1 (drapes gracefully across forehead toward outer left brow) -->
+          <path d="M 289 116
+                   C 262 118, 226 136, 198 168
+                   C 180 188, 168 212, 160 238
+                   C 178 220, 198 206, 220 192
+                   C 246 176, 272 154, 290 128 Z"
+                fill="url(#hairLayer)"/>
+
+          <!-- 60% Layered Sweeping Bang Lock 2 (mid-forehead soft feathered curve) -->
+          <path d="M 288 122
+                   C 266 138, 238 160, 214 188
+                   C 202 202, 192 216, 184 228
+                   C 202 214, 224 198, 246 180
+                   C 266 164, 280 146, 290 128 Z"
+                fill="#181D2A"/>
+
+          <!-- 60% Inner Feather Comma Lock (soft dark curved strand dipping lightly toward glasses bridge!) -->
+          <path d="M 288 128
+                   C 276 150, 260 176, 246 204
+                   C 240 216, 237 226, 238 232
+                   C 244 220, 254 202, 266 180
+                   C 276 162, 285 144, 291 130 Z"
+                fill="#12151E"/>
+
+          <!-- 40% Side (Viewer's Right): Fluffy lifted Korean comma drape curving softly over right forehead & temple -->
+          <path d="M 286 96
+                   C 318 78, 360 96, 378 142
+                   C 388 174, 386 218, 372 254
+                   C 366 266, 358 274, 352 278
+                   C 356 248, 351 220, 338 198
+                   C 326 178, 306 158, 294 140
+                   C 290 134, 288 128, 288 120 Z"
+                fill="url(#hairMain)"/>
+
+          <!-- 40% Soft Curved Comma Bang (curves gently inward-then-down over right brow — classic Korean 60:40!) -->
+          <path d="M 290 118
+                   C 316 128, 336 152, 344 184
+                   C 348 202, 346 222, 338 238
+                   C 334 218, 326 196, 314 176
+                   C 304 160, 294 144, 288 126 Z"
+                fill="url(#hairLayer)"/>
+
+          <!-- Subtle soft curved 40% inner comma wisp -->
+          <path d="M 292 128 C 306 146, 318 168, 322 194 C 316 176, 304 152, 291 132 Z" fill="#141822" opacity="0.90"/>
+
+          <!-- Fluffy Crown Lift around the 60:40 Part -->
+          <path d="M 206 106 C 234 74, 268 72, 290 94 C 312 80, 344 92, 362 124 C 336 104, 308 102, 290 116 C 266 96, 232 94, 206 106 Z" fill="#1A1F2D"/>
+
+          <!-- Clean Tapered Two-Block Sideburns -->
+          <path d="M 167 220 C 165 236, 165 250, 169 264 C 172 252, 174 238, 175 222 Z" fill="#12141C"/>
+          <path d="M 345 220 C 347 236, 347 250, 343 264 C 340 252, 338 238, 337 222 Z" fill="#12141C"/>
+
+          <!-- Silky Korean Hair Highlight Ribbons -->
+          <path d="M 272 98 C 228 96, 180 128, 156 182 C 172 146, 206 118, 260 108 Z" fill="url(#hairSheen)"/>
+          <path d="M 302 100 C 332 108, 358 136, 368 182 C 358 148, 334 122, 306 110 Z" fill="url(#hairSheen)"/>
+          <path d="M 252 112 C 216 130, 186 164, 168 206" fill="none" stroke="#526285" stroke-width="2.0" stroke-opacity="0.34" stroke-linecap="round"/>
+          <path d="M 276 118 C 248 138, 222 164, 202 194" fill="none" stroke="#526285" stroke-width="1.6" stroke-opacity="0.26" stroke-linecap="round"/>
+          <path d="M 310 114 C 334 134, 352 164, 362 200" fill="none" stroke="#526285" stroke-width="1.8" stroke-opacity="0.28" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- 6. State-Specific Personality Accent -->
+    
+          <!-- Subtle active voice/stream waves -->
+          <g transform="translate(402, 232)" fill="none" stroke-linecap="round">
+            <path class="sound-wave-1" d="M 0 -16 Q 12 0 0 16" stroke="#58C4FF" stroke-width="3.2"/>
+            <path class="sound-wave-2" d="M 12 -26 Q 28 0 12 26" stroke="#E2C37E" stroke-width="2.6"/>
+          </g>
+        
+  </g>
+
+  <!-- Crisp Editorial Frame -->
+  <rect x="16" y="16" width="480" height="480" rx="96" ry="96" fill="none" stroke="url(#goldRing)" stroke-width="3"/>
+  <rect x="24" y="24" width="464" height="464" rx="88" ry="88" fill="none" stroke="#8EB6E6" stroke-opacity="0.12" stroke-width="1"/>
+</svg>

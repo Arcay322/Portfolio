@@ -174,6 +174,16 @@ export async function buildPortfolio() {
 
   const configPath = path.join(root, 'firebase.json');
   const firebase = JSON.parse(await readFile(configPath, 'utf8'));
+  firebase.functions = [
+    {
+      source: 'functions',
+      codebase: 'default',
+      ignore: ['node_modules', '.git', 'firebase-debug.log', 'firebase-debug.*.log'],
+    },
+  ];
+  firebase.hosting.rewrites = [
+    { source: '/api/chat', function: { functionId: 'chat', region: 'us-central1' } },
+  ];
   firebase.hosting.redirects = [
     { source: '/es', destination: '/', type: 301 },
     { source: '/es/', destination: '/', type: 301 },

@@ -46,3 +46,4 @@ firestore-debug.log
 # Static portfolio build and Hosting emulator state
 /dist/
 /.firebase/
+/functions/node_modules/

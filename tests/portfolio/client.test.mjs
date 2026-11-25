@@ -97,3 +97,39 @@ test('copy email reports success and handles unavailable clipboard gracefully', 
 
   dom.window.close();
 });
+
+test('AI recruiter chatbot opens, switches animated SVG states, and renders API replies', async () => {
+  const dom = await load('index.html', '');
+  dom.window.fetch = async () => ({
+    ok: true,
+    async json() {
+      return { reply: 'Arnie desarrolló **Ventify** en Next.js y Firebase.', mode: 'live' };
+    },
+  });
+  dom.window.eval(script);
+  const d = dom.window.document;
+
+  const launcher = d.getElementById('chat-launcher');
+  const panel = d.getElementById('chat-panel');
+  const avatar = d.getElementById('chat-header-avatar');
+
+  assert.equal(panel.hidden, true);
+  launcher.click();
+  assert.equal(panel.hidden, false);
+  assert.equal(avatar.getAttribute('src'), '/assets/avatar/arnie_greeting.svg');
+
+  const firstPrompt = d.querySelector('.chat-prompt-chip');
+  assert.ok(firstPrompt);
+  firstPrompt.click();
+  assert.equal(avatar.getAttribute('src'), '/assets/avatar/arnie_thinking.svg');
+
+  await new Promise((resolve) => setImmediate(resolve));
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(avatar.getAttribute('src'), '/assets/avatar/arnie_talking.svg');
+  assert.match(d.getElementById('chat-messages').textContent, /Ventify/);
+
+  d.getElementById('chat-close').click();
+  assert.equal(panel.hidden, true);
+
+  dom.window.close();
+});
