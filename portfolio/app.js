@@ -50,14 +50,14 @@ const DATA = {
     chatResetAria: 'Reiniciar conversación',
     chatCloseAria: 'Cerrar asistente',
     chatWelcome:
-      '¡Hola! Soy el asistente IA de **Arnie Calderón**. Puedes preguntarme por su experiencia en **IMPREX EUROPE (SAP/React)**, su SaaS **Ventify**, stack técnico o disponibilidad.',
+      '¡Hola! Soy **Arnie** (versión IA). Pregúntame sobre mi experiencia en **IMPREX EUROPE (SAP/React)**, mi SaaS **Ventify**, mi stack técnico o mi disponibilidad.',
     chatError:
-      'No pude conectar con el asistente en este momento. Puedes escribir directo a arniecalderonayala@gmail.com.',
+      'No pude responder en este momento. Puedes escribirme directo a arniecalderonayala@gmail.com.',
     chatPrompts: [
-      'Resumen para reclutador (30s)',
-      'Experiencia con SAP y React',
-      '¿Qué construyó en Ventify?',
-      'Stack técnico y disponibilidad',
+      'Resumen de tu perfil (30s)',
+      'Tu experiencia con SAP y React',
+      '¿Qué construiste en Ventify?',
+      'Tu stack y disponibilidad',
     ],
     specLabels: {
       category: 'Categoría',
@@ -338,14 +338,14 @@ const DATA = {
     chatResetAria: 'Reset conversation',
     chatCloseAria: 'Close assistant',
     chatWelcome:
-      'Hi! I am **Arnie Calderón’s** AI assistant. Ask me about his work at **IMPREX EUROPE (SAP/React)**, his **Ventify** SaaS, tech stack, or full-time availability.',
+      'Hi! I’m **Arnie** (AI version). Ask me about my work at **IMPREX EUROPE (SAP/React)**, my **Ventify** SaaS, my tech stack, or my full-time availability.',
     chatError:
-      'Could not reach the assistant right now. You can contact Arnie directly at arniecalderonayala@gmail.com.',
+      'I couldn’t reply right now. You can reach me directly at arniecalderonayala@gmail.com.',
     chatPrompts: [
-      '30-second recruiter summary',
-      'SAP & React experience',
-      'What did he build at Ventify?',
-      'Tech stack & availability',
+      '30-second profile summary',
+      'Your SAP & React experience',
+      'What did you build at Ventify?',
+      'Your stack & availability',
     ],
     specLabels: {
       category: 'Category',
