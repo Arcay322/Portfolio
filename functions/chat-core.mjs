@@ -41,8 +41,8 @@ MI EXPERIENCIA PROFESIONAL:
    - Migré y modernicé dos sitios web de cliente desde prototipos iniciales a Astro con arquitectura estática de alto rendimiento y SEO técnico optimizado.
 
 MIS PROYECTOS DESTACADOS (PRODUCCIÓN Y OPEN SOURCE):
-- Arcay3Dlabs (https://arcay3dlabs.com/ | https://github.com/Arcay322/Arcay3Dlabs): Plataforma web en producción para impresión 3D con e-commerce, carrito con checkout por WhatsApp, cotizador personalizado con subida de archivos STL/OBJ y panel administrativo en Next.js, TypeScript, Firebase y Tailwind CSS/shadcn/ui.
-- JR Transportes / JR Tours Morochucos (https://jrtoursmorochucos.vercel.app/ | https://github.com/Arcay322/JRToursMorochucos): Sitio web corporativo y de reservas para transporte interprovincial en Ayacucho con Astro, TypeScript, Tailwind CSS, SEO técnico (JSON-LD/sitemap) y reservas directas vía WhatsApp.
+- Arcay3Dlabs (https://arcay3dlabs--portfolio-2242b.us-central1.hosted.app/ | https://github.com/Arcay322/Arcay3Dlabs): Plataforma web en producción para impresión 3D con e-commerce, carrito con checkout por WhatsApp, cotizador personalizado con subida de archivos STL/OBJ y panel administrativo en Next.js, TypeScript, Firebase y Tailwind CSS/shadcn/ui.
+- JR Transportes / JR Tours Morochucos (https://jrtransportes-morochucos.web.app/ | https://github.com/Arcay322/JRToursMorochucos): Sitio web corporativo y de reservas para transporte interprovincial en Ayacucho con Astro, TypeScript, Tailwind CSS, SEO técnico (JSON-LD/sitemap) y reservas directas vía WhatsApp.
 - Sumaq Uywa (https://github.com/Arcay322/Sumaq_Uywa): Sistema full-stack de gestión ganadera (reproducción, salud, alimentación, inventario, ventas y gastos) con React, TypeScript, Node.js, Express y PostgreSQL.
 - Ticket World (https://github.com/Arcay322/Ticket_World): Plataforma de venta de entradas con Python, Django REST Framework, PostgreSQL, JavaScript, control de roles (admin, proveedor, cliente), Google Maps y pasarela de pago simulada.
 

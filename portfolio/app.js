@@ -252,8 +252,8 @@ const DATA = {
         summary:
           'Plataforma web para negocio de impresión 3D con catálogo e-commerce, carrito persistente con checkout por WhatsApp, cotizador con subida de archivos STL/OBJ y panel administrativo.',
         stack: 'Next.js · TypeScript · Firebase · Tailwind CSS · shadcn/ui',
-        extUrl: 'https://arcay3dlabs.com/',
-        extLabel: 'arcay3dlabs.com',
+        extUrl: 'https://arcay3dlabs--portfolio-2242b.us-central1.hosted.app/',
+        extLabel: 'Arcay3Dlabs (Live)',
         context:
           'Construida para digitalizar ventas y cotizaciones personalizadas de impresión 3D integrando catálogo, galería y pedidos directos.',
         bullets: [
@@ -284,8 +284,8 @@ const DATA = {
         summary:
           'Sitio web corporativo y de reservas para empresa de transporte interprovincial en Ayacucho, construido con Astro y Tailwind CSS orientado a SEO técnico y velocidad de carga.',
         stack: 'Astro · TypeScript · Tailwind CSS · SEO Técnico',
-        extUrl: 'https://jrtoursmorochucos.vercel.app/',
-        extLabel: 'jrtoursmorochucos.vercel.app',
+        extUrl: 'https://jrtransportes-morochucos.web.app/',
+        extLabel: 'jrtransportes-morochucos.web.app',
         context:
           'Modernizar la presencia digital de una empresa de transporte interprovincial facilitando la consulta de rutas, servicios y reservas directas.',
         bullets: [
@@ -603,8 +603,8 @@ const DATA = {
         summary:
           'Web platform for a 3D printing business featuring an e-commerce catalog, persistent cart with WhatsApp checkout, custom STL/OBJ quote uploads, and an admin panel.',
         stack: 'Next.js · TypeScript · Firebase · Tailwind CSS · shadcn/ui',
-        extUrl: 'https://arcay3dlabs.com/',
-        extLabel: 'arcay3dlabs.com',
+        extUrl: 'https://arcay3dlabs--portfolio-2242b.us-central1.hosted.app/',
+        extLabel: 'Arcay3Dlabs (Live)',
         context:
           'Built to streamline custom 3D printing quotes and catalog orders with direct customer checkout.',
         bullets: [
@@ -635,8 +635,8 @@ const DATA = {
         summary:
           'Corporate and booking website for an interprovincial transport company in Ayacucho, built with Astro and Tailwind CSS for technical SEO and fast loading.',
         stack: 'Astro · TypeScript · Tailwind CSS · Technical SEO',
-        extUrl: 'https://jrtoursmorochucos.vercel.app/',
-        extLabel: 'jrtoursmorochucos.vercel.app',
+        extUrl: 'https://jrtransportes-morochucos.web.app/',
+        extLabel: 'jrtransportes-morochucos.web.app',
         context:
           'Modernized the digital presence of a regional transport company to showcase routes, services, and instant bookings.',
         bullets: [
