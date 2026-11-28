@@ -20,17 +20,17 @@ pdfmetrics.registerFont(TTFont("Liberation-Italic", str(FONT_DIR / "LiberationSe
 pdfmetrics.registerFontFamily("Liberation", normal="Liberation", bold="Liberation-Bold", italic="Liberation-Italic")
 
 LINK_COLOR = "#1a4b8c"
-BASE = dict(fontName="Liberation", fontSize=9.5, leading=11.6, textColor=colors.black)
+BASE = dict(fontName="Liberation", fontSize=8.9, leading=10.6, textColor=colors.black)
 STYLES = {
-    "name": ParagraphStyle("name", **{**BASE, "fontName": "Liberation-Bold", "fontSize": 18.5, "leading": 22}, alignment=TA_CENTER, spaceAfter=2),
-    "role": ParagraphStyle("role", **{**BASE, "fontSize": 9.8, "leading": 12}, alignment=TA_CENTER, spaceAfter=2),
-    "contact": ParagraphStyle("contact", **{**BASE, "fontSize": 8.8, "leading": 10.6}, alignment=TA_CENTER, spaceAfter=5),
-    "section": ParagraphStyle("section", **{**BASE, "fontName": "Liberation-Bold", "fontSize": 9.8, "leading": 11.8}, spaceBefore=6, spaceAfter=2, keepWithNext=True),
-    "job": ParagraphStyle("job", **{**BASE, "fontName": "Liberation-Bold"}, spaceBefore=3, spaceAfter=1, keepWithNext=True),
-    "meta": ParagraphStyle("meta", **{**BASE, "fontName": "Liberation-Italic", "fontSize": 9.2, "leading": 11}, spaceAfter=2, keepWithNext=True),
+    "name": ParagraphStyle("name", **{**BASE, "fontName": "Liberation-Bold", "fontSize": 17.0, "leading": 20}, alignment=TA_CENTER, spaceAfter=1.5),
+    "role": ParagraphStyle("role", **{**BASE, "fontSize": 9.3, "leading": 11}, alignment=TA_CENTER, spaceAfter=1.5),
+    "contact": ParagraphStyle("contact", **{**BASE, "fontSize": 8.4, "leading": 10}, alignment=TA_CENTER, spaceAfter=3.5),
+    "section": ParagraphStyle("section", **{**BASE, "fontName": "Liberation-Bold", "fontSize": 9.3, "leading": 10.8}, spaceBefore=4.5, spaceAfter=1.5, keepWithNext=True),
+    "job": ParagraphStyle("job", **{**BASE, "fontName": "Liberation-Bold"}, spaceBefore=2.2, spaceAfter=0.5, keepWithNext=True),
+    "meta": ParagraphStyle("meta", **{**BASE, "fontName": "Liberation-Italic", "fontSize": 8.6, "leading": 10}, spaceAfter=1.2, keepWithNext=True),
     "right": ParagraphStyle("right", **BASE, alignment=TA_RIGHT),
-    "body": ParagraphStyle("body", **BASE, spaceAfter=2),
-    "bullet": ParagraphStyle("bullet", **BASE, leftIndent=11, spaceAfter=1.6),
+    "body": ParagraphStyle("body", **BASE, spaceAfter=1.4),
+    "bullet": ParagraphStyle("bullet", **BASE, leftIndent=10, spaceAfter=1.0),
 }
 
 
@@ -77,6 +77,10 @@ def blocks(locale):
             ("bullet", "Desarrollé el módulo de visitas comerciales con calendario, rutas, geolocalización, formularios dinámicos y reglas de surtido por cliente."),
             ("bullet", "Optimicé el consumo de APIs mediante peticiones en lote y eliminación de llamadas duplicadas; añadí pruebas de formularios, visitas y payloads SAP colaborando en un repositorio compartido con el equipo."),
             ("section", "PROYECTOS DESTACADOS"),
+            ("company", "Arcay3Dlabs | Next.js, TypeScript, Firebase, Tailwind CSS, shadcn/ui", link("https://arcay3dlabs.com/", "arcay3dlabs.com")),
+            ("body", "Plataforma web en producción para impresión 3D con catálogo e-commerce, carrito con checkout por WhatsApp, cotizador con subida de archivos STL/OBJ y panel administrativo CRUD."),
+            ("company", "JR Transportes | Astro, TypeScript, Tailwind CSS, SEO Técnico", link("https://jrtoursmorochucos.vercel.app/", "jrtoursmorochucos.vercel.app")),
+            ("body", "Sitio corporativo y de reservas para transporte interprovincial en Ayacucho con arquitectura estática orientada a velocidad, SEO local (JSON-LD/sitemap) y reservas directas vía WhatsApp."),
             ("company", "Sumaq Uywa | React, TypeScript, Node.js, Express, PostgreSQL", link("https://github.com/Arcay322/Sumaq_Uywa", "github.com/Arcay322/Sumaq_Uywa")),
             ("body", "Sistema full-stack de gestión ganadera (reproducción, salud, alimentación, inventario, ventas y gastos) con API REST en Node.js/Express, modelo relacional en PostgreSQL y dashboard de indicadores operativos."),
             ("company", "Ticket World | Python, Django REST Framework, PostgreSQL, JavaScript", link("https://github.com/Arcay322/Ticket_World", "github.com/Arcay322/Ticket_World")),
@@ -126,6 +130,10 @@ def blocks(locale):
         ("bullet", "Built the sales visits module featuring calendars, routes, geolocation, dynamic forms, and customer-specific assortment rules."),
         ("bullet", "Optimized API consumption through batch requests and duplicate-call elimination; added tests for forms, visits, and SAP payloads while collaborating in a shared team repository."),
         ("section", "SELECTED PROJECTS"),
+        ("company", "Arcay3Dlabs | Next.js, TypeScript, Firebase, Tailwind CSS, shadcn/ui", link("https://arcay3dlabs.com/", "arcay3dlabs.com")),
+        ("body", "Production 3D printing web platform with an e-commerce catalog, persistent cart with WhatsApp checkout, custom STL/OBJ quote uploads, and a Firebase-backed admin panel."),
+        ("company", "JR Transportes | Astro, TypeScript, Tailwind CSS, Technical SEO", link("https://jrtoursmorochucos.vercel.app/", "jrtoursmorochucos.vercel.app")),
+        ("body", "Corporate and booking website for an interprovincial transport company in Ayacucho, built with Astro for fast load speed, local SEO (JSON-LD/sitemap), and WhatsApp bookings."),
         ("company", "Sumaq Uywa | React, TypeScript, Node.js, Express, PostgreSQL", link("https://github.com/Arcay322/Sumaq_Uywa", "github.com/Arcay322/Sumaq_Uywa")),
         ("body", "Full-stack livestock management system (reproduction, health, feeding, inventory, sales, and expenses) with a Node.js/Express REST API, relational PostgreSQL schema, and operational metrics dashboard."),
         ("company", "Ticket World | Python, Django REST Framework, PostgreSQL, JavaScript", link("https://github.com/Arcay322/Ticket_World", "github.com/Arcay322/Ticket_World")),

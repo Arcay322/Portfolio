@@ -39,6 +39,14 @@ Septiembre 2025 – Septiembre 2026 · Remoto, España
 
 ## PROYECTOS DESTACADOS
 
+### Arcay3Dlabs | Next.js, TypeScript, Firebase, Tailwind CSS, shadcn/ui
+
+Plataforma web en producción para negocio de impresión 3D con catálogo e-commerce, carrito con checkout por WhatsApp, cotizador con subida de archivos STL/OBJ y panel administrativo. [arcay3dlabs.com](https://arcay3dlabs.com/).
+
+### JR Transportes | Astro, TypeScript, Tailwind CSS, SEO Técnico
+
+Sitio web corporativo y de reservas para empresa de transporte interprovincial en Ayacucho, con arquitectura estática orientada a velocidad, SEO local (JSON-LD/sitemap) y reservas vía WhatsApp. [jrtoursmorochucos.vercel.app](https://jrtoursmorochucos.vercel.app/).
+
 ### Sumaq Uywa | React, TypeScript, Node.js, Express, PostgreSQL
 
 Sistema full-stack de gestión ganadera (reproducción, salud, alimentación, inventario, ventas y gastos) con API REST en Node.js/Express, modelo relacional en PostgreSQL y dashboard de indicadores operativos. [github.com/Arcay322/Sumaq_Uywa](https://github.com/Arcay322/Sumaq_Uywa).

@@ -241,6 +241,70 @@ const DATA = {
           '/assets/images/projects/ticket-world/TicketWorld_2.webp',
         ],
       },
+      arcay3dlabs: {
+        point: [42, 62],
+        hudCoords: "12°08'S 76°58'W · LIMA",
+        category: 'E-commerce y Cotizador 3D',
+        title: 'Arcay3Dlabs',
+        role: 'Desarrollador Full-Stack',
+        dates: '2025 · Producción',
+        coords: "12°08'S 76°58'W · Next.js / Firebase",
+        summary:
+          'Plataforma web para negocio de impresión 3D con catálogo e-commerce, carrito persistente con checkout por WhatsApp, cotizador con subida de archivos STL/OBJ y panel administrativo.',
+        stack: 'Next.js · TypeScript · Firebase · Tailwind CSS · shadcn/ui',
+        extUrl: 'https://arcay3dlabs.com/',
+        extLabel: 'arcay3dlabs.com',
+        context:
+          'Construida para digitalizar ventas y cotizaciones personalizadas de impresión 3D integrando catálogo, galería y pedidos directos.',
+        bullets: [
+          'Tienda e-commerce con filtros, búsqueda, carrito persistente y checkout directo a WhatsApp Business.',
+          'Sistema de cotizaciones personalizadas con carga de modelos STL/OBJ, selección de materiales (PLA/Resina) y validación con Zod.',
+          'Panel administrativo CRUD sobre Firebase Firestore y Storage para productos, galería y cotizaciones.',
+        ],
+        decisions: [
+          'Usar Next.js App Router + TypeScript con React Hook Form y Zod para validar cotizaciones y pedidos.',
+          'Alojar catálogo, imágenes y archivos 3D sobre Firebase Firestore y Storage.',
+        ],
+        outcome:
+          'Sitio en producción en arcay3dlabs.com con flujo completo de tienda y cotización 3D.',
+        images: [
+          '/assets/images/projects/arcay3dlabs/arcay3dlabs_1.webp',
+          '/assets/images/projects/arcay3dlabs/arcay3dlabs_2.webp',
+          '/assets/images/projects/arcay3dlabs/arcay3dlabs_3.webp',
+        ],
+      },
+      jrtours: {
+        point: [32, 74],
+        hudCoords: "13°09'S 74°13'W · AYACUCHO",
+        category: 'Web Corporativa & Reservas',
+        title: 'JR Transportes',
+        role: 'Desarrollador Frontend',
+        dates: '2024 · Producción',
+        coords: "13°09'S 74°13'W · Astro / SEO",
+        summary:
+          'Sitio web corporativo y de reservas para empresa de transporte interprovincial en Ayacucho, construido con Astro y Tailwind CSS orientado a SEO técnico y velocidad de carga.',
+        stack: 'Astro · TypeScript · Tailwind CSS · SEO Técnico',
+        extUrl: 'https://jrtoursmorochucos.vercel.app/',
+        extLabel: 'jrtoursmorochucos.vercel.app',
+        context:
+          'Modernizar la presencia digital de una empresa de transporte interprovincial facilitando la consulta de rutas, servicios y reservas directas.',
+        bullets: [
+          'Arquitectura estática en Astro con HTML limpio, meta tags dinámicos, datos estructurados JSON-LD y sitemap.',
+          'Componentes interactivos de rutas, tarifas y servicios (pasajeros, turismo y encomiendas).',
+          'Integración directa con WhatsApp para reservas rápidas y experiencia móvil responsiva.',
+        ],
+        decisions: [
+          'Elegir Astro para entregar carga ultrarrápida y excelente SEO local sin JavaScript innecesario.',
+          'Diseñar una identidad visual inspirada en la región andina con flujos claros de reserva.',
+        ],
+        outcome:
+          'Sitio publicado en producción con tiempos de carga mínimos y captación directa de reservas.',
+        images: [
+          '/assets/images/projects/JR/JR_1.webp',
+          '/assets/images/projects/JR/JR_2.webp',
+          '/assets/images/projects/JR/JR_3.webp',
+        ],
+      },
     },
     timelineRows: [
       {
@@ -528,6 +592,70 @@ const DATA = {
           '/assets/images/projects/ticket-world/TicketWorld_2.webp',
         ],
       },
+      arcay3dlabs: {
+        point: [42, 62],
+        hudCoords: "12°08'S 76°58'W · LIMA",
+        category: '3D E-commerce & Quoting',
+        title: 'Arcay3Dlabs',
+        role: 'Full-Stack Developer',
+        dates: '2025 · Production',
+        coords: "12°08'S 76°58'W · Next.js / Firebase",
+        summary:
+          'Web platform for a 3D printing business featuring an e-commerce catalog, persistent cart with WhatsApp checkout, custom STL/OBJ quote uploads, and an admin panel.',
+        stack: 'Next.js · TypeScript · Firebase · Tailwind CSS · shadcn/ui',
+        extUrl: 'https://arcay3dlabs.com/',
+        extLabel: 'arcay3dlabs.com',
+        context:
+          'Built to streamline custom 3D printing quotes and catalog orders with direct customer checkout.',
+        bullets: [
+          'E-commerce storefront with filters, search, persistent cart, and WhatsApp Business checkout.',
+          'Custom 3D quote workflow supporting STL/OBJ uploads, material selection (PLA/Resin), and Zod validation.',
+          'Admin CRUD dashboard backed by Firebase Firestore and Storage for products, gallery, and quotes.',
+        ],
+        decisions: [
+          'Used Next.js App Router + TypeScript with React Hook Form and Zod for strict quote validation.',
+          'Backed catalog, gallery media, and 3D model uploads with Firebase Firestore and Storage.',
+        ],
+        outcome:
+          'Live production site at arcay3dlabs.com combining e-commerce and custom 3D quoting.',
+        images: [
+          '/assets/images/projects/arcay3dlabs/arcay3dlabs_1.webp',
+          '/assets/images/projects/arcay3dlabs/arcay3dlabs_2.webp',
+          '/assets/images/projects/arcay3dlabs/arcay3dlabs_3.webp',
+        ],
+      },
+      jrtours: {
+        point: [32, 74],
+        hudCoords: "13°09'S 74°13'W · AYACUCHO",
+        category: 'Corporate & Booking Web',
+        title: 'JR Transportes',
+        role: 'Frontend Developer',
+        dates: '2024 · Production',
+        coords: "13°09'S 74°13'W · Astro / SEO",
+        summary:
+          'Corporate and booking website for an interprovincial transport company in Ayacucho, built with Astro and Tailwind CSS for technical SEO and fast loading.',
+        stack: 'Astro · TypeScript · Tailwind CSS · Technical SEO',
+        extUrl: 'https://jrtoursmorochucos.vercel.app/',
+        extLabel: 'jrtoursmorochucos.vercel.app',
+        context:
+          'Modernized the digital presence of a regional transport company to showcase routes, services, and instant bookings.',
+        bullets: [
+          'Static Astro architecture with semantic HTML, dynamic meta tags, JSON-LD structured data, and sitemap.',
+          'Interactive route, fare, and service modules covering passengers, tourism, and parcels.',
+          'Direct WhatsApp booking integration with mobile-first responsive UI.',
+        ],
+        decisions: [
+          'Selected Astro for ultra-fast static delivery and local SEO without heavy client JS.',
+          'Crafted a clean regional brand experience focused on direct booking conversion.',
+        ],
+        outcome:
+          'Live production site delivering fast mobile performance and direct booking inquiries.',
+        images: [
+          '/assets/images/projects/JR/JR_1.webp',
+          '/assets/images/projects/JR/JR_2.webp',
+          '/assets/images/projects/JR/JR_3.webp',
+        ],
+      },
     },
     timelineRows: [
       {
@@ -714,6 +842,8 @@ function renderProjectsShowcase() {
   const dict = DATA[currentLocale];
   const ventify = dict.waypoints.ventify;
   const imprex = dict.waypoints.imprex;
+  const arcay3d = dict.waypoints.arcay3dlabs;
+  const jrtours = dict.waypoints.jrtours;
   const sumaq = dict.waypoints.sumaq;
   const ticket = dict.waypoints.ticket;
   const specs = dict.specLabels;
@@ -782,6 +912,11 @@ function renderProjectsShowcase() {
       </div>
       <p class="project-stack">${escapeHtml(imprex.stack)}</p>
     </article>
+
+    <div class="project-pair">
+      ${pairCard('arcay3dlabs', arcay3d)}
+      ${pairCard('jrtours', jrtours)}
+    </div>
 
     <div class="project-pair">
       ${pairCard('sumaq', sumaq)}
